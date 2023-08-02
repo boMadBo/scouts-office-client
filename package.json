@@ -1,5 +1,5 @@
 {
-  "name": "scout-academy",
+  "name": "scouts-academy",
   "version": "1.0.0",
   "description": "",
   "main": "index.tsx",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/boMadBo/scout-academy.git"
+    "url": "git+https://github.com/boMadBo/scouts-academy.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/boMadBo/scout-academy/issues"
+    "url": "https://github.com/boMadBo/scouts-academy/issues"
   },
-  "homepage": "https://github.com/boMadBo/scout-academy#readme",
+  "homepage": "https://github.com/boMadBo/scouts-academy#readme",
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
@@ -51,6 +51,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

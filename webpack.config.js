@@ -88,7 +88,7 @@ module.exports = {
   },
   optimization: optimization(),
   plugins: plugins(),
-  devtool: isDev ? 'source-map' : 'hidden-source-map',
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {

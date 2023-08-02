@@ -1,14 +1,18 @@
-import { setupStore } from '@/store/store';
+import { useToggleTheme } from '@/hooks/useToggleTheme';
 import React from 'react';
-import { Provider } from 'react-redux';
-
-const store = setupStore();
 
 const App = () => {
+  const { isLightTheme, toggleThemeMode } = useToggleTheme();
+
+  const handleButtonClick = () => {
+    toggleThemeMode();
+    console.log(isLightTheme);
+  };
   return (
-    <Provider store={store}>
+    <>
       <div>Hello</div>
-    </Provider>
+      <button onClick={handleButtonClick}>Change Theme</button>
+    </>
   );
 };
 
