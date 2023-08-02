@@ -1,0 +1,33 @@
+.table {
+  width: 100%;
+}
+
+.table div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+  margin-bottom: 6px;
+  padding: 0px 4px 4px;
+  border-bottom: 0.1px solid var(--main-text);
+}
+
+.table td {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 0;
+}
+
+.table img {
+  width: 24px;
+  height: 24px;
+}
+
+.link {
+  color: var(--main-text);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration-line: none;
+}

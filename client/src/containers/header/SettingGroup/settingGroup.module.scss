@@ -1,0 +1,64 @@
+.containerGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @media (max-width: 749px) {
+    display: none;
+    width: 0px;
+  }
+}
+
+.setsWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.imgSettings {
+  width: 24px;
+  height: 24px;
+}
+
+.currTheme {
+  max-width: 50px;
+  width: 100%;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color);
+}
+
+.langWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.currLang {
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 16px;
+  color: var(--color);
+}
+
+.langlistWrap {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 100%;
+}
+
+.langSelect {
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  color: var(--border);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--hover);
+  }
+}

@@ -1,0 +1,38 @@
+$box-shadow-main:
+  0 4px 8px rgba(0, 0, 0, 0.3),
+  4px 0 6px rgba(0, 0, 0, 0.2);
+$box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+.player {
+  display: flex;
+  height: calc(100vh - 125px); // footer //
+  gap: 10px;
+  @media (max-width: 1220px) {
+    flex-direction: column;
+  }
+}
+
+.containerLeft {
+  width: 60%;
+  @media (max-width: 1220px) {
+    width: 100%;
+  }
+}
+
+.firstContainer {
+  box-shadow: $box-shadow-main;
+  margin-bottom: 10px;
+}
+
+.secondContainer {
+  padding: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+.containerRight {
+  width: 40%;
+  @media (max-width: 1220px) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+.btnBack {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--main-text);
+}

@@ -1,0 +1,30 @@
+.search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 50px 0px;
+  width: 680px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+}
+
+.notFound {
+  display: flex;
+  justify-content: center;
+}
+
+.notTitle {
+  color: rgb(216, 60, 60);
+}

@@ -1,0 +1,11 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.childModal {
+  background-color: var(--background-color);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+}

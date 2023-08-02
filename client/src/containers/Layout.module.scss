@@ -1,0 +1,16 @@
+.main {
+  margin: 105px 200px 20px;
+  background-color: var(--main);
+  height: calc(100% - 125px);
+  overflow-y: auto;
+  color: var(--main-text);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    4px 0 6px rgba(0, 0, 0, 0.2);
+  @media (max-width: 1540px) {
+    margin-inline: 50px;
+  }
+  @media (max-width: 1240px) {
+    margin-inline: 20px;
+  }
+}

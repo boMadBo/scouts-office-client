@@ -1,0 +1,47 @@
+.canvas {
+  background-color: var(--mfCell);
+  border-bottom: 1px solid #151515;
+  border-left: 1px solid #151515;
+}
+
+.current {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 4px;
+  &:last-child {
+    align-items: end;
+  }
+}
+
+.titleWrap {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 1px);
+  background-color: var(--mfCell);
+  color: var(--buttons);
+  border-left: 1px solid #151515;
+}
+
+.title {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.valueWrap {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.currValue {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #151515;
+}
+
+.max {
+  color: #151515;
+}

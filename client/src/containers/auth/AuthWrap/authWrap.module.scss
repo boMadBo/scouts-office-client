@@ -1,0 +1,13 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--main-text);
+  min-height: 690px;
+  height: calc(100vh - 125px); // footer //
+  margin-top: -100px;
+  @media (max-height: 790px) {
+    margin-top: -50px;
+  }
+}

@@ -1,0 +1,44 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  height: calc(100vh - 125px); // footer
+  @media (max-width: 1169px) {
+    flex-direction: column;
+  }
+}
+
+.contentContainer {
+  position: relative;
+  margin: 20px;
+  width: 100%;
+  @media (max-width: 1170px) {
+    width: calc(100% - 40px);
+  }
+  @media (max-width: 600px) {
+    width: calc(100% - 10px);
+    margin: 5px;
+  }
+}
+
+.containerGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.routesGroup {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 48px;
+}
+
+.content {
+  display: flex;
+  margin: 30px;
+  @media (max-width: 1240px) {
+    justify-content: center;
+    margin: 10px;
+  }
+}
+

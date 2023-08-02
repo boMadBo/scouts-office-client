@@ -1,0 +1,64 @@
+.tapeWrap {
+  background-color: var(--titles);
+  border: 1px solid var(--border);
+  margin-bottom: 15px;
+}
+
+.tape {
+  display: flex;
+  gap: 10px;
+  background-color: var(--main);
+  margin: 10px;
+}
+
+.playerImg {
+  width: 70px;
+  height: 90px;
+}
+
+.tapeNewsWrap {
+  width: 100%;
+}
+
+.topWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tapeTeaser {
+  color: #fff;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  padding: 3px;
+  margin: 0px;
+  background-color: green;
+}
+.clubLogo {
+  width: 30px;
+  height: 30px;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+.headlineNewsWrap {
+  display: flex;
+  align-items: center;
+  height: calc(100% - 33px);
+}
+
+.headlineNews {
+  margin: 0;
+}
+
+.link {
+  color: var(--main-text);
+  text-decoration-line: none;
+}

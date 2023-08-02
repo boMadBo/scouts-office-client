@@ -1,0 +1,97 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--table-bg);
+  color: #fff;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    4px 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.table thead {
+  background-color: var(--titles);
+}
+
+.table tbody {
+  color: var(--main-text);
+}
+
+.table tr {
+  height: 30px;
+  border: 0.2px solid var(--main-text);
+}
+
+.table th {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0;
+  text-align: center;
+  border: 0.2px solid var(--main-text);
+  &:first-child {
+    text-align: start;
+    padding-left: 8px;
+  }
+  &:nth-child(4) {
+    text-align: start;
+    padding-left: 8px;
+  }
+  @media (max-width: 1240px) {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.table td {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0;
+  width: auto;
+  text-align: center;
+  border: 0.2px solid var(--main-text);
+  &:first-child {
+    text-align: start;
+    padding-left: 8px;
+  }
+  &:nth-child(4) {
+    text-align: start;
+    padding-left: 8px;
+  }
+  @media (max-width: 1240px) {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 300;
+  }
+}
+
+.costWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.itemRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  color: var(--main-text);
+}
+
+.btnImg {
+  width: 20px;
+  height: 20px;
+}
+
+.link {
+  color: var(--main-text);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: none;
+}

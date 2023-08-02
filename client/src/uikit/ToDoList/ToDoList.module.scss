@@ -1,0 +1,48 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  margin-bottom: 20px;
+  padding-inline: 20px;
+  border: 1px solid #6e6c6c;
+  border-radius: 30px;
+  color: var(--todos-text);
+}
+
+.listItemComplit {
+  background-color: var(--complited);
+  color: #000;
+}
+
+.compliteGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tasksText {
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  flex: 1;
+}
+
+.itemCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--complited);
+  border-radius: 30px;
+  cursor: pointer;
+  color: #000;
+}
+
+.itemCheckCompl {
+  color: rgba(0, 0, 0, 0);
+  border: 2px solid var(--complitedBr);
+}
+
+.itemRemove {
+  cursor: pointer;
+}
