@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+  width: 100vw;
+  height: 85px;
+  background-color: var(--titles);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 40px;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.img {
+  width: 36px;
+  border-radius: 10%;
+}
+
+.containerGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,0 +1,11 @@
+.langSelect {
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+
+  cursor: pointer;
+  &:hover {
+    background-color: lightgray;
+  }
+}

@@ -1,0 +1,47 @@
+.containerGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.setsWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.imgSettings {
+  width: 24px;
+  height: 24px;
+}
+
+.currTheme {
+  width: 50px;
+  color: var(--color);
+}
+
+.langWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.currLang {
+  color: var(--color);
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 80%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 0.5px solid #000;
+  border-radius: 4px;
+  z-index: 1;
+}
