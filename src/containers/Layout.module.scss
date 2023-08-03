@@ -1,0 +1,7 @@
+.main {
+  margin-block: 20px;
+  margin-inline: 150px;
+  background-color: var(--main);
+  width: calc(100% - 300px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
+}

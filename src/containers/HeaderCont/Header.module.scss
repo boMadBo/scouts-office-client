@@ -3,6 +3,7 @@
   width: 100vw;
   height: 85px;
   background-color: var(--titles);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .wrapper {
@@ -27,5 +28,5 @@
 .containerGroup {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }

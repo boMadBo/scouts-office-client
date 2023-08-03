@@ -3,9 +3,9 @@
   border-radius: 4px;
   display: flex;
   justify-content: center;
-
+  color: var(--border);
   cursor: pointer;
   &:hover {
-    background-color: lightgray;
+    background-color: var(--hover);
   }
 }

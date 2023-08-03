@@ -1,0 +1,54 @@
+.wrapper {
+  position: relative;
+  display: flex;
+}
+
+.profileConteiner {
+  display: flex;
+  justify-content: center;
+  background-color: var(--profile);
+  width: 30%;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  gap: 15px;
+  margin: 30px;
+  padding-block: 10px;
+  width: 100%;
+}
+
+.photoWrapper {
+  width: 90%;
+  height: 250px;
+  border: 2px solid #6e6c6c;
+  border-radius: 6px;
+}
+
+.title {
+  color: var(--main-text);
+}
+
+.ageWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+//content//
+
+.contentContainer {
+  position: relative;
+  margin: 30px;
+  width: 100%;
+}
+
+.clockWrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

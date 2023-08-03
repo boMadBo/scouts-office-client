@@ -5,6 +5,11 @@ html {
   --color: #fff;
   --active-color: rgb(218, 144, 192);
   --titles: #207fbe;
+  --border: #000;
+  --hover: rgb(209, 209, 209);
+  --main: rgb(227, 227, 227);
+  --profile: rgb(220, 220, 220);
+  --main-text: #000;
 }
 
 html[data-theme='dark'] {
@@ -12,6 +17,11 @@ html[data-theme='dark'] {
   --color: #ccc;
   --active-color: rgb(240, 131, 177);
   --titles: #2f3030;
+  --border: #ccc;
+  --hover: rgb(115, 115, 115);
+  --main: #3b3b3b;
+  --profile: #2f3030;
+  --main-text: #ccc;
 }
 
 body {
