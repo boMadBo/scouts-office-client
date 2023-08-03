@@ -1,7 +1,12 @@
+import ObserveCab from '@/containers/ObserveCabCont';
 import React from 'react';
 
 const ObserveListPage = () => {
-  return <div>Wishlist</div>;
+  return (
+    <div>
+      <ObserveCab />
+    </div>
+  );
 };
 
 export default ObserveListPage;
