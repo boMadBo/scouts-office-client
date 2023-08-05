@@ -12,5 +12,15 @@
   "Age": "Age",
   "Country": "Country",
   "To-do list": "To-do list",
-  "Observe list": "Observe list"
+  "Observe list": "Observe list",
+  "add location": "add location",
+  "London": "London",
+  "Madrid": "Madrid",
+  "Moscow": "Moscow",
+  "Paris": "Paris",
+  "Tokyo": "Tokyo",
+  "Hong Kong": "Hong Kong",
+  "New York": "New York",
+  "Los Angeles": "Los Angeles",
+  "My location": "My location"
 }
