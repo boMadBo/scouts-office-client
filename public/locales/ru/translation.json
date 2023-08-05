@@ -12,5 +12,15 @@
   "Age": "Возраст",
   "Country": "Страна",
   "To-do list": "Список дел",
-  "Observe list": "Список наблюдения"
+  "Observe list": "Список наблюдения",
+  "add location": "добавить локацию",
+  "London": "Лондон",
+  "Madrid": "Мадрид",
+  "Moscow": "Москва",
+  "Paris": "Париж",
+  "Tokyo": "Токио",
+  "Hong Kong": "Гонг Конг",
+  "New York": "Нью Йорк",
+  "Los Angeles": "Лос Андж",
+  "My location": "Моя локац"
 }
