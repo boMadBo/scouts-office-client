@@ -1,6 +1,5 @@
 .wrap {
   display: flex;
-  gap: 10px;
 }
 
 .zones {
@@ -21,6 +20,7 @@
 }
 
 .deleteWrap {
+  margin-left: 10px;
   margin-block: 3px;
   height: 30px;
 }
