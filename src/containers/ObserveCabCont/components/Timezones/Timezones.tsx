@@ -98,6 +98,9 @@ const Timezones = () => {
   return (
     <section className={styles.clockWrap}>
       <div className={styles.container}>
+        <span className={styles.settings} onClick={startSetting}>
+          <LuSettings className={styles.setIcon} />
+        </span>
         {!activeAdd && (
           <CurrTimezones
             isDraggable={activeSett}
@@ -112,9 +115,7 @@ const Timezones = () => {
           />
         )}
         {activeAdd && <CurrTimezones operation="+" cities={unnecCities} activeSett={activeAdd} onChangeCity={handleAddCity} />}
-        <span className={styles.settings} onClick={startSetting}>
-          <LuSettings className={styles.setIcon} />
-        </span>
+
         {activeSett && (
           <div className={styles.addingWrap}>
             <span className={styles.addding} onClick={startAdding}>

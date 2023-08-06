@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -62,6 +63,9 @@ const plugins = () => {
           noErrorOnMissing: true,
         },
       ],
+    }),
+    new Dotenv({
+      path: path.resolve(__dirname, '.env'),
     }),
   ];
   return base;

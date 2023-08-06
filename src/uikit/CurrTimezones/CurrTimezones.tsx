@@ -41,6 +41,8 @@ const CurrTimezones = ({
   dropHandler,
 }: Props) => {
   const { t } = useTranslation();
+  const animation = activeSett ? {} : listVarian;
+
   return (
     <div className={styles.wrap}>
       <div>
@@ -52,7 +54,7 @@ const CurrTimezones = ({
             onDragStart={(e) => dragStartHandler?.(e, city)}
             onDragOver={(e) => dragOverHandler?.(e)}
             onDrop={(e) => dropHandler?.(e, city)}
-            variants={listVarian}
+            variants={animation}
             initial="hidden"
             animate="visible"
           >
