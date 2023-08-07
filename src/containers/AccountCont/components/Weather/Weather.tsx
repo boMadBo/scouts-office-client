@@ -35,7 +35,7 @@ const Weather = () => {
     <motion.section className={styles.container} variants={listVarian} initial="hidden" animate="visible">
       <div className={styles.weather}>
         {weather && <span className={styles.degrees}>{weather?.temperature}°</span>}
-        {!weather && <span className={styles.degrees}>t°</span>}
+        {!weather && <span className={styles.degrees}>-t°</span>}
         <img src={`./images/${photo}.png`} alt="weather" />
       </div>
     </motion.section>

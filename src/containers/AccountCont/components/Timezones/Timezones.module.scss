@@ -1,0 +1,40 @@
+.clockWrap {
+  position: absolute;
+  top: 27px;
+  right: 15px;
+  border-radius: 4px;
+}
+
+.container {
+  position: relative;
+  padding-top: 22px;
+}
+
+.settings {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.setIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--main-text);
+}
+
+.addingWrap {
+  width: 127px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--buttons);
+  margin-top: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addding {
+  color: var(--profile);
+  font-size: 14px;
+  line-height: 18px;
+}
