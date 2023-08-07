@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './LanguageModal.module.scss';
+import styles from './LangList.module.scss';
 
 interface Props {
   text: string;
@@ -7,7 +7,7 @@ interface Props {
   lang: string;
 }
 
-const LanguageModal = ({ text, changeLanguage, lang }: Props) => {
+const LangList = ({ text, changeLanguage, lang }: Props) => {
   return (
     <div className={styles.langSelect}>
       <span onClick={() => changeLanguage(lang)}>{text}</span>
@@ -15,4 +15,4 @@ const LanguageModal = ({ text, changeLanguage, lang }: Props) => {
   );
 };
 
-export default React.memo(LanguageModal);
+export default React.memo(LangList);

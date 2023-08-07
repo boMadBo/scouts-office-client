@@ -10,7 +10,7 @@ const Layout = () => {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <footer>its footer</footer>
+      <footer style={{ color: 'var(--main-text)' }}>its footer</footer>
     </>
   );
 };

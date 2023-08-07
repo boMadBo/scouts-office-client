@@ -9,7 +9,7 @@ export const weatherAPI = createApi({
   endpoints: (build) => ({
     getWeather: build.query<Weather, { date: string; latitude: number; longitude: number }>({
       query: (arg: { date: string; latitude: number; longitude: number }) => ({
-        url: `?latitude=${arg.latitude}&longitude=${arg.longitude}&hourly=temperature_2m,rain,snowfall&start_date=${arg.date}&end_date=${arg.date}`,
+        url: `?latitude=${arg.latitude}&longitude=${arg.longitude}&hourly=temperature_2m,rain,snowfall&start_date=${arg.date}&end_date=${arg.date}&timezone=auto`,
       }),
       providesTags: (result, error, { date, latitude, longitude }) => [{ type: 'Weather', date, latitude, longitude }],
     }),

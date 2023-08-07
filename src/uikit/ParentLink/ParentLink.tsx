@@ -1,14 +1,15 @@
 import cn from 'classnames';
 import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
-import styles from './CustomLink.module.scss';
+import styles from './ParentLink.module.scss';
 
 interface Props {
   children: string;
   to: string;
+  isHovered?: boolean;
 }
 
-const CustomLink = ({ children, to, ...props }: Props) => {
+const ParentLink = ({ children, to, isHovered, ...props }: Props) => {
   const match = useMatch(to);
   const linkStyles = cn(styles.link, { [styles.activeLink]: match });
 
@@ -19,4 +20,4 @@ const CustomLink = ({ children, to, ...props }: Props) => {
   );
 };
 
-export default React.memo(CustomLink);
+export default React.memo(ParentLink);
