@@ -1,5 +1,5 @@
 {
-  "Observation": "Мои наблюдения",
+  "Account": "Аккаунт",
   "Leagues": "Лиги",
   "News": "Новости",
   "Videos": "Видео",
@@ -22,5 +22,12 @@
   "Hong Kong": "Гонг Конг",
   "New York": "Нью Йорк",
   "Los Angeles": "Лос Андж",
-  "My location": "Моя локац"
+  "My location": "Моя локац",
+  "All leagues": "Все лиги",
+  "England": "Англия",
+  "Germany": "Германия",
+  "Spain": "Испания",
+  "Italy": "Италия",
+  "France": "Франция",
+  "USA": "США"
 }

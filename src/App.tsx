@@ -1,25 +1,35 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './containers/Layout';
-import LeaguesPage from './pages/LeaguesPage';
+import AccountPage from './pages/AccountPage';
+import AllLeaguesPage from './pages/AllLeaguesPage';
+import CountryPage from './pages/CountryPage';
+import HomePage from './pages/HomePage';
 import NewsPage from './pages/NewsPage';
-import ObserveListPage from './pages/ObserveListPage';
 import SignInPage from './pages/SignInPage';
 import VideosPage from './pages/VideosPage';
 
 const App = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<ObserveListPage />} />
-          <Route path="/leagues" element={<LeaguesPage />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/videos" element={<VideosPage />} />
-          <Route path="/signin" element={<SignInPage />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="account/*" element={<AccountPage />}>
+          <Route index element={<p>Todo list</p>} />
+          <Route path="todo" element={<p>Todo list</p>} />
+          <Route path="observe" element={<p>Observe list</p>} />
         </Route>
-      </Routes>
-    </>
+        <Route path="all-leagues" element={<AllLeaguesPage />} />
+        <Route path="england" element={<CountryPage country="england" />} />
+        <Route path="germany" element={<CountryPage country="germany" />} />
+        <Route path="spain" element={<CountryPage country="spain" />} />
+        <Route path="italy" element={<CountryPage country="italy" />} />
+        <Route path="france" element={<CountryPage country="france" />} />
+        <Route path="news" element={<NewsPage />} />
+        <Route path="france" element={<VideosPage />} />
+        <Route path="usa" element={<SignInPage />} />
+      </Route>
+    </Routes>
   );
 };
 

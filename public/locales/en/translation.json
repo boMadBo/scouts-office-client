@@ -1,5 +1,5 @@
 {
-  "Observation": "My observes",
+  "Account": "Account",
   "Leagues": "Leagues",
   "News": "News",
   "Videos": "Videos",
@@ -22,5 +22,12 @@
   "Hong Kong": "Hong Kong",
   "New York": "New York",
   "Los Angeles": "Los Angeles",
-  "My location": "My location"
+  "My location": "My location",
+  "All leagues": "All leagues",
+  "England": "England",
+  "Germany": "Germany",
+  "Spain": "Spain",
+  "Italy": "Italy",
+  "France": "France",
+  "USA": "USA"
 }

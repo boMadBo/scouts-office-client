@@ -83,6 +83,7 @@ module.exports = {
     port: 3000,
     open: false,
     hot: isDev,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.tsx'],
