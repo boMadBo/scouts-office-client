@@ -9,16 +9,16 @@ export const useGetLocation = (token: string) => {
     const fetchData = async () => {
       try {
         const ipUrl = instanceIP;
-        const response1 = await fetch(ipUrl);
-        const data1 = await response1.json();
-        const myIP = data1.ip;
+        const responseIP = await fetch(ipUrl);
+        const dataIP = await responseIP.json();
+        const myIP = dataIP.ip;
 
         const locationUrl = `https://ipinfo.io/${myIP}?token=${token}`;
-        const response2 = await fetch(locationUrl);
-        const data2 = await response2.json();
+        const responseLoc = await fetch(locationUrl);
+        const dataLoc = await responseLoc.json();
 
-        const lat = Number(data2.loc.split(',')[0]);
-        const long = Number(data2.loc.split(',')[1]);
+        const lat = Number(dataLoc.loc.split(',')[0]);
+        const long = Number(dataLoc.loc.split(',')[1]);
 
         setLatitude(lat);
         setLongitude(long);

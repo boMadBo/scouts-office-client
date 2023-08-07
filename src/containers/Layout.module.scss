@@ -1,7 +1,11 @@
 .main {
   margin-block: 20px;
-  margin-inline: 150px;
+  margin-inline: calc((100% - 1140px) / 2);
   background-color: var(--main);
-  width: calc(100% - 300px);
+  width: 1140px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
+  @media screen and (max-width: 1140px) {
+    width: calc(100% - 40px);
+    margin-inline: 20px;
+  }
 }

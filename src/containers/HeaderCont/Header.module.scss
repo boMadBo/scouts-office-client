@@ -29,4 +29,12 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  height: 48px;
+}
+
+.routeGroup {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 48px;
 }

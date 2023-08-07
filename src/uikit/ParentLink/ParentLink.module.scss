@@ -4,6 +4,12 @@
   font-weight: 400;
   color: var(--color);
   text-decoration-line: none;
+  &:hover {
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--active-color);
+    text-decoration-thickness: 2px;
+  }
 }
 
 .activeLink {

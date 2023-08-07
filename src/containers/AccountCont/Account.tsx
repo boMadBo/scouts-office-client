@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './ObserveCab.module.scss';
+import styles from './Account.module.scss';
 import Content from './components/Content/Content';
 import Profile from './components/Profile/Profile';
 import Timezones from './components/Timezones';
 import Weather from './components/Weather/Weather';
 
-const ObserveCab = () => {
+const Account = () => {
   return (
     <main className={styles.wrapper}>
       <Profile />
@@ -16,4 +16,4 @@ const ObserveCab = () => {
   );
 };
 
-export default ObserveCab;
+export default Account;

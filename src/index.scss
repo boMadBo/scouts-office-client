@@ -12,6 +12,7 @@ html {
   --main-text: #000;
   --buttons: #145886;
   --times: #cac7c7;
+  --child-tabs: #145886;
 }
 
 html[data-theme='dark'] {
@@ -26,6 +27,7 @@ html[data-theme='dark'] {
   --main-text: #ccc;
   --buttons: rgb(173, 216, 230);
   --times: #1d1c1c;
+  --child-tabs: #1d1c1c;
 }
 
 body {

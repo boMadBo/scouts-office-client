@@ -1,5 +1,6 @@
 import { useToggleTheme } from '@/hooks/useToggleTheme';
-import LanguageModal from '@/uikit/LanguageModal';
+import LangList from '@/uikit/LangList';
+import ShortModal from '@/uikit/ShortModal';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './SettingGroup.module.scss';
@@ -52,11 +53,11 @@ const SettingGroup = () => {
           <span className={styles.currLang}>{currentLang}</span>
         </div>
         {isModalOpen && (
-          <div className={styles.modal}>
+          <ShortModal>
             {langs.map((l) => (
-              <LanguageModal changeLanguage={changeLanguage} lang={l.lang} text={l.text} key={l.text} />
+              <LangList changeLanguage={changeLanguage} lang={l.lang} text={l.text} key={l.text} />
             ))}
-          </div>
+          </ShortModal>
         )}
       </div>
     </div>
