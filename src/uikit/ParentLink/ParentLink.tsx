@@ -10,7 +10,8 @@ interface Props {
 }
 
 const ParentLink = ({ children, to, isHovered, ...props }: Props) => {
-  const match = useMatch(to);
+  const match = useMatch(`${to}/*`);
+
   const linkStyles = cn(styles.link, { [styles.activeLink]: match });
 
   return (

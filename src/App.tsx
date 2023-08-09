@@ -19,15 +19,12 @@ const App = () => {
           <Route path="todo" element={<p>Todo list</p>} />
           <Route path="observe" element={<p>Observe list</p>} />
         </Route>
-        <Route path="all-leagues" element={<AllLeaguesPage />} />
-        <Route path="england" element={<CountryPage country="england" />} />
-        <Route path="germany" element={<CountryPage country="germany" />} />
-        <Route path="spain" element={<CountryPage country="spain" />} />
-        <Route path="italy" element={<CountryPage country="italy" />} />
-        <Route path="france" element={<CountryPage country="france" />} />
+        <Route path="leagues" element={<AllLeaguesPage />} />
+        <Route path="leagues/all-leagues" element={<AllLeaguesPage />} />
+        <Route path="leagues/:country" element={<CountryPage />} />
         <Route path="news" element={<NewsPage />} />
-        <Route path="france" element={<VideosPage />} />
-        <Route path="usa" element={<SignInPage />} />
+        <Route path="videos" element={<VideosPage />} />
+        <Route path="signin" element={<SignInPage />} />
       </Route>
     </Routes>
   );
