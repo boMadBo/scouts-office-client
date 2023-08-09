@@ -9,7 +9,7 @@ import SettingGroup from './components/SettingGroup';
 const routes = [
   { link: 'account', text: 'Account', children: null },
   {
-    link: '#',
+    link: 'leagues',
     text: 'Leagues',
     children: [
       { link: 'all-leagues', text: 'All leagues' },
@@ -48,7 +48,7 @@ const Header = () => {
                 {isHovered === route.link && route.children && (
                   <LongModal>
                     {route.children.map((child) => (
-                      <ChildLink key={child.link} to={`/${child.link}`}>
+                      <ChildLink key={child.link} to={`${route.link}/${child.link}`} onClick={() => setIsHovered(null)}>
                         {t(child.text)}
                       </ChildLink>
                     ))}

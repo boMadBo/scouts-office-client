@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, Outlet } from 'react-router-dom';
-import styles from './Content.module.scss';
+import styles from './AccountContent.module.scss';
 
-const Content = () => {
+const AccountContent = () => {
   const { t } = useTranslation();
 
   return (
@@ -20,4 +20,4 @@ const Content = () => {
   );
 };
 
-export default React.memo(Content);
+export default React.memo(AccountContent);
