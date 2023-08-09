@@ -5,11 +5,12 @@ import styles from './ChildLink.module.scss';
 interface Props {
   children: string;
   to: string;
+  onClick: () => void;
 }
 
-const ChildLink = ({ children, to, ...props }: Props) => {
+const ChildLink = ({ children, to, onClick, ...props }: Props) => {
   return (
-    <Link to={to} {...props} className={styles.link}>
+    <Link to={to} {...props} className={styles.link} onClick={onClick}>
       {children}
     </Link>
   );

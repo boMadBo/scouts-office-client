@@ -20,6 +20,10 @@ const listVarian = {
   hidden: { opacity: 0, y: 100 },
 };
 
+interface Props {
+  token: string;
+}
+
 const Weather = () => {
   const { latitude, longitude } = useGetLocation(token);
   const weather = useGetWeather(latitude, longitude);

@@ -1,14 +1,16 @@
+import CurrTimezones from '@/containers/AccountCont/components/Timezones/CurrTimezones';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { City } from '@/interfaces';
-import CurrTimezones from '@/uikit/CurrTimezones';
 import dayjs from 'dayjs';
 import utcPlugin from 'dayjs/plugin/utc';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LuSettings } from 'react-icons/lu';
 import styles from './Timezones.module.scss';
 import useDragDrop from './useDragDrop';
 dayjs.extend(utcPlugin);
+
+const currentTimezone = dayjs().utcOffset() / 60;
 
 const citiesData: City[] = [
   { city: 'London', gmt: 1, order: 0 },
@@ -19,6 +21,7 @@ const citiesData: City[] = [
   { city: 'Hong Kong', gmt: 8, order: 5 },
   { city: 'New York', gmt: -4, order: 6 },
   { city: 'Los Angeles', gmt: -7, order: 7 },
+  { city: 'My location', gmt: currentTimezone, order: 8 },
 ];
 
 const Timezones = () => {
@@ -37,58 +40,60 @@ const Timezones = () => {
     setActiveAdd(!activeAdd);
   };
 
-  // add my location //
+  // edit cities list //
 
-  const cities = useMemo(() => {
-    const currentTimezone = dayjs().utcOffset() / 60;
-    const currentTime = dayjs().format('HH:mm');
-    const citiesWithTimezone = citiesData.map((city) => ({
-      ...city,
-      currentTimezone: dayjs().utcOffset(city.gmt).format('HH:mm'),
-    }));
+  const [myCities, setMyСities] = useLocalStorage('myCities', [...citiesData]);
+  const [unnecCities, setUnnecСities] = useLocalStorage('unnecCities', []);
 
-    return [
-      ...citiesWithTimezone,
-      {
-        city: t('My location'),
-        gmt: currentTimezone,
-        order: citiesData.length,
-        currentTimezone: currentTime,
+  useEffect(() => {
+    const sec = 60 - Number(dayjs().format('ss'));
+    let isFirstRun = true;
+    const interval = setInterval(
+      () => {
+        const updatedCities = myCities.map((city: City) => ({
+          ...city,
+          currentTimezone: dayjs().utcOffset(city.gmt).format('HH:mm'),
+        }));
+        setMyСities(updatedCities);
+
+        if (isFirstRun) {
+          isFirstRun = false;
+        }
       },
-    ];
-  }, [citiesData]);
+      isFirstRun ? sec : 60000,
+    );
 
-  // list changing //
-
-  const [myCities, setMySities] = useLocalStorage('myCities', [...cities]);
-  const [unnecCities, setUnnecSities] = useLocalStorage('unnecCities', []);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [myCities, setMyСities]);
 
   const handleDeleteCity = useCallback(
     (cityName: string) => {
       const filteredCities = myCities.filter((city: City) => city.city !== cityName);
-      setMySities(filteredCities);
-      const deletedCity = myCities.find((city: City) => city.city === cityName) || null;
+      setMyСities(filteredCities);
+      const deletedCity = citiesData.find((city: City) => city.city === cityName) || null;
       if (deletedCity) {
-        setUnnecSities((prevUnnecCities: City[]) => [...prevUnnecCities, deletedCity]);
+        setUnnecСities((prevUnnecCities: City[]) => [...prevUnnecCities, deletedCity]);
       }
     },
-    [myCities, unnecCities],
+    [myCities],
   );
 
   const handleAddCity = useCallback(
     (cityName: string) => {
       const addedCity = unnecCities.find((city: City) => city.city === cityName) || null;
       if (addedCity) {
-        setMySities((prevUnnecCities: City[]) => [...prevUnnecCities, addedCity]);
+        setMyСities((prevUnnecCities: City[]) => [...prevUnnecCities, addedCity]);
       }
       const filteredCities = unnecCities.filter((city: City) => city.city !== cityName);
-      setUnnecSities(filteredCities);
+      setUnnecСities(filteredCities);
     },
     [myCities, unnecCities],
   );
 
   // drag and drop //
-  const { dragStartHandler, dragOverHandler, dropHandler } = useDragDrop(myCities, setMySities);
+  const { dragStartHandler, dragOverHandler, dropHandler } = useDragDrop(myCities, setMyСities);
 
   const sortCities = useCallback((a: City, b: City) => {
     if (a.order > b.order) return 1;
@@ -98,6 +103,12 @@ const Timezones = () => {
   return (
     <section className={styles.clockWrap}>
       <div className={styles.container}>
+<<<<<<< HEAD
+=======
+        <span className={styles.settings} onClick={startSetting} data-testid="settings-icon">
+          <LuSettings className={styles.setIcon} />
+        </span>
+>>>>>>> 8f5b450 (add tests, nested routes, fix timezone)
         {!activeAdd && (
           <CurrTimezones
             isDraggable={activeSett}
@@ -117,7 +128,7 @@ const Timezones = () => {
         </span>
         {activeSett && (
           <div className={styles.addingWrap}>
-            <span className={styles.addding} onClick={startAdding}>
+            <span className={styles.addding} onClick={startAdding} data-testid="adding-button">
               {t('add location')}
             </span>
           </div>

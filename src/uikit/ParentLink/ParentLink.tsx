@@ -17,8 +17,12 @@ interface Props {
 const ContentLink = ({ children, to, ...props }: Props) => {
 ========
 const ParentLink = ({ children, to, isHovered, ...props }: Props) => {
+<<<<<<< HEAD
 >>>>>>>> 3c06827 (add nested routes):src/uikit/ParentLink/ParentLink.tsx
   const match = useMatch(to);
+=======
+  const match = useMatch(`${to}/*`);
+>>>>>>> 8f5b450 (add tests, nested routes, fix timezone)
 
   const linkStyles = cn(styles.link, { [styles.activeLink]: match });
 
