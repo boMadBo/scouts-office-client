@@ -9,11 +9,7 @@ const useLocalStorage = <T>(key: string, initialValue: T) => {
   const [value, setValue] = useState(getValue);
 
   useEffect(() => {
-    if (typeof value === 'string') {
-      localStorage.setItem(key, value);
-    } else {
-      localStorage.setItem(key, JSON.stringify(value));
-    }
+    localStorage.setItem(key, JSON.stringify(value));
   }, [value]);
   return [value, setValue];
 };
