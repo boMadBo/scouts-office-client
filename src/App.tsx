@@ -6,7 +6,9 @@ import AllLeaguesPage from './pages/AllLeaguesPage';
 import CountryPage from './pages/CountryPage';
 import HomePage from './pages/HomePage';
 import NewsPage from './pages/NewsPage';
+import ObservePage from './pages/ObservePage';
 import SignInPage from './pages/SignInPage';
+import ToDoPage from './pages/ToDoPage';
 import VideosPage from './pages/VideosPage';
 
 const App = () => {
@@ -14,10 +16,9 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="account/*" element={<AccountPage />}>
-          <Route index element={<p>Todo list</p>} />
-          <Route path="todo" element={<p>Todo list</p>} />
-          <Route path="observe" element={<p>Observe list</p>} />
+        <Route path="account" element={<AccountPage />}>
+          <Route path="todo" element={<ToDoPage />} />
+          <Route path="observe" element={<ObservePage />} />
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
         <Route path="leagues/all-leagues" element={<AllLeaguesPage />} />

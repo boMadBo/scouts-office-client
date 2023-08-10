@@ -78,6 +78,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[hash].js',
+    publicPath: '/',
   },
   devServer: {
     port: 3000,
