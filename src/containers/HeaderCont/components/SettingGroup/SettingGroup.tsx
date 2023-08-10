@@ -39,7 +39,7 @@ const SettingGroup = () => {
   return (
     <div className={styles.containerGroup}>
       <div className={styles.setsWrapper} onClick={toggleTheme}>
-        <img src="./images/theme.png" alt="thene" className={styles.imgSettings} />
+        <img src="/images/theme.png" alt="thene" className={styles.imgSettings} />
         <span className={styles.currTheme}>{currentTheme}</span>
       </div>
       <div
@@ -49,7 +49,7 @@ const SettingGroup = () => {
         onClick={toggleLanguage}
       >
         <div className={styles.langWrapper}>
-          <img src="./images/lang.png" alt="lang" className={styles.imgSettings} />
+          <img src="/images/lang.png" alt="lang" className={styles.imgSettings} />
           <span className={styles.currLang}>{currentLang}</span>
         </div>
         {isModalOpen && (

@@ -40,7 +40,7 @@ const Weather = () => {
       <div className={styles.weather}>
         {weather && <span className={styles.degrees}>{weather?.temperature}°</span>}
         {!weather && <span className={styles.degrees}>-t°</span>}
-        <img src={`./images/${photo}.png`} alt="weather" />
+        <img src={`/images/${photo}.png`} alt="weather" />
       </div>
     </motion.section>
   );
