@@ -33,7 +33,7 @@ const Header = () => {
     <header className={styles.header}>
       <section className={styles.wrapper}>
         <div className={styles.container}>
-          <img src="./images/favicon.png" alt="logo" className={styles.img} />
+          <img src="/images/logo.png" alt="logo" className={styles.img} />
           <div className={styles.containerGroup}>
             {routes.map((route) => (
               <div
@@ -42,9 +42,7 @@ const Header = () => {
                 onMouseEnter={() => setIsHovered(route.link)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-                <ParentLink to={route.link} isHovered={isHovered === route.link}>
-                  {t(route.text)}
-                </ParentLink>
+                <ParentLink to={route.link}>{t(route.text)}</ParentLink>
                 {isHovered === route.link && route.children && (
                   <LongModal>
                     {route.children.map((child) => (

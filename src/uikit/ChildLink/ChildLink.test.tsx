@@ -11,7 +11,9 @@ describe('ChildLink', () => {
 
     const { getByText } = render(
       <MemoryRouter>
-        <ChildLink to={mockTo}>{mockChildren}</ChildLink>
+        <ChildLink to={mockTo} onClick={() => {}}>
+          {mockChildren}
+        </ChildLink>
       </MemoryRouter>,
     );
 

@@ -10,9 +10,9 @@ import styles from './ParentLink.module.scss';
 interface Props {
   children: string;
   to: string;
-  isHovered?: boolean;
 }
 
+<<<<<<< HEAD
 <<<<<<<< HEAD:client/src/uikit/ContentLink/ContentLink.tsx
 const ContentLink = ({ children, to, ...props }: Props) => {
 ========
@@ -21,6 +21,9 @@ const ParentLink = ({ children, to, isHovered, ...props }: Props) => {
 >>>>>>>> 3c06827 (add nested routes):src/uikit/ParentLink/ParentLink.tsx
   const match = useMatch(to);
 =======
+=======
+const ParentLink = ({ children, to, ...props }: Props) => {
+>>>>>>> 3c8eda1 (add todos)
   const match = useMatch(`${to}/*`);
 >>>>>>> 8f5b450 (add tests, nested routes, fix timezone)
 
