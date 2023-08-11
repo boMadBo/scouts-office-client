@@ -11,10 +11,14 @@ Visit the website: in development....
 Getting Started
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### To run the Scouts App locally, follow these steps:
 =======
 To run the Weather App locally, follow these steps:
 >>>>>>> 3c8eda1 (add todos)
+=======
+To run the Scouts App locally, follow these steps:
+>>>>>>> 3dffa2e (add cypress)
 
 1. Clone the repository:
    git clone https://github.com/boMadBo/scouts-academy.git
@@ -71,8 +75,12 @@ In the project directory, you can run the following scripts:
 Runs the app in development mode. Open http://localhost:3000 to view it in the browser.
 
 API Usage
+
 The App uses the https://transfermarket.p.rapidapi.com/ to fetch football data.
+
 The App uses the https://open-meteo.com/ to fetch weather data.
+
 The App uses the https://api64.ipify.org to fetch current IP data.
+
 The App uses the https://ipinfo.io/ to fetch current location data.
 >>>>>>> 3c8eda1 (add todos)
