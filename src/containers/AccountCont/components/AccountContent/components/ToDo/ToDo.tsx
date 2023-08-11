@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ListItem from './ListItem';
 import TaskField from './TaskField';
 import styles from './ToDo.module.scss';
@@ -11,6 +12,7 @@ const tasksData = [
 const ToDo = () => {
   const [tasks, setTasks] = useState([...tasksData]);
   const [text, setText] = useState('');
+  const { t } = useTranslation();
 
   const onToggleCompleted = useCallback(
     (index: number) => {
@@ -77,7 +79,7 @@ const ToDo = () => {
   return (
     <section className={styles.todo}>
       <div className={styles.container}>
-        <h4 className={styles.text}>Tasks list</h4>
+        <h4 className={styles.text}>{t('Tasks list')}</h4>
         <TaskField text={text} handleInputChange={handleInputChange} addTask={addTask} handleKeyUp={handleKeyUp} />
         {tasks.map((task, index) => (
           <ListItem
