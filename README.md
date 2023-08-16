@@ -1,4 +1,4 @@
-### Scouts Academy App
+### Scouts Academy App in development...
 
 This is an application for monitoring football players, analyzing their statistics and prices in the transfer market
 
