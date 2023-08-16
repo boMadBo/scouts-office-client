@@ -9,7 +9,11 @@ const routes = [
   { link: 'observe', text: 'Observe list' },
 ];
 
+<<<<<<< HEAD
 const HEAD_LINK = '/account';
+=======
+const headLink = '/account';
+>>>>>>> 8673b67 (add server and start auth)
 
 const AccountContent = () => {
   const { t } = useTranslation();
@@ -18,8 +22,13 @@ const AccountContent = () => {
     <section className={styles.contentContainer}>
       <div className={styles.containerGroup}>
         <div className={styles.routesGroup}>
+<<<<<<< HEAD
           {routes.map(route => (
             <ContentLink key={route.link} to={`${HEAD_LINK}/${route.link}`}>
+=======
+          {routes.map((route) => (
+            <ContentLink key={route.link} to={`${headLink}/${route.link}`}>
+>>>>>>> 8673b67 (add server and start auth)
               {t(route.text)}
             </ContentLink>
           ))}

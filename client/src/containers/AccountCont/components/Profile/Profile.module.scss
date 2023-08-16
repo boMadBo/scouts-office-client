@@ -3,7 +3,10 @@
   justify-content: center;
   background-color: var(--profile);
   width: 250px;
+<<<<<<< HEAD
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
+=======
+>>>>>>> 8673b67 (add server and start auth)
 }
 
 .infoWrapper {
@@ -31,6 +34,7 @@
   border-radius: 4px;
 }
 
+<<<<<<< HEAD
 .noPhotoWrapper {
   display: flex;
   align-items: center;
@@ -91,4 +95,14 @@
   line-height: 18px;
   font-weight: 300;
   text-decoration-line: none;
+=======
+.title {
+  color: var(--main-text);
+}
+
+.ageWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+>>>>>>> 8673b67 (add server and start auth)
 }

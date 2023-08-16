@@ -4,6 +4,7 @@ import Layout from './containers/Layout';
 import RequireAuth from './hoc/RequireAuth';
 import AccountPage from './pages/AccountPage';
 import AllLeaguesPage from './pages/AllLeaguesPage';
+<<<<<<< HEAD
 import CurrentNewsPage from './pages/CurrentNewsPage';
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
@@ -16,6 +17,14 @@ import RegistrationPage from './pages/RegistrationPage';
 import SearchPage from './pages/SearchPage';
 import SignInPage from './pages/SignInPage';
 import SquadPage from './pages/SquadPage';
+=======
+import CountryPage from './pages/CountryPage';
+import HomePage from './pages/HomePage';
+import NewsPage from './pages/NewsPage';
+import ObservePage from './pages/ObservePage';
+import RegistrationPage from './pages/RegistrationPage';
+import SignInPage from './pages/SignInPage';
+>>>>>>> 8673b67 (add server and start auth)
 import ToDoPage from './pages/ToDoPage';
 import VideosPage from './pages/VideosPage';
 
@@ -34,6 +43,7 @@ const App = () => {
         >
           <Route path="todo" element={<ToDoPage />} />
           <Route path="observe" element={<ObservePage />} />
+<<<<<<< HEAD
           <Route path="edit" element={<EditPage />} />
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
@@ -53,6 +63,14 @@ const App = () => {
           }
         />
         <Route path="search" element={<SearchPage />} />
+=======
+        </Route>
+        <Route path="leagues" element={<AllLeaguesPage />} />
+        <Route path="leagues/all" element={<Navigate to="/leagues" replace />} />
+        <Route path="leagues/:country" element={<CountryPage />} />
+        <Route path="news" element={<NewsPage />} />
+        <Route path="videos" element={<VideosPage />} />
+>>>>>>> 8673b67 (add server and start auth)
         <Route path="registr" element={<RegistrationPage />} />
         <Route path="signin" element={<SignInPage />} />
       </Route>

@@ -3,7 +3,10 @@
   "Leagues": "Лиги",
   "News": "Новости",
   "Videos": "Видео",
+<<<<<<< HEAD
   "Messages": "Сообщения",
+=======
+>>>>>>> 8673b67 (add server and start auth)
   "Settings": "Настройки",
   "Toggle theme": "Поменять тему",
   "Sign In": "Войти",
@@ -11,10 +14,17 @@
   "Light": "День",
   "Dark": "Ночь",
   "My profile": "Мой профиль",
+<<<<<<< HEAD
   "Your photo": "Ваше фото",
   "edit profile": "редактировать",
   "To-do list": "Список дел",
   "Observe list": "Список наблюдений",
+=======
+  "Age": "Возраст",
+  "Country": "Страна",
+  "To-do list": "Список дел",
+  "Observe list": "Список наблюдения",
+>>>>>>> 8673b67 (add server and start auth)
   "add location": "добавить локацию",
   "London": "Лондон",
   "Madrid": "Мадрид",
@@ -31,6 +41,7 @@
   "Spain": "Испания",
   "Italy": "Италия",
   "France": "Франция",
+<<<<<<< HEAD
   "Netherlands": "Нидерланды",
   "Tasks list": "Список задач",
   "Your birthday": "День рождения",
@@ -88,4 +99,8 @@
   "IN THE SPOTLIGHT": "В ЦЕНТРЕ ВНИМАНИЯ",
   "Clubs": "Клубы",
   "Nothing found": "Ничего не найдено"
+=======
+  "USA": "США",
+  "Tasks list": "Список задач"
+>>>>>>> 8673b67 (add server and start auth)
 }

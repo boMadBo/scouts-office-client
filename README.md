@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Scouts Academy App in development...
 =======
 ### Scouts Academy App
 >>>>>>> 3c8eda1 (add todos)
+=======
+### Scouts Academy App in development...
+>>>>>>> 8673b67 (add server and start auth)
 
 This is an application for monitoring football players, analyzing their statistics and prices in the transfer market
 

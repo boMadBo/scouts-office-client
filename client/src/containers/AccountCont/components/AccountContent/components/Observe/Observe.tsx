@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { observeAPI } from '@/store/services/ObserveService';
 import Loading from '@/uikit/Loading';
 import React, { useCallback } from 'react';
@@ -75,6 +76,12 @@ const Observe = () => {
       <ObserveTable columns={columns} data={players} removeObserve={removeObserve} />
     </section>
   );
+=======
+import React from 'react';
+
+const Observe = () => {
+  return <div>Observe page</div>;
+>>>>>>> 8673b67 (add server and start auth)
 };
 
 export default Observe;

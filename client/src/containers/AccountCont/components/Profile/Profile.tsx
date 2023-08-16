@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useCountryFlagUrl } from '@/hooks/useCountryFlag';
 import { profileAPI } from '@/store/services/ProfileService';
 import dayjs from 'dayjs';
@@ -33,10 +34,21 @@ const Profile = () => {
   );
 
   const age = calculateAge(profile?.birthDate);
+=======
+import { profileAPI } from '@/store/services/ProfileService';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import styles from './Profile.module.scss';
+
+const Profile = () => {
+  const { t } = useTranslation();
+  const { data } = profileAPI.useGetProfileQuery();
+>>>>>>> 8673b67 (add server and start auth)
 
   return (
     <section className={styles.profileConteiner}>
       <div className={styles.infoWrapper}>
+<<<<<<< HEAD
         <span className={styles.text}>{t('My profile')}</span>
         <div className={styles.photoWrapper}>
           {profile?.avatarUrl && <img src={profile.avatarUrl} alt="avatar" className={styles.photo} />}
@@ -57,6 +69,17 @@ const Profile = () => {
               {t('edit profile')}
             </Link>
           </div>
+=======
+        <span className={styles.title}>{t('My profile')}</span>
+        <div className={styles.photoWrapper}>
+          <img src={data?.avatarUrl} alt="avatar" className={styles.photo} />
+        </div>
+        <div className={styles.ageWrap}>
+          <div className={styles.title}>{t('Age')}</div>
+          <span>{data?.fullName}</span>
+          <div className={styles.title}>{t('Country')}</div>
+          <span>{data?.country}</span>
+>>>>>>> 8673b67 (add server and start auth)
         </div>
       </div>
     </section>

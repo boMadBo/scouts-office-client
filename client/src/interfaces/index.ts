@@ -5,6 +5,35 @@ export interface City {
   order: number;
 }
 
+<<<<<<< HEAD
+=======
+export interface Hours {
+  temperature_2m: number[];
+  time: string[];
+  rain: number[];
+  snowfall: number[];
+}
+
+export interface Elements {
+  temperature_2m: string;
+  time: string;
+  rain: string;
+  snowfall: string;
+}
+
+export interface Weather {
+  latitude: number;
+  longitude: number;
+  generationtime_ms: number;
+  utc_offset_seconds: number;
+  timezone: string;
+  timezone_abbreviation: string;
+  elevation: number;
+  hourly_units: Elements;
+  hourly: Hours;
+}
+
+>>>>>>> 8673b67 (add server and start auth)
 export interface IRegister {
   email: string;
   password: string;
@@ -29,6 +58,7 @@ export interface IProfileValues {
   birthDate: string;
   country: string;
 }
+<<<<<<< HEAD
 
 export interface IProfileUpdate {
   _id: string;
@@ -155,3 +185,5 @@ export interface IMessage {
   senderName?: string | undefined;
   isReaded?: boolean;
 }
+=======
+>>>>>>> 8673b67 (add server and start auth)

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import Loading from '@/uikit/Loading';
+=======
+>>>>>>> 8673b67 (add server and start auth)
 import Cookies from 'js-cookie';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
@@ -15,17 +18,26 @@ const Account = () => {
     return <Navigate to="/signin" state={{ from: location }} />;
   }
 
+<<<<<<< HEAD
   if (!token) {
     return <Loading />;
   }
 
   return (
     <section className={styles.wrapper}>
+=======
+  return (
+    <main className={styles.wrapper}>
+>>>>>>> 8673b67 (add server and start auth)
       <Profile />
       <AccountContent />
       <Weather />
       <Timezones />
+<<<<<<< HEAD
     </section>
+=======
+    </main>
+>>>>>>> 8673b67 (add server and start auth)
   );
 };
 

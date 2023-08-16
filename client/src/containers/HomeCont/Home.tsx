@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useAppSelector } from '@/hooks';
 import MainLink from '@/uikit/MainLink';
 import React from 'react';
@@ -28,8 +29,22 @@ const Home = () => {
           ))}
         </div>
       </div>
+=======
+import ContentLink from '@/uikit/ContentLink';
+import React from 'react';
+
+const Home = () => {
+  return (
+    <section>
+      <ContentLink to="registr">Registration</ContentLink>
+      <ContentLink to="signin">Sign In</ContentLink>
+>>>>>>> 8673b67 (add server and start auth)
     </section>
   );
 };
 
+<<<<<<< HEAD
 export default React.memo(Home);
+=======
+export default Home;
+>>>>>>> 8673b67 (add server and start auth)

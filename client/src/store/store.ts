@@ -1,4 +1,5 @@
 import themeSlice from '@/store/reducers/ThemeSlice';
+<<<<<<< HEAD
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import searchSlice from './reducers/SearchSlice';
 import tokenSlice from './reducers/TokenSlice';
@@ -19,6 +20,22 @@ const rootReducer = combineReducers({
   [observeAPI.reducerPath]: observeAPI.reducer,
   [conversationsAPI.reducerPath]: conversationsAPI.reducer,
   [messagesAPI.reducerPath]: messagesAPI.reducer,
+=======
+import { testAPI } from '@/store/services/TestService';
+import { weatherAPI } from '@/store/services/WeatherService';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { profileAPI } from './services/ProfileService';
+import { registerAPI } from './services/RegisterService';
+import { signInAPI } from './services/SignInService';
+
+const rootReducer = combineReducers({
+  [testAPI.reducerPath]: testAPI.reducer,
+  theme: themeSlice,
+  [weatherAPI.reducerPath]: weatherAPI.reducer,
+  [registerAPI.reducerPath]: registerAPI.reducer,
+  [signInAPI.reducerPath]: signInAPI.reducer,
+  [profileAPI.reducerPath]: profileAPI.reducer,
+>>>>>>> 8673b67 (add server and start auth)
 });
 
 export const setupStore = () => {
@@ -26,12 +43,20 @@ export const setupStore = () => {
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware().concat(
+<<<<<<< HEAD
         registerAPI.middleware,
         profileAPI.middleware,
         tasksAPI.middleware,
         observeAPI.middleware,
         conversationsAPI.middleware,
         messagesAPI.middleware
+=======
+        testAPI.middleware,
+        weatherAPI.middleware,
+        registerAPI.middleware,
+        signInAPI.middleware,
+        profileAPI.middleware
+>>>>>>> 8673b67 (add server and start auth)
       ),
   });
 };

@@ -1,7 +1,11 @@
 .header {
+<<<<<<< HEAD
   position: fixed;
   top: 0;
   z-index: 4;
+=======
+  position: relative;
+>>>>>>> 8673b67 (add server and start auth)
   width: 100vw;
   height: 85px;
   background-color: var(--titles);
@@ -40,6 +44,7 @@
   align-items: center;
   height: 48px;
 }
+<<<<<<< HEAD
 
 .input_wrap {
   display: flex;
@@ -99,3 +104,5 @@
   width: 20px;
   height: 20px;
 }
+=======
+>>>>>>> 8673b67 (add server and start auth)

@@ -3,14 +3,21 @@
 html {
   --background-color: #e9e9e9;
   --color: #fff;
+<<<<<<< HEAD
   --active-color: rgb(198, 16, 16);
+=======
+  --active-color: rgb(201, 6, 6);
+>>>>>>> 8673b67 (add server and start auth)
   --titles: #4eadec;
   --border: #151515;
   --hover: rgb(209, 209, 209);
   --main: rgb(227, 227, 227);
   --profile: rgb(220, 220, 220);
   --main-text: #151515;
+<<<<<<< HEAD
   --no-photo-bg: #b6cccc;
+=======
+>>>>>>> 8673b67 (add server and start auth)
   --buttons: #145886;
   --times: #cac7c7;
   --child-tabs: #145886;
@@ -19,6 +26,7 @@ html {
   --childLink: #888686;
   --input: #f6f5f5;
   --todos-text: #151515;
+<<<<<<< HEAD
   --table-bg: #e9e9e9;
   --gkCell: #4384a8;
   --dfCell: #6da0bc;
@@ -29,6 +37,8 @@ html {
   --own-bg: rgb(172, 211, 224);
   --sec-button: #627be2;
   --isReaded: rgb(162, 161, 161);
+=======
+>>>>>>> 8673b67 (add server and start auth)
 }
 
 html[data-theme='dark'] {
@@ -41,7 +51,10 @@ html[data-theme='dark'] {
   --main: #3b3b3b;
   --profile: #2f3030;
   --main-text: #ccc;
+<<<<<<< HEAD
   --no-photo-bg: #bfcece;
+=======
+>>>>>>> 8673b67 (add server and start auth)
   --buttons: rgb(173, 216, 230);
   --times: #1d1c1c;
   --child-tabs: #1d1c1c;
@@ -50,6 +63,7 @@ html[data-theme='dark'] {
   --childLink: #ccc;
   --input: #e9e9e9;
   --todos-text: #e9e9e9;
+<<<<<<< HEAD
   --table-bg: #1d1c1c;
   --gkCell: #3f3f3f;
   --dfCell: #575757;
@@ -60,6 +74,8 @@ html[data-theme='dark'] {
   --own-bg: rgb(189, 192, 192);
   --sec-button: rgb(137, 153, 237);
   --isReaded: rgb(91, 90, 90);
+=======
+>>>>>>> 8673b67 (add server and start auth)
 }
 
 body {

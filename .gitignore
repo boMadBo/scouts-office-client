@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 
 node_modules
 build
 .env
 .DS_Store
 cypress
+=======
+.DS_Store
+>>>>>>> 8673b67 (add server and start auth)

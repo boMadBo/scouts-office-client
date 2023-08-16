@@ -3,7 +3,10 @@
   "Leagues": "Leagues",
   "News": "News",
   "Videos": "Videos",
+<<<<<<< HEAD
   "Messages": "Messages",
+=======
+>>>>>>> 8673b67 (add server and start auth)
   "Settings": "Settings",
   "Toggle theme": "Toggle theme",
   "Sign In": "Sign In",
@@ -11,8 +14,13 @@
   "Light": "Light",
   "Dark": "Dark",
   "My profile": "My profile",
+<<<<<<< HEAD
   "Your photo": "Your photo",
   "edit profile": "edit profile",
+=======
+  "Age": "Age",
+  "Country": "Country",
+>>>>>>> 8673b67 (add server and start auth)
   "To-do list": "To-do list",
   "Observe list": "Observe list",
   "add location": "add location",
@@ -31,6 +39,7 @@
   "Spain": "Spain",
   "Italy": "Italy",
   "France": "France",
+<<<<<<< HEAD
   "Netherlands": "Netherlands",
   "Tasks list": "Tasks list",
   "Your birthday": "Your birthday",
@@ -88,4 +97,8 @@
   "IN THE SPOTLIGHT": "IN THE SPOTLIGHT",
   "Clubs": "Clubs",
   "Nothing found": "Nothing found"
+=======
+  "USA": "USA",
+  "Tasks list": "Tasks list"
+>>>>>>> 8673b67 (add server and start auth)
 }
