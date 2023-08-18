@@ -1,8 +1,10 @@
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
 import ChildLink from '@/uikit/ChildLink';
 import LongModal from '@/uikit/LongModal/LongModal';
 import ParentLink from '@/uikit/ParentLink';
 import Cookies from 'js-cookie';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
 import SettingGroup from './components/SettingGroup';
@@ -27,13 +29,15 @@ const routes = [
 ];
 
 const Header = () => {
-  const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState<string | null>(null);
-  const token = Cookies.get('token');
+  const dispatch = useAppDispatch();
+  const isToken = useAppSelector(state => state.token.isToken);
+  const { t } = useTranslation();
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     Cookies.remove('token');
-  };
+    dispatch(fetchDeleteToken());
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -64,8 +68,8 @@ const Header = () => {
         </div>
         <div className={styles.container}>
           <SettingGroup />
-          {!token && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
-          {token && (
+          {!isToken && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
+          {isToken && (
             <ParentLink to="/" onClick={handleSignOut}>
               {t('Sign Out')}
             </ParentLink>
