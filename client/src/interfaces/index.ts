@@ -63,3 +63,9 @@ export interface IProfileUpdate {
   email: string;
   avatarUrl: File | null;
 }
+
+export interface ITasks {
+  _id?: string;
+  text: string;
+  completed: boolean;
+}

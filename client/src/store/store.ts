@@ -5,6 +5,7 @@ import tokenSlice from './reducers/TokenSlice';
 import { profileAPI } from './services/ProfileService';
 import { registerAPI } from './services/RegisterService';
 import { signInAPI } from './services/SignInService';
+import { tasksAPI } from './services/TasksService';
 
 const rootReducer = combineReducers({
   // [testAPI.reducerPath]: testAPI.reducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   [registerAPI.reducerPath]: registerAPI.reducer,
   [signInAPI.reducerPath]: signInAPI.reducer,
   [profileAPI.reducerPath]: profileAPI.reducer,
+  [tasksAPI.reducerPath]: tasksAPI.reducer,
 });
 
 export const setupStore = () => {
@@ -25,7 +27,8 @@ export const setupStore = () => {
         weatherAPI.middleware,
         registerAPI.middleware,
         signInAPI.middleware,
-        profileAPI.middleware
+        profileAPI.middleware,
+        tasksAPI.middleware
       ),
   });
 };

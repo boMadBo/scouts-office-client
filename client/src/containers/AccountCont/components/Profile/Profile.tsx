@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
 
 const Profile = () => {
-  const { t } = useTranslation();
   const { data } = profileAPI.useGetProfileQuery();
+  const { t } = useTranslation();
 
   const flagUrl = useCountryFlagUrl(data?.country);
 
