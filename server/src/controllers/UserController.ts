@@ -1,7 +1,9 @@
 import bcrypt from 'bcrypt';
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
+import fs from 'fs';
 import jwt from 'jsonwebtoken';
+import path from 'path';
 import UserModel from '../models/User';
 import { instance } from './helpers';
 
@@ -111,6 +113,51 @@ export const getProfile = async (req: MyRequest, res: Response) => {
     console.log(e);
     res.status(500).json({
       message: 'Failed to get the user',
+    });
+  }
+};
+
+export const editProfile = async (req: Request, res: Response) => {
+  try {
+    const password = req.body.password;
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    const newHash = await bcrypt.hash(password, salt);
+
+    const updateFields: { fullName?: string; avatarUrl?: string; passwordHasch?: string; email?: string } = {};
+
+    if (req.body.fullName) {
+      updateFields.fullName = req.body.fullName;
+    }
+
+    if (req.body.email) {
+      updateFields.email = req.body.email;
+    }
+
+    if (req.file && req.file.filename) {
+      const currentUser = await UserModel.findOne({ _id: req.params.id });
+      if (currentUser && currentUser.avatarUrl) {
+        const filePath = path.join(__dirname, '../uploads', currentUser.avatarUrl.toString());
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
+      }
+      updateFields.avatarUrl = req.file.filename;
+    }
+
+    if (req.body.password) {
+      updateFields.passwordHasch = newHash;
+    }
+
+    await UserModel.updateOne({ _id: req.params.id }, updateFields);
+
+    res.json({
+      success: true,
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      message: 'Failed to update data',
     });
   }
 };

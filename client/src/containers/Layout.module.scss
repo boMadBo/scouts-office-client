@@ -3,7 +3,7 @@
   margin-inline: calc((100% - 1140px) / 2);
   background-color: var(--main);
   width: 1140px;
-  // height: 100%;
+  min-height: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
   @media screen and (max-width: 1140px) {
     width: calc(100% - 40px);

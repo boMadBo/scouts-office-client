@@ -26,7 +26,7 @@ const app = express();
 
 const storage = multer.diskStorage({
   destination: (_, file, cb) => {
-    cb(null, 'uploads');
+    cb(null, path.join(__dirname, '/uploads/'));
   },
   filename: (_, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -40,13 +40,15 @@ const upload = multer({ storage });
 
 app.use(express.json());
 app.use(cors());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(__dirname));
 
 app.post('/auth/register', upload.single('avatar'), registerValidation, UserController.register);
 
 app.post('/auth/signin', UserController.signin);
 
 app.get('/profile', checkAuth, UserController.getProfile);
+
+app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
 
 app
   .listen(3014)

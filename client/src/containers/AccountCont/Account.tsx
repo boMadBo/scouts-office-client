@@ -15,12 +15,12 @@ const Account = () => {
   }
 
   return (
-    <main className={styles.wrapper}>
+    <section className={styles.wrapper}>
       <Profile />
       <AccountContent />
       <Weather />
       <Timezones />
-    </main>
+    </section>
   );
 };
 

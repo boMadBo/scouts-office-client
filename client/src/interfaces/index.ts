@@ -55,3 +55,11 @@ export interface IProfileValues {
   birthDate: string;
   country: string;
 }
+
+export interface IProfileUpdate {
+  _id: string;
+  password: string;
+  fullName: string;
+  email: string;
+  avatarUrl: File | null;
+}
