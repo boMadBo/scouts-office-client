@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 266d9e0 (add profile editor)
 import { useAppSelector } from '@/hooks';
 import MainLink from '@/uikit/MainLink';
 import React from 'react';

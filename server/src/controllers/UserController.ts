@@ -2,12 +2,18 @@ import bcrypt from 'bcrypt';
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fs from 'fs';
 import jwt from 'jsonwebtoken';
 import path from 'path';
 =======
 import jwt from 'jsonwebtoken';
 >>>>>>> bda062a (edit server for ts)
+=======
+import fs from 'fs';
+import jwt from 'jsonwebtoken';
+import path from 'path';
+>>>>>>> 266d9e0 (add profile editor)
 import UserModel from '../models/User';
 import { instance } from './helpers';
 
@@ -121,6 +127,7 @@ export const getProfile = async (req: MyRequest, res: Response) => {
   }
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export const getUsers = async (req: MyRequest, res: Response) => {
   try {
@@ -143,6 +150,8 @@ export const getUsers = async (req: MyRequest, res: Response) => {
     });
   }
 };
+=======
+>>>>>>> 266d9e0 (add profile editor)
 
 export const editProfile = async (req: Request, res: Response) => {
   try {
@@ -188,5 +197,8 @@ export const editProfile = async (req: Request, res: Response) => {
     });
   }
 };
+<<<<<<< HEAD
 =======
 >>>>>>> bda062a (edit server for ts)
+=======
+>>>>>>> 266d9e0 (add profile editor)

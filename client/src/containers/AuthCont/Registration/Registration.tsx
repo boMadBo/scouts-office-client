@@ -10,22 +10,30 @@ import SubmitBtn from '@/uikit/SubmitBtn';
 import FormikTF from '@/uikit/TextField/FormikTF';
 =======
 import Auth from '@/containers/AuthCont/Auth';
-import FormikTF from '@/containers/AuthCont/FormikTF';
 import { initialValuesReg, validationSchemaReg } from '@/containers/AuthCont/helpers';
 import { IRegister } from '@/interfaces';
 import { registerAPI } from '@/store/services/RegisterService';
+import Birthdate from '@/uikit/Birthdate';
+import PhotoDownloader from '@/uikit/PhotoDownloader';
 import SubmitBtn from '@/uikit/SubmitBtn';
+<<<<<<< HEAD
 >>>>>>> bc9de08 (add styles for auth)
+=======
+import FormikTF from '@/uikit/TextField/FormikTF';
+>>>>>>> 266d9e0 (add profile editor)
 import { Form, Formik } from 'formik';
 import React, { useCallback, useState } from 'react';
 import { CountryDropdown } from 'react-country-region-selector';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import Avatar from './Avatar';
 import Birthdate from './Birthdate';
 >>>>>>> bc9de08 (add styles for auth)
+=======
+>>>>>>> 266d9e0 (add profile editor)
 import styles from './Registration.module.scss';
 
 const formik = [
@@ -147,6 +155,7 @@ const Registration = () => {
             </div>
             <Birthdate value={values.birthDate} onChange={e => setFieldValue('birthDate', e.target.value)} />
             <PhotoDownloader previewUrl={previewUrl} onChange={handleFileChange} />
+<<<<<<< HEAD
             <SubmitBtn text={t('Send')} disabled={isSubmitting} />
           </Form>
         )}
@@ -185,6 +194,8 @@ export default React.memo(Registration);
             </div>
             <Birthdate value={values.birthDate} onChange={e => setFieldValue('birthDate', e.target.value)} />
             <Avatar previewUrl={previewUrl} onChange={handleFileChange} />
+=======
+>>>>>>> 266d9e0 (add profile editor)
             <SubmitBtn text={t('Send')} disabled={isSubmitting} />
           </Form>
         )}

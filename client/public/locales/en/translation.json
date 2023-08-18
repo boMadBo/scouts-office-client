@@ -15,12 +15,16 @@
   "Dark": "Dark",
   "My profile": "My profile",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Your photo": "Your photo",
   "edit profile": "edit profile",
 =======
   "Age": "Age",
   "Country": "Country",
 >>>>>>> 8673b67 (add server and start auth)
+=======
+
+>>>>>>> 266d9e0 (add profile editor)
   "To-do list": "To-do list",
   "Observe list": "Observe list",
   "add location": "add location",
@@ -111,6 +115,11 @@
   "Your username": "Your username",
   "Your password": "Your password",
   "Your email": "Your email",
+<<<<<<< HEAD
   "Your country": "Your country"
 >>>>>>> bc9de08 (add styles for auth)
+=======
+  "Your country": "Your country",
+  "Remember me": "Remember me"
+>>>>>>> 266d9e0 (add profile editor)
 }

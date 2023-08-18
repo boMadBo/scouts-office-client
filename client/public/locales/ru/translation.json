@@ -15,6 +15,7 @@
   "Dark": "Ночь",
   "My profile": "Мой профиль",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Your photo": "Ваше фото",
   "edit profile": "редактировать",
   "To-do list": "Список дел",
@@ -22,6 +23,8 @@
 =======
   "Age": "Возраст",
   "Country": "Страна",
+=======
+>>>>>>> 266d9e0 (add profile editor)
   "To-do list": "Список дел",
   "Observe list": "Список наблюдения",
 >>>>>>> 8673b67 (add server and start auth)
@@ -113,6 +116,11 @@
   "Your username": "Ваше имя",
   "Your password": "Ваш пароль",
   "Your email": "Ваш емейл",
+<<<<<<< HEAD
   "Your country": "Ваша страна"
 >>>>>>> bc9de08 (add styles for auth)
+=======
+  "Your country": "Ваша страна",
+  "Remember me": "Запомнить меня"
+>>>>>>> 266d9e0 (add profile editor)
 }

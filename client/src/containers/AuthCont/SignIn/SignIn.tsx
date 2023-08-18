@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 import Auth from '@/containers/AuthCont/Auth';
+<<<<<<< HEAD
 import { initialValuesSign, validationSchemaSign } from '@/containers/AuthCont/helpers';
 import { useAppDispatch } from '@/hooks';
 import { ISignInValues } from '@/interfaces';
@@ -31,15 +32,18 @@ const SignIn = () => {
 import Auth from '@/containers/AuthCont/Auth';
 >>>>>>> bc9de08 (add styles for auth)
 import FormikTF from '@/containers/AuthCont/FormikTF';
+=======
+>>>>>>> 266d9e0 (add profile editor)
 import { initialValuesSign, validationSchemaSign } from '@/containers/AuthCont/helpers';
 import { useAppDispatch } from '@/hooks';
 import { ISignInValues } from '@/interfaces';
 import { fetchSaveToken } from '@/store/reducers/TokenSlice';
 import { signInAPI } from '@/store/services/SignInService';
 import SubmitBtn from '@/uikit/SubmitBtn';
+import FormikTF from '@/uikit/TextField/FormikTF';
 import { Form, Formik } from 'formik';
 import Cookies from 'js-cookie';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import styles from './SignIn.module.scss';
@@ -109,13 +113,17 @@ const SignIn = () => {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
 =======
   const handleRememberMeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+=======
+  const handleRememberMeChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+>>>>>>> 266d9e0 (add profile editor)
     const checked = event.target.checked;
     setRememberMe(checked);
     Cookies.set('rememberMe', checked.toString(), { expires: 365 });
-  };
+  }, []);
 
 >>>>>>> bda062a (edit server for ts)
   if (isSuccess) {
@@ -178,7 +186,7 @@ export default React.memo(SignIn);
               <div className={styles.checkbox}>
                 <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} />
                 <label htmlFor="" className={styles.text}>
-                  Remember me
+                  {t('Remember me')}
                 </label>
               </div>
               <SubmitBtn text={t('Send')} disabled={isSubmitting} />

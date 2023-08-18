@@ -19,6 +19,7 @@ import SignInPage from './pages/SignInPage';
 import SquadPage from './pages/SquadPage';
 =======
 import CountryPage from './pages/CountryPage';
+import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="todo" element={<ToDoPage />} />
           <Route path="observe" element={<ObservePage />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Route path="edit" element={<EditPage />} />
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
@@ -64,6 +66,9 @@ const App = () => {
         />
         <Route path="search" element={<SearchPage />} />
 =======
+=======
+          <Route path="edit" element={<EditPage />} />
+>>>>>>> 266d9e0 (add profile editor)
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
         <Route path="leagues/all" element={<Navigate to="/leagues" replace />} />

@@ -27,17 +27,25 @@ const Account = () => {
     <section className={styles.wrapper}>
 =======
   return (
+<<<<<<< HEAD
     <main className={styles.wrapper}>
 >>>>>>> 8673b67 (add server and start auth)
+=======
+    <section className={styles.wrapper}>
+>>>>>>> 266d9e0 (add profile editor)
       <Profile />
       <AccountContent />
       <Weather />
       <Timezones />
 <<<<<<< HEAD
+<<<<<<< HEAD
     </section>
 =======
     </main>
 >>>>>>> 8673b67 (add server and start auth)
+=======
+    </section>
+>>>>>>> 266d9e0 (add profile editor)
   );
 };
 

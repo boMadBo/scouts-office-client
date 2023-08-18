@@ -59,6 +59,9 @@ export interface IProfileValues {
   country: string;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 266d9e0 (add profile editor)
 
 export interface IProfileUpdate {
   _id: string;
@@ -67,6 +70,7 @@ export interface IProfileUpdate {
   email: string;
   avatarUrl: File | null;
 }
+<<<<<<< HEAD
 
 export interface ITasks {
   _id?: string;
@@ -187,3 +191,5 @@ export interface IMessage {
 }
 =======
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> 266d9e0 (add profile editor)

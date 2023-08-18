@@ -13,10 +13,14 @@
   background-color: var(--main);
   width: 1140px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
 =======
   // height: 100%;
 >>>>>>> bc9de08 (add styles for auth)
+=======
+  min-height: 600px;
+>>>>>>> 266d9e0 (add profile editor)
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
   @media screen and (max-width: 1140px) {
     width: calc(100% - 40px);

@@ -23,10 +23,14 @@ const AccountContent = () => {
       <div className={styles.containerGroup}>
         <div className={styles.routesGroup}>
 <<<<<<< HEAD
+<<<<<<< HEAD
           {routes.map(route => (
             <ContentLink key={route.link} to={`${HEAD_LINK}/${route.link}`}>
 =======
           {routes.map((route) => (
+=======
+          {routes.map(route => (
+>>>>>>> 266d9e0 (add profile editor)
             <ContentLink key={route.link} to={`${headLink}/${route.link}`}>
 >>>>>>> 8673b67 (add server and start auth)
               {t(route.text)}

@@ -53,8 +53,12 @@ const storage = multer.diskStorage({
 =======
 const storage = multer.diskStorage({
   destination: (_, file, cb) => {
+<<<<<<< HEAD
     cb(null, 'uploads');
 >>>>>>> bda062a (edit server for ts)
+=======
+    cb(null, path.join(__dirname, '/uploads/'));
+>>>>>>> 266d9e0 (add profile editor)
   },
   filename: (_, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -124,7 +128,7 @@ app.patch('/messages/:id', MessagesController.readMessages);
 =======
 app.use(express.json());
 app.use(cors());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(__dirname));
 
 app.post('/auth/register', upload.single('avatar'), registerValidation, UserController.register);
 
@@ -132,6 +136,8 @@ app.post('/auth/signin', UserController.signin);
 
 app.get('/profile', checkAuth, UserController.getProfile);
 >>>>>>> bda062a (edit server for ts)
+
+app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
 
 app
   .listen(3014)
