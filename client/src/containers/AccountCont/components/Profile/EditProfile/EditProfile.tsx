@@ -1,17 +1,14 @@
-import Auth from '@/containers/AuthCont/Auth';
-import { initialValuesReg, validationSchemaReg } from '@/containers/AuthCont/helpers';
-import { IRegister } from '@/interfaces';
-import { registerAPI } from '@/store/services/RegisterService';
-import Birthdate from '@/uikit/Birthdate';
+import { IProfileUpdate } from '@/interfaces';
+import { profileAPI } from '@/store/services/ProfileService';
 import PhotoDownloader from '@/uikit/PhotoDownloader';
-import SubmitBtn from '@/uikit/SubmitBtn';
+import SubmitBtn from '@/uikit/SubmitBtn/SubmitBtn';
 import FormikTF from '@/uikit/TextField/FormikTF';
 import { Form, Formik } from 'formik';
 import React, { useCallback, useState } from 'react';
-import { CountryDropdown } from 'react-country-region-selector';
 import { useTranslation } from 'react-i18next';
-import { Navigate } from 'react-router-dom';
-import styles from './Registration.module.scss';
+import { useNavigate } from 'react-router-dom';
+import styles from './EditProfile.module.scss';
+import { initialValues, validationSchema } from './helpers';
 
 const formik = [
   { name: 'fullName', type: 'text', label: 'Your username' },
@@ -19,27 +16,31 @@ const formik = [
   { name: 'password', type: 'password', label: 'Your password' },
 ];
 
-const Registration = () => {
+const EditProfile = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [country, setCountry] = useState('');
-  const [createReg, { isSuccess }] = registerAPI.useCreateRegMutation();
+  const { data } = profileAPI.useGetProfileQuery();
+  const [updateProfile] = profileAPI.useUpdateProfileMutation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const handleChange = async (values: IRegister) => {
+  const goBack = () => navigate(-1);
+
+  const handleChange = async (values: IProfileUpdate) => {
     const formData = new FormData();
-    formData.append('email', values.email);
     formData.append('password', values.password);
     formData.append('fullName', values.fullName);
-    formData.append('birthDate', values.birthDate);
-    formData.append('country', country);
+    formData.append('email', values.email);
     if (selectedFile) {
       formData.append('avatar', selectedFile, selectedFile.name);
     } else {
       formData.append('avatar', '');
     }
     try {
-      await createReg(formData);
+      if (data?._id) {
+        await updateProfile({ formData, _id: data._id });
+        goBack();
+      }
     } catch (error) {
       console.error('Registr error:', error);
     }
@@ -58,35 +59,21 @@ const Registration = () => {
     }
   }, []);
 
-  if (isSuccess) {
-    return <Navigate to={'/signin'} />;
-  }
-
   return (
-    <Auth>
-      <Formik
-        initialValues={initialValuesReg}
-        validateOnBlur
-        validationSchema={validationSchemaReg}
-        onSubmit={handleChange}
-      >
+    <section className={styles.editProfile}>
+      <Formik initialValues={initialValues} validateOnBlur validationSchema={validationSchema} onSubmit={handleChange}>
         {({ handleSubmit, values, setFieldValue, isSubmitting }) => (
           <Form onSubmit={handleSubmit} className={styles.container}>
             {formik.map(form => (
               <FormikTF key={form.label} name={form.name} type={form.type} label={t(form.label)} />
             ))}
-            <div className={styles.countryWrap}>
-              <span className={styles.text}>Your country</span>
-              <CountryDropdown value={country} onChange={val => setCountry(val)} classes={styles.country} />
-            </div>
-            <Birthdate value={values.birthDate} onChange={e => setFieldValue('birthDate', e.target.value)} />
             <PhotoDownloader previewUrl={previewUrl} onChange={handleFileChange} />
             <SubmitBtn text={t('Send')} disabled={isSubmitting} />
           </Form>
         )}
       </Formik>
-    </Auth>
+    </section>
   );
 };
 
-export default Registration;
+export default EditProfile;

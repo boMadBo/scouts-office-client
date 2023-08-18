@@ -10,8 +10,7 @@
   "Light": "Light",
   "Dark": "Dark",
   "My profile": "My profile",
-  "Age": "Age",
-  "Country": "Country",
+
   "To-do list": "To-do list",
   "Observe list": "Observe list",
   "add location": "add location",
@@ -39,5 +38,6 @@
   "Your username": "Your username",
   "Your password": "Your password",
   "Your email": "Your email",
-  "Your country": "Your country"
+  "Your country": "Your country",
+  "Remember me": "Remember me"
 }

@@ -18,7 +18,7 @@ const AccountContent = () => {
     <section className={styles.contentContainer}>
       <div className={styles.containerGroup}>
         <div className={styles.routesGroup}>
-          {routes.map((route) => (
+          {routes.map(route => (
             <ContentLink key={route.link} to={`${headLink}/${route.link}`}>
               {t(route.text)}
             </ContentLink>
