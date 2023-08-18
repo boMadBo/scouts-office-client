@@ -71,12 +71,16 @@ export interface IProfileUpdate {
   avatarUrl: File | null;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 590496a (todo on server)
 
 export interface ITasks {
   _id?: string;
   text: string;
   completed: boolean;
 }
+<<<<<<< HEAD
 
 export interface Competition {
   id: string;
@@ -193,3 +197,5 @@ export interface IMessage {
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> 590496a (todo on server)

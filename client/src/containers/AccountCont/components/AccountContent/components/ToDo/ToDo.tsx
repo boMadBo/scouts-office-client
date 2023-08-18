@@ -1,14 +1,20 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ITasks } from '@/interfaces';
 import { tasksAPI } from '@/store/services/TasksService';
 =======
 >>>>>>> 8673b67 (add server and start auth)
+=======
+import { ITasks } from '@/interfaces';
+import { tasksAPI } from '@/store/services/TasksService';
+>>>>>>> 590496a (todo on server)
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ListItem from './ListItem';
 import TaskField from './TaskField';
 import styles from './ToDo.module.scss';
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const ToDo = () => {
   const { data: tasks } = tasksAPI.useGetTasksQuery();
@@ -24,11 +30,17 @@ const tasksData = [
   { text: "Extend Drogba's contract", completed: false },
 ];
 
+=======
+>>>>>>> 590496a (todo on server)
 const ToDo = () => {
-  const [tasks, setTasks] = useState([...tasksData]);
+  const { data: tasks } = tasksAPI.useGetTasksQuery();
+  const [createTasks] = tasksAPI.useCreateTasksMutation();
+  const [deleteTasks] = tasksAPI.useDeleteTasksMutation();
+  const [completedTasks] = tasksAPI.useCompletedTasksMutation();
   const [text, setText] = useState('');
   const { t } = useTranslation();
 
+<<<<<<< HEAD
   const onToggleCompleted = useCallback(
     (index: number) => {
       setTasks((prevTasks) =>
@@ -55,12 +67,17 @@ const ToDo = () => {
   // field //
 
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> 590496a (todo on server)
   const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
     setText(value);
   }, []);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 590496a (todo on server)
   const onAddTask = async (values: ITasks) => {
     await createTasks({
       text: values.text,
@@ -69,6 +86,7 @@ const ToDo = () => {
     setText('');
   };
 
+<<<<<<< HEAD
   const addTask = useCallback(() => {
     if (text) {
       onAddTask({ text, completed: false });
@@ -77,6 +95,11 @@ const ToDo = () => {
     if (text) {
       onAddTask(text);
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  const addTask = useCallback(() => {
+    if (text) {
+      onAddTask({ text, completed: false });
+>>>>>>> 590496a (todo on server)
       setText('');
     }
   }, [onAddTask, text]);
@@ -87,6 +110,7 @@ const ToDo = () => {
         addTask();
       }
     },
+<<<<<<< HEAD
 <<<<<<< HEAD
     [addTask]
   );
@@ -125,23 +149,48 @@ const ToDo = () => {
     [onToggleCompleted]
 =======
     [addTask],
+=======
+    [addTask]
+>>>>>>> 590496a (todo on server)
   );
 
-  // list //
-
-  const toggleCompleted = useCallback(
-    (index: number) => {
-      onToggleCompleted(index);
-    },
-    [onToggleCompleted],
-  );
+  const onRemoveTask = async (taskId: string) => {
+    try {
+      await deleteTasks({ _id: taskId });
+    } catch (error) {
+      console.error('Error removing task:', error);
+    }
+  };
 
   const removeTask = useCallback(
-    (index: number) => {
-      onRemoveTask(index);
+    (id: string | undefined) => {
+      if (id !== undefined) {
+        onRemoveTask(id);
+      }
     },
+<<<<<<< HEAD
     [onRemoveTask],
 >>>>>>> 8673b67 (add server and start auth)
+=======
+    [onRemoveTask]
+  );
+
+  const onToggleCompleted = async (taskId: string, completed: boolean) => {
+    try {
+      await completedTasks({ _id: taskId, completed: completed });
+    } catch (error) {
+      console.error('Error toggling task completion:', error);
+    }
+  };
+
+  const toggleCompleted = useCallback(
+    (id: string | undefined, completed: boolean) => {
+      if (id !== undefined) {
+        onToggleCompleted(id, completed);
+      }
+    },
+    [onToggleCompleted]
+>>>>>>> 590496a (todo on server)
   );
 
   return (
@@ -149,6 +198,7 @@ const ToDo = () => {
       <div className={styles.container}>
         <h4 className={styles.text}>{t('Tasks list')}</h4>
         <TaskField text={text} handleInputChange={handleInputChange} addTask={addTask} handleKeyUp={handleKeyUp} />
+<<<<<<< HEAD
 <<<<<<< HEAD
         {tasks?.map(task => (
           <ListItem
@@ -160,6 +210,12 @@ const ToDo = () => {
             key={index}
             index={index}
 >>>>>>> 8673b67 (add server and start auth)
+=======
+        {tasks?.map(task => (
+          <ListItem
+            key={task._id}
+            id={task._id}
+>>>>>>> 590496a (todo on server)
             completed={task.completed}
             text={task.text}
             toggleCompleted={toggleCompleted}

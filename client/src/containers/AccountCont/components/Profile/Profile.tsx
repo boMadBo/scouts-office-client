@@ -47,9 +47,12 @@ import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
 
 const Profile = () => {
-  const { t } = useTranslation();
   const { data } = profileAPI.useGetProfileQuery();
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  const { t } = useTranslation();
+>>>>>>> 590496a (todo on server)
 
   const flagUrl = useCountryFlagUrl(data?.country);
 
