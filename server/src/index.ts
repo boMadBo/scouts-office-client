@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
 import path from 'path';
+import * as TasksController from './controllers/TasksController';
 import * as UserController from './controllers/UserController';
 import checkAuth from './utils/checkAuth';
 import { registerValidation } from './validations/auth';
@@ -43,12 +44,14 @@ app.use(cors());
 app.use(express.static(__dirname));
 
 app.post('/auth/register', upload.single('avatar'), registerValidation, UserController.register);
-
 app.post('/auth/signin', UserController.signin);
-
 app.get('/profile', checkAuth, UserController.getProfile);
-
 app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
+
+app.get('/tasks', TasksController.getTasks);
+app.post('/tasks', TasksController.createTask);
+app.delete('/tasks/:id', TasksController.deleteTasks);
+app.patch('/tasks/:id', TasksController.completeTasks);
 
 app
   .listen(3014)

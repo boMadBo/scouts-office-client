@@ -5,25 +5,25 @@ import styles from './ToDo.module.scss';
 
 interface Props {
   text: string;
-  index: number;
+  id: string | undefined;
   completed: boolean;
-  toggleCompleted: (index: number) => void;
-  removeTask: (index: number) => void;
+  toggleCompleted: (id: string | undefined, completed: boolean) => void;
+  removeTask: (id: string | undefined) => void;
 }
 
-const ListItem = ({ text, index, completed, toggleCompleted, removeTask }: Props) => {
+const ListItem = ({ text, completed, id, toggleCompleted, removeTask }: Props) => {
   const linkStyles = cn(styles.listItem, { [styles.listItemComplit]: completed });
   const complStyles = cn(styles.itemCheck, { [styles.itemCheckCompl]: !completed });
 
   return (
     <div className={linkStyles}>
       <div className={styles.compliteGroup}>
-        <div onClick={() => toggleCompleted(index)} className={complStyles}>
+        <div onClick={() => toggleCompleted(id, completed)} className={complStyles}>
           <MdOutlineDoneOutline className={styles.btnImg} />
         </div>
         <p className={styles.tasksText}>{text}</p>
       </div>
-      <div onClick={() => removeTask(index)} className={styles.itemRemove}>
+      <div onClick={() => removeTask(id)} className={styles.itemRemove}>
         <MdDeleteOutline className={styles.btnImg} />
       </div>
     </div>
