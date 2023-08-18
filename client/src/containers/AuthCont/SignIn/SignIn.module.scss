@@ -6,3 +6,22 @@
   width: 292px;
   padding-top: 40px;
 }
+
+.btnWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.text {
+  line-height: 18p;
+  font-size: 16px;
+}

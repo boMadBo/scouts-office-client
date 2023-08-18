@@ -1,8 +1,9 @@
+import { AppDispatch } from '@/store/store';
 import { createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from './../store';
+import Cookies from 'js-cookie';
 
 const initialState = {
-  isToken: false,
+  isToken: Cookies.get('rememberMe') ? Boolean(Cookies.get('token')) : false,
 };
 
 export const tokenSlice = createSlice({
