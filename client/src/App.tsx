@@ -5,6 +5,7 @@ import RequireAuth from './hoc/RequireAuth';
 import AccountPage from './pages/AccountPage';
 import AllLeaguesPage from './pages/AllLeaguesPage';
 import CountryPage from './pages/CountryPage';
+import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
@@ -28,6 +29,7 @@ const App = () => {
         >
           <Route path="todo" element={<ToDoPage />} />
           <Route path="observe" element={<ObservePage />} />
+          <Route path="edit" element={<EditPage />} />
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
         <Route path="leagues/all" element={<Navigate to="/leagues" replace />} />

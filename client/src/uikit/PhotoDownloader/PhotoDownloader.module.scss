@@ -1,0 +1,70 @@
+.avatarWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 6px;
+}
+
+.inputDate {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.labelWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.fakeLabel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #000;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  background-color: var(--buttons);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border: 1px solid var(--buttons);
+  border-radius: 4px;
+}
+
+.img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 3px;
+}

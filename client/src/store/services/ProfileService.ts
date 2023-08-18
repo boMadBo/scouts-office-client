@@ -1,5 +1,5 @@
 import { baseQueryWithAuth } from '@/api/baseQueryWithAuth';
-import { IProfileValues } from '@/interfaces';
+import { IProfileUpdate, IProfileValues } from '@/interfaces';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const profileAPI = createApi({
@@ -12,6 +12,14 @@ export const profileAPI = createApi({
         url: '/profile',
       }),
       providesTags: (result, error) => [{ type: 'Profile', result, error }],
+    }),
+    updateProfile: build.mutation<IProfileUpdate, { formData: FormData; _id: string }>({
+      query: (arg: { formData: FormData; _id: string }) => ({
+        url: `/profile/${arg._id}`,
+        method: 'PATCH',
+        body: arg.formData,
+      }),
+      invalidatesTags: ['Profile'],
     }),
   }),
 });

@@ -1,6 +1,6 @@
-import TextField from '@/uikit/TextField';
 import { useField } from 'formik';
 import React from 'react';
+import TextField from './TextField';
 
 const FormikTF = ({ name, ...props }: any) => {
   const [field, meta] = useField({ name });

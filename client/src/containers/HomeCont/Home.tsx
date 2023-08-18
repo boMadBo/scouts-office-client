@@ -1,5 +1,7 @@
+import { useAppSelector } from '@/hooks';
 import MainLink from '@/uikit/MainLink';
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import styles from './Home.module.scss';
 
 const links = [
@@ -8,6 +10,12 @@ const links = [
 ];
 
 const Home = () => {
+  const isToken = useAppSelector(state => state.token.isToken);
+
+  if (isToken) {
+    return <Navigate to={'/account'} />;
+  }
+
   return (
     <section className={styles.home}>
       <div className={styles.container}>

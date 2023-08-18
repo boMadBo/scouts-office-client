@@ -1,14 +1,14 @@
 import Auth from '@/containers/AuthCont/Auth';
-import FormikTF from '@/containers/AuthCont/FormikTF';
 import { initialValuesSign, validationSchemaSign } from '@/containers/AuthCont/helpers';
 import { useAppDispatch } from '@/hooks';
 import { ISignInValues } from '@/interfaces';
 import { fetchSaveToken } from '@/store/reducers/TokenSlice';
 import { signInAPI } from '@/store/services/SignInService';
 import SubmitBtn from '@/uikit/SubmitBtn';
+import FormikTF from '@/uikit/TextField/FormikTF';
 import { Form, Formik } from 'formik';
 import Cookies from 'js-cookie';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import styles from './SignIn.module.scss';
@@ -43,11 +43,11 @@ const SignIn = () => {
     }
   };
 
-  const handleRememberMeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRememberMeChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
     setRememberMe(checked);
     Cookies.set('rememberMe', checked.toString(), { expires: 365 });
-  };
+  }, []);
 
   if (isSuccess) {
     return <Navigate to={'/account'} />;
@@ -74,7 +74,7 @@ const SignIn = () => {
               <div className={styles.checkbox}>
                 <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} />
                 <label htmlFor="" className={styles.text}>
-                  Remember me
+                  {t('Remember me')}
                 </label>
               </div>
               <SubmitBtn text={t('Send')} disabled={isSubmitting} />

@@ -1,14 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from './Registration.module.scss';
+import styles from './PhotoDownloader.module.scss';
 
 interface Props {
   previewUrl: string | null;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Avatar = ({ onChange, previewUrl }: Props) => {
+const PhotoDownloader = ({ onChange, previewUrl }: Props) => {
   const { t } = useTranslation();
+
   return (
     <div className={styles.avatarWrap}>
       <div className={styles.inputWrap}>
@@ -38,4 +39,4 @@ const Avatar = ({ onChange, previewUrl }: Props) => {
   );
 };
 
-export default React.memo(Avatar);
+export default React.memo(PhotoDownloader);

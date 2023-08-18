@@ -10,8 +10,6 @@
   "Light": "День",
   "Dark": "Ночь",
   "My profile": "Мой профиль",
-  "Age": "Возраст",
-  "Country": "Страна",
   "To-do list": "Список дел",
   "Observe list": "Список наблюдения",
   "add location": "добавить локацию",
@@ -39,5 +37,6 @@
   "Your username": "Ваше имя",
   "Your password": "Ваш пароль",
   "Your email": "Ваш емейл",
-  "Your country": "Ваша страна"
+  "Your country": "Ваша страна",
+  "Remember me": "Запомнить меня"
 }
