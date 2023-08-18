@@ -1,4 +1,4 @@
-import TField from '@/uikit/TField';
+import TextField from '@/uikit/TextField';
 import { useField } from 'formik';
 import React from 'react';
 
@@ -9,10 +9,11 @@ const FormikTF = ({ name, ...props }: any) => {
   const { touched, error } = meta;
 
   return (
-    <TField
+    <TextField
       name={name}
       label={props.label}
-      error={touched && error ? error : undefined}
+      error={touched && Boolean(error)}
+      helperText={touched && error}
       onChange={field.onChange}
       onBlur={onBlur}
       value={value}

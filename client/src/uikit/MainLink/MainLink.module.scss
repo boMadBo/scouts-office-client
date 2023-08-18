@@ -1,0 +1,13 @@
+.link {
+  line-height: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--childLink);
+  text-decoration-line: none;
+  &:hover {
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--active-color);
+    text-decoration-thickness: 2px;
+  }
+}

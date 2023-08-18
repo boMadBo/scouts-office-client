@@ -6,23 +6,41 @@ Visit the website: in development....
 
 Getting Started
 
-To run the Scouts App locally, follow these steps:
+### To run the Scouts App locally, follow these steps:
 
 1. Clone the repository:
    git clone https://github.com/boMadBo/scouts-academy.git
 
+### To run Server
+
 2. Navigate to the project directory:
    cd scouts-academy
+   cd server
 
 3. install the required dependencies:
+   npm install
+
+### To run Client
+
+4. Navigate to the project directory:
+   cd scouts-academy
+   cd client
+
+5. install the required dependencies:
    npm install
 
 Available Scripts
 In the project directory, you can run the following scripts:
 
+to run client
+
+### npm run start:dev
+
+to run client
+
 ### npm start
 
-Runs the app in development mode. Open http://localhost:3000 to view it in the browser.
+Runs the app in development mode. Open http://localhost:3010 to view it in the browser.
 
 API Usage
 
