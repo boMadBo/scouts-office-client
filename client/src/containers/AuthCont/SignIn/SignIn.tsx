@@ -39,7 +39,7 @@ import { signInAPI } from '@/store/services/SignInService';
 import SubmitBtn from '@/uikit/SubmitBtn';
 import { Form, Formik } from 'formik';
 import Cookies from 'js-cookie';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import styles from './SignIn.module.scss';
@@ -50,6 +50,7 @@ const formik = [
 ];
 
 const SignIn = () => {
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [createSignIn, { isSuccess, data, isLoading }] = signInAPI.useCreateSignInMutation();
 <<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
@@ -107,7 +108,16 @@ const SignIn = () => {
     }
   };
 
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  const handleRememberMeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const checked = event.target.checked;
+    setRememberMe(checked);
+    Cookies.set('rememberMe', checked.toString(), { expires: 365 });
+  };
+
+>>>>>>> bda062a (edit server for ts)
   if (isSuccess) {
     return <Navigate to={'/account'} />;
   }
@@ -164,7 +174,15 @@ export default React.memo(SignIn);
             {formik.map(form => (
               <FormikTF key={form.label} name={form.name} type={form.type} label={t(form.label)} />
             ))}
-            <SubmitBtn text={t('Send')} disabled={isSubmitting} />
+            <div className={styles.btnWrap}>
+              <div className={styles.checkbox}>
+                <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} />
+                <label htmlFor="" className={styles.text}>
+                  Remember me
+                </label>
+              </div>
+              <SubmitBtn text={t('Send')} disabled={isSubmitting} />
+            </div>
           </Form>
         )}
       </Formik>

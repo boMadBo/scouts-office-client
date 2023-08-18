@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useAppSelector } from '@/hooks';
 =======
 import Cookies from 'js-cookie';
 >>>>>>> 8673b67 (add server and start auth)
+=======
+import { useAppSelector } from '@/hooks';
+>>>>>>> bda062a (edit server for ts)
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
@@ -11,6 +15,7 @@ interface Props {
 }
 
 const RequireAuth = ({ children }: Props) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
   const isToken = useAppSelector(state => state.token.isToken);
   const location = useLocation();
@@ -22,6 +27,12 @@ const RequireAuth = ({ children }: Props) => {
 
   if (!token) {
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  const isToken = useAppSelector(state => state.token.isToken);
+  const location = useLocation();
+
+  if (!isToken) {
+>>>>>>> bda062a (edit server for ts)
     return <Navigate to="/signin" state={{ from: location }} />;
   }
 

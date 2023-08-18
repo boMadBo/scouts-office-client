@@ -1,5 +1,6 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
+<<<<<<< HEAD
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
@@ -13,6 +14,14 @@ import * as UserController from './controllers/UserController';
 import MessagesModel from './models/Messages';
 import checkAuth from './utils/checkAuth';
 import { addUser, removeUser, users } from './utils/socketsUsers';
+=======
+import express from 'express';
+import mongoose from 'mongoose';
+import multer from 'multer';
+import path from 'path';
+import * as UserController from './controllers/UserController';
+import checkAuth from './utils/checkAuth';
+>>>>>>> bda062a (edit server for ts)
 import { registerValidation } from './validations/auth';
 
 dotenv.config();
@@ -31,6 +40,7 @@ if (mongodbUri) {
 }
 const app = express();
 
+<<<<<<< HEAD
 const io = require('socket.io')(3050, {
   cors: {
     origin: 'http://localhost:3010',
@@ -40,6 +50,11 @@ const io = require('socket.io')(3050, {
 const storage = multer.diskStorage({
   destination: (_, file, cb) => {
     cb(null, path.join(__dirname, '/uploads/'));
+=======
+const storage = multer.diskStorage({
+  destination: (_, file, cb) => {
+    cb(null, 'uploads');
+>>>>>>> bda062a (edit server for ts)
   },
   filename: (_, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -51,6 +66,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+<<<<<<< HEAD
 io.on('connection', (socket: Socket) => {
   console.log('a user connected.');
 
@@ -105,6 +121,17 @@ app.post('/messages', async (req: Request, res: Response) => {
   }
 });
 app.patch('/messages/:id', MessagesController.readMessages);
+=======
+app.use(express.json());
+app.use(cors());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.post('/auth/register', upload.single('avatar'), registerValidation, UserController.register);
+
+app.post('/auth/signin', UserController.signin);
+
+app.get('/profile', checkAuth, UserController.getProfile);
+>>>>>>> bda062a (edit server for ts)
 
 app
   .listen(3014)
