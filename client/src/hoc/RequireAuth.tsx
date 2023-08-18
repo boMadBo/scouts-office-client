@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie';
+import { useAppSelector } from '@/hooks';
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
@@ -7,10 +7,10 @@ interface Props {
 }
 
 const RequireAuth = ({ children }: Props) => {
-  const token = Cookies.get('token');
+  const isToken = useAppSelector(state => state.token.isToken);
   const location = useLocation();
 
-  if (!token) {
+  if (!isToken) {
     return <Navigate to="/signin" state={{ from: location }} />;
   }
 
