@@ -101,6 +101,18 @@
   "Nothing found": "Ничего не найдено"
 =======
   "USA": "США",
+<<<<<<< HEAD
   "Tasks list": "Список задач"
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  "Tasks list": "Список задач",
+  "Your birthday": "День рождения",
+  "Your avatar": "Ваш аватар",
+  "Choose file": "Выберите файл",
+  "Send": "Отправить",
+  "Your username": "Ваше имя",
+  "Your password": "Ваш пароль",
+  "Your email": "Ваш емейл",
+  "Your country": "Ваша страна"
+>>>>>>> bc9de08 (add styles for auth)
 }

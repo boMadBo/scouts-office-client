@@ -1,13 +1,19 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { searchFetching } from '@/store/reducers/SearchSlice';
 import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
 =======
 >>>>>>> 8673b67 (add server and start auth)
+=======
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
+>>>>>>> bc9de08 (add styles for auth)
 import ChildLink from '@/uikit/ChildLink';
 import LongModal from '@/uikit/LongModal/LongModal';
 import ParentLink from '@/uikit/ParentLink';
 import Cookies from 'js-cookie';
+<<<<<<< HEAD
 <<<<<<< HEAD
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +21,9 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 =======
 import React, { useState } from 'react';
+=======
+import React, { useCallback, useState } from 'react';
+>>>>>>> bc9de08 (add styles for auth)
 import { useTranslation } from 'react-i18next';
 >>>>>>> 8673b67 (add server and start auth)
 import styles from './Header.module.scss';
@@ -79,13 +88,15 @@ const Header = () => {
 ];
 
 const Header = () => {
-  const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState<string | null>(null);
-  const token = Cookies.get('token');
+  const dispatch = useAppDispatch();
+  const isToken = useAppSelector(state => state.token.isToken);
+  const { t } = useTranslation();
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     Cookies.remove('token');
-  };
+    dispatch(fetchDeleteToken());
+  }, []);
 
 >>>>>>> 8673b67 (add server and start auth)
   return (
@@ -138,9 +149,14 @@ const Header = () => {
           {isToken && (
 =======
           <SettingGroup />
+<<<<<<< HEAD
           {!token && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
           {token && (
 >>>>>>> 8673b67 (add server and start auth)
+=======
+          {!isToken && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
+          {isToken && (
+>>>>>>> bc9de08 (add styles for auth)
             <ParentLink to="/" onClick={handleSignOut}>
               {t('Sign Out')}
             </ParentLink>

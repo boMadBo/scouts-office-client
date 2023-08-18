@@ -99,6 +99,18 @@
   "Nothing found": "Nothing found"
 =======
   "USA": "USA",
+<<<<<<< HEAD
   "Tasks list": "Tasks list"
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  "Tasks list": "Tasks list",
+  "Your birthday": "Your birthday",
+  "Your avatar": "Your avatar",
+  "Choose file": "Choose file",
+  "Send": "Send",
+  "Your username": "Your username",
+  "Your password": "Your password",
+  "Your email": "Your email",
+  "Your country": "Your country"
+>>>>>>> bc9de08 (add styles for auth)
 }
