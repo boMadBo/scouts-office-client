@@ -1,4 +1,4 @@
-import Registration from '@/containers/AuthCont/Registration/Registration';
+import Registration from '@/containers/AuthCont/Registration';
 import React from 'react';
 
 const RegistrationPage = () => {
