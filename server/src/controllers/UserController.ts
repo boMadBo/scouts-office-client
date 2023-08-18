@@ -1,10 +1,15 @@
 import bcrypt from 'bcrypt';
+import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import jwt from 'jsonwebtoken';
-import UserModel from '../models/User.js';
-import { instance } from './helpers.js';
+import UserModel from '../models/User';
+import { instance } from './helpers';
 
-export const register = async (req, res) => {
+interface MyRequest extends Request {
+  userId?: string;
+}
+
+export const register = async (req: Request, res: Response) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -28,7 +33,7 @@ export const register = async (req, res) => {
 
     const user = await doc.save();
 
-    const { passwordHasch, ...userData } = user._doc;
+    const { passwordHasch, ...userData } = user.toObject();
     res.json({
       ...userData,
     });
@@ -40,7 +45,7 @@ export const register = async (req, res) => {
   }
 };
 
-export const signin = async (req, res) => {
+export const signin = async (req: Request, res: Response) => {
   try {
     const user = await UserModel.findOne({ email: req.body.email });
 
@@ -50,10 +55,7 @@ export const signin = async (req, res) => {
       });
     }
 
-    const isValidPass = await bcrypt.compare(
-      req.body.password,
-      user._doc.passwordHasch
-    );
+    const isValidPass = await bcrypt.compare(req.body.password, user.toObject().passwordHasch);
 
     if (!isValidPass) {
       return res.status(400).json({
@@ -71,7 +73,7 @@ export const signin = async (req, res) => {
       }
     );
 
-    const { passwordHasch, ...userData } = user._doc;
+    const { passwordHasch, ...userData } = user.toObject();
     res.cookie('token', token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
@@ -89,7 +91,7 @@ export const signin = async (req, res) => {
   }
 };
 
-export const getProfile = async (req, res) => {
+export const getProfile = async (req: MyRequest, res: Response) => {
   try {
     const user = await UserModel.findById(req.userId);
     if (!user) {
@@ -97,7 +99,7 @@ export const getProfile = async (req, res) => {
         message: 'User not found',
       });
     }
-    const { passwordHasch, avatarUrl, ...userData } = user._doc;
+    const { passwordHasch, avatarUrl, ...userData } = user.toObject();
 
     let imageUrl = '';
     if (avatarUrl) {
