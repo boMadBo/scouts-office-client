@@ -53,6 +53,7 @@ To run the Scouts App locally, follow these steps:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 4. ### npm run start:dev
 
 ### To run Client
@@ -83,15 +84,20 @@ The App uses the https://restcountries.com/ to fetch current flags of contries.
 The App uses the https://api.coinbase.com/v2/ to fetch current usd and btc values.
 =======
 =======
+=======
+4. ### npm run start:dev
+
+>>>>>>> 431f668 (dev leagues)
 ### To run Client
 
-4. Navigate to the project directory:
+5. Navigate to the project directory:
    cd scouts-academy
    cd client
 
-5. install the required dependencies:
+6. install the required dependencies:
    npm install
 
+<<<<<<< HEAD
 >>>>>>> bc9de08 (add styles for auth)
 Available Scripts
 In the project directory, you can run the following scripts:
@@ -103,6 +109,9 @@ to run client
 to run client
 
 ### npm start
+=======
+7. ### npm start
+>>>>>>> 431f668 (dev leagues)
 
 Runs the app in development mode. Open http://localhost:3010 to view it in the browser.
 
@@ -115,4 +124,9 @@ The App uses the https://open-meteo.com/ to fetch weather data.
 The App uses the https://api64.ipify.org to fetch current IP data.
 
 The App uses the https://ipinfo.io/ to fetch current location data.
+<<<<<<< HEAD
 >>>>>>> 3c8eda1 (add todos)
+=======
+
+The App uses the https://restcountries.com/ to fetch current flags of contries.
+>>>>>>> 431f668 (dev leagues)

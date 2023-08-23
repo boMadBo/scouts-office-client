@@ -1,11 +1,16 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+<<<<<<< HEAD
   background-color: var(--table-bg);
+=======
+  background-color: var(--child-tabs);
+>>>>>>> 431f668 (dev leagues)
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
 }
 
+<<<<<<< HEAD
 .table thead {
   background-color: var(--titles);
 }
@@ -14,6 +19,12 @@
   color: var(--main-text);
 }
 
+=======
+.head {
+  background-color: var(--titles);
+}
+
+>>>>>>> 431f668 (dev leagues)
 .table tr {
   height: 30px;
   border: 0.2px solid var(--main-text);

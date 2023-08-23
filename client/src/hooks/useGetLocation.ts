@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { instance } from '@/api/instanceIP';
 import { instanceLoc } from '@/api/instanceLoc';
 =======
 import { instanceIP } from '@/api/instanceIP';
 >>>>>>> 8673b67 (add server and start auth)
+=======
+import { instance } from '@/api/instanceIP';
+>>>>>>> 431f668 (dev leagues)
 import { useEffect, useMemo, useState } from 'react';
 
 export const useGetLocation = (token: string) => {
@@ -38,7 +42,7 @@ export const useGetLocation = (token: string) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ipUrl = instanceIP;
+        const ipUrl = instance;
         const responseIP = await fetch(ipUrl);
         const dataIP = await responseIP.json();
         const myIP = dataIP.ip;

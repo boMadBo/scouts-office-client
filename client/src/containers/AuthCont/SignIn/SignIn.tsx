@@ -38,7 +38,7 @@ import { initialValuesSign, validationSchemaSign } from '@/containers/AuthCont/h
 import { useAppDispatch } from '@/hooks';
 import { ISignInValues } from '@/interfaces';
 import { fetchSaveToken } from '@/store/reducers/TokenSlice';
-import { signInAPI } from '@/store/services/SignInService';
+import { profileAPI } from '@/store/services/ProfileService';
 import SubmitBtn from '@/uikit/SubmitBtn';
 import FormikTF from '@/uikit/TextField/FormikTF';
 import { Form, Formik } from 'formik';
@@ -55,10 +55,14 @@ const formik = [
 
 const SignIn = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
+<<<<<<< HEAD
   const [createSignIn, { isSuccess, data, isLoading }] = signInAPI.useCreateSignInMutation();
 <<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
 =======
+=======
+  const [createSignIn, { isSuccess, data, isLoading }] = profileAPI.useCreateSignInMutation();
+>>>>>>> 431f668 (dev leagues)
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 >>>>>>> bc9de08 (add styles for auth)
@@ -71,6 +75,9 @@ const SignIn = () => {
       const response = await createSignIn(values);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 431f668 (dev leagues)
 
       const hasData = 'data' in response;
       if (hasData) {
@@ -108,7 +115,7 @@ const SignIn = () => {
         }
       }
     } catch (error) {
-      console.error('Ошибка при входе:', error);
+      console.error('Sign in error:', error);
     }
   };
 

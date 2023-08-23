@@ -1,6 +1,7 @@
 import { baseQueryWithAuth } from '@/api/baseQueryWithAuth';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { IProfileUpdate, IProfileValues, ISignInValues } from '@/interfaces';
 =======
 import { IProfileValues } from '@/interfaces';
@@ -8,16 +9,23 @@ import { IProfileValues } from '@/interfaces';
 =======
 import { IProfileUpdate, IProfileValues } from '@/interfaces';
 >>>>>>> 266d9e0 (add profile editor)
+=======
+import { IProfileUpdate, IProfileValues, ISignInValues } from '@/interfaces';
+>>>>>>> 431f668 (dev leagues)
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const profileAPI = createApi({
   reducerPath: 'profileAPI',
   baseQuery: baseQueryWithAuth,
 <<<<<<< HEAD
+<<<<<<< HEAD
   tagTypes: ['SignIn', 'Profile'],
 =======
   tagTypes: ['Profile'],
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  tagTypes: ['SignIn', 'Profile'],
+>>>>>>> 431f668 (dev leagues)
   endpoints: build => ({
     getProfile: build.query<IProfileValues, void>({
       query: () => ({
@@ -44,6 +52,9 @@ export const profileAPI = createApi({
       invalidatesTags: ['Profile'],
     }),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 431f668 (dev leagues)
     createSignIn: build.mutation<ISignInValues, ISignInValues>({
       query: user => ({
         url: `/auth/signin`,
@@ -52,9 +63,12 @@ export const profileAPI = createApi({
       }),
       invalidatesTags: ['SignIn', 'Profile'],
     }),
+<<<<<<< HEAD
 =======
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> 431f668 (dev leagues)
   }),
 });

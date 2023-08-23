@@ -30,16 +30,13 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import tokenSlice from './reducers/TokenSlice';
 import { profileAPI } from './services/ProfileService';
 import { registerAPI } from './services/RegisterService';
-import { signInAPI } from './services/SignInService';
 import { tasksAPI } from './services/TasksService';
 
 const rootReducer = combineReducers({
-  // [testAPI.reducerPath]: testAPI.reducer,
   theme: themeSlice,
   token: tokenSlice,
   [weatherAPI.reducerPath]: weatherAPI.reducer,
   [registerAPI.reducerPath]: registerAPI.reducer,
-  [signInAPI.reducerPath]: signInAPI.reducer,
   [profileAPI.reducerPath]: profileAPI.reducer,
 <<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
@@ -53,6 +50,7 @@ export const setupStore = () => {
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware().concat(
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         registerAPI.middleware,
@@ -73,6 +71,10 @@ export const setupStore = () => {
         profileAPI.middleware
 >>>>>>> 8673b67 (add server and start auth)
 =======
+=======
+        weatherAPI.middleware,
+        registerAPI.middleware,
+>>>>>>> 431f668 (dev leagues)
         profileAPI.middleware,
         tasksAPI.middleware
 >>>>>>> 590496a (todo on server)

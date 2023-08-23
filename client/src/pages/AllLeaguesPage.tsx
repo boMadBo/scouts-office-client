@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:client/src/pages/AllLeaguesPage.tsx
 import AllLeagues from '@/containers/LeaguesCont/components/AllLeagues';
 import React from 'react';
@@ -21,6 +22,17 @@ import React from 'react';
 const AllLeaguesPage = () => {
   return <div style={{ color: 'var(--main-text)', height: '500px' }}>All Leagues in development...</div>;
 >>>>>>> 8673b67 (add server and start auth)
+=======
+import AllLeagues from '@/containers/Leagues/AllLeagues';
+import React from 'react';
+
+const AllLeaguesPage = () => {
+  return (
+    <>
+      <AllLeagues />
+    </>
+  );
+>>>>>>> 431f668 (dev leagues)
 };
 
 export default AllLeaguesPage;

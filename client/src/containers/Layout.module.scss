@@ -7,6 +7,7 @@
   width: 1140px;
   min-height: 600px;
   color: var(--main-text);
+<<<<<<< HEAD
 =======
   margin-block: 20px;
   margin-inline: calc((100% - 1140px) / 2);
@@ -21,6 +22,8 @@
 =======
   min-height: 600px;
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> 431f668 (dev leagues)
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
   @media screen and (max-width: 1140px) {
     width: calc(100% - 40px);

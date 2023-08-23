@@ -37,12 +37,16 @@ const routes = [
     children: [
       { link: 'all', text: 'All leagues' },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 431f668 (dev leagues)
       { link: 'england/GB1', text: 'England' },
       { link: 'germany/L1', text: 'Germany' },
       { link: 'spain/ES1', text: 'Spain' },
       { link: 'italy/IT1', text: 'Italy' },
       { link: 'france/FR1', text: 'France' },
       { link: 'netherlands/NL1', text: 'Netherlans' },
+<<<<<<< HEAD
 =======
       { link: 'england', text: 'England' },
       { link: 'germany', text: 'Germany' },
@@ -51,6 +55,8 @@ const routes = [
       { link: 'france', text: 'France' },
       { link: 'usa', text: 'USA' },
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> 431f668 (dev leagues)
     ],
   },
   { link: 'news', text: 'News', children: null },
@@ -96,8 +102,9 @@ const Header = () => {
 
   const handleSignOut = useCallback(() => {
     Cookies.remove('token');
+    Cookies.remove('rememberMe');
     dispatch(fetchDeleteToken());
-  }, []);
+  }, [dispatch]);
 
 >>>>>>> 8673b67 (add server and start auth)
   return (

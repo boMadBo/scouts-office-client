@@ -46,15 +46,21 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
 
+const headLink = '/account';
+
 const Profile = () => {
+<<<<<<< HEAD
   const { data } = profileAPI.useGetProfileQuery();
 <<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
 =======
+=======
+  const { data: profile } = profileAPI.useGetProfileQuery();
+>>>>>>> 431f668 (dev leagues)
   const { t } = useTranslation();
 >>>>>>> 590496a (todo on server)
 
-  const flagUrl = useCountryFlagUrl(data?.country);
+  const flagUrl = useCountryFlagUrl(profile?.country);
 
   const calculateAge = useMemo(
     () => (birthDate: string | undefined) => {
@@ -66,8 +72,7 @@ const Profile = () => {
     []
   );
 
-  const age = calculateAge(data?.birthDate);
-  const headLink = '/account';
+  const age = calculateAge(profile?.birthDate);
 
   return (
     <section className={styles.profileConteiner}>
@@ -108,17 +113,22 @@ const Profile = () => {
 =======
         <span className={styles.text}>{t('My profile')}</span>
         <div className={styles.photoWrapper}>
-          <img src={data?.avatarUrl} alt="avatar" className={styles.photo} />
+          {profile?.avatarUrl && <img src={profile.avatarUrl} alt="avatar" className={styles.photo} />}
+          {!profile?.avatarUrl && (
+            <div className={styles.noPhotoWrapper}>
+              <span className={styles.noPhoto}>{t('Your photo')}</span>
+            </div>
+          )}
         </div>
         <div className={styles.profileData}>
-          <span className={styles.text}>{data?.fullName}</span>
+          <span className={styles.text}>{profile?.fullName}</span>
           <div className={styles.age}>
             <span className={styles.text}>{age} years</span>
-            {flagUrl && <img src={flagUrl} alt="Flag of Argentina" className={styles.flag} />}
+            {flagUrl && <img src={flagUrl} alt="Flag" className={styles.flag} />}
           </div>
           <div className={styles.editingWrap}>
             <Link to={`${headLink}/edit`} className={styles.editing}>
-              edit profile
+              {t('edit profile')}
             </Link>
           </div>
 >>>>>>> 266d9e0 (add profile editor)
