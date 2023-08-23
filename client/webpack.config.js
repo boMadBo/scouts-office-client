@@ -22,7 +22,7 @@ const optimization = () => {
   return config;
 };
 
-const cssLoaders = (extra) => {
+const cssLoaders = extra => {
   const loaders = [
     {
       loader: MiniCssExtractPlugin.loader,
@@ -35,7 +35,7 @@ const cssLoaders = (extra) => {
   return loaders;
 };
 
-const babelOptions = (preset) => {
+const babelOptions = preset => {
   const opts = {
     presets: ['@babel/preset-react', '@babel/preset-env'],
   };

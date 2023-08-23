@@ -16,12 +16,12 @@ const routes = [
     text: 'Leagues',
     children: [
       { link: 'all', text: 'All leagues' },
-      { link: 'england', text: 'England' },
-      { link: 'germany', text: 'Germany' },
-      { link: 'spain', text: 'Spain' },
-      { link: 'italy', text: 'Italy' },
-      { link: 'france', text: 'France' },
-      { link: 'usa', text: 'USA' },
+      { link: 'england/GB1', text: 'England' },
+      { link: 'germany/L1', text: 'Germany' },
+      { link: 'spain/ES1', text: 'Spain' },
+      { link: 'italy/IT1', text: 'Italy' },
+      { link: 'france/FR1', text: 'France' },
+      { link: 'netherlands/NL1', text: 'Netherlans' },
     ],
   },
   { link: 'news', text: 'News', children: null },
@@ -37,8 +37,9 @@ const Header = () => {
 
   const handleSignOut = useCallback(() => {
     Cookies.remove('token');
+    Cookies.remove('rememberMe');
     dispatch(fetchDeleteToken());
-  }, []);
+  }, [dispatch]);
 
   return (
     <header className={styles.header}>

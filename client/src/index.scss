@@ -10,6 +10,7 @@ html {
   --main: rgb(227, 227, 227);
   --profile: rgb(220, 220, 220);
   --main-text: #151515;
+  --no-photo-bg: #b6cccc;
   --buttons: #145886;
   --times: #cac7c7;
   --child-tabs: #145886;
@@ -30,6 +31,7 @@ html[data-theme='dark'] {
   --main: #3b3b3b;
   --profile: #2f3030;
   --main-text: #ccc;
+  --no-photo-bg: #bfcece;
   --buttons: rgb(173, 216, 230);
   --times: #1d1c1c;
   --child-tabs: #1d1c1c;
