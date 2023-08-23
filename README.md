@@ -20,25 +20,18 @@ Getting Started
 3. install the required dependencies:
    npm install
 
+4. ### npm run start:dev
+
 ### To run Client
 
-4. Navigate to the project directory:
+5. Navigate to the project directory:
    cd scouts-academy
    cd client
 
-5. install the required dependencies:
+6. install the required dependencies:
    npm install
 
-Available Scripts
-In the project directory, you can run the following scripts:
-
-to run client
-
-### npm run start:dev
-
-to run client
-
-### npm start
+7. ### npm start
 
 Runs the app in development mode. Open http://localhost:3010 to view it in the browser.
 
@@ -51,3 +44,5 @@ The App uses the https://open-meteo.com/ to fetch weather data.
 The App uses the https://api64.ipify.org to fetch current IP data.
 
 The App uses the https://ipinfo.io/ to fetch current location data.
+
+The App uses the https://restcountries.com/ to fetch current flags of contries.
