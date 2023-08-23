@@ -1,3 +1,4 @@
+import { instance } from '@/api/instanceFlag';
 import { useEffect, useMemo, useState } from 'react';
 
 export const useCountryFlagUrl = (countryName: string | undefined) => {
@@ -7,7 +8,7 @@ export const useCountryFlagUrl = (countryName: string | undefined) => {
     const fetchFlagUrl = async () => {
       try {
         if (countryName) {
-          const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+          const response = await fetch(`${instance}/${countryName}`);
           const data = await response.json();
           const url = data[0]?.flags.svg;
           setFlagUrl(url);

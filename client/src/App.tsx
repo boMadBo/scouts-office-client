@@ -4,13 +4,14 @@ import Layout from './containers/Layout';
 import RequireAuth from './hoc/RequireAuth';
 import AccountPage from './pages/AccountPage';
 import AllLeaguesPage from './pages/AllLeaguesPage';
-import CountryPage from './pages/CountryPage';
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
+import LeaguePage from './pages/LeaguePage';
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
 import RegistrationPage from './pages/RegistrationPage';
 import SignInPage from './pages/SignInPage';
+import SquadPage from './pages/SquadPage';
 import ToDoPage from './pages/ToDoPage';
 import VideosPage from './pages/VideosPage';
 
@@ -33,7 +34,8 @@ const App = () => {
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
         <Route path="leagues/all" element={<Navigate to="/leagues" replace />} />
-        <Route path="leagues/:country" element={<CountryPage />} />
+        <Route path="leagues/:country/:id" element={<LeaguePage />} />
+        <Route path="leagues/:country/:id/:id" element={<SquadPage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="videos" element={<VideosPage />} />
         <Route path="registr" element={<RegistrationPage />} />

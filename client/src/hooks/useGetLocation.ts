@@ -1,4 +1,4 @@
-import { instanceIP } from '@/api/instanceIP';
+import { instance } from '@/api/instanceIP';
 import { useEffect, useMemo, useState } from 'react';
 
 export const useGetLocation = (token: string) => {
@@ -8,7 +8,7 @@ export const useGetLocation = (token: string) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ipUrl = instanceIP;
+        const ipUrl = instance;
         const responseIP = await fetch(ipUrl);
         const dataIP = await responseIP.json();
         const myIP = dataIP.ip;

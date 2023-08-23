@@ -3,7 +3,7 @@ import { initialValuesSign, validationSchemaSign } from '@/containers/AuthCont/h
 import { useAppDispatch } from '@/hooks';
 import { ISignInValues } from '@/interfaces';
 import { fetchSaveToken } from '@/store/reducers/TokenSlice';
-import { signInAPI } from '@/store/services/SignInService';
+import { profileAPI } from '@/store/services/ProfileService';
 import SubmitBtn from '@/uikit/SubmitBtn';
 import FormikTF from '@/uikit/TextField/FormikTF';
 import { Form, Formik } from 'formik';
@@ -20,7 +20,7 @@ const formik = [
 
 const SignIn = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
-  const [createSignIn, { isSuccess, data, isLoading }] = signInAPI.useCreateSignInMutation();
+  const [createSignIn, { isSuccess, data, isLoading }] = profileAPI.useCreateSignInMutation();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
@@ -30,6 +30,7 @@ const SignIn = () => {
     formData.append('password', values.password);
     try {
       const response = await createSignIn(values);
+
       const hasData = 'data' in response;
       if (hasData) {
         const token = response.data.token;
@@ -39,7 +40,7 @@ const SignIn = () => {
         }
       }
     } catch (error) {
-      console.error('Ошибка при входе:', error);
+      console.error('Sign in error:', error);
     }
   };
 
