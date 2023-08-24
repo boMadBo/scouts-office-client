@@ -13,6 +13,9 @@ const AllLeaguesTable = ({ data }: Props) => {
       <tbody>
         {data?.map(item => (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dfd4232 (create squad page)
           <tr key={item.id}>
             <td>
               <Link to={`${item.country}/${item.id}`} className={styles.link}>
@@ -23,6 +26,7 @@ const AllLeaguesTable = ({ data }: Props) => {
               </Link>
             </td>
           </tr>
+<<<<<<< HEAD
 =======
           <Link to={`${item.country}/${item.id}`} key={item.id} className={styles.link}>
             <tr>
@@ -31,6 +35,8 @@ const AllLeaguesTable = ({ data }: Props) => {
             </tr>
           </Link>
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> dfd4232 (create squad page)
         ))}
       </tbody>
     </table>

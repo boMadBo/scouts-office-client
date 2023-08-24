@@ -205,5 +205,9 @@ export default React.memo(SignIn);
   );
 };
 
+<<<<<<< HEAD
 export default SignIn;
 >>>>>>> 8673b67 (add server and start auth)
+=======
+export default React.memo(SignIn);
+>>>>>>> dfd4232 (create squad page)

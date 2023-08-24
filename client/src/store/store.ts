@@ -1,6 +1,7 @@
 import themeSlice from '@/store/reducers/ThemeSlice';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import searchSlice from './reducers/SearchSlice';
 import tokenSlice from './reducers/TokenSlice';
@@ -26,6 +27,8 @@ import { testAPI } from '@/store/services/TestService';
 =======
 >>>>>>> bc9de08 (add styles for auth)
 import { weatherAPI } from '@/store/services/WeatherService';
+=======
+>>>>>>> dfd4232 (create squad page)
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import tokenSlice from './reducers/TokenSlice';
 import { profileAPI } from './services/ProfileService';
@@ -35,7 +38,6 @@ import { tasksAPI } from './services/TasksService';
 const rootReducer = combineReducers({
   theme: themeSlice,
   token: tokenSlice,
-  [weatherAPI.reducerPath]: weatherAPI.reducer,
   [registerAPI.reducerPath]: registerAPI.reducer,
   [profileAPI.reducerPath]: profileAPI.reducer,
 <<<<<<< HEAD
@@ -49,6 +51,7 @@ export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
+<<<<<<< HEAD
       getDefaultMiddleware().concat(
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -79,6 +82,9 @@ export const setupStore = () => {
         tasksAPI.middleware
 >>>>>>> 590496a (todo on server)
       ),
+=======
+      getDefaultMiddleware().concat(registerAPI.middleware, profileAPI.middleware, tasksAPI.middleware),
+>>>>>>> dfd4232 (create squad page)
   });
 };
 

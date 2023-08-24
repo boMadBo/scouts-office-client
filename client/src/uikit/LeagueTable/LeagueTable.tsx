@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Columns, Team } from '@/interfaces';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 =======
 import { Team } from '@/interfaces';
+=======
+import { Columns, Team } from '@/interfaces';
+>>>>>>> dfd4232 (create squad page)
 import React from 'react';
 >>>>>>> 431f668 (dev leagues)
 import { Link } from 'react-router-dom';
@@ -11,6 +15,7 @@ import styles from './LeagueTable.module.scss';
 
 interface Props {
   data: Team[];
+<<<<<<< HEAD
 <<<<<<< HEAD
   columns: Columns[];
 }
@@ -34,22 +39,19 @@ const LeagueTable = ({ data, columns }: Props) => {
             <td>
               <Link to={`/squad/${item.id}`} className={styles.link}>
 =======
+=======
+  columns: Columns[];
+>>>>>>> dfd4232 (create squad page)
 }
 
-const LeagueTable = ({ data }: Props) => {
+const LeagueTable = ({ data, columns }: Props) => {
   return (
     <table className={styles.table}>
-      <thead className={styles.head}>
+      <thead>
         <tr>
-          <th>#</th>
-          <th>Club</th>
-          <th>M</th>
-          <th>W</th>
-          <th>D</th>
-          <th>L</th>
-          <th>G</th>
-          <th>+/-</th>
-          <th>P</th>
+          {columns.map(col => (
+            <th key={col.title}>{col.title}</th>
+          ))}
         </tr>
       </thead>
       <tbody>

@@ -10,10 +10,14 @@ const routes = [
 ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const HEAD_LINK = '/account';
 =======
 const headLink = '/account';
 >>>>>>> 8673b67 (add server and start auth)
+=======
+const HEAD_LINK = '/account';
+>>>>>>> dfd4232 (create squad page)
 
 const AccountContent = () => {
   const { t } = useTranslation();
@@ -26,6 +30,7 @@ const AccountContent = () => {
 <<<<<<< HEAD
           {routes.map(route => (
             <ContentLink key={route.link} to={`${HEAD_LINK}/${route.link}`}>
+<<<<<<< HEAD
 =======
           {routes.map((route) => (
 =======
@@ -33,6 +38,8 @@ const AccountContent = () => {
 >>>>>>> 266d9e0 (add profile editor)
             <ContentLink key={route.link} to={`${headLink}/${route.link}`}>
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> dfd4232 (create squad page)
               {t(route.text)}
             </ContentLink>
           ))}

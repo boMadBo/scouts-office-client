@@ -6,6 +6,7 @@ export interface City {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 export interface Hours {
   temperature_2m: number[];
@@ -34,6 +35,8 @@ export interface Weather {
 }
 
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> dfd4232 (create squad page)
 export interface IRegister {
   email: string;
   password: string;
@@ -113,6 +116,7 @@ export interface Team {
   wins: number;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export interface Columns {
   title: string;
@@ -265,5 +269,9 @@ export interface ISquad {
   positions: Position;
   nationalities: Nationalities[];
   marketValue: Market;
+=======
+export interface Columns {
+  title: string;
+>>>>>>> dfd4232 (create squad page)
 }
 >>>>>>> 431f668 (dev leagues)

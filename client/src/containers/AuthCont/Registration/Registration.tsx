@@ -204,5 +204,9 @@ export default React.memo(Registration);
   );
 };
 
+<<<<<<< HEAD
 export default Registration;
 >>>>>>> 8673b67 (add server and start auth)
+=======
+export default React.memo(Registration);
+>>>>>>> dfd4232 (create squad page)

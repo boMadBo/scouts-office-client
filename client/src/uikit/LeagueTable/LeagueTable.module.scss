@@ -2,14 +2,19 @@
   width: 100%;
   border-collapse: collapse;
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: var(--table-bg);
 =======
   background-color: var(--child-tabs);
 >>>>>>> 431f668 (dev leagues)
+=======
+  background-color: var(--table-bg);
+>>>>>>> dfd4232 (create squad page)
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .table thead {
   background-color: var(--titles);
@@ -25,6 +30,16 @@
 }
 
 >>>>>>> 431f668 (dev leagues)
+=======
+.table thead {
+  background-color: var(--titles);
+}
+
+.table tbody {
+  color: var(--main-text);
+}
+
+>>>>>>> dfd4232 (create squad page)
 .table tr {
   height: 30px;
   border: 0.2px solid var(--main-text);

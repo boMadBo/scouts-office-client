@@ -46,7 +46,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
 
-const headLink = '/account';
+const HEAD_LINK = '/account';
 
 const Profile = () => {
 <<<<<<< HEAD
@@ -127,7 +127,7 @@ const Profile = () => {
             {flagUrl && <img src={flagUrl} alt="Flag" className={styles.flag} />}
           </div>
           <div className={styles.editingWrap}>
-            <Link to={`${headLink}/edit`} className={styles.editing}>
+            <Link to={`${HEAD_LINK}/edit`} className={styles.editing}>
               {t('edit profile')}
             </Link>
           </div>
