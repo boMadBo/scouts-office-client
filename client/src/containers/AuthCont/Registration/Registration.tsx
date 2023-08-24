@@ -89,4 +89,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default React.memo(Registration);
