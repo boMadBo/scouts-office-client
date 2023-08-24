@@ -1,13 +1,25 @@
 import { Team } from '@/interfaces';
 import LeagueTable from '@/uikit/LeagueTable';
 import React from 'react';
-import Leagues from './Leagues';
+import Leagues from '../Leagues';
 
 interface Props {
   id: string | undefined;
 }
 
 const key = process.env.REACT_APP_TRANSFERMARKT ?? 'DEFAULT_KEY';
+
+const columns = [
+  { title: '#' },
+  { title: 'Club' },
+  { title: 'M' },
+  { title: 'W' },
+  { title: 'D' },
+  { title: 'L' },
+  { title: 'G' },
+  { title: '+/-' },
+  { title: 'p' },
+];
 
 const mocks: Team[] = [
   {
@@ -77,7 +89,7 @@ const League = ({ id }: Props) => {
 
   return (
     <Leagues>
-      <LeagueTable data={mocks} />
+      <LeagueTable data={mocks} columns={columns} />
     </Leagues>
   );
 };

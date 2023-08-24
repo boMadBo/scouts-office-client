@@ -1,4 +1,4 @@
-import Squad from '@/containers/Leagues/Squad';
+import Squad from '@/containers/Leagues/components/Squad';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 

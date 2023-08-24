@@ -1,4 +1,3 @@
-import { useGetLocation } from '@/hooks/useGetLocation';
 import { motion } from 'framer-motion';
 import React, { useMemo } from 'react';
 import styles from './Weather.module.scss';
@@ -20,13 +19,8 @@ const listVarian = {
   hidden: { opacity: 0, y: 100 },
 };
 
-interface Props {
-  token: string;
-}
-
 const Weather = () => {
-  const { latitude, longitude } = useGetLocation(token);
-  const weather = useGetWeather(latitude, longitude);
+  const weather = useGetWeather(token);
 
   const photo = useMemo(() => {
     const isSunny = !(weather?.rain || weather?.snowfall);
@@ -38,7 +32,7 @@ const Weather = () => {
   return (
     <motion.section className={styles.container} variants={listVarian} initial="hidden" animate="visible">
       <div className={styles.weather}>
-        {weather && <span className={styles.degrees}>{weather?.temperature}°</span>}
+        {weather && <span className={styles.degrees}>{weather.temperature}°</span>}
         {!weather && <span className={styles.degrees}>-t°</span>}
         <img src={`/images/${photo}.png`} alt="weather" />
       </div>

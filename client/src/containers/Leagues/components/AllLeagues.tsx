@@ -1,7 +1,7 @@
 import { Competition } from '@/interfaces';
 import AllLeaguesTable from '@/uikit/AllLeaguesTable';
 import React, { useState } from 'react';
-import Leagues from './Leagues';
+import Leagues from '../Leagues';
 
 const ENG_IMG = 'https://tmssl.akamaized.net/images/logo/normal/gb1.png?lm=1521104656';
 const GER_IMG = 'https://tmssl.akamaized.net/images/logo/normal/l1.png?lm=1525905518';

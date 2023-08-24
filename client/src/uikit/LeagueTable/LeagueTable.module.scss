@@ -1,13 +1,17 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  background-color: var(--child-tabs);
+  background-color: var(--table-bg);
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
 }
 
-.head {
+.table thead {
   background-color: var(--titles);
+}
+
+.table tbody {
+  color: var(--main-text);
 }
 
 .table tr {

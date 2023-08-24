@@ -19,6 +19,11 @@ html {
   --childLink: #888686;
   --input: #f6f5f5;
   --todos-text: #151515;
+  --table-bg: #e9e9e9;
+  --gkCell: #4384a8;
+  --dfCell: #6da0bc;
+  --mfCell: #acc9d9;
+  --atCell: #d5e4ec;
 }
 
 html[data-theme='dark'] {
@@ -40,6 +45,11 @@ html[data-theme='dark'] {
   --childLink: #ccc;
   --input: #e9e9e9;
   --todos-text: #e9e9e9;
+  --table-bg: #1d1c1c;
+  --gkCell: #464646;
+  --dfCell: #5d5d5d;
+  --mfCell: #7b7b7b;
+  --atCell: #959595;
 }
 
 body {
