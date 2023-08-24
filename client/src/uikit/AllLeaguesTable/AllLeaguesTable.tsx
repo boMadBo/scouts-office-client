@@ -12,12 +12,16 @@ const AllLeaguesTable = ({ data }: Props) => {
     <table className={styles.table}>
       <tbody>
         {data?.map(item => (
-          <Link to={`${item.country}/${item.id}`} key={item.id} className={styles.link}>
-            <tr>
-              <td>{item.title}</td>
-              <img src={item.image} alt={item.title} />
-            </tr>
-          </Link>
+          <tr key={item.id}>
+            <td>
+              <Link to={`${item.country}/${item.id}`} className={styles.link}>
+                <div>
+                  <span>{item.title}</span>
+                  <img src={item.image} alt={item.title} />
+                </div>
+              </Link>
+            </td>
+          </tr>
         ))}
       </tbody>
     </table>

@@ -1,17 +1,25 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  background-color: var(--child-tabs);
+  background-color: var(--table-bg);
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
 }
 
-.head {
+.table thead {
   background-color: var(--titles);
 }
 
+.table tbody {
+  color: var(--main-text);
+}
+
+.table thead tr {
+  height: 30px;
+}
+
 .table tr {
-  height: 50px;
+  height: 40px;
   border: 0.2px solid var(--main-text);
 }
 
@@ -19,35 +27,50 @@
   font-weight: 300;
   font-size: 14px;
   line-height: 16px;
-  padding: 0;
-  text-align: center;
+  padding-left: 14px;
+  align-items: center;
   border: 0.2px solid var(--main-text);
-  &:first-child {
-    text-align: end;
-    padding-right: 4px;
-  }
   &:nth-child(2) {
     text-align: start;
     padding-left: 8px;
+  }
+  &:nth-child(4) {
+    padding-left: 6px;
+  }
+  &:last-child {
+    text-align: end;
+    padding-right: 2px;
   }
 }
 
 .table td {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 16px;
   padding: 0;
   text-align: center;
   border: 0.2px solid var(--main-text);
-  &:first-child {
-    text-align: end;
-    padding-right: 4px;
+  &:nth-child(3) {
+    line-height: 14px;
+    font-size: 12px;
   }
+  &:last-child {
+    text-align: end;
+    padding-right: 8px;
+    font-size: 13px;
+    line-height: 14px;
+  }
+}
+
+.filter {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
 }
 
 .img {
   width: 24px;
-  height: 24px;
+  height: 36px;
   object-fit: cover;
 }
 
@@ -62,6 +85,20 @@
 .nameWrap {
   display: flex;
   flex-direction: column;
+  align-items: start;
+  gap: 4px;
+}
+
+.position {
+  line-height: 14px;
+  font-size: 12px;
+}
+
+.dateWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
 .imgWrap {
@@ -70,8 +107,42 @@
   justify-content: center;
 }
 
+.flagBr {
+  width: 20px;
+  height: 13px;
+  border: 0.5px solid #000;
+  align-items: center;
+}
+
 .flagImg {
   width: 20px;
-  height: 12px;
-  object-fit: cover;
+  height: 13px;
+}
+
+.sSize {
+  width: 10%;
+}
+
+.mSize {
+  width: 14%;
+}
+
+.lSize {
+  width: 25%;
+}
+
+.gkCell {
+  background-color: var(--gkCell);
+}
+
+.dfCell {
+  background-color: var(--dfCell);
+}
+
+.mfCell {
+  background-color: var(--mfCell);
+}
+
+.atCell {
+  background-color: var(--atCell);
 }

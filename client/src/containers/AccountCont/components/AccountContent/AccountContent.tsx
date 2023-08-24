@@ -9,7 +9,7 @@ const routes = [
   { link: 'observe', text: 'Observe list' },
 ];
 
-const headLink = '/account';
+const HEAD_LINK = '/account';
 
 const AccountContent = () => {
   const { t } = useTranslation();
@@ -19,7 +19,7 @@ const AccountContent = () => {
       <div className={styles.containerGroup}>
         <div className={styles.routesGroup}>
           {routes.map(route => (
-            <ContentLink key={route.link} to={`${headLink}/${route.link}`}>
+            <ContentLink key={route.link} to={`${HEAD_LINK}/${route.link}`}>
               {t(route.text)}
             </ContentLink>
           ))}
