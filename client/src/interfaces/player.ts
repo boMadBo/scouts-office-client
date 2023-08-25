@@ -169,6 +169,7 @@ export interface FinStats {
   concededGoals: number | undefined;
   isGoalkeeper: null | boolean | undefined;
 }
+<<<<<<< HEAD
 
 export interface Seasons {
   key: string | undefined;
@@ -237,3 +238,5 @@ export interface FinTransfers {
   date: string | undefined;
   season: string | undefined;
 }
+=======
+>>>>>>> 59a9c38 (edit players profile)

@@ -3,6 +3,7 @@
 import { Columns, Team } from '@/interfaces';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+<<<<<<< HEAD
 =======
 import { Team } from '@/interfaces';
 =======
@@ -10,6 +11,8 @@ import { Columns, Team } from '@/interfaces';
 >>>>>>> dfd4232 (create squad page)
 import React from 'react';
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> 59a9c38 (edit players profile)
 import { Link } from 'react-router-dom';
 import styles from './LeagueTable.module.scss';
 
@@ -22,6 +25,7 @@ interface Props {
 
 const LeagueTable = ({ data, columns }: Props) => {
   const { t } = useTranslation();
+<<<<<<< HEAD
 
   return (
     <table className={styles.table}>
@@ -45,12 +49,14 @@ const LeagueTable = ({ data, columns }: Props) => {
 }
 
 const LeagueTable = ({ data, columns }: Props) => {
+=======
+>>>>>>> 59a9c38 (edit players profile)
   return (
     <table className={styles.table}>
       <thead>
         <tr>
           {columns.map(col => (
-            <th key={col.title}>{col.title}</th>
+            <th key={col.title}>{t(col.title)}</th>
           ))}
         </tr>
       </thead>

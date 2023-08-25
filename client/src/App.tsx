@@ -27,6 +27,7 @@ import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
+import PlayerPage from './pages/PlayerPage';
 import RegistrationPage from './pages/RegistrationPage';
 import SignInPage from './pages/SignInPage';
 <<<<<<< HEAD
@@ -84,7 +85,11 @@ const App = () => {
         <Route path="leagues/:country" element={<CountryPage />} />
 =======
         <Route path="leagues/:country/:id/:id" element={<SquadPage />} />
+<<<<<<< HEAD
 >>>>>>> 431f668 (dev leagues)
+=======
+        <Route path="leagues/:country/:id/:id/:id" element={<PlayerPage />} />
+>>>>>>> 59a9c38 (edit players profile)
         <Route path="news" element={<NewsPage />} />
         <Route path="videos" element={<VideosPage />} />
 >>>>>>> 8673b67 (add server and start auth)

@@ -26,7 +26,11 @@ const StatsTablePL = ({ data, columns }: Props) => {
             <td>
               <div className={styles.wrap}>
                 <img src={item.compImage} alt="logo" />
+<<<<<<< HEAD
                 <span className={styles.compName}>{item.compName}</span>
+=======
+                <span>{item.compName}</span>
+>>>>>>> 59a9c38 (edit players profile)
               </div>
             </td>
             <td>{item.matches}</td>

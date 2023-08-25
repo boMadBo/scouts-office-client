@@ -9,6 +9,7 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React, { useMemo } from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
 import { CiFilter } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
@@ -50,6 +51,11 @@ import React from 'react';
 =======
 import { CiFilter } from 'react-icons/ci';
 >>>>>>> dfd4232 (create squad page)
+=======
+import { useTranslation } from 'react-i18next';
+import { CiFilter } from 'react-icons/ci';
+import { Link } from 'react-router-dom';
+>>>>>>> 59a9c38 (edit players profile)
 import styles from './SquadTable.module.scss';
 dayjs.extend(customParseFormat);
 interface Props {
@@ -59,6 +65,7 @@ interface Props {
 }
 
 const SquadTable = ({ data, columns, handleSort }: Props) => {
+  const { t } = useTranslation();
   const cellColor = useMemo(
     () => (positionGroup: string) => {
       return cn({
@@ -85,7 +92,7 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
 =======
           {columns.map(col => (
             <th key={col.title}>
-              <span>{col.title}</span>
+              <span>{t(col.title)}</span>
               <CiFilter className={styles.filter} onClick={() => handleSort(col.title)} />
             </th>
           ))}
@@ -99,13 +106,18 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
           <tr key={item.id}>
             <td className={`${styles.sSize} ${cellColor(item.positionGroup)}`}>{item.shirtNumber}</td>
             <td>
+<<<<<<< HEAD
               <Link to={`/player/${item.id}`} className={styles.link}>
+=======
+              <Link to={item.id} className={styles.link}>
+>>>>>>> 59a9c38 (edit players profile)
                 <div className={styles.wrap}>
                   <img src={item.image} alt={item.name} className={styles.img} />
                   <div className={styles.nameWrap}>
                     <span>{item.name}</span>
                     <span className={styles.position}>{item.positionFull}</span>
                   </div>
+<<<<<<< HEAD
                 </div>
               </Link>
             </td>
@@ -136,8 +148,10 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
                 <div className={styles.nameWrap}>
                   <span>{item.name}</span>
                   <span className={styles.position}>{item.positionFull}</span>
+=======
+>>>>>>> 59a9c38 (edit players profile)
                 </div>
-              </div>
+              </Link>
             </td>
             <td className={styles.lSize}>
               <div className={styles.dateWrap}>

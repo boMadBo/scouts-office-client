@@ -270,15 +270,17 @@
 >>>>>>> 431f668 (dev leagues)
 =======
 .flagBr {
+  display: flex;
+  align-items: center;
   width: 20px;
-  height: 13px;
-  border: 0.5px solid #000;
+  height: 14px;
+  border: 1px solid #000;
   align-items: center;
 }
 
 .flagImg {
   width: 20px;
-  height: 13px;
+  height: 14px;
 }
 
 .sSize {
@@ -308,4 +310,12 @@
 .atCell {
   background-color: var(--atCell);
 >>>>>>> dfd4232 (create squad page)
+}
+
+.link {
+  color: var(--main-text);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: none;
 }

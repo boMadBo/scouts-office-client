@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Observe, Rates } from '@/interfaces';
 import { FinPlayer } from '@/interfaces/player';
 import cn from 'classnames';
@@ -5,12 +6,19 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
 import { BsBookmarks } from 'react-icons/bs';
+=======
+import { FinPlayer } from '@/interfaces/player';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { BiMessageSquareDetail } from 'react-icons/bi';
+>>>>>>> 59a9c38 (edit players profile)
 import { GiMedicines } from 'react-icons/gi';
 import { IoShirtOutline } from 'react-icons/io5';
 import styles from './ProfileInfo.module.scss';
 
 interface Props {
   data: FinPlayer;
+<<<<<<< HEAD
   idObserve: Observe | undefined;
   currRates: Rates[];
   toggleObserve: () => void;
@@ -22,6 +30,13 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
   const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: idObserve });
 
+=======
+}
+
+const ProfileInfo = ({ data }: Props) => {
+  const { t } = useTranslation();
+
+>>>>>>> 59a9c38 (edit players profile)
   return (
     <div className={styles.infoWrap}>
       <section className={styles.profileWrap}>
@@ -40,10 +55,13 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
                 </div>
                 <span className={styles.data}>{data.agent}</span>
               </div>
+<<<<<<< HEAD
               <button className={obsStyles} onClick={toggleObserve}>
                 <span className={styles.obsText}>{idObserve ? 'unobserve' : 'observe'}</span>
                 <BsBookmarks className={styles.obsImg} />
               </button>
+=======
+>>>>>>> 59a9c38 (edit players profile)
             </div>
             <div className={styles.mainInfo}>
               <span className={styles.name}>{data.playerName}</span>
@@ -80,6 +98,7 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
               <div className={styles.otherValuesWrap}>
                 {currRates.map(item => (
                   <div key={item.title} className={styles.otherValues}>
@@ -90,6 +109,8 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
                   </div>
                 ))}
               </div>
+=======
+>>>>>>> 59a9c38 (edit players profile)
             </div>
           </div>
           <div className={styles.valueWrap}>
@@ -120,7 +141,11 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
           <div className={styles.clubWrap}>
             <div className={styles.shirtWrap}>
               <IoShirtOutline className={styles.tshirt} />
+<<<<<<< HEAD
               <div className={numStyles}>
+=======
+              <div className={styles.numberWrap}>
+>>>>>>> 59a9c38 (edit players profile)
                 <span className={styles.number}>{data.playerShirtNumber}</span>
               </div>
             </div>

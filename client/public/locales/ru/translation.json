@@ -99,6 +99,7 @@
   "Injury": "Трав.",
   "healthy": "здоров",
   "type": "тип",
+<<<<<<< HEAD
   "International games/goals": "Игры за сборную/голы",
   "Season": "Сезон",
   "From": "Из",
@@ -131,4 +132,7 @@
   "Your country": "Ваша страна",
   "Remember me": "Запомнить меня"
 >>>>>>> 266d9e0 (add profile editor)
+=======
+  "International games/goals": "Игры за сборную/голы"
+>>>>>>> 59a9c38 (edit players profile)
 }

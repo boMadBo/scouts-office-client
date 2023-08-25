@@ -18,7 +18,7 @@ const columns = [
   { title: 'L' },
   { title: 'G' },
   { title: '+/-' },
-  { title: 'p' },
+  { title: 'P' },
 ];
 
 const mocks: Team[] = [

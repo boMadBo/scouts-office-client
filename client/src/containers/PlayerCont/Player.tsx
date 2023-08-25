@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
 import Loading from '@/uikit/Loading';
 import TransfTable from '@/uikit/TransfTable/TransfTable';
@@ -8,6 +9,13 @@ import Wrap from './Wrap';
 import ProfileInfo from './components/ProfileInfo';
 import Stats from './components/Stats';
 import { useToggleObserve } from './useToggleObserve';
+=======
+import StatsTableGK from '@/uikit/StatsTable/StatsTableGK';
+import StatsTablePL from '@/uikit/StatsTable/StatsTablePL';
+import React from 'react';
+import styles from './Player.module.scss';
+import ProfileInfo from './components/ProfileInfo';
+>>>>>>> 59a9c38 (edit players profile)
 
 interface Props {
   id: string | undefined;
@@ -104,6 +112,7 @@ const columnsGK = [
   { title: 'Red cards' },
 ];
 
+<<<<<<< HEAD
 const seasonsM = [
   { key: '2023', title: '23/24' },
   { key: '2022', title: '22/23' },
@@ -247,6 +256,29 @@ const Player = ({ id }: Props) => {
         <Wrap>
           <TransfTable data={trhist} columns={transfColumns} />
         </Wrap>
+=======
+const Player = ({ id }: Props) => {
+  // const player = useGetPlayer(id, key);
+  // const {result: stats, isGK} = useGetStats(id, key);
+  const isGK = testStats[0].isGoalkeeper;
+
+  return (
+    <section className={styles.player}>
+      <div className={styles.container}>
+        <ProfileInfo data={test} />
+        <section className={styles.stats}>
+          <div className={styles.statsContainer}>
+            {!isGK && <StatsTablePL data={testStats} columns={columnsPL} />}
+            {isGK && <StatsTableGK data={testStats} columns={columnsGK} />}
+          </div>
+        </section>
+      </div>
+      <div>
+        <div style={{ backgroundColor: 'blue', width: '430px', height: '300px' }}>
+          <div>Value history</div>
+        </div>
+        <div style={{ backgroundColor: 'orange', width: '430px', height: '300px' }}>Transfer History</div>
+>>>>>>> 59a9c38 (edit players profile)
       </div>
     </section>
   );

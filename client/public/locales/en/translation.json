@@ -98,6 +98,7 @@
   "Injury": "Injury",
   "healthy": "healthy",
   "type": "type",
+<<<<<<< HEAD
   "International games/goals": "International games/goals",
   "Season": "Season",
   "From": "From",
@@ -130,4 +131,7 @@
   "Your country": "Your country",
   "Remember me": "Remember me"
 >>>>>>> 266d9e0 (add profile editor)
+=======
+  "International games/goals": "International games/goals"
+>>>>>>> 59a9c38 (edit players profile)
 }

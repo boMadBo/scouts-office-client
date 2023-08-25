@@ -4,7 +4,10 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
 .infoWrap {
   display: flex;
   justify-content: space-between;
+<<<<<<< HEAD
   margin-bottom: 10px;
+=======
+>>>>>>> 59a9c38 (edit players profile)
 }
 
 .profileWrap {
@@ -67,7 +70,11 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-color: var(--buttons);
   border-radius: 4px;
   height: 18px;
+<<<<<<< HEAD
   width: 50%;
+=======
+  width: 36px;
+>>>>>>> 59a9c38 (edit players profile)
 }
 
 .message {
@@ -76,6 +83,7 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   color: var(--profile);
 }
 
+<<<<<<< HEAD
 .obsBtn {
   display: flex;
   align-items: center;
@@ -110,6 +118,8 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   height: 16px;
 }
 
+=======
+>>>>>>> 59a9c38 (edit players profile)
 .mainInfo {
   display: flex;
   flex-direction: column;
@@ -149,7 +159,11 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
 .secondaryWrap {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   margin: 8px 0px 6px;
+=======
+  margin-top: 8px;
+>>>>>>> 59a9c38 (edit players profile)
   gap: 8px;
   background-color: var(--main);
   padding: 8px;
@@ -188,6 +202,7 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   gap: 8px;
 }
 
+<<<<<<< HEAD
 .otherValuesWrap {
   display: flex;
   flex-direction: column;
@@ -214,6 +229,8 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding-right: 4px;
 }
 
+=======
+>>>>>>> 59a9c38 (edit players profile)
 .valueWrap {
   position: absolute;
   top: 54px;
@@ -308,10 +325,13 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   left: 23px;
 }
 
+<<<<<<< HEAD
 .wrongNumberWrap {
   left: 21px;
 }
 
+=======
+>>>>>>> 59a9c38 (edit players profile)
 .number {
   font-weight: 800;
   font-size: 24px;
