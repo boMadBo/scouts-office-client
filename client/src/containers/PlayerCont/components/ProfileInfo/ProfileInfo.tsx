@@ -1,4 +1,5 @@
 import { FinPlayer } from '@/interfaces/player';
+import cn from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
@@ -12,6 +13,8 @@ interface Props {
 
 const ProfileInfo = ({ data }: Props) => {
   const { t } = useTranslation();
+
+  const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
 
   return (
     <div className={styles.infoWrap}>
@@ -97,7 +100,7 @@ const ProfileInfo = ({ data }: Props) => {
           <div className={styles.clubWrap}>
             <div className={styles.shirtWrap}>
               <IoShirtOutline className={styles.tshirt} />
-              <div className={styles.numberWrap}>
+              <div className={numStyles}>
                 <span className={styles.number}>{data.playerShirtNumber}</span>
               </div>
             </div>

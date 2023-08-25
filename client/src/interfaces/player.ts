@@ -169,3 +169,8 @@ export interface FinStats {
   concededGoals: number | undefined;
   isGoalkeeper: null | boolean | undefined;
 }
+
+export interface Seasons {
+  key: string | undefined;
+  title: string | undefined;
+}

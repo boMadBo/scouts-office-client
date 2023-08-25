@@ -36,8 +36,8 @@ const App = () => {
         <Route path="leagues" element={<AllLeaguesPage />} />
         <Route path="leagues/all" element={<Navigate to="/leagues" replace />} />
         <Route path="leagues/:country/:id" element={<LeaguePage />} />
-        <Route path="leagues/:country/:id/:id" element={<SquadPage />} />
-        <Route path="leagues/:country/:id/:id/:id" element={<PlayerPage />} />
+        <Route path="squad/:id" element={<SquadPage />} />
+        <Route path="player/:id" element={<PlayerPage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="videos" element={<VideosPage />} />
         <Route path="registr" element={<RegistrationPage />} />
