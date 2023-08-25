@@ -26,6 +26,7 @@ interface Props {
 const LeagueTable = ({ data, columns }: Props) => {
   const { t } = useTranslation();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   return (
     <table className={styles.table}>
@@ -51,6 +52,9 @@ const LeagueTable = ({ data, columns }: Props) => {
 const LeagueTable = ({ data, columns }: Props) => {
 =======
 >>>>>>> 59a9c38 (edit players profile)
+=======
+
+>>>>>>> 80f6534 (add season select)
   return (
     <table className={styles.table}>
       <thead>
@@ -61,12 +65,16 @@ const LeagueTable = ({ data, columns }: Props) => {
         </tr>
       </thead>
       <tbody>
-        {data?.map(item => (
+        {data?.map((item, index) => (
           <tr key={item.id}>
-            <td className={styles.sSize}>{item.rank}</td>
+            <td className={styles.sSize}>{index + 1}</td>
             <td>
+<<<<<<< HEAD
               <Link to={item.id} className={styles.link}>
 >>>>>>> 431f668 (dev leagues)
+=======
+              <Link to={`/squad/${item.id}`} className={styles.link}>
+>>>>>>> 80f6534 (add season select)
                 <div className={styles.wrap}>
                   <img src={item.clubImage} alt={item.clubImage} />
                   <span>{item.clubName}</span>

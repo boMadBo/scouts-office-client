@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
 import Loading from '@/uikit/Loading';
 import TransfTable from '@/uikit/TransfTable/TransfTable';
@@ -10,9 +11,13 @@ import ProfileInfo from './components/ProfileInfo';
 import Stats from './components/Stats';
 import { useToggleObserve } from './useToggleObserve';
 =======
+=======
+import Loading from '@/uikit/Loading';
+>>>>>>> 80f6534 (add season select)
 import StatsTableGK from '@/uikit/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/StatsTable/StatsTablePL';
-import React from 'react';
+import React, { useState } from 'react';
+import Select from 'react-select';
 import styles from './Player.module.scss';
 import ProfileInfo from './components/ProfileInfo';
 >>>>>>> 59a9c38 (edit players profile)
@@ -113,12 +118,17 @@ const columnsGK = [
 ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const seasonsM = [
+=======
+const seasons = [
+>>>>>>> 80f6534 (add season select)
   { key: '2023', title: '23/24' },
   { key: '2022', title: '22/23' },
   { key: '2021', title: '21/22' },
 ];
 
+<<<<<<< HEAD
 const valueM = [
   {
     date: '20 Jun 2023',
@@ -257,10 +267,29 @@ const Player = ({ id }: Props) => {
           <TransfTable data={trhist} columns={transfColumns} />
         </Wrap>
 =======
+=======
+>>>>>>> 80f6534 (add season select)
 const Player = ({ id }: Props) => {
+  const [selectedSeason, setSelectedSeason] = useState<string>('');
   // const player = useGetPlayer(id, key);
-  // const {result: stats, isGK} = useGetStats(id, key);
+  // const { result: stats, isGK } = useGetStats(id, key, selectedSeason);
   const isGK = testStats[0].isGoalkeeper;
+  // const seasons = useGetSeasons(id, key);
+
+  const handleSeasonSelect = (selectedOption: { value: string; label: string } | null) => {
+    if (selectedOption) {
+      setSelectedSeason(selectedOption.label);
+    }
+  };
+
+  const options = seasons.map(season => ({
+    value: season.title,
+    label: season.key,
+  })) as readonly { value: string; label: string }[];
+
+  if (testStats.length < 1 || !test) {
+    return <Loading />;
+  }
 
   return (
     <section className={styles.player}>
@@ -268,6 +297,13 @@ const Player = ({ id }: Props) => {
         <ProfileInfo data={test} />
         <section className={styles.stats}>
           <div className={styles.statsContainer}>
+            <Select
+              options={options}
+              value={options.find(option => option.label === selectedSeason)}
+              onChange={handleSeasonSelect}
+              placeholder="Season"
+              className={styles.seasons}
+            />
             {!isGK && <StatsTablePL data={testStats} columns={columnsPL} />}
             {isGK && <StatsTableGK data={testStats} columns={columnsGK} />}
           </div>

@@ -170,11 +170,15 @@ export interface FinStats {
   isGoalkeeper: null | boolean | undefined;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 80f6534 (add season select)
 
 export interface Seasons {
   key: string | undefined;
   title: string | undefined;
 }
+<<<<<<< HEAD
 
 export interface StartValue {
   date: string | undefined;
@@ -240,3 +244,5 @@ export interface FinTransfers {
 }
 =======
 >>>>>>> 59a9c38 (edit players profile)
+=======
+>>>>>>> 80f6534 (add season select)

@@ -107,10 +107,14 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
             <td className={`${styles.sSize} ${cellColor(item.positionGroup)}`}>{item.shirtNumber}</td>
             <td>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Link to={`/player/${item.id}`} className={styles.link}>
 =======
               <Link to={item.id} className={styles.link}>
 >>>>>>> 59a9c38 (edit players profile)
+=======
+              <Link to={`/player/${item.id}`} className={styles.link}>
+>>>>>>> 80f6534 (add season select)
                 <div className={styles.wrap}>
                   <img src={item.image} alt={item.name} className={styles.img} />
                   <div className={styles.nameWrap}>

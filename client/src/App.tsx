@@ -61,6 +61,7 @@ const App = () => {
         <Route path="leagues/all" element={<Navigate to="/leagues" replace />} />
         <Route path="leagues/:country/:id" element={<LeaguePage />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Route path="squad/:id" element={<SquadPage />} />
         <Route path="player/:id" element={<PlayerPage />} />
         <Route path="news" element={<NewsPage />} />
@@ -90,6 +91,10 @@ const App = () => {
 =======
         <Route path="leagues/:country/:id/:id/:id" element={<PlayerPage />} />
 >>>>>>> 59a9c38 (edit players profile)
+=======
+        <Route path="squad/:id" element={<SquadPage />} />
+        <Route path="player/:id" element={<PlayerPage />} />
+>>>>>>> 80f6534 (add season select)
         <Route path="news" element={<NewsPage />} />
         <Route path="videos" element={<VideosPage />} />
 >>>>>>> 8673b67 (add server and start auth)

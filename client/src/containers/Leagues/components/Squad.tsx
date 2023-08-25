@@ -1,6 +1,7 @@
 import Leagues from '@/containers/Leagues';
 import { useSortableData } from '@/containers/Leagues/useSortableData';
 import { sortPositions } from '@/containers/Leagues/utils';
+import Loading from '@/uikit/Loading';
 import SquadTable from '@/uikit/SquadTable';
 import React from 'react';
 
@@ -32,6 +33,19 @@ const testt = [
     flag: 'https://tmssl.akamaized.net/images/flagge/small/189.png?lm=1520611569',
     id: '43530',
     image: 'https://img.a.transfermarkt.technology/portrait/medium/43530-1662663337.jpg?lm=1',
+    name: 'Adam La',
+    positionFull: 'Central Midfield',
+    positionGroup: 'Midfield',
+    positionShort: 'CM',
+    shirtNumber: '14',
+    value: '1,20 m €',
+  },
+  {
+    age: 35,
+    dateOfBirth: '10 May 1988',
+    flag: 'https://tmssl.akamaized.net/images/flagge/small/189.png?lm=1520611569',
+    id: '4330',
+    image: 'https://img.a.transfermarkt.technology/portrait/medium/43530-1662663337.jpg?lm=1',
     name: 'Adam Lallana',
     positionFull: 'Attacking Midfield',
     positionGroup: 'Midfield',
@@ -39,6 +53,7 @@ const testt = [
     shirtNumber: '14',
     value: '1,20 m €',
   },
+
   {
     age: 32,
     dateOfBirth: '26 Nov. 1990',
@@ -52,12 +67,29 @@ const testt = [
     shirtNumber: '18',
     value: '7,00 m €',
   },
+  {
+    age: 32,
+    dateOfBirth: '26 Nov. 1990',
+    flag: 'https://tmssl.akamaized.net/images/flagge/small/189.png?lm=1520611569',
+    id: '6706',
+    image: 'https://img.a.transfermarkt.technology/portrait/medium/67063-1528450601.jpg?lm=1',
+    name: 'John Week',
+    positionFull: 'Centre-Forward',
+    positionGroup: 'Goalkeeper',
+    positionShort: 'CF',
+    shirtNumber: '18',
+    value: '7,00 m €',
+  },
 ];
 
 const Squad = ({ id }: Props) => {
   const test = sortPositions(testt);
   // const squad = useGetSquad(id, key);
   const { sortedData, handleSort } = useSortableData(test);
+
+  if (sortedData.length < 1) {
+    return <Loading />;
+  }
 
   return (
     <Leagues>

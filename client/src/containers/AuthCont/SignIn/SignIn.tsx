@@ -39,6 +39,7 @@ import { useAppDispatch } from '@/hooks';
 import { ISignInValues } from '@/interfaces';
 import { fetchSaveToken } from '@/store/reducers/TokenSlice';
 import { profileAPI } from '@/store/services/ProfileService';
+import Loading from '@/uikit/Loading';
 import SubmitBtn from '@/uikit/SubmitBtn';
 import FormikTF from '@/uikit/TextField/FormikTF';
 import { Form, Formik } from 'formik';
@@ -139,6 +140,9 @@ const SignIn = () => {
 
   if (isLoading) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 80f6534 (add season select)
     return <Loading />;
   }
 

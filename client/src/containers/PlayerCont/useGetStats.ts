@@ -3,6 +3,7 @@ import { StartStats } from '@/interfaces/player';
 import { useEffect, useMemo, useState } from 'react';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export const useGetStats = (id: string | undefined, key: string, seasonID: string = '2023') => {
   const [stats, setStats] = useState<StartStats[]>([]);
 
@@ -15,6 +16,13 @@ export const useGetStats = (id: string | undefined, key: string) => {
   const fetchData = async () => {
     const url = `${instance}/players/get-performance-summary?id=${id}&seasonID=2023&domain=com`;
 >>>>>>> 59a9c38 (edit players profile)
+=======
+export const useGetStats = (id: string | undefined, key: string, seasonID: string = '2023') => {
+  const [stats, setStats] = useState<StartStats[]>([]);
+
+  const fetchData = async () => {
+    const url = `${instance}/players/get-performance-summary?id=${id}&seasonID=${seasonID}&domain=com`;
+>>>>>>> 80f6534 (add season select)
     const options = {
       method: 'GET',
       headers: {
@@ -37,10 +45,14 @@ export const useGetStats = (id: string | undefined, key: string) => {
       setStats(result);
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
   }, [seasonID]);
 =======
   }, []);
 >>>>>>> 59a9c38 (edit players profile)
+=======
+  }, [seasonID]);
+>>>>>>> 80f6534 (add season select)
 
   return useMemo(() => {
     const result = stats.map(item => {

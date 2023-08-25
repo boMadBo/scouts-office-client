@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Loading from '@/uikit/Loading';
 =======
 >>>>>>> 8673b67 (add server and start auth)
+=======
+import Loading from '@/uikit/Loading';
+>>>>>>> 80f6534 (add season select)
 import Cookies from 'js-cookie';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
@@ -19,6 +23,9 @@ const Account = () => {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 80f6534 (add season select)
   if (!token) {
     return <Loading />;
   }

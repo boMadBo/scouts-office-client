@@ -8,6 +8,7 @@ import { BiMessageSquareDetail } from 'react-icons/bi';
 import { BsBookmarks } from 'react-icons/bs';
 =======
 import { FinPlayer } from '@/interfaces/player';
+import cn from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
@@ -36,7 +37,12 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
 const ProfileInfo = ({ data }: Props) => {
   const { t } = useTranslation();
 
+<<<<<<< HEAD
 >>>>>>> 59a9c38 (edit players profile)
+=======
+  const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
+
+>>>>>>> 80f6534 (add season select)
   return (
     <div className={styles.infoWrap}>
       <section className={styles.profileWrap}>
@@ -142,10 +148,14 @@ const ProfileInfo = ({ data }: Props) => {
             <div className={styles.shirtWrap}>
               <IoShirtOutline className={styles.tshirt} />
 <<<<<<< HEAD
+<<<<<<< HEAD
               <div className={numStyles}>
 =======
               <div className={styles.numberWrap}>
 >>>>>>> 59a9c38 (edit players profile)
+=======
+              <div className={numStyles}>
+>>>>>>> 80f6534 (add season select)
                 <span className={styles.number}>{data.playerShirtNumber}</span>
               </div>
             </div>
