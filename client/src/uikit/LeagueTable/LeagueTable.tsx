@@ -1,5 +1,6 @@
 import { Columns, Team } from '@/interfaces';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styles from './LeagueTable.module.scss';
 
@@ -9,12 +10,13 @@ interface Props {
 }
 
 const LeagueTable = ({ data, columns }: Props) => {
+  const { t } = useTranslation();
   return (
     <table className={styles.table}>
       <thead>
         <tr>
           {columns.map(col => (
-            <th key={col.title}>{col.title}</th>
+            <th key={col.title}>{t(col.title)}</th>
           ))}
         </tr>
       </thead>
