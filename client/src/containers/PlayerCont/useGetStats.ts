@@ -2,11 +2,11 @@ import { instance } from '@/api/instanceTM';
 import { StartStats } from '@/interfaces/player';
 import { useEffect, useMemo, useState } from 'react';
 
-export const useGetStats = (id: string | undefined, key: string) => {
+export const useGetStats = (id: string | undefined, key: string, seasonID: string = '2023') => {
   const [stats, setStats] = useState<StartStats[]>([]);
 
   const fetchData = async () => {
-    const url = `${instance}/players/get-performance-summary?id=${id}&seasonID=2023&domain=com`;
+    const url = `${instance}/players/get-performance-summary?id=${id}&seasonID=${seasonID}&domain=com`;
     const options = {
       method: 'GET',
       headers: {
@@ -28,7 +28,7 @@ export const useGetStats = (id: string | undefined, key: string) => {
     fetchData().then(result => {
       setStats(result);
     });
-  }, []);
+  }, [seasonID]);
 
   return useMemo(() => {
     const result = stats.map(item => {
