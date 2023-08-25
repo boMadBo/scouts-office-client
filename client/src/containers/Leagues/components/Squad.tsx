@@ -1,8 +1,8 @@
+import Leagues from '@/containers/Leagues';
+import { useSortableData } from '@/containers/Leagues/useSortableData';
+import { sortPositions } from '@/containers/Leagues/utils';
 import SquadTable from '@/uikit/SquadTable';
 import React from 'react';
-import Leagues from '../Leagues';
-import { useSortableData } from '../useFilterData';
-import { sortPositions } from '../utils';
 
 interface Props {
   id: string | undefined;

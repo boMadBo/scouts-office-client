@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
+import PlayerPage from './pages/PlayerPage';
 import RegistrationPage from './pages/RegistrationPage';
 import SignInPage from './pages/SignInPage';
 import SquadPage from './pages/SquadPage';
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="leagues/all" element={<Navigate to="/leagues" replace />} />
         <Route path="leagues/:country/:id" element={<LeaguePage />} />
         <Route path="leagues/:country/:id/:id" element={<SquadPage />} />
+        <Route path="leagues/:country/:id/:id/:id" element={<PlayerPage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="videos" element={<VideosPage />} />
         <Route path="registr" element={<RegistrationPage />} />

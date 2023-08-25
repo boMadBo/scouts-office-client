@@ -4,7 +4,9 @@ import cn from 'classnames';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CiFilter } from 'react-icons/ci';
+import { Link } from 'react-router-dom';
 import styles from './SquadTable.module.scss';
 dayjs.extend(customParseFormat);
 interface Props {
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const SquadTable = ({ data, columns, handleSort }: Props) => {
+  const { t } = useTranslation();
   const cellColor = useMemo(
     () => (positionGroup: string) => {
       return cn({
@@ -32,7 +35,7 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
         <tr>
           {columns.map(col => (
             <th key={col.title}>
-              <span>{col.title}</span>
+              <span>{t(col.title)}</span>
               <CiFilter className={styles.filter} onClick={() => handleSort(col.title)} />
             </th>
           ))}
@@ -43,13 +46,15 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
           <tr key={item.id}>
             <td className={`${styles.sSize} ${cellColor(item.positionGroup)}`}>{item.shirtNumber}</td>
             <td>
-              <div className={styles.wrap}>
-                <img src={item.image} alt={item.name} className={styles.img} />
-                <div className={styles.nameWrap}>
-                  <span>{item.name}</span>
-                  <span className={styles.position}>{item.positionFull}</span>
+              <Link to={item.id} className={styles.link}>
+                <div className={styles.wrap}>
+                  <img src={item.image} alt={item.name} className={styles.img} />
+                  <div className={styles.nameWrap}>
+                    <span>{item.name}</span>
+                    <span className={styles.position}>{item.positionFull}</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </td>
             <td className={styles.lSize}>
               <div className={styles.dateWrap}>
