@@ -84,8 +84,6 @@ export const useGetSquad = (id: string | undefined, key: string) => {
       };
     });
 
-    console.log(result);
-
     return sortPositions(result);
   }, [squad]);
 };
