@@ -1,7 +1,8 @@
+import Leagues from '@/containers/Leagues';
 import { Team } from '@/interfaces';
 import LeagueTable from '@/uikit/LeagueTable';
+import Loading from '@/uikit/Loading';
 import React from 'react';
-import Leagues from '../Leagues';
 
 interface Props {
   id: string | undefined;
@@ -86,6 +87,10 @@ const mocks: Team[] = [
 
 const League = ({ id }: Props) => {
   // const teams = useGetTeams(id, key);
+
+  if (mocks.length < 1) {
+    return <Loading />;
+  }
 
   return (
     <Leagues>

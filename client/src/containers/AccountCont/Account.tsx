@@ -1,3 +1,4 @@
+import Loading from '@/uikit/Loading';
 import Cookies from 'js-cookie';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
@@ -12,6 +13,10 @@ const Account = () => {
 
   if (!token) {
     return <Navigate to="/signin" state={{ from: location }} />;
+  }
+
+  if (!token) {
+    return <Loading />;
   }
 
   return (
