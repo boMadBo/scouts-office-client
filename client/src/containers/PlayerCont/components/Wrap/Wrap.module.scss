@@ -1,0 +1,14 @@
+$box-shadow-main: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
+$box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+.firstContainer {
+  box-shadow: $box-shadow-main;
+  margin-bottom: 10px;
+}
+
+.secondContainer {
+  padding: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
