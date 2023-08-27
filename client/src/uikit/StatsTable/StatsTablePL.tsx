@@ -26,7 +26,7 @@ const StatsTablePL = ({ data, columns }: Props) => {
             <td>
               <div className={styles.wrap}>
                 <img src={item.compImage} alt="logo" />
-                <span>{item.compName}</span>
+                <span className={styles.compName}>{item.compName}</span>
               </div>
             </td>
             <td>{item.matches}</td>
