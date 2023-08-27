@@ -174,3 +174,28 @@ export interface Seasons {
   key: string | undefined;
   title: string | undefined;
 }
+
+export interface StartValue {
+  date: string | undefined;
+  unformattedDate: string | undefined;
+  age: string | undefined;
+  marketValue: string | undefined;
+  marketValueUnformatted: number | undefined;
+  marketValueCurrency: string | undefined;
+  marketValueNumeral: string | undefined;
+  clubID: string | undefined;
+  clubName: string | undefined;
+  clubShortName: string | undefined;
+  clubImage: string | undefined;
+  seasonID: string | undefined;
+}
+
+export interface FinValue {
+  date: string | undefined;
+  age: string | undefined;
+  marketValue: string | undefined;
+  mValueUnform: number | undefined;
+  mValueCurr: string | undefined;
+  mValueNum: string | undefined;
+  clubName: string | undefined;
+}
