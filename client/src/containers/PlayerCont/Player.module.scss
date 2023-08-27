@@ -1,11 +1,9 @@
-$box-shadow-main: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
-$box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
-
 .player {
   display: flex;
   gap: 10px;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .containerLeft {
   width: 700px;
@@ -33,6 +31,10 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
+=======
+.containerLeft {
+  width: 700px;
+>>>>>>> 9c6ff80 (add market value chart)
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -44,7 +46,15 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
 =======
 
 .seasons {
-  width: 180px;
+  width: 140px;
   margin-bottom: 8px;
+  background-color: var(--profile);
+  color: var(--main-text);
+  border-radius: 4px;
+  border: 0.2px solid var(--main-text);
+}
+
+.containerRight {
+  width: 430px;
 }
 >>>>>>> 80f6534 (add season select)

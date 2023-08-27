@@ -179,6 +179,9 @@ export interface Seasons {
   title: string | undefined;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9c6ff80 (add market value chart)
 
 export interface StartValue {
   date: string | undefined;
@@ -204,6 +207,7 @@ export interface FinValue {
   mValueNum: string | undefined;
   clubName: string | undefined;
 }
+<<<<<<< HEAD
 
 export interface StartTransfers {
   playerID: string | undefined;
@@ -246,3 +250,5 @@ export interface FinTransfers {
 >>>>>>> 59a9c38 (edit players profile)
 =======
 >>>>>>> 80f6534 (add season select)
+=======
+>>>>>>> 9c6ff80 (add market value chart)
