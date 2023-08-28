@@ -76,5 +76,10 @@
   "Injury": "Injury",
   "healthy": "healthy",
   "type": "type",
-  "International games/goals": "International games/goals"
+  "International games/goals": "International games/goals",
+  "Season": "Season",
+  "From": "From",
+  "To": "To",
+  "Current value": "Current value",
+  "Max value": "Max value"
 }

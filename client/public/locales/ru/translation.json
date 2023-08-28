@@ -76,5 +76,10 @@
   "Injury": "Трав.",
   "healthy": "здоров",
   "type": "тип",
-  "International games/goals": "Игры за сборную/голы"
+  "International games/goals": "Игры за сборную/голы",
+  "Season": "Сезон",
+  "From": "Из",
+  "To": "В",
+  "Current value": "Тек. цена",
+  "Max value": "Макс. цена"
 }

@@ -1,6 +1,7 @@
 import Loading from '@/uikit/Loading';
 import StatsTableGK from '@/uikit/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/StatsTable/StatsTablePL';
+import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
 import React, { useState } from 'react';
 import styles from './Player.module.scss';
@@ -147,6 +148,41 @@ const valueM = [
   },
 ];
 
+const trhist = [
+  {
+    playerID: '340329',
+    oldClubID: '9249',
+    oldClubName: 'Arsenal U23',
+    oldClubImage: 'https://tmssl.akamaized.net/images/wappen/medium/9249.png?lm=1489787850',
+    newClubID: '11',
+    newClubName: 'Arsenal',
+    newClubImage: 'https://tmssl.akamaized.net/images/wappen/medium/11.png?lm=1489787850',
+    feeValue: '17,00',
+    feeCurrency: '€',
+    feeNumeral: 'm',
+    loan: '',
+    date: 'Jul 1, 2019',
+    season: '19/20',
+  },
+  {
+    playerID: '340329',
+    oldClubID: '11',
+    oldClubName: 'Arsenal',
+    oldClubImage: 'https://tmssl.akamaized.net/images/wappen/medium/11.png?lm=1489787850',
+    newClubID: '762',
+    newClubName: 'Newcastle',
+    newClubImage: 'https://tmssl.akamaized.net/images/wappen/medium/762.png?lm=1472921161',
+    feeValue: '?',
+    feeCurrency: '',
+    feeNumeral: '',
+    loan: 'ist',
+    date: 'Feb 1, 2021',
+    season: '20/21',
+  },
+];
+
+const transfColumns = [{ title: 'Season' }, { title: 'From' }, { title: 'To' }, { title: 'Cost' }];
+
 const Player = ({ id }: Props) => {
   const [selectedSeason, setSelectedSeason] = useState<string>('');
   // const player = useGetPlayer(id, key);
@@ -154,12 +190,13 @@ const Player = ({ id }: Props) => {
   const isGK = testStats[0].isGoalkeeper;
   // const seasons = useGetSeasons(id, key);
   // const value = useGetValue(id, key);
+  // const transfers = useGetTransfers(id, key);
 
   const handleSelectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedSeason(event.target.value);
   };
 
-  if (testStats.length < 1 || !test || valueM.length < 1) {
+  if (testStats.length < 1 || !test || valueM.length < 1 || trhist.length < 1) {
     return <Loading />;
   }
 
@@ -186,7 +223,7 @@ const Player = ({ id }: Props) => {
           <ValueChart chartData={valueM} />
         </Wrap>
         <Wrap>
-          <span>Transfer History</span>
+          <TransfTable data={trhist} columns={transfColumns} />
         </Wrap>
       </div>
     </section>
