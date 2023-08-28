@@ -100,11 +100,15 @@
   "healthy": "здоров",
   "type": "тип",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e18f7ca (add transfer history)
   "International games/goals": "Игры за сборную/голы",
   "Season": "Сезон",
   "From": "Из",
   "To": "В",
   "Current value": "Тек. цена",
+<<<<<<< HEAD
   "Max value": "Макс. цена",
   "Name": "Имя",
   "Position": "Позиция",
@@ -135,4 +139,7 @@
 =======
   "International games/goals": "Игры за сборную/голы"
 >>>>>>> 59a9c38 (edit players profile)
+=======
+  "Max value": "Макс. цена"
+>>>>>>> e18f7ca (add transfer history)
 }

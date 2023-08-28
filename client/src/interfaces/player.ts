@@ -208,6 +208,9 @@ export interface FinValue {
   clubName: string | undefined;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e18f7ca (add transfer history)
 
 export interface StartTransfers {
   playerID: string | undefined;
@@ -246,9 +249,12 @@ export interface FinTransfers {
   date: string | undefined;
   season: string | undefined;
 }
+<<<<<<< HEAD
 =======
 >>>>>>> 59a9c38 (edit players profile)
 =======
 >>>>>>> 80f6534 (add season select)
 =======
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+>>>>>>> e18f7ca (add transfer history)

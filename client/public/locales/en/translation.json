@@ -99,11 +99,15 @@
   "healthy": "healthy",
   "type": "type",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e18f7ca (add transfer history)
   "International games/goals": "International games/goals",
   "Season": "Season",
   "From": "From",
   "To": "To",
   "Current value": "Current value",
+<<<<<<< HEAD
   "Max value": "Max value",
   "Name": "Name",
   "Position": "Position",
@@ -134,4 +138,7 @@
 =======
   "International games/goals": "International games/goals"
 >>>>>>> 59a9c38 (edit players profile)
+=======
+  "Max value": "Max value"
+>>>>>>> e18f7ca (add transfer history)
 }

@@ -16,6 +16,7 @@ import Loading from '@/uikit/Loading';
 >>>>>>> 80f6534 (add season select)
 import StatsTableGK from '@/uikit/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/StatsTable/StatsTablePL';
+import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
 import React, { useState } from 'react';
 import styles from './Player.module.scss';
@@ -180,6 +181,9 @@ const valueM = [
 ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e18f7ca (add transfer history)
 const trhist = [
   {
     playerID: '340329',
@@ -215,6 +219,7 @@ const trhist = [
 
 const transfColumns = [{ title: 'Season' }, { title: 'From' }, { title: 'To' }, { title: 'Cost' }];
 
+<<<<<<< HEAD
 const Player = ({ id }: Props) => {
   const [selectedSeason, setSelectedSeason] = useState<string>('');
 
@@ -283,6 +288,8 @@ const Player = ({ id }: Props) => {
 >>>>>>> 80f6534 (add season select)
 =======
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+>>>>>>> e18f7ca (add transfer history)
 const Player = ({ id }: Props) => {
   const [selectedSeason, setSelectedSeason] = useState<string>('');
   // const player = useGetPlayer(id, key);
@@ -290,12 +297,13 @@ const Player = ({ id }: Props) => {
   const isGK = testStats[0].isGoalkeeper;
   // const seasons = useGetSeasons(id, key);
   // const value = useGetValue(id, key);
+  // const transfers = useGetTransfers(id, key);
 
   const handleSelectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedSeason(event.target.value);
   };
 
-  if (testStats.length < 1 || !test || valueM.length < 1) {
+  if (testStats.length < 1 || !test || valueM.length < 1 || trhist.length < 1) {
     return <Loading />;
   }
 
@@ -330,7 +338,7 @@ const Player = ({ id }: Props) => {
           <ValueChart chartData={valueM} />
         </Wrap>
         <Wrap>
-          <span>Transfer History</span>
+          <TransfTable data={trhist} columns={transfColumns} />
         </Wrap>
 >>>>>>> 9c6ff80 (add market value chart)
       </div>

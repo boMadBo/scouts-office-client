@@ -13,9 +13,13 @@ import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
 =======
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+import { useTranslation } from 'react-i18next';
+>>>>>>> e18f7ca (add transfer history)
 import styles from './ValueChart.module.scss';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -27,9 +31,13 @@ interface Props {
 
 const ValueChart = ({ chartData }: Props) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const { t } = useTranslation();
 =======
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+  const { t } = useTranslation();
+>>>>>>> e18f7ca (add transfer history)
   const sortedData = useMemo(
     () =>
       chartData
@@ -103,10 +111,14 @@ const ValueChart = ({ chartData }: Props) => {
         {
           data: values,
 <<<<<<< HEAD
+<<<<<<< HEAD
           borderColor: 'rgb(53, 162, 235)',
 =======
           borderColor: lineColor,
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+          borderColor: 'rgb(53, 162, 235)',
+>>>>>>> e18f7ca (add transfer history)
           backgroundColor: lineColor,
           tension: 0.4,
         },
@@ -119,10 +131,14 @@ const ValueChart = ({ chartData }: Props) => {
       <div className={styles.titleWrap}>
         <div className={styles.current}>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <span className={styles.title}>{t('Current value')}</span>
 =======
           <span className={styles.title}>Current value</span>
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+          <span className={styles.title}>{t('Current value')}</span>
+>>>>>>> e18f7ca (add transfer history)
           <div className={styles.valueWrap}>
             <span className={styles.currValue}>{sortedData[sortedData.length - 1].marketValue}</span>
             <span className={styles.currValue}>{sortedData[sortedData.length - 1].mValueNum}</span>
@@ -131,10 +147,14 @@ const ValueChart = ({ chartData }: Props) => {
         </div>
         <div className={styles.current}>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <span className={styles.title}>{t('Max value')}</span>
 =======
           <span className={styles.title}>Max value</span>
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+          <span className={styles.title}>{t('Max value')}</span>
+>>>>>>> e18f7ca (add transfer history)
           <div className={styles.valueWrap}>
             <span className={styles.max}>{maxValue.marketValue}</span>
             <span className={styles.max}>{maxValue.mValueNum}</span>
