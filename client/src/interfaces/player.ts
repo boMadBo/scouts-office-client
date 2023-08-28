@@ -199,3 +199,41 @@ export interface FinValue {
   mValueNum: string | undefined;
   clubName: string | undefined;
 }
+
+export interface StartTransfers {
+  playerID: string | undefined;
+  oldClubID: string | undefined;
+  oldClubName: string | undefined;
+  oldClubImage: string | undefined;
+  newClubID: string | undefined;
+  newClubName: string | undefined;
+  newClubImage: string | undefined;
+  transferFeeValue: string | undefined;
+  transferFeeCurrency: string | undefined;
+  transferFeeNumeral: string | undefined;
+  playerName: string | undefined;
+  playerImage: string | undefined;
+  countryID: string | undefined;
+  countryImage: string | undefined;
+  loan: string | undefined;
+  date: string | undefined;
+  season: string | undefined;
+  newClubCountryName: string | undefined;
+  newClubCountryImage: string | undefined;
+}
+
+export interface FinTransfers {
+  playerID: string | undefined;
+  oldClubID: string | undefined;
+  oldClubName: string | undefined;
+  oldClubImage: string | undefined;
+  newClubID: string | undefined;
+  newClubName: string | undefined;
+  newClubImage: string | undefined;
+  feeValue: string | undefined;
+  feeCurrency: string | undefined;
+  feeNumeral: string | undefined;
+  loan: string | undefined;
+  date: string | undefined;
+  season: string | undefined;
+}
