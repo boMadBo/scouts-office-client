@@ -12,6 +12,7 @@ import {
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
 import styles from './ValueChart.module.scss';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -22,6 +23,7 @@ interface Props {
 }
 
 const ValueChart = ({ chartData }: Props) => {
+  const { t } = useTranslation();
   const sortedData = useMemo(
     () =>
       chartData
@@ -94,7 +96,7 @@ const ValueChart = ({ chartData }: Props) => {
       datasets: [
         {
           data: values,
-          borderColor: lineColor,
+          borderColor: 'rgb(53, 162, 235)',
           backgroundColor: lineColor,
           tension: 0.4,
         },
@@ -106,7 +108,7 @@ const ValueChart = ({ chartData }: Props) => {
     <>
       <div className={styles.titleWrap}>
         <div className={styles.current}>
-          <span className={styles.title}>Current value</span>
+          <span className={styles.title}>{t('Current value')}</span>
           <div className={styles.valueWrap}>
             <span className={styles.currValue}>{sortedData[sortedData.length - 1].marketValue}</span>
             <span className={styles.currValue}>{sortedData[sortedData.length - 1].mValueNum}</span>
@@ -114,7 +116,7 @@ const ValueChart = ({ chartData }: Props) => {
           </div>
         </div>
         <div className={styles.current}>
-          <span className={styles.title}>Max value</span>
+          <span className={styles.title}>{t('Max value')}</span>
           <div className={styles.valueWrap}>
             <span className={styles.max}>{maxValue.marketValue}</span>
             <span className={styles.max}>{maxValue.mValueNum}</span>
