@@ -1,20 +1,32 @@
+import { Rates } from '@/interfaces';
 import { FinPlayer } from '@/interfaces/player';
 import cn from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
+import { BsBookmarks } from 'react-icons/bs';
 import { GiMedicines } from 'react-icons/gi';
 import { IoShirtOutline } from 'react-icons/io5';
 import styles from './ProfileInfo.module.scss';
 
 interface Props {
   data: FinPlayer;
+  currRates: Rates[];
+  toggleObserve: (playerID: string | undefined) => void;
 }
 
-const ProfileInfo = ({ data }: Props) => {
+const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
+  const [isObserve, setIsObserve] = useState<boolean>(false);
   const { t } = useTranslation();
 
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
+
+  const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: isObserve });
+
+  const handleObserve = () => {
+    setIsObserve(!isObserve);
+    toggleObserve(data.playerID);
+  };
 
   return (
     <div className={styles.infoWrap}>
@@ -34,6 +46,10 @@ const ProfileInfo = ({ data }: Props) => {
                 </div>
                 <span className={styles.data}>{data.agent}</span>
               </div>
+              <button className={obsStyles} onClick={handleObserve}>
+                <span className={styles.obsText}>{isObserve ? 'unobserve' : 'observe'}</span>
+                <BsBookmarks className={styles.obsImg} />
+              </button>
             </div>
             <div className={styles.mainInfo}>
               <span className={styles.name}>{data.playerName}</span>
@@ -69,6 +85,16 @@ const ProfileInfo = ({ data }: Props) => {
                     <span className={styles.data}>{data.foot}</span>
                   </div>
                 </div>
+              </div>
+              <div className={styles.otherValuesWrap}>
+                {currRates.map(item => (
+                  <div key={item.title} className={styles.otherValues}>
+                    <span>{item.title}</span>
+                    <div className={styles.otherVal}>
+                      <span className={styles.currOtherVal}>{item.value}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

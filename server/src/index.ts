@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
 import path from 'path';
+import * as ObserveController from './controllers/ObserveController';
 import * as TasksController from './controllers/TasksController';
 import * as UserController from './controllers/UserController';
 import checkAuth from './utils/checkAuth';
@@ -52,6 +53,10 @@ app.get('/tasks', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);
 app.delete('/tasks/:id', TasksController.deleteTasks);
 app.patch('/tasks/:id', TasksController.completeTasks);
+
+app.get('/observe', ObserveController.getObserve);
+app.post('/observe', ObserveController.createObserve);
+app.delete('/observe/:id', ObserveController.deleteObserve);
 
 app
   .listen(3014)

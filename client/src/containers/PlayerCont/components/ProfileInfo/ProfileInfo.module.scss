@@ -67,13 +67,47 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-color: var(--buttons);
   border-radius: 4px;
   height: 18px;
-  width: 36px;
+  width: 50%;
 }
 
 .message {
   width: 16px;
   height: 16px;
   color: var(--profile);
+}
+
+.obsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--main-text);
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 12px;
+  height: 24px;
+  color: var(--main-text);
+  gap: 6px;
+  &:hover {
+    border-color: var(--active-color);
+    color: var(--active-color);
+    opacity: 0.5;
+  }
+}
+
+.activeObsBtn {
+  border-color: var(--active-color);
+  color: var(--active-color);
+}
+
+.obsText {
+  line-height: 16px;
+  font-size: 14px;
+}
+
+.obsImg {
+  width: 16px;
+  height: 16px;
 }
 
 .mainInfo {
@@ -115,7 +149,7 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
 .secondaryWrap {
   display: flex;
   flex-direction: column;
-  margin-top: 8px;
+  margin: 8px 0px 6px;
   gap: 8px;
   background-color: var(--main);
   padding: 8px;
@@ -152,6 +186,32 @@ $box-shadow-sec: 0 2px 4px rgba(0, 0, 0, 0.2);
 .bioWrap {
   display: flex;
   gap: 8px;
+}
+
+.otherValuesWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.otherValues {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.otherVal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--table-bg);
+  border-radius: 3px;
+  width: 90px;
+}
+
+.currOtherVal {
+  padding-right: 4px;
 }
 
 .valueWrap {

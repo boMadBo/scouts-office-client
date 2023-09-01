@@ -75,3 +75,26 @@ export interface Team {
 export interface Columns {
   title: string;
 }
+
+export interface Rates {
+  [key: string]: string;
+}
+
+export interface Observe {
+  _id?: string;
+  id: string | undefined;
+}
+
+export interface ObservePlayers {
+  _id: string | undefined;
+  playerID: string | undefined;
+  playerName: string | undefined;
+  age: string | undefined;
+  position: string | undefined;
+  clubId: string | undefined;
+  club: string | undefined;
+  marketValue: string | undefined;
+  currency: string | undefined;
+  numeral: string | undefined;
+  agent: string | undefined;
+}
