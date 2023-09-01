@@ -1,4 +1,4 @@
-import Leagues from '@/containers/Leagues';
+import Leagues from '@/containers/LeaguesCont';
 import { Team } from '@/interfaces';
 import LeagueTable from '@/uikit/LeagueTable';
 import Loading from '@/uikit/Loading';

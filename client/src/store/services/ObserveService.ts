@@ -1,0 +1,32 @@
+import { baseQueryWithAuth } from '@/api/baseQueryWithAuth';
+import { Observe } from '@/interfaces';
+import { createApi } from '@reduxjs/toolkit/dist/query/react';
+
+export const observeAPI = createApi({
+  reducerPath: 'observeAPI',
+  baseQuery: baseQueryWithAuth,
+  tagTypes: ['Observe'],
+  endpoints: build => ({
+    getObserve: build.query<Observe[], void>({
+      query: () => ({
+        url: '/observe',
+      }),
+      providesTags: (result, error) => [{ type: 'Observe', result, error }],
+    }),
+    createObserve: build.mutation<Observe[], Observe>({
+      query: observe => ({
+        url: `/observe`,
+        method: 'POST',
+        body: observe,
+      }),
+      invalidatesTags: ['Observe'],
+    }),
+    deleteObserve: build.mutation<Observe, { _id: string }>({
+      query: (arg: { _id: string }) => ({
+        url: `/observe/${arg._id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Observe'],
+    }),
+  }),
+});
