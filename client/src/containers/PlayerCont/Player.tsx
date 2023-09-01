@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ee96416 (add usd,btc, in process observe)
 import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
 import Loading from '@/uikit/Loading';
 import TransfTable from '@/uikit/TransfTable/TransfTable';
@@ -18,14 +21,18 @@ import StatsTableGK from '@/uikit/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/StatsTable/StatsTablePL';
 import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './Player.module.scss';
 import ProfileInfo from './components/ProfileInfo';
 <<<<<<< HEAD
 >>>>>>> 59a9c38 (edit players profile)
 =======
 import Wrap from './components/Wrap';
+<<<<<<< HEAD
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+import { useObserve } from './useObserve';
+>>>>>>> ee96416 (add usd,btc, in process observe)
 
 interface Props {
   id: string | undefined;
@@ -292,25 +299,85 @@ const Player = ({ id }: Props) => {
 >>>>>>> e18f7ca (add transfer history)
 const Player = ({ id }: Props) => {
   const [selectedSeason, setSelectedSeason] = useState<string>('');
+
   // const player = useGetPlayer(id, key);
   // const { result: stats, isGK } = useGetStats(id, key, selectedSeason);
   const isGK = testStats[0].isGoalkeeper;
   // const seasons = useGetSeasons(id, key);
   // const value = useGetValue(id, key);
   // const transfers = useGetTransfers(id, key);
+  const rates = useGetUsdBtc();
+  // const { data: observe } = observeAPI.useGetObserveQuery();
+  // const [createObserve] = observeAPI.useCreateObserveMutation();
+  // const [deleteObserve] = observeAPI.useDeleteObserveMutation();
+
+  // const idObserve = observe?.find(item => item.id === id);
+  const { toggleObserve } = useObserve();
+
+  // const addOrRemoveObserve = async (playerID: string | undefined) => {
+  //   if (!playerID) return;
+  //   if (idObserve) {
+  //     await deleteObserve({ _id: idObserve._id });
+  //   } else {
+  //     await createObserve({ id: id });
+  //   }
+  // };
+
+  // const toggleObserve = useCallback(
+  //   (playerID: string | undefined) => {
+  //     if (playerID) {
+  //       addOrRemoveObserve(playerID);
+  //     }
+  //   },
+  //   [addOrRemoveObserve]
+  // );
+
+  // const onRemoveObserve = async (id: string) => {
+  //   try {
+  //     await deleteObserve({ _id: id });
+  //   } catch (error) {
+  //     console.error('Error removing observe:', error);
+  //   }
+  // };
+
+  // const removeObserve = useCallback(
+  //   (id: string | undefined) => {
+  //     if (id !== undefined) {
+  //       onRemoveObserve(id);
+  //     }
+  //   },
+  //   [onRemoveObserve]
+  // );
+
+  const usd = useMemo(() => {
+    return test.marketValueNumeral === 'm'
+      ? ((Number(test.marketValue.replace(/,/, '')) * Number(rates.USD)) / 100).toFixed(2) + ' ' + 'm'
+      : ((Number(test.marketValue.replace(/,/, '')) * Number(rates.USD)) / 100).toFixed(2) + ' ' + 'k';
+  }, [rates]);
+
+  const btc = useMemo(() => {
+    return test.marketValueNumeral === 'm'
+      ? (Number(test.marketValue.replace(/,/, '')) * Number(rates.BTC) * 10000).toFixed(1)
+      : (Number(test.marketValue.replace(/,/, '')) * Number(rates.BTC) * 10).toFixed(1);
+  }, [rates]);
+
+  const currRates = [
+    { title: 'Value in USD:', value: usd },
+    { title: 'Value in BTC:', value: btc },
+  ];
 
   const handleSelectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedSeason(event.target.value);
   };
 
-  if (testStats.length < 1 || !test || valueM.length < 1 || trhist.length < 1) {
+  if (testStats.length < 1 || !test || valueM.length < 1 || trhist.length < 1 || !rates) {
     return <Loading />;
   }
 
   return (
     <section className={styles.player}>
       <div className={styles.containerLeft}>
-        <ProfileInfo data={test} />
+        <ProfileInfo data={test} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
           <>
             <select value={selectedSeason} onChange={handleSelectedChange} className={styles.seasons}>

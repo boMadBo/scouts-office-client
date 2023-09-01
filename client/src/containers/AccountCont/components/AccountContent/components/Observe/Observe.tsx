@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import { useGetObserves } from '@/containers/AccountCont/useGetObserves';
+>>>>>>> ee96416 (add usd,btc, in process observe)
 import { observeAPI } from '@/store/services/ObserveService';
 import Loading from '@/uikit/Loading';
 import React, { useCallback } from 'react';
@@ -16,6 +20,7 @@ const columns = [
   { title: 'Agent' },
   { title: '' },
 ];
+<<<<<<< HEAD
 
 const players = [
   {
@@ -82,6 +87,39 @@ import React from 'react';
 const Observe = () => {
   return <div>Observe page</div>;
 >>>>>>> 8673b67 (add server and start auth)
+=======
+
+const Observe = () => {
+  const observes = useGetObserves(key);
+  const [deleteObserve] = observeAPI.useDeleteObserveMutation();
+
+  const onRemoveObserve = async (id: string) => {
+    try {
+      await deleteObserve({ _id: id });
+    } catch (error) {
+      console.error('Error removing observe:', error);
+    }
+  };
+
+  const removeObserve = useCallback(
+    (id: string | undefined) => {
+      if (id !== undefined) {
+        onRemoveObserve(id);
+      }
+    },
+    [onRemoveObserve]
+  );
+
+  if (!observes) {
+    return <Loading />;
+  }
+
+  return (
+    <section className={styles.observe}>
+      <ObserveTable columns={columns} data={observes} removeObserve={removeObserve} />
+    </section>
+  );
+>>>>>>> ee96416 (add usd,btc, in process observe)
 };
 
 export default Observe;

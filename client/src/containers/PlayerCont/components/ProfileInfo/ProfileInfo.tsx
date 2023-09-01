@@ -1,11 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Observe, Rates } from '@/interfaces';
+=======
+import { Rates } from '@/interfaces';
+>>>>>>> ee96416 (add usd,btc, in process observe)
 import { FinPlayer } from '@/interfaces/player';
 import cn from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
 import { BsBookmarks } from 'react-icons/bs';
+<<<<<<< HEAD
 =======
 import { FinPlayer } from '@/interfaces/player';
 import cn from 'classnames';
@@ -13,12 +18,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
 >>>>>>> 59a9c38 (edit players profile)
+=======
+>>>>>>> ee96416 (add usd,btc, in process observe)
 import { GiMedicines } from 'react-icons/gi';
 import { IoShirtOutline } from 'react-icons/io5';
 import styles from './ProfileInfo.module.scss';
 
 interface Props {
   data: FinPlayer;
+<<<<<<< HEAD
 <<<<<<< HEAD
   idObserve: Observe | undefined;
   currRates: Rates[];
@@ -32,9 +40,14 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: idObserve });
 
 =======
+=======
+  currRates: Rates[];
+  toggleObserve: (playerID: string | undefined) => void;
+>>>>>>> ee96416 (add usd,btc, in process observe)
 }
 
-const ProfileInfo = ({ data }: Props) => {
+const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
+  const [isObserve, setIsObserve] = useState<boolean>(false);
   const { t } = useTranslation();
 
 <<<<<<< HEAD
@@ -42,7 +55,17 @@ const ProfileInfo = ({ data }: Props) => {
 =======
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
 
+<<<<<<< HEAD
 >>>>>>> 80f6534 (add season select)
+=======
+  const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: isObserve });
+
+  const handleObserve = () => {
+    setIsObserve(!isObserve);
+    toggleObserve(data.playerID);
+  };
+
+>>>>>>> ee96416 (add usd,btc, in process observe)
   return (
     <div className={styles.infoWrap}>
       <section className={styles.profileWrap}>
@@ -62,12 +85,19 @@ const ProfileInfo = ({ data }: Props) => {
                 <span className={styles.data}>{data.agent}</span>
               </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <button className={obsStyles} onClick={toggleObserve}>
                 <span className={styles.obsText}>{idObserve ? 'unobserve' : 'observe'}</span>
                 <BsBookmarks className={styles.obsImg} />
               </button>
 =======
 >>>>>>> 59a9c38 (edit players profile)
+=======
+              <button className={obsStyles} onClick={handleObserve}>
+                <span className={styles.obsText}>{isObserve ? 'unobserve' : 'observe'}</span>
+                <BsBookmarks className={styles.obsImg} />
+              </button>
+>>>>>>> ee96416 (add usd,btc, in process observe)
             </div>
             <div className={styles.mainInfo}>
               <span className={styles.name}>{data.playerName}</span>
@@ -105,6 +135,9 @@ const ProfileInfo = ({ data }: Props) => {
                 </div>
               </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ee96416 (add usd,btc, in process observe)
               <div className={styles.otherValuesWrap}>
                 {currRates.map(item => (
                   <div key={item.title} className={styles.otherValues}>
@@ -115,8 +148,11 @@ const ProfileInfo = ({ data }: Props) => {
                   </div>
                 ))}
               </div>
+<<<<<<< HEAD
 =======
 >>>>>>> 59a9c38 (edit players profile)
+=======
+>>>>>>> ee96416 (add usd,btc, in process observe)
             </div>
           </div>
           <div className={styles.valueWrap}>

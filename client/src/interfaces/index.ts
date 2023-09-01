@@ -144,6 +144,7 @@ export interface ObservePlayers {
   numeral: string | undefined;
   agent: string | undefined;
 }
+<<<<<<< HEAD
 
 export interface IConversations {
   _id: string;
@@ -275,3 +276,5 @@ export interface Columns {
 >>>>>>> dfd4232 (create squad page)
 }
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> ee96416 (add usd,btc, in process observe)

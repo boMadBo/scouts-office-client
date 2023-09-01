@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import League from '@/containers/LeaguesCont/components/League';
 =======
 import League from '@/containers/Leagues/League';
@@ -7,6 +8,9 @@ import League from '@/containers/Leagues/League';
 =======
 import League from '@/containers/Leagues/components/League';
 >>>>>>> dfd4232 (create squad page)
+=======
+import League from '@/containers/LeaguesCont/components/League';
+>>>>>>> ee96416 (add usd,btc, in process observe)
 import React from 'react';
 import { useParams } from 'react-router-dom';
 

@@ -31,6 +31,7 @@ import { weatherAPI } from '@/store/services/WeatherService';
 >>>>>>> dfd4232 (create squad page)
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import tokenSlice from './reducers/TokenSlice';
+import { observeAPI } from './services/ObserveService';
 import { profileAPI } from './services/ProfileService';
 import { registerAPI } from './services/RegisterService';
 import { tasksAPI } from './services/TasksService';
@@ -44,13 +45,18 @@ const rootReducer = combineReducers({
 >>>>>>> 8673b67 (add server and start auth)
 =======
   [tasksAPI.reducerPath]: tasksAPI.reducer,
+<<<<<<< HEAD
 >>>>>>> 590496a (todo on server)
+=======
+  [observeAPI.reducerPath]: observeAPI.reducer,
+>>>>>>> ee96416 (add usd,btc, in process observe)
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
+<<<<<<< HEAD
 <<<<<<< HEAD
       getDefaultMiddleware().concat(
 <<<<<<< HEAD
@@ -85,6 +91,14 @@ export const setupStore = () => {
 =======
       getDefaultMiddleware().concat(registerAPI.middleware, profileAPI.middleware, tasksAPI.middleware),
 >>>>>>> dfd4232 (create squad page)
+=======
+      getDefaultMiddleware().concat(
+        registerAPI.middleware,
+        profileAPI.middleware,
+        tasksAPI.middleware,
+        observeAPI.middleware
+      ),
+>>>>>>> ee96416 (add usd,btc, in process observe)
   });
 };
 

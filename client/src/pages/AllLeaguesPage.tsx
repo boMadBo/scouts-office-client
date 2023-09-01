@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:client/src/pages/AllLeaguesPage.tsx
+=======
+>>>>>>> ee96416 (add usd,btc, in process observe)
 import AllLeagues from '@/containers/LeaguesCont/components/AllLeagues';
 import React from 'react';
 
