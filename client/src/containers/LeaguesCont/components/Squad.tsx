@@ -1,6 +1,6 @@
-import Leagues from '@/containers/Leagues';
-import { useSortableData } from '@/containers/Leagues/useSortableData';
-import { sortPositions } from '@/containers/Leagues/utils';
+import Leagues from '@/containers/LeaguesCont';
+import { useSortableData } from '@/containers/LeaguesCont/useSortableData';
+import { sortPositions } from '@/containers/LeaguesCont/utils';
 import Loading from '@/uikit/Loading';
 import SquadTable from '@/uikit/SquadTable';
 import React from 'react';
