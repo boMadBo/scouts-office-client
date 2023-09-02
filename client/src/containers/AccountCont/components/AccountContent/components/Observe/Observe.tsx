@@ -1,4 +1,3 @@
-import { useGetObserves } from '@/containers/AccountCont/useGetObserves';
 import { observeAPI } from '@/store/services/ObserveService';
 import Loading from '@/uikit/Loading';
 import React, { useCallback } from 'react';
@@ -17,8 +16,37 @@ const columns = [
   { title: '' },
 ];
 
+const players = [
+  {
+    _id: '1',
+    playerID: '3333',
+    playerName: 'James Milner',
+    age: '37',
+    position: 'Central Midfield',
+    clubId: '44',
+    club: 'Brighton & Hove Albion',
+    marketValue: '1,50',
+    currency: 'm',
+    numeral: '€',
+    agent: 'CAA Stellar',
+  },
+  {
+    _id: '2',
+    playerID: '4444',
+    playerName: 'Wojciech Szczesny',
+    age: '29',
+    position: 'Goalkeeper',
+    clubId: '54',
+    club: 'Juventus FC',
+    marketValue: '10',
+    currency: 'm',
+    numeral: '€',
+    agent: 'CAA Stellar',
+  },
+];
+
 const Observe = () => {
-  const observes = useGetObserves(key);
+  // const observes = useGetObserves(key);
   const [deleteObserve] = observeAPI.useDeleteObserveMutation();
 
   const onRemoveObserve = async (id: string) => {
@@ -38,13 +66,13 @@ const Observe = () => {
     [onRemoveObserve]
   );
 
-  if (!observes) {
+  if (!players) {
     return <Loading />;
   }
 
   return (
     <section className={styles.observe}>
-      <ObserveTable columns={columns} data={observes} removeObserve={removeObserve} />
+      <ObserveTable columns={columns} data={players} removeObserve={removeObserve} />
     </section>
   );
 };

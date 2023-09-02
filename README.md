@@ -46,3 +46,5 @@ The App uses the https://api64.ipify.org to fetch current IP data.
 The App uses the https://ipinfo.io/ to fetch current location data.
 
 The App uses the https://restcountries.com/ to fetch current flags of contries.
+
+The App uses the https://api.coinbase.com/v2/ to fetch current usd and btc values.
