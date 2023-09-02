@@ -29,10 +29,14 @@ import ProfileInfo from './components/ProfileInfo';
 =======
 import Wrap from './components/Wrap';
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 9c6ff80 (add market value chart)
 =======
 import { useObserve } from './useObserve';
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+import { useToggleObserve } from './useToggleObserve';
+>>>>>>> 7e204e8 (toggle observe)
 
 interface Props {
   id: string | undefined;
@@ -312,42 +316,7 @@ const Player = ({ id }: Props) => {
   // const [deleteObserve] = observeAPI.useDeleteObserveMutation();
 
   // const idObserve = observe?.find(item => item.id === id);
-  const { toggleObserve } = useObserve();
-
-  // const addOrRemoveObserve = async (playerID: string | undefined) => {
-  //   if (!playerID) return;
-  //   if (idObserve) {
-  //     await deleteObserve({ _id: idObserve._id });
-  //   } else {
-  //     await createObserve({ id: id });
-  //   }
-  // };
-
-  // const toggleObserve = useCallback(
-  //   (playerID: string | undefined) => {
-  //     if (playerID) {
-  //       addOrRemoveObserve(playerID);
-  //     }
-  //   },
-  //   [addOrRemoveObserve]
-  // );
-
-  // const onRemoveObserve = async (id: string) => {
-  //   try {
-  //     await deleteObserve({ _id: id });
-  //   } catch (error) {
-  //     console.error('Error removing observe:', error);
-  //   }
-  // };
-
-  // const removeObserve = useCallback(
-  //   (id: string | undefined) => {
-  //     if (id !== undefined) {
-  //       onRemoveObserve(id);
-  //     }
-  //   },
-  //   [onRemoveObserve]
-  // );
+  const { toggleObserve, idObserve } = useToggleObserve(id);
 
   const usd = useMemo(() => {
     return test.marketValueNumeral === 'm'
@@ -370,14 +339,14 @@ const Player = ({ id }: Props) => {
     setSelectedSeason(event.target.value);
   };
 
-  if (testStats.length < 1 || !test || valueM.length < 1 || trhist.length < 1 || !rates) {
+  if (testStats.length < 1 || !test || seasonsM.length < 1 || valueM.length < 1 || trhist.length < 1 || !rates) {
     return <Loading />;
   }
 
   return (
     <section className={styles.player}>
       <div className={styles.containerLeft}>
-        <ProfileInfo data={test} currRates={currRates} toggleObserve={toggleObserve} />
+        <ProfileInfo data={test} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
           <>
             <select value={selectedSeason} onChange={handleSelectedChange} className={styles.seasons}>

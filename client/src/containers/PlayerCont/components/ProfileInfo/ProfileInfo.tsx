@@ -1,12 +1,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Observe, Rates } from '@/interfaces';
 =======
 import { Rates } from '@/interfaces';
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+import { Observe, Rates } from '@/interfaces';
+>>>>>>> 7e204e8 (toggle observe)
 import { FinPlayer } from '@/interfaces/player';
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
 import { BsBookmarks } from 'react-icons/bs';
@@ -28,6 +32,7 @@ interface Props {
   data: FinPlayer;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   idObserve: Observe | undefined;
   currRates: Rates[];
   toggleObserve: () => void;
@@ -44,10 +49,15 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   currRates: Rates[];
   toggleObserve: (playerID: string | undefined) => void;
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+  idObserve: Observe | undefined;
+  currRates: Rates[];
+  toggleObserve: () => void;
+>>>>>>> 7e204e8 (toggle observe)
 }
 
-const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
-  const [isObserve, setIsObserve] = useState<boolean>(false);
+const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
+  // const [isObserve, setIsObserve] = useState<boolean>(false);
   const { t } = useTranslation();
 
 <<<<<<< HEAD
@@ -56,14 +66,18 @@ const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 80f6534 (add season select)
 =======
   const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: isObserve });
+=======
+  const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: idObserve });
+>>>>>>> 7e204e8 (toggle observe)
 
-  const handleObserve = () => {
-    setIsObserve(!isObserve);
-    toggleObserve(data.playerID);
-  };
+  // const handleObserve = () => {
+  //   setIsObserve(!isObserve);
+  //   toggleObserve();
+  // };
 
 >>>>>>> ee96416 (add usd,btc, in process observe)
   return (
@@ -86,6 +100,7 @@ const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
               </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <button className={obsStyles} onClick={toggleObserve}>
                 <span className={styles.obsText}>{idObserve ? 'unobserve' : 'observe'}</span>
                 <BsBookmarks className={styles.obsImg} />
@@ -95,6 +110,10 @@ const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
 =======
               <button className={obsStyles} onClick={handleObserve}>
                 <span className={styles.obsText}>{isObserve ? 'unobserve' : 'observe'}</span>
+=======
+              <button className={obsStyles} onClick={toggleObserve}>
+                <span className={styles.obsText}>{idObserve ? 'unobserve' : 'observe'}</span>
+>>>>>>> 7e204e8 (toggle observe)
                 <BsBookmarks className={styles.obsImg} />
               </button>
 >>>>>>> ee96416 (add usd,btc, in process observe)

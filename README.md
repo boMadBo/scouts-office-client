@@ -82,6 +82,7 @@ The App uses the https://ipinfo.io/ to fetch current location data.
 The App uses the https://restcountries.com/ to fetch current flags of contries.
 
 The App uses the https://api.coinbase.com/v2/ to fetch current usd and btc values.
+<<<<<<< HEAD
 =======
 =======
 =======
@@ -130,3 +131,5 @@ The App uses the https://ipinfo.io/ to fetch current location data.
 
 The App uses the https://restcountries.com/ to fetch current flags of contries.
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> 7e204e8 (toggle observe)
