@@ -1,7 +1,7 @@
-import { Rates } from '@/interfaces';
+import { Observe, Rates } from '@/interfaces';
 import { FinPlayer } from '@/interfaces/player';
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
 import { BsBookmarks } from 'react-icons/bs';
@@ -11,22 +11,23 @@ import styles from './ProfileInfo.module.scss';
 
 interface Props {
   data: FinPlayer;
+  idObserve: Observe | undefined;
   currRates: Rates[];
-  toggleObserve: (playerID: string | undefined) => void;
+  toggleObserve: () => void;
 }
 
-const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
-  const [isObserve, setIsObserve] = useState<boolean>(false);
+const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
+  // const [isObserve, setIsObserve] = useState<boolean>(false);
   const { t } = useTranslation();
 
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
 
-  const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: isObserve });
+  const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: idObserve });
 
-  const handleObserve = () => {
-    setIsObserve(!isObserve);
-    toggleObserve(data.playerID);
-  };
+  // const handleObserve = () => {
+  //   setIsObserve(!isObserve);
+  //   toggleObserve();
+  // };
 
   return (
     <div className={styles.infoWrap}>
@@ -46,8 +47,8 @@ const ProfileInfo = ({ data, currRates, toggleObserve }: Props) => {
                 </div>
                 <span className={styles.data}>{data.agent}</span>
               </div>
-              <button className={obsStyles} onClick={handleObserve}>
-                <span className={styles.obsText}>{isObserve ? 'unobserve' : 'observe'}</span>
+              <button className={obsStyles} onClick={toggleObserve}>
+                <span className={styles.obsText}>{idObserve ? 'unobserve' : 'observe'}</span>
                 <BsBookmarks className={styles.obsImg} />
               </button>
             </div>

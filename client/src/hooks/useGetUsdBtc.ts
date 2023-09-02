@@ -1,3 +1,4 @@
+import { instance } from '@/api/instanceUsdBtc';
 import { Rates } from '@/interfaces';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -5,7 +6,7 @@ export const useGetUsdBtc = () => {
   const [rates, setRates] = useState<Rates | undefined>(undefined);
 
   const fetchData = async () => {
-    const url = `https://api.coinbase.com/v2/exchange-rates?currency=EUR`;
+    const url = `${instance}?currency=EUR`;
     const options = {
       method: 'GET',
     };
