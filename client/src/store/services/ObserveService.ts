@@ -21,8 +21,8 @@ export const observeAPI = createApi({
       }),
       invalidatesTags: ['Observe'],
     }),
-    deleteObserve: build.mutation<Observe, { _id: string }>({
-      query: (arg: { _id: string }) => ({
+    deleteObserve: build.mutation<Observe, { _id: string | undefined }>({
+      query: (arg: { _id: string | undefined }) => ({
         url: `/observe/${arg._id}`,
         method: 'DELETE',
       }),

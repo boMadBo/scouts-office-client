@@ -30,7 +30,7 @@ export const useGetObserves = (key: string) => {
 
       try {
         const results = await Promise.all(fetchPromises);
-        const updatedResults = results.flatMap(result => result.playerProfile);
+        const updatedResults = results.map(result => result.playerProfile);
         const finalResults = updatedResults.map(result => {
           const _id = observe.find(item => item.id === result.playerID)?._id;
           const playerID = result.playerID;
