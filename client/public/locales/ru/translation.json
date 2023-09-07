@@ -13,7 +13,7 @@
   "Your photo": "Ваше фото",
   "edit profile": "редактировать",
   "To-do list": "Список дел",
-  "Observe list": "Список наблюдения",
+  "Observe list": "Список наблюдений",
   "add location": "добавить локацию",
   "London": "Лондон",
   "Madrid": "Мадрид",
@@ -81,5 +81,8 @@
   "From": "Из",
   "To": "В",
   "Current value": "Тек. цена",
-  "Max value": "Макс. цена"
+  "Max value": "Макс. цена",
+  "Name": "Имя",
+  "Position": "Позиция",
+  "IN THE SPOTLIGHT": "В ЦЕНТРЕ ВНИМАНИЯ"
 }

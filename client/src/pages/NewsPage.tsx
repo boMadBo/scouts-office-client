@@ -1,7 +1,12 @@
+import News from '@/containers/NewsCont';
 import React from 'react';
 
 const NewsPage = () => {
-  return <div>News page in development...</div>;
+  return (
+    <>
+      <News />
+    </>
+  );
 };
 
 export default NewsPage;

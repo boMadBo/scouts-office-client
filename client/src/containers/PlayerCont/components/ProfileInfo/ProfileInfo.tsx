@@ -17,17 +17,10 @@ interface Props {
 }
 
 const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
-  // const [isObserve, setIsObserve] = useState<boolean>(false);
   const { t } = useTranslation();
 
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
-
   const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: idObserve });
-
-  // const handleObserve = () => {
-  //   setIsObserve(!isObserve);
-  //   toggleObserve();
-  // };
 
   return (
     <div className={styles.infoWrap}>
