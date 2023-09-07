@@ -3,9 +3,9 @@ import React from 'react';
 
 const RegistrationPage = () => {
   return (
-    <div style={{ color: 'var(--main-text)' }}>
+    <>
       <Registration />
-    </div>
+    </>
   );
 };
 

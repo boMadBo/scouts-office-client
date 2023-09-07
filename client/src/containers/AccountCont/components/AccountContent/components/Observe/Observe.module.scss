@@ -30,6 +30,10 @@
   padding: 0;
   text-align: center;
   border: 0.2px solid var(--main-text);
+  &:first-child {
+    text-align: start;
+    padding-left: 8px;
+  }
   &:nth-child(4) {
     text-align: start;
     padding-left: 8px;
@@ -44,6 +48,10 @@
   width: auto;
   text-align: center;
   border: 0.2px solid var(--main-text);
+  &:first-child {
+    text-align: start;
+    padding-left: 8px;
+  }
   &:nth-child(4) {
     text-align: start;
     padding-left: 8px;

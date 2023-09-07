@@ -1,5 +1,6 @@
 import { Columns, ObservePlayers } from '@/interfaces';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MdDeleteOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import styles from './Observe.module.scss';
@@ -11,12 +12,13 @@ interface Props {
 }
 
 const ObserveTable = ({ columns, data, removeObserve }: Props) => {
+  const { t } = useTranslation();
   return (
     <table className={styles.table}>
       <thead>
         <tr>
           {columns.map(item => (
-            <th key={item.title}>{item.title}</th>
+            <th key={item.title}>{t(item.title)}</th>
           ))}
         </tr>
       </thead>
