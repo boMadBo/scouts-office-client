@@ -33,7 +33,7 @@ export const useGetNews = (key: string) => {
   return useMemo(() => {
     const result = news.map(item => {
       const id = item.id;
-      const newsHead = item.newsHeadline?.split(/[?-:]/)[0].trim();
+      const newsHead = item.newsHeadline?.split(/[?\-:]/)[0].trim();
       const newsHeadline = item.newsHeadline;
       const timestamp = item.timestamp;
       const newsPlayerImage = item.newsFirstImage;

@@ -4,6 +4,7 @@ import Layout from './containers/Layout';
 import RequireAuth from './hoc/RequireAuth';
 import AccountPage from './pages/AccountPage';
 import AllLeaguesPage from './pages/AllLeaguesPage';
+import CurrentNewsPage from './pages/CurrentNewsPage';
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="squad/:id" element={<SquadPage />} />
         <Route path="player/:id" element={<PlayerPage />} />
         <Route path="news" element={<NewsPage />} />
+        <Route path="news/:id" element={<CurrentNewsPage />} />
         <Route path="videos" element={<VideosPage />} />
         <Route path="registr" element={<RegistrationPage />} />
         <Route path="signin" element={<SignInPage />} />
