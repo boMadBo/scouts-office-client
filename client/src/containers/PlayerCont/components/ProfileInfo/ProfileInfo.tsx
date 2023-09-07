@@ -44,6 +44,7 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
   const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: idObserve });
 
+<<<<<<< HEAD
 =======
 =======
   currRates: Rates[];
@@ -80,6 +81,8 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   // };
 
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> e49de05 (add all news)
   return (
     <div className={styles.infoWrap}>
       <section className={styles.profileWrap}>

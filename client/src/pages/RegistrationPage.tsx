@@ -12,6 +12,7 @@ import React from 'react';
 const RegistrationPage = () => {
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <>
       <Registration />
     </>
@@ -20,6 +21,11 @@ const RegistrationPage = () => {
       <Registration />
     </div>
 >>>>>>> 8673b67 (add server and start auth)
+=======
+    <>
+      <Registration />
+    </>
+>>>>>>> e49de05 (add all news)
   );
 };
 

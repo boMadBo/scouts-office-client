@@ -5,6 +5,7 @@
 >>>>>>> ee96416 (add usd,btc, in process observe)
 import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
 import Loading from '@/uikit/Loading';
+<<<<<<< HEAD
 import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -19,14 +20,20 @@ import Loading from '@/uikit/Loading';
 >>>>>>> 80f6534 (add season select)
 import StatsTableGK from '@/uikit/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/StatsTable/StatsTablePL';
+=======
+>>>>>>> e49de05 (add all news)
 import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styles from './Player.module.scss';
 import ProfileInfo from './components/ProfileInfo';
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 59a9c38 (edit players profile)
 =======
+=======
+import Stats from './components/Stats';
+>>>>>>> e49de05 (add all news)
 import Wrap from './components/Wrap';
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -311,11 +318,6 @@ const Player = ({ id }: Props) => {
   // const value = useGetValue(id, key);
   // const transfers = useGetTransfers(id, key);
   const rates = useGetUsdBtc();
-  // const { data: observe } = observeAPI.useGetObserveQuery();
-  // const [createObserve] = observeAPI.useCreateObserveMutation();
-  // const [deleteObserve] = observeAPI.useDeleteObserveMutation();
-
-  // const idObserve = observe?.find(item => item.id === id);
   const { toggleObserve, idObserve } = useToggleObserve(id);
 
   const usd = useMemo(() => {
@@ -335,9 +337,12 @@ const Player = ({ id }: Props) => {
     { title: 'Value in BTC:', value: btc },
   ];
 
-  const handleSelectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedSeason(event.target.value);
-  };
+  const handleSelectedChange = useCallback(
+    (event: React.ChangeEvent<HTMLSelectElement>) => {
+      setSelectedSeason(event.target.value);
+    },
+    [setSelectedSeason]
+  );
 
   if (testStats.length < 1 || !test || seasonsM.length < 1 || valueM.length < 1 || trhist.length < 1 || !rates) {
     return <Loading />;
@@ -348,17 +353,15 @@ const Player = ({ id }: Props) => {
       <div className={styles.containerLeft}>
         <ProfileInfo data={test} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
-          <>
-            <select value={selectedSeason} onChange={handleSelectedChange} className={styles.seasons}>
-              {seasonsM.map(item => (
-                <option key={item.key} value={item.key}>
-                  {item.title}
-                </option>
-              ))}
-            </select>
-            {!isGK && <StatsTablePL data={testStats} columns={columnsPL} />}
-            {isGK && <StatsTableGK data={testStats} columns={columnsGK} />}
-          </>
+          <Stats
+            isGK={isGK}
+            selectedSeason={selectedSeason}
+            columnsPL={columnsPL}
+            columnsGK={columnsGK}
+            season={seasonsM}
+            stats={testStats}
+            handleSelectedChange={handleSelectedChange}
+          />
         </Wrap>
       </div>
 <<<<<<< HEAD

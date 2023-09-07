@@ -22,9 +22,9 @@ import React from 'react';
 
 const SignInPage = () => {
   return (
-    <div style={{ color: 'var(--main-text)' }}>
+    <>
       <SignIn />
-    </div>
+    </>
   );
 >>>>>>> bc9de08 (add styles for auth)
 };

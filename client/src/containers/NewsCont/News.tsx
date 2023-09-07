@@ -3,7 +3,10 @@ import cn from 'classnames';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> e49de05 (add all news)
 import styles from './News.module.scss';
 import Carousel from './components/Carousel/Carousel';
 
@@ -25,7 +28,11 @@ const mockHeadNews = [
     newsTeaser: 'Deal collapses',
   },
   {
+<<<<<<< HEAD
     id: '372889',
+=======
+    id: '427206',
+>>>>>>> e49de05 (add all news)
     newsHead: 'Free agents',
     newsHeadline: 'Free agents: De Gea, Lingard, Hazard & Co.: Players still available after deadline day',
     timestamp: 1693586441,
@@ -198,9 +205,13 @@ const News = () => {
                   </div>
                   <div className={styles.headTitleCont}>
                     <img src={itemNews.newsPlayerImage} alt="club" className={styles.headClubImg} />
+<<<<<<< HEAD
                     <Link to={`/news/${itemNews.id}`} className={styles.link}>
                       <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
                     </Link>
+=======
+                    <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
+>>>>>>> e49de05 (add all news)
                   </div>
                 </div>
               ))}
@@ -231,9 +242,13 @@ const News = () => {
                       <img src={item.newsClubImage} alt="img" className={styles.clubLogo} />
                     </div>
                     <div className={styles.headlineNewsWrap}>
+<<<<<<< HEAD
                       <Link to={`/news/${item.id}`} className={styles.link}>
                         <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
                       </Link>
+=======
+                      <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
+>>>>>>> e49de05 (add all news)
                     </div>
                   </div>
                 </div>

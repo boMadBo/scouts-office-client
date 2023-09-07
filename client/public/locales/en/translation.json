@@ -108,6 +108,7 @@
   "To": "To",
   "Current value": "Current value",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Max value": "Max value",
   "Name": "Name",
   "Position": "Position",
@@ -141,4 +142,10 @@
 =======
   "Max value": "Max value"
 >>>>>>> e18f7ca (add transfer history)
+=======
+  "Max value": "Max value",
+  "Name": "Name",
+  "Position": "Position",
+  "IN THE SPOTLIGHT": "IN THE SPOTLIGHT"
+>>>>>>> e49de05 (add all news)
 }

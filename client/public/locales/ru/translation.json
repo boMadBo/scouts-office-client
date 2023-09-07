@@ -21,6 +21,7 @@
   "edit profile": "редактировать",
   "To-do list": "Список дел",
   "Observe list": "Список наблюдений",
+<<<<<<< HEAD
 =======
   "Age": "Возраст",
   "Country": "Страна",
@@ -33,6 +34,8 @@
   "To-do list": "Список дел",
   "Observe list": "Список наблюдения",
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> e49de05 (add all news)
   "add location": "добавить локацию",
   "London": "Лондон",
   "Madrid": "Мадрид",
@@ -109,6 +112,7 @@
   "To": "В",
   "Current value": "Тек. цена",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Max value": "Макс. цена",
   "Name": "Имя",
   "Position": "Позиция",
@@ -142,4 +146,10 @@
 =======
   "Max value": "Макс. цена"
 >>>>>>> e18f7ca (add transfer history)
+=======
+  "Max value": "Макс. цена",
+  "Name": "Имя",
+  "Position": "Позиция",
+  "IN THE SPOTLIGHT": "В ЦЕНТРЕ ВНИМАНИЯ"
+>>>>>>> e49de05 (add all news)
 }

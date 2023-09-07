@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e49de05 (add all news)
 import News from '@/containers/NewsCont';
 import React from 'react';
 
@@ -8,6 +11,7 @@ const NewsPage = () => {
       <News />
     </>
   );
+<<<<<<< HEAD
 =======
 import React from 'react';
 
@@ -18,6 +22,8 @@ const NewsPage = () => {
 =======
   return <div>News page in development...</div>;
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> e49de05 (add all news)
 };
 
 export default NewsPage;
