@@ -1,0 +1,40 @@
+.mainContainer {
+  width: 680px;
+  height: 420px;
+}
+
+.window {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.allPagesContainer {
+  height: 100%;
+  display: flex;
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.arrowLeft {
+  position: absolute;
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  top: 160px;
+  left: 10px;
+  z-index: 1;
+}
+
+.arrowRight {
+  position: absolute;
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  top: 160px;
+  right: 10px;
+  z-index: 1;
+}

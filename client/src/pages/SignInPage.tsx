@@ -3,9 +3,9 @@ import React from 'react';
 
 const SignInPage = () => {
   return (
-    <div style={{ color: 'var(--main-text)' }}>
+    <>
       <SignIn />
-    </div>
+    </>
   );
 };
 
