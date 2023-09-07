@@ -35,6 +35,9 @@ export interface FinNews {
   newsTeaser: string | undefined;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 537a366 (add curr news)
 
 interface Text {
   [key: string]: string;
@@ -109,5 +112,8 @@ export interface FinCurrNews {
   heroImage: string | undefined;
   text: string;
 }
+<<<<<<< HEAD
 =======
 >>>>>>> e49de05 (add all news)
+=======
+>>>>>>> 537a366 (add curr news)

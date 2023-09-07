@@ -4,9 +4,13 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 =======
 >>>>>>> e49de05 (add all news)
+=======
+import { Link } from 'react-router-dom';
+>>>>>>> 537a366 (add curr news)
 import styles from './News.module.scss';
 import Carousel from './components/Carousel/Carousel';
 
@@ -29,10 +33,14 @@ const mockHeadNews = [
   },
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     id: '372889',
 =======
     id: '427206',
 >>>>>>> e49de05 (add all news)
+=======
+    id: '372889',
+>>>>>>> 537a366 (add curr news)
     newsHead: 'Free agents',
     newsHeadline: 'Free agents: De Gea, Lingard, Hazard & Co.: Players still available after deadline day',
     timestamp: 1693586441,
@@ -206,12 +214,18 @@ const News = () => {
                   <div className={styles.headTitleCont}>
                     <img src={itemNews.newsPlayerImage} alt="club" className={styles.headClubImg} />
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <Link to={`/news/${itemNews.id}`} className={styles.link}>
                       <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
                     </Link>
 =======
                     <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
 >>>>>>> e49de05 (add all news)
+=======
+                    <Link to={`/news/${itemNews.id}`} className={styles.link}>
+                      <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
+                    </Link>
+>>>>>>> 537a366 (add curr news)
                   </div>
                 </div>
               ))}
@@ -243,12 +257,18 @@ const News = () => {
                     </div>
                     <div className={styles.headlineNewsWrap}>
 <<<<<<< HEAD
+<<<<<<< HEAD
                       <Link to={`/news/${item.id}`} className={styles.link}>
                         <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
                       </Link>
 =======
                       <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
 >>>>>>> e49de05 (add all news)
+=======
+                      <Link to={`/news/${item.id}`} className={styles.link}>
+                        <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
+                      </Link>
+>>>>>>> 537a366 (add curr news)
                     </div>
                   </div>
                 </div>

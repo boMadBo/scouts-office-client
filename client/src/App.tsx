@@ -6,6 +6,7 @@ import AccountPage from './pages/AccountPage';
 import AllLeaguesPage from './pages/AllLeaguesPage';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import CurrentNewsPage from './pages/CurrentNewsPage';
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
@@ -22,6 +23,9 @@ import SquadPage from './pages/SquadPage';
 import CountryPage from './pages/CountryPage';
 =======
 >>>>>>> 431f668 (dev leagues)
+=======
+import CurrentNewsPage from './pages/CurrentNewsPage';
+>>>>>>> 537a366 (add curr news)
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';

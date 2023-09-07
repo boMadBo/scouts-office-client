@@ -34,10 +34,14 @@ export const useGetNews = (key: string) => {
     const result = news.map(item => {
       const id = item.id;
 <<<<<<< HEAD
+<<<<<<< HEAD
       const newsHead = item.newsHeadline?.split(/[?\-:]/)[0].trim();
 =======
       const newsHead = item.newsHeadline?.split(/[?-:]/)[0].trim();
 >>>>>>> e49de05 (add all news)
+=======
+      const newsHead = item.newsHeadline?.split(/[?\-:]/)[0].trim();
+>>>>>>> 537a366 (add curr news)
       const newsHeadline = item.newsHeadline;
       const timestamp = item.timestamp;
       const newsPlayerImage = item.newsFirstImage;
