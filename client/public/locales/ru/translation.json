@@ -150,6 +150,12 @@
   "Max value": "Макс. цена",
   "Name": "Имя",
   "Position": "Позиция",
+<<<<<<< HEAD
   "IN THE SPOTLIGHT": "В ЦЕНТРЕ ВНИМАНИЯ"
 >>>>>>> e49de05 (add all news)
+=======
+  "IN THE SPOTLIGHT": "В ЦЕНТРЕ ВНИМАНИЯ",
+  "Clubs": "Клубы",
+  "Nothing found": "Ничего не найдено"
+>>>>>>> baf8dd4 (add search)
 }

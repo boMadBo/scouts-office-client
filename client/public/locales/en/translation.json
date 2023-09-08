@@ -146,6 +146,12 @@
   "Max value": "Max value",
   "Name": "Name",
   "Position": "Position",
+<<<<<<< HEAD
   "IN THE SPOTLIGHT": "IN THE SPOTLIGHT"
 >>>>>>> e49de05 (add all news)
+=======
+  "IN THE SPOTLIGHT": "IN THE SPOTLIGHT",
+  "Clubs": "Clubs",
+  "Nothing found": "Nothing found"
+>>>>>>> baf8dd4 (add search)
 }

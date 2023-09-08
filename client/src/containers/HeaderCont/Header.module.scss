@@ -55,6 +55,9 @@
   height: 48px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> baf8dd4 (add search)
 
 .input_wrap {
   display: flex;
@@ -63,7 +66,11 @@
 .form {
   position: relative;
   width: 180px;
+<<<<<<< HEAD
   height: 32px;
+=======
+  height: 28px;
+>>>>>>> baf8dd4 (add search)
   border: none;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -78,6 +85,7 @@
   border-bottom-left-radius: 4px;
   padding: 2px 6px;
   background: var(--input);
+<<<<<<< HEAD
   &::placeholder {
     color: #848383;
     font-weight: 300;
@@ -94,6 +102,27 @@
     border: none;
     outline: none;
   }
+=======
+}
+
+.input::placeholder {
+  color: #848383;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.input:valid {
+  color: #000;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.input:focus {
+  border: none;
+  outline: none;
+>>>>>>> baf8dd4 (add search)
 }
 
 .input_btn {
@@ -114,5 +143,8 @@
   width: 20px;
   height: 20px;
 }
+<<<<<<< HEAD
 =======
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> baf8dd4 (add search)

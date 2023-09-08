@@ -30,6 +30,7 @@ import { weatherAPI } from '@/store/services/WeatherService';
 =======
 >>>>>>> dfd4232 (create squad page)
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import searchSlice from './reducers/SearchSlice';
 import tokenSlice from './reducers/TokenSlice';
 import { observeAPI } from './services/ObserveService';
 import { profileAPI } from './services/ProfileService';
@@ -39,6 +40,7 @@ import { tasksAPI } from './services/TasksService';
 const rootReducer = combineReducers({
   theme: themeSlice,
   token: tokenSlice,
+  search: searchSlice,
   [registerAPI.reducerPath]: registerAPI.reducer,
   [profileAPI.reducerPath]: profileAPI.reducer,
 <<<<<<< HEAD

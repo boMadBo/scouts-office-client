@@ -7,6 +7,7 @@ import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
 >>>>>>> 8673b67 (add server and start auth)
 =======
 import { useAppDispatch, useAppSelector } from '@/hooks';
+import { searchFetching } from '@/store/reducers/SearchSlice';
 import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
 >>>>>>> bc9de08 (add styles for auth)
 import ChildLink from '@/uikit/ChildLink';
@@ -15,10 +16,14 @@ import ParentLink from '@/uikit/ParentLink';
 import Cookies from 'js-cookie';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> baf8dd4 (add search)
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 =======
 import React, { useState } from 'react';
 =======
@@ -26,6 +31,8 @@ import React, { useCallback, useState } from 'react';
 >>>>>>> bc9de08 (add styles for auth)
 import { useTranslation } from 'react-i18next';
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> baf8dd4 (add search)
 import styles from './Header.module.scss';
 import SettingGroup from './components/SettingGroup';
 
@@ -95,6 +102,7 @@ const Header = () => {
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState<string | null>(null);
+  // const [resQuery, setResQuery] = useState('');
 
   const dispatch = useAppDispatch();
   const isToken = useAppSelector(state => state.token.isToken);
@@ -106,7 +114,21 @@ const Header = () => {
     dispatch(fetchDeleteToken());
   }, [dispatch]);
 
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  const [query, setQuery] = useState('');
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  };
+
+  const handleSearch = useCallback(() => {
+    dispatch(searchFetching(query));
+    setQuery('');
+  }, [query, dispatch]);
+
+>>>>>>> baf8dd4 (add search)
   return (
     <header className={styles.header}>
       <section className={styles.wrapper}>
@@ -136,6 +158,9 @@ const Header = () => {
         </div>
         <div className={styles.container}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> baf8dd4 (add search)
           <div className={styles.input_wrap}>
             <form className={styles.form}>
               <input
