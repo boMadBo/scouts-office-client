@@ -12,6 +12,7 @@ import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
 import PlayerPage from './pages/PlayerPage';
 import RegistrationPage from './pages/RegistrationPage';
+import SearchPage from './pages/SearchPage';
 import SignInPage from './pages/SignInPage';
 import SquadPage from './pages/SquadPage';
 import ToDoPage from './pages/ToDoPage';
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="news" element={<NewsPage />} />
         <Route path="news/:id" element={<CurrentNewsPage />} />
         <Route path="videos" element={<VideosPage />} />
+        <Route path="search" element={<SearchPage />} />
         <Route path="registr" element={<RegistrationPage />} />
         <Route path="signin" element={<SignInPage />} />
       </Route>
