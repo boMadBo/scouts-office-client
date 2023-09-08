@@ -1,11 +1,14 @@
 import { useAppDispatch, useAppSelector } from '@/hooks';
+import { searchFetching } from '@/store/reducers/SearchSlice';
 import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
 import ChildLink from '@/uikit/ChildLink';
 import LongModal from '@/uikit/LongModal/LongModal';
 import ParentLink from '@/uikit/ParentLink';
 import Cookies from 'js-cookie';
-import React, { useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import SettingGroup from './components/SettingGroup';
 
@@ -30,6 +33,7 @@ const routes = [
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState<string | null>(null);
+  // const [resQuery, setResQuery] = useState('');
 
   const dispatch = useAppDispatch();
   const isToken = useAppSelector(state => state.token.isToken);
@@ -40,6 +44,17 @@ const Header = () => {
     Cookies.remove('rememberMe');
     dispatch(fetchDeleteToken());
   }, [dispatch]);
+
+  const [query, setQuery] = useState('');
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  };
+
+  const handleSearch = useCallback(() => {
+    dispatch(searchFetching(query));
+    setQuery('');
+  }, [query, dispatch]);
 
   return (
     <header className={styles.header}>
@@ -69,6 +84,22 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.container}>
+          <div className={styles.input_wrap}>
+            <form className={styles.form}>
+              <input
+                type="text"
+                className={styles.input}
+                placeholder="Who are we looking for?"
+                value={query}
+                onChange={handleInputChange}
+              />
+            </form>
+            <Link to="search">
+              <button className={styles.input_btn} onClick={handleSearch}>
+                <AiOutlineSearch className={styles.btnImg} />
+              </button>
+            </Link>
+          </div>
           <SettingGroup />
           {!isToken && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
           {isToken && (
