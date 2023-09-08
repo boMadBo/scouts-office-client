@@ -1,5 +1,6 @@
 import themeSlice from '@/store/reducers/ThemeSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import searchSlice from './reducers/SearchSlice';
 import tokenSlice from './reducers/TokenSlice';
 import { observeAPI } from './services/ObserveService';
 import { profileAPI } from './services/ProfileService';
@@ -9,6 +10,7 @@ import { tasksAPI } from './services/TasksService';
 const rootReducer = combineReducers({
   theme: themeSlice,
   token: tokenSlice,
+  search: searchSlice,
   [registerAPI.reducerPath]: registerAPI.reducer,
   [profileAPI.reducerPath]: profileAPI.reducer,
   [tasksAPI.reducerPath]: tasksAPI.reducer,
