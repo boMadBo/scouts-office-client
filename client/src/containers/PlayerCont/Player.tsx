@@ -4,9 +4,9 @@ import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
 import React, { useCallback, useMemo, useState } from 'react';
 import styles from './Player.module.scss';
+import Wrap from './Wrap';
 import ProfileInfo from './components/ProfileInfo';
 import Stats from './components/Stats';
-import Wrap from './components/Wrap';
 import { useToggleObserve } from './useToggleObserve';
 
 interface Props {
