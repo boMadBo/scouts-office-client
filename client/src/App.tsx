@@ -8,6 +8,7 @@ import CurrentNewsPage from './pages/CurrentNewsPage';
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
+import MessagesPage from './pages/MessagesPage';
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
 import PlayerPage from './pages/PlayerPage';
@@ -43,6 +44,14 @@ const App = () => {
         <Route path="news" element={<NewsPage />} />
         <Route path="news/:id" element={<CurrentNewsPage />} />
         <Route path="videos" element={<VideosPage />} />
+        <Route
+          path="messages"
+          element={
+            <RequireAuth>
+              <MessagesPage />
+            </RequireAuth>
+          }
+        />
         <Route path="search" element={<SearchPage />} />
         <Route path="registr" element={<RegistrationPage />} />
         <Route path="signin" element={<SignInPage />} />

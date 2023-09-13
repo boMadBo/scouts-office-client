@@ -1,8 +1,8 @@
+import { useGetWeather } from '@/containers/AccountCont/useGetWeather';
 import { motion } from 'framer-motion';
 import React, { useMemo } from 'react';
 import styles from './Weather.module.scss';
 import { RAIN, SNOW, SUN } from './helpers';
-import { useGetWeather } from './useGetWeather';
 
 const token = process.env.REACT_APP_IP_TOKEN ?? 'DEFAULT_TOKEN';
 

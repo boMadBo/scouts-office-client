@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Wrap.module.scss';
+import styles from './Player.module.scss';
 
 interface Props {
   children: JSX.Element;
