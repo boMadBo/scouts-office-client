@@ -1,54 +1,19 @@
-.header {
-  position: fixed;
-  top: 0;
-  z-index: 4;
-  width: 100vw;
-  height: 85px;
-  background-color: var(--titles);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: 40px;
-  height: 100%;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.img {
-  width: 36px;
-  border-radius: 10%;
-}
-
-.containerGroup {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  height: 48px;
-}
-
-.routeGroup {
-  display: flex;
-  position: relative;
-  align-items: center;
-  height: 48px;
+.conversationsWrap {
+  width: 30%;
+  background-color: var(--profile);
 }
 
 .input_wrap {
   display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+  background-color: var(--search-wrap);
 }
 
 .form {
   position: relative;
-  width: 180px;
-  height: 32px;
+  width: 160px;
+  height: 28px;
   border: none;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -56,8 +21,8 @@
 }
 
 .input {
-  width: 168px;
-  height: 28px;
+  width: 148px;
+  height: 24px;
   border: none;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -82,8 +47,8 @@
 }
 
 .input_btn {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   background: var(--input);
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -98,4 +63,26 @@
 .btnImg {
   width: 20px;
   height: 20px;
+}
+
+.conversations {
+  height: 532px;
+  overflow-y: scroll;
+}
+
+.users {
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+  height: 50px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--hover);
+  }
+}
+
+.userName {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
 }

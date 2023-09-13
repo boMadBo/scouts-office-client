@@ -1,4 +1,5 @@
 import CurrTimezones from '@/containers/AccountCont/components/Timezones/CurrTimezones';
+import useDragDrop from '@/containers/AccountCont/useDragDrop';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { City } from '@/interfaces';
 import dayjs from 'dayjs';
@@ -7,7 +8,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LuSettings } from 'react-icons/lu';
 import styles from './Timezones.module.scss';
-import useDragDrop from './useDragDrop';
 dayjs.extend(utcPlugin);
 
 const currentTimezone = dayjs().utcOffset() / 60;
@@ -60,7 +60,7 @@ const Timezones = () => {
           isFirstRun = false;
         }
       },
-      isFirstRun ? sec : 60000,
+      isFirstRun ? sec : 60000
     );
 
     return () => {
@@ -77,7 +77,7 @@ const Timezones = () => {
         setUnnecСities((prevUnnecCities: City[]) => [...prevUnnecCities, deletedCity]);
       }
     },
-    [myCities],
+    [myCities]
   );
 
   const handleAddCity = useCallback(
@@ -89,7 +89,7 @@ const Timezones = () => {
       const filteredCities = unnecCities.filter((city: City) => city.city !== cityName);
       setUnnecСities(filteredCities);
     },
-    [myCities, unnecCities],
+    [myCities, unnecCities]
   );
 
   // drag and drop //
@@ -119,7 +119,9 @@ const Timezones = () => {
             sortCities={sortCities}
           />
         )}
-        {activeAdd && <CurrTimezones operation="+" cities={unnecCities} activeSett={activeAdd} onChangeCity={handleAddCity} />}
+        {activeAdd && (
+          <CurrTimezones operation="+" cities={unnecCities} activeSett={activeAdd} onChangeCity={handleAddCity} />
+        )}
 
         {activeSett && (
           <div className={styles.addingWrap}>

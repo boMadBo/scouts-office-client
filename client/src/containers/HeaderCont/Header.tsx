@@ -29,6 +29,7 @@ const routes = [
   },
   { link: 'news', text: 'News', children: null },
   { link: 'videos', text: 'Videos', children: null },
+  { link: 'messages', text: 'Messages', children: null },
 ];
 
 const Header = () => {

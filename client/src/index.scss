@@ -25,6 +25,9 @@ html {
   --mfCell: #acc9d9;
   --atCell: #d5e4ec;
   --news-gradient: #4eadec;
+  --search-wrap: rgb(187, 186, 186);
+  --own-bg: rgb(172, 211, 224);
+  --sec-button: #627be2;
 }
 
 html[data-theme='dark'] {
@@ -52,6 +55,9 @@ html[data-theme='dark'] {
   --mfCell: #707070;
   --atCell: #848383;
   --news-gradient: #355d78;
+  --search-wrap: #252525;
+  --own-bg: rgb(189, 192, 192);
+  --sec-button: rgb(137, 153, 237);
 }
 
 body {
