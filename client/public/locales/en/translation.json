@@ -4,9 +4,13 @@
   "News": "News",
   "Videos": "Videos",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Messages": "Messages",
 =======
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  "Messages": "Messages",
+>>>>>>> 11853ed (add mock messages)
   "Settings": "Settings",
   "Toggle theme": "Toggle theme",
   "Sign In": "Sign In",

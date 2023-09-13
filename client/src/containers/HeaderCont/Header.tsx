@@ -69,6 +69,7 @@ const routes = [
   { link: 'news', text: 'News', children: null },
   { link: 'videos', text: 'Videos', children: null },
 <<<<<<< HEAD
+<<<<<<< HEAD
   { link: 'messages', text: 'Messages', children: null },
 ];
 
@@ -98,6 +99,9 @@ const Header = () => {
   }, [query, dispatch]);
 
 =======
+=======
+  { link: 'messages', text: 'Messages', children: null },
+>>>>>>> 11853ed (add mock messages)
 ];
 
 const Header = () => {

@@ -26,6 +26,7 @@ import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
 import React, { useCallback, useMemo, useState } from 'react';
 import styles from './Player.module.scss';
+import Wrap from './Wrap';
 import ProfileInfo from './components/ProfileInfo';
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -33,6 +34,7 @@ import ProfileInfo from './components/ProfileInfo';
 =======
 =======
 import Stats from './components/Stats';
+<<<<<<< HEAD
 >>>>>>> e49de05 (add all news)
 import Wrap from './components/Wrap';
 <<<<<<< HEAD
@@ -42,6 +44,8 @@ import Wrap from './components/Wrap';
 import { useObserve } from './useObserve';
 >>>>>>> ee96416 (add usd,btc, in process observe)
 =======
+=======
+>>>>>>> 11853ed (add mock messages)
 import { useToggleObserve } from './useToggleObserve';
 >>>>>>> 7e204e8 (toggle observe)
 

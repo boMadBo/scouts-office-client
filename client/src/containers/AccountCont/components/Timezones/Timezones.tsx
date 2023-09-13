@@ -7,6 +7,7 @@ import utcPlugin from 'dayjs/plugin/utc';
 import React, { useCallback, useMemo, useState } from 'react';
 =======
 import CurrTimezones from '@/containers/AccountCont/components/Timezones/CurrTimezones';
+import useDragDrop from '@/containers/AccountCont/useDragDrop';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { City } from '@/interfaces';
 import dayjs from 'dayjs';
@@ -16,7 +17,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LuSettings } from 'react-icons/lu';
 import styles from './Timezones.module.scss';
-import useDragDrop from './useDragDrop';
 dayjs.extend(utcPlugin);
 
 <<<<<<< HEAD
@@ -102,7 +102,7 @@ const Timezones = () => {
           isFirstRun = false;
         }
       },
-      isFirstRun ? sec : 60000,
+      isFirstRun ? sec : 60000
     );
 
     return () => {
@@ -129,8 +129,12 @@ const Timezones = () => {
         setUnnecСities((prevUnnecCities: City[]) => [...prevUnnecCities, deletedCity]);
       }
     },
+<<<<<<< HEAD
     [myCities],
 >>>>>>> 8673b67 (add server and start auth)
+=======
+    [myCities]
+>>>>>>> 11853ed (add mock messages)
   );
 
   const handleAddCity = useCallback(
@@ -149,7 +153,7 @@ const Timezones = () => {
       setUnnecСities(filteredCities);
 >>>>>>> 8673b67 (add server and start auth)
     },
-    [myCities, unnecCities],
+    [myCities, unnecCities]
   );
 
   // drag and drop //
@@ -189,10 +193,17 @@ const Timezones = () => {
             sortCities={sortCities}
           />
         )}
+<<<<<<< HEAD
         {activeAdd && <CurrTimezones operation="+" cities={unnecCities} activeSett={activeAdd} onChangeCity={handleAddCity} />}
         <span className={styles.settings} onClick={startSetting}>
           <LuSettings className={styles.setIcon} />
         </span>
+=======
+        {activeAdd && (
+          <CurrTimezones operation="+" cities={unnecCities} activeSett={activeAdd} onChangeCity={handleAddCity} />
+        )}
+
+>>>>>>> 11853ed (add mock messages)
         {activeSett && (
           <div className={styles.addingWrap}>
 <<<<<<< HEAD

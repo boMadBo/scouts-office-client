@@ -32,10 +32,64 @@
   margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
+=======
+.messages {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 6px;
+  max-width: 550px;
+}
+
+>>>>>>> 11853ed (add mock messages)
 .messagesWrapOwn {
   align-items: end;
 }
 
+<<<<<<< HEAD
+=======
+.messagesNameWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.messagesName {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.date {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: #848383;
+}
+
+.textWrap {
+  border-radius: 10px;
+  background-color: var(--buttons);
+  color: var(--profile);
+}
+
+.textWrapOwn {
+  background-color: var(--own-bg);
+  color: #2f3030;
+}
+
+.text {
+  display: inline-block;
+  margin: 0;
+  padding: 6px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+>>>>>>> 11853ed (add mock messages)
 .sendCont {
   display: flex;
   align-items: center;
@@ -87,6 +141,7 @@
   background-color: var(--sec-button);
   color: var(--main);
 }
+<<<<<<< HEAD
 
 .messages {
   display: flex;
@@ -154,3 +209,5 @@
 .readedIcon {
   color: rgb(0, 128, 0);
 }
+=======
+>>>>>>> 11853ed (add mock messages)

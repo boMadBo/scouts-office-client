@@ -1,19 +1,26 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useGetWeather } from '@/containers/AccountCont/useGetWeather';
 =======
 import { useGetLocation } from '@/hooks/useGetLocation';
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+import { useGetWeather } from '@/containers/AccountCont/useGetWeather';
+>>>>>>> 11853ed (add mock messages)
 import { motion } from 'framer-motion';
 import React, { useMemo } from 'react';
 import styles from './Weather.module.scss';
 import { RAIN, SNOW, SUN } from './helpers';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useGetWeather } from './useGetWeather';
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> 11853ed (add mock messages)
 
 const token = process.env.REACT_APP_IP_TOKEN ?? 'DEFAULT_TOKEN';
 

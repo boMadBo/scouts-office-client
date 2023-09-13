@@ -4,9 +4,13 @@
   "News": "Новости",
   "Videos": "Видео",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Messages": "Сообщения",
 =======
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  "Messages": "Сообщения",
+>>>>>>> 11853ed (add mock messages)
   "Settings": "Настройки",
   "Toggle theme": "Поменять тему",
   "Sign In": "Войти",

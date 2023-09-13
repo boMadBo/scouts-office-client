@@ -12,6 +12,7 @@ import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
 import MessagesPage from './pages/MessagesPage';
+<<<<<<< HEAD
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
 import PlayerPage from './pages/PlayerPage';
@@ -29,6 +30,8 @@ import CurrentNewsPage from './pages/CurrentNewsPage';
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
+=======
+>>>>>>> 11853ed (add mock messages)
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
 import PlayerPage from './pages/PlayerPage';
@@ -73,6 +76,9 @@ const App = () => {
         <Route path="news/:id" element={<CurrentNewsPage />} />
         <Route path="videos" element={<VideosPage />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 11853ed (add mock messages)
         <Route
           path="messages"
           element={
