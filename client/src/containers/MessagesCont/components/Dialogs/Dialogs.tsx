@@ -1,50 +1,28 @@
+import { IMessagesNames } from '@/interfaces';
 import cn from 'classnames';
-import React, { useMemo } from 'react';
-import { BsPaperclip } from 'react-icons/bs';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import React from 'react';
 import styles from './Dialogs.module.scss';
-
-interface mockMessages {
-  messageId: number;
-  authorId: number;
-  author: string;
-  text: string;
-}
-
+dayjs.extend(relativeTime);
 interface Props {
-  data: mockMessages[];
+  data: IMessagesNames;
+  id: string | undefined;
 }
 
-const Dialogs = ({ data }: Props) => {
-  const interlocutor = useMemo(() => data.find(item => item.author !== 'me'), []);
+const Dialogs = ({ data, id }: Props) => {
+  const messagesStyle = cn(styles.messages, { [styles.ownMessages]: data.sender === id });
+  const textWrapStyle = cn(styles.textWrap, { [styles.textWrapOwn]: data.sender === id });
+  const ownName = data.sender !== id ? data.senderName : 'You';
+
   return (
-    <div className={styles.dialogs}>
-      <div className={styles.nameCont}>
-        <h3 className={styles.name}>{interlocutor?.author}</h3>
+    <div className={messagesStyle}>
+      <div className={styles.messagesNameWrap}>
+        <span className={styles.messagesName}>{ownName}</span>
+        <span className={styles.date}>{dayjs(data.createdAt).fromNow()}</span>
       </div>
-      <div className={styles.messagesCont}>
-        {data.map(item => (
-          <div
-            key={item.messageId}
-            className={cn(styles.messagesWrap, { [styles.messagesWrapOwn]: item.author === 'me' })}
-          >
-            <div className={styles.messages}>
-              <div className={styles.messagesNameWrap}>
-                <span className={styles.messagesName}>{item.author}</span>
-                <span className={styles.date}>1 hour ago</span>
-              </div>
-              <div className={cn(styles.textWrap, { [styles.textWrapOwn]: item.author === 'me' })}>
-                <p className={styles.text}>{item.text}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className={styles.sendCont}>
-        <div className={styles.textareaWrap}>
-          <textarea className={styles.textarea} placeholder="Write message"></textarea>
-          <BsPaperclip className={styles.clip} />
-        </div>
-        <button className={styles.sendBtn}>Send</button>
+      <div className={textWrapStyle}>
+        <p className={styles.text}>{data.text}</p>
       </div>
     </div>
   );

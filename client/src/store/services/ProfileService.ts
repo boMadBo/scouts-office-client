@@ -13,6 +13,12 @@ export const profileAPI = createApi({
       }),
       providesTags: (result, error) => [{ type: 'Profile', result, error }],
     }),
+    getUsers: build.query<IProfileValues[], void>({
+      query: () => ({
+        url: '/users',
+      }),
+      providesTags: (result, error) => [{ type: 'Profile', result, error }],
+    }),
     updateProfile: build.mutation<IProfileUpdate, { formData: FormData; _id: string }>({
       query: (arg: { formData: FormData; _id: string }) => ({
         url: `/profile/${arg._id}`,

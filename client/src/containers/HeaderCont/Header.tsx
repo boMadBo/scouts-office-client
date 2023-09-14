@@ -34,7 +34,6 @@ const routes = [
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState<string | null>(null);
-  // const [resQuery, setResQuery] = useState('');
 
   const dispatch = useAppDispatch();
   const isToken = useAppSelector(state => state.token.isToken);
@@ -42,6 +41,7 @@ const Header = () => {
 
   const handleSignOut = useCallback(() => {
     Cookies.remove('token');
+    Cookies.remove('userId');
     Cookies.remove('rememberMe');
     dispatch(fetchDeleteToken());
   }, [dispatch]);
