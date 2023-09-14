@@ -98,3 +98,54 @@ export interface ObservePlayers {
   numeral: string | undefined;
   agent: string | undefined;
 }
+
+export interface IConversations {
+  _id: string;
+  members: string[];
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface IConversationNames {
+  _id: string;
+  members: string[];
+  sender: {
+    id: string | undefined;
+    senderName: string | undefined;
+  };
+  receiver: {
+    id: string | undefined;
+    receiverName: string | undefined;
+  };
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface IMessages {
+  _id: string;
+  conversationId: string;
+  sender: string;
+  text: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface IMessagesNames {
+  _id: string;
+  conversationId: string;
+  sender: string;
+  text: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  senderName: string | undefined;
+}
+
+export interface IMessage {
+  sender: string | undefined;
+  text: string;
+  conversationId: string;
+}

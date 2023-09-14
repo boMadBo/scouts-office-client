@@ -2,6 +2,8 @@ import themeSlice from '@/store/reducers/ThemeSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import searchSlice from './reducers/SearchSlice';
 import tokenSlice from './reducers/TokenSlice';
+import { conversationsAPI } from './services/ConversationsService';
+import { messagesAPI } from './services/MessagesService';
 import { observeAPI } from './services/ObserveService';
 import { profileAPI } from './services/ProfileService';
 import { registerAPI } from './services/RegisterService';
@@ -15,6 +17,8 @@ const rootReducer = combineReducers({
   [profileAPI.reducerPath]: profileAPI.reducer,
   [tasksAPI.reducerPath]: tasksAPI.reducer,
   [observeAPI.reducerPath]: observeAPI.reducer,
+  [conversationsAPI.reducerPath]: conversationsAPI.reducer,
+  [messagesAPI.reducerPath]: messagesAPI.reducer,
 });
 
 export const setupStore = () => {
@@ -25,7 +29,9 @@ export const setupStore = () => {
         registerAPI.middleware,
         profileAPI.middleware,
         tasksAPI.middleware,
-        observeAPI.middleware
+        observeAPI.middleware,
+        conversationsAPI.middleware,
+        messagesAPI.middleware
       ),
   });
 };

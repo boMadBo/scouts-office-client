@@ -36,7 +36,7 @@ const SignIn = () => {
       if (hasData) {
         const token = response.data.token;
         if (token) {
-          Cookies.set('token', token, { expires: 365 });
+          Cookies.set('token', token, { expires: 30 });
           dispatch(fetchSaveToken());
         }
       }
@@ -48,7 +48,7 @@ const SignIn = () => {
   const handleRememberMeChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
     setRememberMe(checked);
-    Cookies.set('rememberMe', checked.toString(), { expires: 365 });
+    Cookies.set('rememberMe', checked.toString(), { expires: 30 });
   }, []);
 
   if (isSuccess) {
