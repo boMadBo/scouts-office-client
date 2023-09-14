@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { messagesAPI } from '@/store/services/MessagesService';
 import { profileAPI } from '@/store/services/ProfileService';
 import { useMemo } from 'react';
@@ -5,6 +6,21 @@ import { useMemo } from 'react';
 export const useGetMessages = (currentChat: string | undefined) => {
   const { data: users } = profileAPI.useGetUsersQuery();
   const { data: dialogs } = messagesAPI.useGetMessagesQuery({ conversationId: currentChat });
+=======
+import { IMessages } from '@/interfaces';
+import { messagesAPI } from '@/store/services/MessagesService';
+import { profileAPI } from '@/store/services/ProfileService';
+import { useEffect, useMemo, useState } from 'react';
+
+export const useGetMessages = (currentChat: string) => {
+  const [dialog, setDialog] = useState<IMessages[] | undefined>([]);
+  const { data: dialogs } = messagesAPI.useGetMessagesQuery({ conversationId: currentChat });
+  const { data: users } = profileAPI.useGetUsersQuery();
+
+  useEffect(() => {
+    setDialog(dialogs);
+  }, [dialogs]);
+>>>>>>> a40623b (add messages logic)
 
   const result = useMemo(() => {
     if (!dialogs || !users) {
@@ -21,6 +37,10 @@ export const useGetMessages = (currentChat: string | undefined) => {
     });
 
     return dialogsWithNames;
+<<<<<<< HEAD
   }, [dialogs]);
+=======
+  }, [dialog]);
+>>>>>>> a40623b (add messages logic)
   return result;
 };

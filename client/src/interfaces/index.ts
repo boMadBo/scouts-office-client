@@ -145,6 +145,9 @@ export interface ObservePlayers {
   agent: string | undefined;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a40623b (add messages logic)
 
 export interface IConversations {
   _id: string;
@@ -176,7 +179,10 @@ export interface IMessages {
   sender: string;
   text: string;
   createdAt: string;
+<<<<<<< HEAD
   isReaded: boolean;
+=======
+>>>>>>> a40623b (add messages logic)
   updatedAt: string;
   __v: number;
 }
@@ -186,7 +192,10 @@ export interface IMessagesNames {
   conversationId: string;
   sender: string;
   text: string;
+<<<<<<< HEAD
   isReaded: boolean;
+=======
+>>>>>>> a40623b (add messages logic)
   createdAt: string;
   updatedAt: string;
   __v: number;
@@ -194,6 +203,7 @@ export interface IMessagesNames {
 }
 
 export interface IMessage {
+<<<<<<< HEAD
   _id?: string | undefined;
   sender: string | undefined;
   text: string | undefined;
@@ -278,3 +288,9 @@ export interface Columns {
 >>>>>>> 431f668 (dev leagues)
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+  sender: string | undefined;
+  text: string;
+  conversationId: string;
+}
+>>>>>>> a40623b (add messages logic)

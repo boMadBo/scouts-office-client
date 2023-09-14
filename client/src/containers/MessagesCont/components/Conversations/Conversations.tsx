@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { IConversationNames } from '@/interfaces';
 import React from 'react';
 import styles from './Conversations.module.scss';
@@ -28,21 +29,19 @@ const Conversations = ({ data, id }: Props) => {
       {/* {unreadCount > 0 && <span>{unreadCount}</span>}
       {messages.filter(item => item.conversationId === data._id).at(-1)?.text} */}
 =======
+=======
+import { IConversationNames } from '@/interfaces';
+>>>>>>> a40623b (add messages logic)
 import React from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
 import styles from './Conversations.module.scss';
 
-interface Convs {
-  id: number;
-  name: string;
-}
-
 interface Props {
-  data: Convs[];
+  data: IConversationNames;
 }
 
 const Conversations = ({ data }: Props) => {
   return (
+<<<<<<< HEAD
     <div className={styles.conversationsWrap}>
       <div className={styles.input_wrap}>
         <form className={styles.form}>
@@ -70,6 +69,11 @@ const Conversations = ({ data }: Props) => {
       </div>
 >>>>>>> 11853ed (add mock messages)
     </div>
+=======
+    <>
+      <span className={styles.userName}>{data.sender.senderName}</span>
+    </>
+>>>>>>> a40623b (add messages logic)
   );
 };
 

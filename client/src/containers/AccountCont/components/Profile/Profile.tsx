@@ -5,6 +5,7 @@ import { profileAPI } from '@/store/services/ProfileService';
 import dayjs from 'dayjs';
 import Cookies from 'js-cookie';
 import React, { useEffect, useMemo } from 'react';
+<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
@@ -42,6 +43,8 @@ import { useCountryFlagUrl } from '@/hooks/useCountryFlag';
 import { profileAPI } from '@/store/services/ProfileService';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
+=======
+>>>>>>> a40623b (add messages logic)
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
@@ -61,6 +64,13 @@ const Profile = () => {
 >>>>>>> 590496a (todo on server)
 
   const flagUrl = useCountryFlagUrl(profile?.country);
+
+  useEffect(() => {
+    if (profile) {
+      const userId = profile._id;
+      Cookies.set('userId', userId, { expires: 30 });
+    }
+  }, [profile]);
 
   const calculateAge = useMemo(
     () => (birthDate: string | undefined) => {

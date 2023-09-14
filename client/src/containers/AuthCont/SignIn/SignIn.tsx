@@ -97,6 +97,7 @@ const SignIn = () => {
     const checked = event.target.checked;
     setRememberMe(checked);
     Cookies.set('rememberMe', checked.toString(), { expires: 30 });
+<<<<<<< HEAD
   }, []);
 
 =======
@@ -131,6 +132,8 @@ const SignIn = () => {
     const checked = event.target.checked;
     setRememberMe(checked);
     Cookies.set('rememberMe', checked.toString(), { expires: 365 });
+=======
+>>>>>>> a40623b (add messages logic)
   }, []);
 
 >>>>>>> bda062a (edit server for ts)

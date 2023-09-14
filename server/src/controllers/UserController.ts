@@ -153,6 +153,28 @@ export const getUsers = async (req: MyRequest, res: Response) => {
 =======
 >>>>>>> 266d9e0 (add profile editor)
 
+export const getUsers = async (req: MyRequest, res: Response) => {
+  try {
+    const users = await UserModel.find();
+
+    const userData = users.map(user => {
+      const { avatarUrl, ...userData } = user.toObject();
+      let imageUrl = '';
+      if (avatarUrl) {
+        imageUrl = `${instance}/${avatarUrl.toString()}`;
+      }
+      return { ...userData, avatarUrl: imageUrl };
+    });
+
+    res.json(userData);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      message: 'Failed to get users',
+    });
+  }
+};
+
 export const editProfile = async (req: Request, res: Response) => {
   try {
     const password = req.body.password;

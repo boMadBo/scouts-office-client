@@ -19,6 +19,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
 import path from 'path';
+import * as ConversationsController from './controllers/ConversationController';
+import * as MessagesController from './controllers/MessagesController';
 import * as ObserveController from './controllers/ObserveController';
 import * as TasksController from './controllers/TasksController';
 import * as UserController from './controllers/UserController';
@@ -97,6 +99,7 @@ app.post('/auth/signin', UserController.signin);
 app.get('/profile', checkAuth, UserController.getProfile);
 app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
 app.get('/users', UserController.getUsers);
+<<<<<<< HEAD
 
 app.get('/tasks', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);
@@ -141,6 +144,8 @@ app.get('/profile', checkAuth, UserController.getProfile);
 =======
 >>>>>>> 590496a (todo on server)
 app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
+=======
+>>>>>>> a40623b (add messages logic)
 
 app.get('/tasks', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);
@@ -150,6 +155,13 @@ app.patch('/tasks/:id', TasksController.completeTasks);
 app.get('/observe', ObserveController.getObserve);
 app.post('/observe', ObserveController.createObserve);
 app.delete('/observe/:id', ObserveController.deleteObserve);
+
+app.get('/conversations/:userId', ConversationsController.getConverse);
+app.get('/conversations/find/:firstUserId/:secondUserId', ConversationsController.getBothConverse);
+app.post('/conversations', ConversationsController.createConverse);
+
+app.get('/messages/:conversationId', MessagesController.getMessages);
+app.post('/messages', MessagesController.createMessages);
 
 app
   .listen(3014)

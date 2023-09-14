@@ -35,14 +35,20 @@ export const profileAPI = createApi({
     }),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a40623b (add messages logic)
     getUsers: build.query<IProfileValues[], void>({
       query: () => ({
         url: '/users',
       }),
       providesTags: (result, error) => [{ type: 'Profile', result, error }],
     }),
+<<<<<<< HEAD
 =======
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> a40623b (add messages logic)
     updateProfile: build.mutation<IProfileUpdate, { formData: FormData; _id: string }>({
       query: (arg: { formData: FormData; _id: string }) => ({
         url: `/profile/${arg._id}`,

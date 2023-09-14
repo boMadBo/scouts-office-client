@@ -32,6 +32,8 @@ import { weatherAPI } from '@/store/services/WeatherService';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import searchSlice from './reducers/SearchSlice';
 import tokenSlice from './reducers/TokenSlice';
+import { conversationsAPI } from './services/ConversationsService';
+import { messagesAPI } from './services/MessagesService';
 import { observeAPI } from './services/ObserveService';
 import { profileAPI } from './services/ProfileService';
 import { registerAPI } from './services/RegisterService';
@@ -51,7 +53,12 @@ const rootReducer = combineReducers({
 >>>>>>> 590496a (todo on server)
 =======
   [observeAPI.reducerPath]: observeAPI.reducer,
+<<<<<<< HEAD
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+  [conversationsAPI.reducerPath]: conversationsAPI.reducer,
+  [messagesAPI.reducerPath]: messagesAPI.reducer,
+>>>>>>> a40623b (add messages logic)
 });
 
 export const setupStore = () => {
@@ -98,7 +105,9 @@ export const setupStore = () => {
         registerAPI.middleware,
         profileAPI.middleware,
         tasksAPI.middleware,
-        observeAPI.middleware
+        observeAPI.middleware,
+        conversationsAPI.middleware,
+        messagesAPI.middleware
       ),
 >>>>>>> ee96416 (add usd,btc, in process observe)
   });

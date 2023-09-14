@@ -75,6 +75,7 @@ const routes = [
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState<string | null>(null);
+<<<<<<< HEAD
 
   const dispatch = useAppDispatch();
   const isToken = useAppSelector(state => state.token.isToken);
@@ -107,6 +108,8 @@ const Header = () => {
 const Header = () => {
   const [isHovered, setIsHovered] = useState<string | null>(null);
   // const [resQuery, setResQuery] = useState('');
+=======
+>>>>>>> a40623b (add messages logic)
 
   const dispatch = useAppDispatch();
   const isToken = useAppSelector(state => state.token.isToken);
@@ -114,6 +117,7 @@ const Header = () => {
 
   const handleSignOut = useCallback(() => {
     Cookies.remove('token');
+    Cookies.remove('userId');
     Cookies.remove('rememberMe');
     dispatch(fetchDeleteToken());
   }, [dispatch]);
