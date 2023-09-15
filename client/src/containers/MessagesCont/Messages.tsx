@@ -100,7 +100,11 @@ const Messages = () => {
   useEffect(() => {
     if (converse) {
       setCurrentChat(converse[0]?._id);
-      setInterlocutor(converse[0]?.sender.senderName);
+      const interName =
+        converse[0]?.sender.id !== id ? converse[0]?.sender.senderName : converse[0]?.receiver.receiverName;
+      console.log('interName', interName);
+
+      setInterlocutor(interName);
     }
   }, [converse]);
 
@@ -111,7 +115,8 @@ const Messages = () => {
 
   const handleChatItemClick = (item: IConversationNames) => {
     setCurrentChat(item._id);
-    setInterlocutor(item.sender.senderName);
+    const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
+    setInterlocutor(interName);
   };
 
   const messageSubmit = async (message: IMessage) => {
@@ -221,7 +226,7 @@ const Messages = () => {
         <div className={styles.conversations}>
           {converse?.map(item => (
             <div key={item._id} className={styles.users} onClick={() => handleChatItemClick(item)}>
-              <Conversations data={item} />
+              <Conversations interlocutor={interlocutor} />
             </div>
           ))}
         </div>
