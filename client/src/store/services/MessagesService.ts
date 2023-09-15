@@ -7,7 +7,7 @@ export const messagesAPI = createApi({
   baseQuery: baseQueryWithAuth,
   tagTypes: ['Messages'],
   endpoints: build => ({
-    getMessages: build.query<IMessages[], { conversationId: string }>({
+    getMessages: build.query<IMessages[], { conversationId: string | undefined }>({
       query: (arg: { conversationId: string }) => ({
         url: `/messages/${arg.conversationId}`,
       }),
@@ -20,6 +20,13 @@ export const messagesAPI = createApi({
         body: messages,
       }),
       invalidatesTags: ['Messages'],
+    }),
+    readMessages: build.mutation<IMessage, { _id: string }>({
+      query: (arg: { isReaded: boolean; _id: string }) => ({
+        url: `/messages/${arg._id}`,
+        method: 'PATCH',
+        body: { isReaded: true },
+      }),
     }),
   }),
 });

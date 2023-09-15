@@ -1,80 +1,49 @@
-import { IConversationNames, IMessage } from '@/interfaces';
-import { messagesAPI } from '@/store/services/MessagesService';
-import cn from 'classnames';
+import { IConversationNames } from '@/interfaces';
 import Cookies from 'js-cookie';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { BsPaperclip } from 'react-icons/bs';
 import { Navigate } from 'react-router-dom';
 import styles from './Messages.module.scss';
 import Conversations from './components/Conversations';
 import Dialogs from './components/Dialogs';
 import { useGetConvers } from './useGetConvers';
-import { useGetMessages } from './useGetMessages';
 
 const Messages = () => {
   const token = Cookies.get('token');
   const id = Cookies.get('userId');
+  const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
+  const [interlocutor, setInterlocutor] = useState<string | undefined>('');
 
   const converse = useGetConvers();
-  const [currentChat, setCurrentChat] = useState<string>('');
-  const dialogs = useGetMessages(currentChat);
-  const [interlocutor, setInterlocutor] = useState<string | undefined>('');
+
+  // const memoSetMessages = useCallback(
+  //   () => (mess: IMessagesNames) => {
+  //     setMessages(prevMes => [...prevMes, mess]);
+  //   },
+  //   [messages]
+  // );
+
+  // useEffect(() => {
+  //   console.log(messages?.filter(item => !item.isReaded).length);
+  // }, [messages]);
 
   useEffect(() => {
     if (converse) {
-      setCurrentChat(converse[0]?._id);
+      setCurrentChat(converse[0]);
       const interName =
         converse[0]?.sender.id !== id ? converse[0]?.sender.senderName : converse[0]?.receiver.receiverName;
-      console.log('interName', interName);
-
       setInterlocutor(interName);
     }
   }, [converse]);
 
-  // messages //
-
-  const [createDialogs] = messagesAPI.useCreateMessagesMutation();
-  const [newDialog, setNewDialog] = useState<string>('');
-
-  const handleChatItemClick = (item: IConversationNames) => {
-    setCurrentChat(item._id);
-    const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
-    setInterlocutor(interName);
-  };
-
-  const messageSubmit = async (message: IMessage) => {
-    try {
-      await createDialogs(message);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const addMessage = useCallback(() => {
-    const message = {
-      sender: id,
-      text: newDialog,
-      conversationId: currentChat,
-    };
-    messageSubmit(message);
-    setNewDialog('');
-  }, [messageSubmit, newDialog]);
-
-  const handleKeyUp = useCallback(
-    (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (event.keyCode === 13) {
-        addMessage();
-      }
+  const handleChatItemClick = useCallback(
+    (item: IConversationNames) => {
+      setCurrentChat(item);
+      const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
+      setInterlocutor(interName);
     },
-    [addMessage]
+    [currentChat, interlocutor]
   );
-
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [dialogs]);
 
   if (!token) {
     return <Navigate to="/signin" state={{ from: location }} />;
@@ -103,42 +72,17 @@ const Messages = () => {
         <div className={styles.conversations}>
           {converse?.map(item => (
             <div key={item._id} className={styles.users} onClick={() => handleChatItemClick(item)}>
-              <Conversations interlocutor={interlocutor} />
+              <Conversations id={id} data={item} />
             </div>
           ))}
         </div>
       </div>
-      <div className={styles.dialogs}>
-        <div className={styles.nameCont}>
-          <h3 className={styles.name}>{interlocutor}</h3>
-        </div>
-        <div className={styles.messagesCont}>
-          {dialogs?.map(item => (
-            <div
-              key={item._id}
-              className={cn(styles.messagesWrap, { [styles.messagesWrapOwn]: item.sender === id })}
-              ref={scrollRef}
-            >
-              <Dialogs id={id} data={item} />
-            </div>
-          ))}
-        </div>
-        <div className={styles.sendCont}>
-          <div className={styles.textareaWrap}>
-            <textarea
-              className={styles.textarea}
-              placeholder="Write message"
-              onChange={e => setNewDialog(e.target.value)}
-              value={newDialog}
-              onKeyUp={handleKeyUp}
-            />
-            <BsPaperclip className={styles.clip} />
-          </div>
-          <button className={styles.sendBtn} onClick={addMessage}>
-            Send
-          </button>
-        </div>
-      </div>
+      <Dialogs
+        interlocutor={interlocutor}
+        currentChat={currentChat}
+        // messages={messages}
+        // setMessages={memoSetMessages}
+      />
     </section>
   );
 };

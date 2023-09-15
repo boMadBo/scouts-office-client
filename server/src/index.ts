@@ -1,15 +1,18 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
 import path from 'path';
+import { Socket } from 'socket.io';
 import * as ConversationsController from './controllers/ConversationController';
 import * as MessagesController from './controllers/MessagesController';
 import * as ObserveController from './controllers/ObserveController';
 import * as TasksController from './controllers/TasksController';
 import * as UserController from './controllers/UserController';
+import MessagesModel from './models/Messages';
 import checkAuth from './utils/checkAuth';
+import { addUser, removeUser, users } from './utils/socketsUsers';
 import { registerValidation } from './validations/auth';
 
 dotenv.config();
@@ -28,6 +31,12 @@ if (mongodbUri) {
 }
 const app = express();
 
+const io = require('socket.io')(3050, {
+  cors: {
+    origin: 'http://localhost:3010',
+  },
+});
+
 const storage = multer.diskStorage({
   destination: (_, file, cb) => {
     cb(null, path.join(__dirname, '/uploads/'));
@@ -41,6 +50,21 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+io.on('connection', (socket: Socket) => {
+  console.log('a user connected.');
+
+  socket.on('addUser', (userId: string) => {
+    addUser(userId, socket.id);
+    io.emit('getUsers', users);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('a user disconnected!');
+    removeUser(socket.id);
+    io.emit('getUsers', users);
+  });
+});
 
 app.use(express.json());
 app.use(cors());
@@ -62,11 +86,25 @@ app.post('/observe', ObserveController.createObserve);
 app.delete('/observe/:id', ObserveController.deleteObserve);
 
 app.get('/conversations/:userId', ConversationsController.getConverse);
-app.get('/conversations/find/:firstUserId/:secondUserId', ConversationsController.getBothConverse);
 app.post('/conversations', ConversationsController.createConverse);
 
 app.get('/messages/:conversationId', MessagesController.getMessages);
-app.post('/messages', MessagesController.createMessages);
+app.post('/messages', async (req: Request, res: Response) => {
+  const newMessage = new MessagesModel({
+    ...req.body,
+    isReaded: false,
+  });
+
+  try {
+    const savedMessage = await newMessage.save();
+    console.log('savedMessage', savedMessage);
+    io.to(req.body.sender).emit('getMessage', savedMessage);
+    res.status(200).json(savedMessage);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+app.patch('/messages/:id', MessagesController.readMessages);
 
 app
   .listen(3014)

@@ -129,6 +129,7 @@ export interface IMessages {
   sender: string;
   text: string;
   createdAt: string;
+  isReaded: boolean;
   updatedAt: string;
   __v: number;
 }
@@ -138,6 +139,7 @@ export interface IMessagesNames {
   conversationId: string;
   sender: string;
   text: string;
+  isReaded: boolean;
   createdAt: string;
   updatedAt: string;
   __v: number;
@@ -145,7 +147,11 @@ export interface IMessagesNames {
 }
 
 export interface IMessage {
+  _id?: string | undefined;
   sender: string | undefined;
-  text: string;
-  conversationId: string;
+  text: string | undefined;
+  conversationId: string | undefined;
+  createdAt?: string | undefined;
+  senderName?: string | undefined;
+  isReaded?: boolean;
 }
