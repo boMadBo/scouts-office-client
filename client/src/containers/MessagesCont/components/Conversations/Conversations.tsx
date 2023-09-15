@@ -1,13 +1,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { IConversationNames } from '@/interfaces';
 =======
 >>>>>>> 8ad4d1d (fix conv name)
+=======
+import { IConversationNames } from '@/interfaces';
+>>>>>>> b790eac (finish sockets)
 import React from 'react';
 import styles from './Conversations.module.scss';
 
 interface Props {
+<<<<<<< HEAD
 <<<<<<< HEAD
   id: string | undefined;
   // messages: IMessagesNames[];
@@ -44,9 +49,15 @@ interface Props {
 =======
   interlocutor: string | undefined;
 >>>>>>> 8ad4d1d (fix conv name)
+=======
+  data: IConversationNames;
+  id: string | undefined;
+>>>>>>> b790eac (finish sockets)
 }
 
-const Conversations = ({ interlocutor }: Props) => {
+const Conversations = ({ data, id }: Props) => {
+  const dialogName = data.receiver.id !== id ? data.receiver.receiverName : data.sender.senderName;
+
   return (
 <<<<<<< HEAD
     <div className={styles.conversationsWrap}>
@@ -78,7 +89,7 @@ const Conversations = ({ interlocutor }: Props) => {
     </div>
 =======
     <>
-      <span className={styles.userName}>{interlocutor}</span>
+      <span className={styles.userName}>{dialogName}</span>
     </>
 >>>>>>> a40623b (add messages logic)
   );

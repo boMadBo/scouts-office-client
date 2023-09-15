@@ -1,6 +1,5 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
-<<<<<<< HEAD
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
@@ -14,6 +13,7 @@ import * as UserController from './controllers/UserController';
 import MessagesModel from './models/Messages';
 import checkAuth from './utils/checkAuth';
 import { addUser, removeUser, users } from './utils/socketsUsers';
+<<<<<<< HEAD
 =======
 import express from 'express';
 import mongoose from 'mongoose';
@@ -26,6 +26,8 @@ import * as TasksController from './controllers/TasksController';
 import * as UserController from './controllers/UserController';
 import checkAuth from './utils/checkAuth';
 >>>>>>> bda062a (edit server for ts)
+=======
+>>>>>>> 9b4e008 (add dialogs)
 import { registerValidation } from './validations/auth';
 
 dotenv.config();
@@ -44,7 +46,6 @@ if (mongodbUri) {
 }
 const app = express();
 
-<<<<<<< HEAD
 const io = require('socket.io')(3050, {
   cors: {
     origin: 'http://localhost:3010',
@@ -74,7 +75,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-<<<<<<< HEAD
 io.on('connection', (socket: Socket) => {
   console.log('a user connected.');
 
@@ -100,6 +100,9 @@ app.get('/profile', checkAuth, UserController.getProfile);
 app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
 app.get('/users', UserController.getUsers);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b4e008 (add dialogs)
 
 app.get('/tasks', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);
@@ -119,7 +122,6 @@ app.post('/messages', async (req: Request, res: Response) => {
     ...req.body,
     isReaded: false,
   });
-
   try {
     const savedMessage = await newMessage.save();
     console.log('savedMessage', savedMessage);
@@ -130,6 +132,7 @@ app.post('/messages', async (req: Request, res: Response) => {
   }
 });
 app.patch('/messages/:id', MessagesController.readMessages);
+<<<<<<< HEAD
 =======
 app.use(express.json());
 app.use(cors());
@@ -147,21 +150,22 @@ app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
 =======
 >>>>>>> a40623b (add messages logic)
 
-app.get('/tasks', TasksController.getTasks);
+app.get('/tasks/:userId', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);
 app.delete('/tasks/:id', TasksController.deleteTasks);
 app.patch('/tasks/:id', TasksController.completeTasks);
 
-app.get('/observe', ObserveController.getObserve);
+app.get('/observe/:userId', ObserveController.getObserve);
 app.post('/observe', ObserveController.createObserve);
 app.delete('/observe/:id', ObserveController.deleteObserve);
 
 app.get('/conversations/:userId', ConversationsController.getConverse);
-app.get('/conversations/find/:firstUserId/:secondUserId', ConversationsController.getBothConverse);
 app.post('/conversations', ConversationsController.createConverse);
 
 app.get('/messages/:conversationId', MessagesController.getMessages);
 app.post('/messages', MessagesController.createMessages);
+=======
+>>>>>>> 9b4e008 (add dialogs)
 
 app
   .listen(3014)

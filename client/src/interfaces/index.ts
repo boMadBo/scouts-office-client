@@ -80,6 +80,7 @@ export interface IProfileUpdate {
 
 export interface ITasks {
   _id?: string;
+  userId?: string | undefined;
   text: string;
   completed: boolean;
 }
@@ -129,6 +130,7 @@ export interface Rates {
 export interface Observe {
   _id?: string;
   id: string | undefined;
+  userId?: string;
 }
 
 export interface ObservePlayers {
@@ -203,6 +205,7 @@ export interface IMessagesNames {
 }
 
 export interface IMessage {
+<<<<<<< HEAD
 <<<<<<< HEAD
   _id?: string | undefined;
   sender: string | undefined;
@@ -289,8 +292,13 @@ export interface Columns {
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
 =======
+=======
+  _id?: string | undefined;
+>>>>>>> b6a0b5c (start ws)
   sender: string | undefined;
-  text: string;
-  conversationId: string;
+  text: string | undefined;
+  conversationId: string | undefined;
+  createdAt?: string | undefined;
+  senderName?: string | undefined;
 }
 >>>>>>> a40623b (add messages logic)

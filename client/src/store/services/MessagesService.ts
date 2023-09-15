@@ -8,10 +8,14 @@ export const messagesAPI = createApi({
   tagTypes: ['Messages'],
   endpoints: build => ({
 <<<<<<< HEAD
+<<<<<<< HEAD
     getMessages: build.query<IMessages[], { conversationId: string | undefined }>({
 =======
     getMessages: build.query<IMessages[], { conversationId: string }>({
 >>>>>>> a40623b (add messages logic)
+=======
+    getMessages: build.query<IMessages[], { conversationId: string | undefined }>({
+>>>>>>> b6a0b5c (start ws)
       query: (arg: { conversationId: string }) => ({
         url: `/messages/${arg.conversationId}`,
       }),
@@ -25,7 +29,7 @@ export const messagesAPI = createApi({
       }),
       invalidatesTags: ['Messages'],
     }),
-<<<<<<< HEAD
+
     readMessages: build.mutation<IMessage, { _id: string }>({
       query: (arg: { isReaded: boolean; _id: string }) => ({
         url: `/messages/${arg._id}`,
@@ -33,7 +37,10 @@ export const messagesAPI = createApi({
         body: { isReaded: true },
       }),
     }),
+<<<<<<< HEAD
 =======
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> 9b4e008 (add dialogs)
   }),
 });

@@ -2,12 +2,16 @@
 <<<<<<< HEAD
 import { ITasks } from '@/interfaces';
 import { tasksAPI } from '@/store/services/TasksService';
+<<<<<<< HEAD
 =======
 >>>>>>> 8673b67 (add server and start auth)
 =======
 import { ITasks } from '@/interfaces';
 import { tasksAPI } from '@/store/services/TasksService';
 >>>>>>> 590496a (todo on server)
+=======
+import Cookies from 'js-cookie';
+>>>>>>> d8e74df (add userId in tasks and ob)
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ListItem from './ListItem';
@@ -17,7 +21,8 @@ import styles from './ToDo.module.scss';
 <<<<<<< HEAD
 <<<<<<< HEAD
 const ToDo = () => {
-  const { data: tasks } = tasksAPI.useGetTasksQuery();
+  const id = Cookies.get('userId');
+  const { data: tasks } = tasksAPI.useGetTasksQuery({ userId: id });
   const [createTasks] = tasksAPI.useCreateTasksMutation();
   const [deleteTasks] = tasksAPI.useDeleteTasksMutation();
   const [completedTasks] = tasksAPI.useCompletedTasksMutation();
@@ -80,6 +85,7 @@ const ToDo = () => {
 >>>>>>> 590496a (todo on server)
   const onAddTask = async (values: ITasks) => {
     await createTasks({
+      userId: id,
       text: values.text,
       completed: false,
     });

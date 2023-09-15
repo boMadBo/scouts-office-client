@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { conversationsAPI } from '@/store/services/ConversationsService';
 import { profileAPI } from '@/store/services/ProfileService';
 import Cookies from 'js-cookie';
@@ -11,6 +10,7 @@ export const useGetConvers = () => {
 
   const result = useMemo(() => {
     if (!converse || !users) {
+<<<<<<< HEAD
 =======
 import { IConversations } from '@/interfaces';
 import { conversationsAPI } from '@/store/services/ConversationsService';
@@ -31,15 +31,20 @@ export const useGetConvers = () => {
   const result = useMemo(() => {
     if (!conversations || !users) {
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> 9b4e008 (add dialogs)
       return [];
     }
 
     const usersMap = new Map(users.map(user => [user._id, user]));
-<<<<<<< HEAD
+
     const conversationsWithNames = converse.map(conversation => {
+<<<<<<< HEAD
 =======
     const conversationsWithNames = conversations.map(conversation => {
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> 9b4e008 (add dialogs)
       const receiver = usersMap.get(conversation.members[1]);
       const sender = usersMap.get(conversation.members[0]);
 
@@ -57,10 +62,13 @@ export const useGetConvers = () => {
     });
 
     return conversationsWithNames;
-<<<<<<< HEAD
   }, [converse, users]);
+<<<<<<< HEAD
 =======
   }, [conversations, users]);
 >>>>>>> a40623b (add messages logic)
+=======
+
+>>>>>>> 9b4e008 (add dialogs)
   return result;
 };

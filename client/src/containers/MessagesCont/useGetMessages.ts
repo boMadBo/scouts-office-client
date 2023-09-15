@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { messagesAPI } from '@/store/services/MessagesService';
 import { profileAPI } from '@/store/services/ProfileService';
 import { useMemo } from 'react';
@@ -6,13 +5,14 @@ import { useMemo } from 'react';
 export const useGetMessages = (currentChat: string | undefined) => {
   const { data: users } = profileAPI.useGetUsersQuery();
   const { data: dialogs } = messagesAPI.useGetMessagesQuery({ conversationId: currentChat });
+<<<<<<< HEAD
 =======
 import { IMessages } from '@/interfaces';
 import { messagesAPI } from '@/store/services/MessagesService';
 import { profileAPI } from '@/store/services/ProfileService';
 import { useEffect, useMemo, useState } from 'react';
 
-export const useGetMessages = (currentChat: string) => {
+export const useGetMessages = (currentChat: string | undefined) => {
   const [dialog, setDialog] = useState<IMessages[] | undefined>([]);
   const { data: dialogs } = messagesAPI.useGetMessagesQuery({ conversationId: currentChat });
   const { data: users } = profileAPI.useGetUsersQuery();
@@ -21,6 +21,8 @@ export const useGetMessages = (currentChat: string) => {
     setDialog(dialogs);
   }, [dialogs]);
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> 9b4e008 (add dialogs)
 
   const result = useMemo(() => {
     if (!dialogs || !users) {
@@ -37,10 +39,13 @@ export const useGetMessages = (currentChat: string) => {
     });
 
     return dialogsWithNames;
-<<<<<<< HEAD
   }, [dialogs]);
+<<<<<<< HEAD
 =======
   }, [dialog]);
 >>>>>>> a40623b (add messages logic)
+=======
+
+>>>>>>> 9b4e008 (add dialogs)
   return result;
 };

@@ -56,6 +56,29 @@ To run the Scouts App locally, follow these steps:
 <<<<<<< HEAD
 4. ### npm run start:dev
 
+<<<<<<< HEAD
+### To run Socket
+
+5. Navigate to the project directory:
+   cd scouts-academy
+   cd socket
+
+6. install the required dependencies:
+   npm install
+7. ### npm start
+
+### To run Client
+
+8. Navigate to the project directory:
+   cd scouts-academy
+   cd client
+
+9. install the required dependencies:
+   npm install
+
+10. ### npm start
+
+=======
 ### To run Client
 
 5. Navigate to the project directory:
@@ -67,6 +90,7 @@ To run the Scouts App locally, follow these steps:
 
 7. ### npm start
 
+>>>>>>> 9b4e008 (add dialogs)
 Runs the app in development mode. Open http://localhost:3010 to view it in the browser.
 
 API Usage

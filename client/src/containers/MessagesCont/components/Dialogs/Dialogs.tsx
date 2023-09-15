@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b4e008 (add dialogs)
 import { IConversationNames, IMessage, IMessagesNames } from '@/interfaces';
 import { messagesAPI } from '@/store/services/MessagesService';
 import cn from 'classnames';
@@ -153,6 +156,7 @@ const Dialogs = ({ interlocutor, currentChat }: Props) => {
             id={`message-${item._id}`}
           >
             <Dialog id={id} data={item} />
+<<<<<<< HEAD
 =======
 =======
 import { IMessagesNames } from '@/interfaces';
@@ -196,12 +200,17 @@ const Dialogs = ({ data, id }: Props) => {
               </div>
             </div>
 >>>>>>> 11853ed (add mock messages)
+=======
+>>>>>>> 9b4e008 (add dialogs)
           </div>
         ))}
       </div>
       <div className={styles.sendCont}>
         <div className={styles.textareaWrap}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b4e008 (add dialogs)
           <textarea
             className={styles.textarea}
             placeholder="Write message"
@@ -214,6 +223,7 @@ const Dialogs = ({ data, id }: Props) => {
         <button className={styles.sendBtn} onClick={addMessage}>
           Send
         </button>
+<<<<<<< HEAD
 =======
           <textarea className={styles.textarea} placeholder="Write message"></textarea>
           <BsPaperclip className={styles.clip} />
@@ -224,6 +234,8 @@ const Dialogs = ({ data, id }: Props) => {
       <div className={textWrapStyle}>
         <p className={styles.text}>{data.text}</p>
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> 9b4e008 (add dialogs)
       </div>
     </div>
   );

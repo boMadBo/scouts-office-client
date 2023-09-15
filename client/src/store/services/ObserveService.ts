@@ -7,9 +7,9 @@ export const observeAPI = createApi({
   baseQuery: baseQueryWithAuth,
   tagTypes: ['Observe'],
   endpoints: build => ({
-    getObserve: build.query<Observe[], void>({
-      query: () => ({
-        url: '/observe',
+    getObserve: build.query<Observe[], { userId: string | undefined }>({
+      query: (arg: { userId: string }) => ({
+        url: `/observe/${arg.userId}`,
       }),
       providesTags: (result, error) => [{ type: 'Observe', result, error }],
     }),

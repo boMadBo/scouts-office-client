@@ -1,9 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b4e008 (add dialogs)
 import { IConversationNames } from '@/interfaces';
 import Cookies from 'js-cookie';
 import React, { useCallback, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+<<<<<<< HEAD
 =======
 import Loading from '@/uikit/Loading';
 import Cookies from 'js-cookie';
@@ -11,6 +16,9 @@ import React from 'react';
 >>>>>>> 11853ed (add mock messages)
 =======
 import { IConversationNames, IMessage } from '@/interfaces';
+=======
+import { IConversationNames, IMessage, IMessagesNames } from '@/interfaces';
+>>>>>>> b6a0b5c (start ws)
 import { messagesAPI } from '@/store/services/MessagesService';
 import cn from 'classnames';
 import Cookies from 'js-cookie';
@@ -19,16 +27,28 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { BsPaperclip } from 'react-icons/bs';
 >>>>>>> a40623b (add messages logic)
 import { Navigate } from 'react-router-dom';
+import { Socket, io } from 'socket.io-client';
 import styles from './Messages.module.scss';
 import Conversations from './components/Conversations';
 import Dialogs from './components/Dialogs';
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+import { Navigate } from 'react-router-dom';
+
+import styles from './Messages.module.scss';
+import Conversations from './components/Conversations';
+import Dialogs from './components/Dialogs';
+>>>>>>> 9b4e008 (add dialogs)
 import { useGetConvers } from './useGetConvers';
 
 const Messages = () => {
   const token = Cookies.get('token');
   const id = Cookies.get('userId');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b4e008 (add dialogs)
   const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
   const [interlocutor, setInterlocutor] = useState<string | undefined>('');
 
@@ -44,6 +64,7 @@ const Messages = () => {
   // useEffect(() => {
   //   console.log(messages?.filter(item => !item.isReaded).length);
   // }, [messages]);
+<<<<<<< HEAD
 
   useEffect(() => {
     if (converse) {
@@ -92,36 +113,60 @@ const Messages = () => {
   const token = Cookies.get('token');
   const id = Cookies.get('userId');
 
-  const converse = useGetConvers();
-  const [currentChat, setCurrentChat] = useState<string>('');
-  const dialogs = useGetMessages(currentChat);
+  const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
   const [interlocutor, setInterlocutor] = useState<string | undefined>('');
+  const [arrivalMessage, setArrivalMessage] = useState<IMessage | null>(null);
+  const [messages, setMessages] = useState<IMessagesNames[]>([]);
+  const [newDialog, setNewDialog] = useState<string>('');
+
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const socket = useRef<Socket>();
+
+  const converse = useGetConvers();
+  const dialogs = useGetMessages(currentChat?._id);
+  const [createMessages] = messagesAPI.useCreateMessagesMutation();
+=======
+>>>>>>> 9b4e008 (add dialogs)
 
   useEffect(() => {
     if (converse) {
-      setCurrentChat(converse[0]?._id);
+      setCurrentChat(converse[0]);
       const interName =
         converse[0]?.sender.id !== id ? converse[0]?.sender.senderName : converse[0]?.receiver.receiverName;
-      console.log('interName', interName);
-
       setInterlocutor(interName);
     }
   }, [converse]);
 
+<<<<<<< HEAD
   // messages //
 
-  const [createDialogs] = messagesAPI.useCreateMessagesMutation();
-  const [newDialog, setNewDialog] = useState<string>('');
+  useEffect(() => {
+    setMessages(dialogs);
+  }, [dialogs]);
 
   const handleChatItemClick = (item: IConversationNames) => {
-    setCurrentChat(item._id);
+    setCurrentChat(item);
     const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
     setInterlocutor(interName);
   };
 
   const messageSubmit = async (message: IMessage) => {
+    const receiverId = currentChat?.members.find(member => member !== id);
+    const name = currentChat?.receiver.id !== id ? currentChat?.sender.senderName : currentChat?.receiver.receiverName;
+    if (socket.current) {
+      socket.current.emit('sendMessage', {
+        senderId: id,
+        receiverId,
+        text: newDialog,
+        senderName: name,
+        conversationId: currentChat?._id,
+      });
+    }
     try {
-      await createDialogs(message);
+      const res = await createMessages(message);
+      if ('data' in res && Array.isArray(res.data)) {
+        setMessages(prevMessages => [...prevMessages, ...(res.data as IMessagesNames[])]);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -131,7 +176,7 @@ const Messages = () => {
     const message = {
       sender: id,
       text: newDialog,
-      conversationId: currentChat,
+      conversationId: currentChat?._id,
     };
     messageSubmit(message);
     setNewDialog('');
@@ -146,13 +191,57 @@ const Messages = () => {
     [addMessage]
   );
 
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  // sockets //
+
+  useEffect(() => {
+    socket.current = io('ws://localhost:3050');
+
+    socket.current.on('getMessage', data => {
+      setArrivalMessage({
+        _id: Math.random().toString(),
+        conversationId: data.conversationId,
+        sender: data.senderId,
+        text: data.text,
+        createdAt: new Date().toString(),
+        senderName: data.senderName,
+      });
+    });
+  }, [arrivalMessage]);
+
+  useEffect(() => {
+    arrivalMessage &&
+      arrivalMessage.sender &&
+      currentChat?.members.includes(arrivalMessage.sender) &&
+      setMessages(prev => [...prev, arrivalMessage as IMessagesNames]);
+  }, [arrivalMessage, currentChat]);
+
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.emit('addUser', id);
+      socket.current.on('getUsers', users => {});
+    }
+  }, [id]);
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+<<<<<<< HEAD
   }, [dialogs]);
 >>>>>>> a40623b (add messages logic)
+=======
+  }, [messages]);
+>>>>>>> b6a0b5c (start ws)
 
+=======
+  const handleChatItemClick = useCallback(
+    (item: IConversationNames) => {
+      setCurrentChat(item);
+      const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
+      setInterlocutor(interName);
+    },
+    [currentChat, interlocutor]
+  );
+
+>>>>>>> 9b4e008 (add dialogs)
   if (!token) {
     return <Navigate to="/signin" state={{ from: location }} />;
   }
@@ -187,12 +276,17 @@ const Messages = () => {
           ))}
         </div>
       </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b4e008 (add dialogs)
       <Dialogs
         interlocutor={interlocutor}
         currentChat={currentChat}
         // messages={messages}
         // setMessages={memoSetMessages}
       />
+<<<<<<< HEAD
 =======
   if (!token) {
     return <Loading />;
@@ -226,7 +320,7 @@ const Messages = () => {
         <div className={styles.conversations}>
           {converse?.map(item => (
             <div key={item._id} className={styles.users} onClick={() => handleChatItemClick(item)}>
-              <Conversations interlocutor={interlocutor} />
+              <Conversations id={id} data={item} />
             </div>
           ))}
         </div>
@@ -236,7 +330,7 @@ const Messages = () => {
           <h3 className={styles.name}>{interlocutor}</h3>
         </div>
         <div className={styles.messagesCont}>
-          {dialogs?.map(item => (
+          {messages?.map(item => (
             <div
               key={item._id}
               className={cn(styles.messagesWrap, { [styles.messagesWrapOwn]: item.sender === id })}
@@ -263,6 +357,8 @@ const Messages = () => {
         </div>
       </div>
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> 9b4e008 (add dialogs)
     </section>
   );
 };
