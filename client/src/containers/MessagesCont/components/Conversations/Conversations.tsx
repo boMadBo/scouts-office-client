@@ -1,15 +1,14 @@
-import { IConversationNames } from '@/interfaces';
 import React from 'react';
 import styles from './Conversations.module.scss';
 
 interface Props {
-  data: IConversationNames;
+  interlocutor: string | undefined;
 }
 
-const Conversations = ({ data }: Props) => {
+const Conversations = ({ interlocutor }: Props) => {
   return (
     <>
-      <span className={styles.userName}>{data.sender.senderName}</span>
+      <span className={styles.userName}>{interlocutor}</span>
     </>
   );
 };
