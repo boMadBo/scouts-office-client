@@ -24,14 +24,3 @@ export const getConverse = async (req: Request, res: Response) => {
     res.status(500).json(err);
   }
 };
-
-export const getBothConverse = async (req: Request, res: Response) => {
-  try {
-    const conversation = await ConversationModel.findOne({
-      members: { $all: [req.params.firstUserId, req.params.secondUserId] },
-    });
-    res.status(200).json(conversation);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};

@@ -145,7 +145,10 @@ export interface IMessagesNames {
 }
 
 export interface IMessage {
+  _id?: string | undefined;
   sender: string | undefined;
-  text: string;
-  conversationId: string;
+  text: string | undefined;
+  conversationId: string | undefined;
+  createdAt?: string | undefined;
+  senderName?: string | undefined;
 }

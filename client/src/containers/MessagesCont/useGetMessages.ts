@@ -3,7 +3,7 @@ import { messagesAPI } from '@/store/services/MessagesService';
 import { profileAPI } from '@/store/services/ProfileService';
 import { useEffect, useMemo, useState } from 'react';
 
-export const useGetMessages = (currentChat: string) => {
+export const useGetMessages = (currentChat: string | undefined) => {
   const [dialog, setDialog] = useState<IMessages[] | undefined>([]);
   const { data: dialogs } = messagesAPI.useGetMessagesQuery({ conversationId: currentChat });
   const { data: users } = profileAPI.useGetUsersQuery();
