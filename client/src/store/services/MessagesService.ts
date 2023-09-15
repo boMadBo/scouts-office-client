@@ -7,7 +7,7 @@ export const messagesAPI = createApi({
   baseQuery: baseQueryWithAuth,
   tagTypes: ['Messages'],
   endpoints: build => ({
-    getMessages: build.query<IMessages[], { conversationId: string }>({
+    getMessages: build.query<IMessages[], { conversationId: string | undefined }>({
       query: (arg: { conversationId: string }) => ({
         url: `/messages/${arg.conversationId}`,
       }),

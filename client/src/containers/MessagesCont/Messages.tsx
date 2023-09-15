@@ -1,11 +1,12 @@
-import { IConversationNames, IMessage } from '@/interfaces';
+import { IConversationNames, IMessage, IMessagesNames } from '@/interfaces';
 import { messagesAPI } from '@/store/services/MessagesService';
 import cn from 'classnames';
 import Cookies from 'js-cookie';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { BsPaperclip } from 'react-icons/bs';
 import { Navigate } from 'react-router-dom';
+import { Socket, io } from 'socket.io-client';
 import styles from './Messages.module.scss';
 import Conversations from './components/Conversations';
 import Dialogs from './components/Dialogs';
@@ -16,65 +17,111 @@ const Messages = () => {
   const token = Cookies.get('token');
   const id = Cookies.get('userId');
 
-  const converse = useGetConvers();
-  const [currentChat, setCurrentChat] = useState<string>('');
-  const dialogs = useGetMessages(currentChat);
+  const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
   const [interlocutor, setInterlocutor] = useState<string | undefined>('');
+  const [arrivalMessage, setArrivalMessage] = useState<IMessage | null>(null);
+  const [messages, setMessages] = useState<IMessagesNames[]>([]);
+  const [newDialog, setNewDialog] = useState<string>('');
+
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const socket = useRef<Socket>();
+
+  const converse = useGetConvers();
+  const dialogs = useGetMessages(currentChat?._id);
+  const [createMessages] = messagesAPI.useCreateMessagesMutation();
 
   useEffect(() => {
     if (converse) {
-      setCurrentChat(converse[0]?._id);
+      setCurrentChat(converse[0]);
       const interName =
         converse[0]?.sender.id !== id ? converse[0]?.sender.senderName : converse[0]?.receiver.receiverName;
-      console.log('interName', interName);
-
       setInterlocutor(interName);
     }
   }, [converse]);
 
   // messages //
 
-  const [createDialogs] = messagesAPI.useCreateMessagesMutation();
-  const [newDialog, setNewDialog] = useState<string>('');
+  useEffect(() => {
+    setMessages(dialogs);
+  }, [dialogs]);
 
   const handleChatItemClick = (item: IConversationNames) => {
-    setCurrentChat(item._id);
+    setCurrentChat(item);
     const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
     setInterlocutor(interName);
   };
 
-  const messageSubmit = async (message: IMessage) => {
+  const messageSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    const message: IMessage = {
+      sender: id,
+      text: newDialog,
+      conversationId: currentChat?._id,
+    };
+
+    const receiverId = currentChat?.members.find(member => member !== id);
+
+    if (socket.current) {
+      socket.current.emit('sendMessage', {
+        senderId: id,
+        receiverId,
+        text: newDialog,
+      });
+    }
     try {
-      await createDialogs(message);
+      const res = await createMessages(message);
+      if ('data' in res && Array.isArray(res.data)) {
+        setMessages(prevMessages => [...prevMessages, ...(res.data as IMessagesNames[])]);
+      }
+      setNewDialog('');
     } catch (e) {
       console.log(e);
     }
   };
 
-  const addMessage = useCallback(() => {
-    const message = {
-      sender: id,
-      text: newDialog,
-      conversationId: currentChat,
-    };
-    messageSubmit(message);
-    setNewDialog('');
-  }, [messageSubmit, newDialog]);
+  // sockets //
 
-  const handleKeyUp = useCallback(
-    (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (event.keyCode === 13) {
-        addMessage();
-      }
-    },
-    [addMessage]
-  );
+  useEffect(() => {
+    socket.current = io('ws://localhost:3050');
+    const chatName =
+      currentChat?.receiver.id !== id ? currentChat?.sender.senderName : currentChat?.receiver.receiverName;
+    console.log('currentChat', currentChat);
 
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+    socket.current.on('getMessage', data => {
+      setArrivalMessage({
+        _id: Math.random().toString(),
+        conversationId: currentChat?._id,
+        sender: data.senderId,
+        text: data.text,
+        createdAt: new Date().toString(),
+        senderName: chatName,
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    arrivalMessage &&
+      arrivalMessage.sender &&
+      currentChat?.members.includes(arrivalMessage.sender) &&
+      setMessages(prev => [...prev, arrivalMessage as IMessagesNames]);
+  }, [arrivalMessage, currentChat]);
+
+  useEffect(() => {
+    console.log('messages', messages);
+  }, [messages]);
+
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.emit('addUser', id);
+      socket.current.on('getUsers', users => {
+        console.log(users);
+      });
+    }
+  }, [id]);
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [dialogs]);
+  }, [messages]);
 
   if (!token) {
     return <Navigate to="/signin" state={{ from: location }} />;
@@ -113,7 +160,7 @@ const Messages = () => {
           <h3 className={styles.name}>{interlocutor}</h3>
         </div>
         <div className={styles.messagesCont}>
-          {dialogs?.map(item => (
+          {messages?.map(item => (
             <div
               key={item._id}
               className={cn(styles.messagesWrap, { [styles.messagesWrapOwn]: item.sender === id })}
@@ -130,11 +177,11 @@ const Messages = () => {
               placeholder="Write message"
               onChange={e => setNewDialog(e.target.value)}
               value={newDialog}
-              onKeyUp={handleKeyUp}
+              // onKeyUp={handleKeyUp}
             />
             <BsPaperclip className={styles.clip} />
           </div>
-          <button className={styles.sendBtn} onClick={addMessage}>
+          <button className={styles.sendBtn} onClick={messageSubmit}>
             Send
           </button>
         </div>
@@ -144,3 +191,41 @@ const Messages = () => {
 };
 
 export default React.memo(Messages);
+
+// const messageSubmit = async (message: IMessage) => {
+//   const receiverId = currentChat?.members.find(member => member !== id);
+//   if (socket.current) {
+//     socket.current.emit('sendMessage', {
+//       senderId: id,
+//       receiverId,
+//       text: newDialog,
+//     });
+//   }
+//   try {
+//     const res = await createMessages(message);
+//     if ('data' in res && Array.isArray(res.data)) {
+//       setMessages(prevMessages => [...prevMessages, ...(res.data as IMessagesNames[])]);
+//     }
+//   } catch (e) {
+//     console.log(e);
+//   }
+// };
+
+// const addMessage = useCallback(() => {
+//   const message = {
+//     sender: id,
+//     text: newDialog,
+//     conversationId: currentChat?._id,
+//   };
+//   messageSubmit(message);
+//   setNewDialog('');
+// }, [messageSubmit, newDialog]);
+
+// const handleKeyUp = useCallback(
+//   (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+//     if (event.keyCode === 13) {
+//       addMessage();
+//     }
+//   },
+//   [addMessage]
+// );

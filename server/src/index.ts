@@ -62,7 +62,6 @@ app.post('/observe', ObserveController.createObserve);
 app.delete('/observe/:id', ObserveController.deleteObserve);
 
 app.get('/conversations/:userId', ConversationsController.getConverse);
-app.get('/conversations/find/:firstUserId/:secondUserId', ConversationsController.getBothConverse);
 app.post('/conversations', ConversationsController.createConverse);
 
 app.get('/messages/:conversationId', MessagesController.getMessages);
