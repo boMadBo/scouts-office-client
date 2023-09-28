@@ -32,14 +32,14 @@ io.on('connection', (socket: Socket) => {
     io.emit('getUsers', users);
   });
 
-  socket.on('sendMessage', ({ senderId, receiverId, text, senderName }) => {
+  socket.on('sendMessage', ({ senderId, receiverId, text, senderName, conversationId }) => {
     const user = getUser(receiverId);
     io.to(user?.socketId).emit('getMessage', {
       senderId,
       text,
       senderName,
+      conversationId,
     });
-    console.log('senderName', senderName);
   });
 
   socket.on('disconnect', () => {
