@@ -21,5 +21,13 @@ export const messagesAPI = createApi({
       }),
       invalidatesTags: ['Messages'],
     }),
+    readMessages: build.mutation<IMessage, { _id: string }>({
+      query: (arg: { isReaded: boolean; _id: string }) => ({
+        url: `/messages/${arg._id}`,
+        method: 'PATCH',
+        body: { isReaded: true },
+      }),
+      invalidatesTags: ['Messages'],
+    }),
   }),
 });

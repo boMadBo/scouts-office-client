@@ -66,6 +66,7 @@ app.post('/conversations', ConversationsController.createConverse);
 
 app.get('/messages/:conversationId', MessagesController.getMessages);
 app.post('/messages', MessagesController.createMessages);
+app.patch('/messages/:id', MessagesController.readMessages);
 
 app
   .listen(3014)
