@@ -40,6 +40,7 @@ export interface IProfileUpdate {
 
 export interface ITasks {
   _id?: string;
+  userId?: string | undefined;
   text: string;
   completed: boolean;
 }
@@ -83,6 +84,7 @@ export interface Rates {
 export interface Observe {
   _id?: string;
   id: string | undefined;
+  userId?: string;
 }
 
 export interface ObservePlayers {

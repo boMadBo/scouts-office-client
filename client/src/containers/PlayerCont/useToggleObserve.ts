@@ -1,8 +1,10 @@
 import { observeAPI } from '@/store/services/ObserveService';
+import Cookies from 'js-cookie';
 import { useCallback } from 'react';
 
 export const useToggleObserve = (id: string | undefined) => {
-  const { data: observe } = observeAPI.useGetObserveQuery();
+  const userId = Cookies.get('userId');
+  const { data: observe } = observeAPI.useGetObserveQuery({ userId: userId });
   const [createObserve] = observeAPI.useCreateObserveMutation();
   const [deleteObserve] = observeAPI.useDeleteObserveMutation();
 
@@ -13,7 +15,10 @@ export const useToggleObserve = (id: string | undefined) => {
     if (idObserve) {
       await deleteObserve({ _id: idObserve._id });
     } else {
-      await createObserve({ id: id });
+      await createObserve({
+        id: id,
+        userId: userId,
+      });
     }
   };
 

@@ -52,12 +52,12 @@ app.get('/profile', checkAuth, UserController.getProfile);
 app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
 app.get('/users', UserController.getUsers);
 
-app.get('/tasks', TasksController.getTasks);
+app.get('/tasks/:userId', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);
 app.delete('/tasks/:id', TasksController.deleteTasks);
 app.patch('/tasks/:id', TasksController.completeTasks);
 
-app.get('/observe', ObserveController.getObserve);
+app.get('/observe/:userId', ObserveController.getObserve);
 app.post('/observe', ObserveController.createObserve);
 app.delete('/observe/:id', ObserveController.deleteObserve);
 
