@@ -11,6 +11,12 @@ const MessagesSchema = new mongoose.Schema(
     text: {
       type: String,
     },
+<<<<<<< HEAD
+    isReaded: {
+      type: Boolean,
+    },
+=======
+>>>>>>> main
   },
   { timestamps: true }
 );

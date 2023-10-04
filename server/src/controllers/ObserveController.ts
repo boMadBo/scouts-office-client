@@ -3,10 +3,14 @@ import ObserveModel from '../models/Observe';
 
 export const getObserve = async (req: Request, res: Response) => {
   try {
+<<<<<<< HEAD
+    const observe = await ObserveModel.find();
+=======
     const userId = req.params.userId;
     const observe = await ObserveModel.find({
       userId: userId,
     });
+>>>>>>> main
     res.json(observe);
   } catch (e) {
     console.log(e);
@@ -19,7 +23,10 @@ export const getObserve = async (req: Request, res: Response) => {
 export const createObserve = async (req: Request, res: Response) => {
   try {
     const doc = new ObserveModel({
+<<<<<<< HEAD
+=======
       userId: req.body.userId,
+>>>>>>> main
       id: req.body.id,
     });
     const observe = await doc.save();

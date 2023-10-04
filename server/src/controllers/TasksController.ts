@@ -3,10 +3,14 @@ import TaskModel from '../models/Task';
 
 export const getTasks = async (req: Request, res: Response) => {
   try {
+<<<<<<< HEAD
+    const tasks = await TaskModel.find();
+=======
     const userId = req.params.userId;
     const tasks = await TaskModel.find({
       userId: userId,
     });
+>>>>>>> main
     res.json(tasks);
   } catch (e) {
     console.log(e);
@@ -19,7 +23,10 @@ export const getTasks = async (req: Request, res: Response) => {
 export const createTask = async (req: Request, res: Response) => {
   try {
     const doc = new TaskModel({
+<<<<<<< HEAD
+=======
       userId: req.body.userId,
+>>>>>>> main
       text: req.body.text,
       completed: false,
     });
@@ -36,9 +43,13 @@ export const createTask = async (req: Request, res: Response) => {
 export const deleteTasks = async (req: Request, res: Response) => {
   try {
     const taskId = req.params.id;
+<<<<<<< HEAD
+    const doc = await TaskModel.findByIdAndDelete(taskId);
+=======
     const doc = await TaskModel.findByIdAndDelete({
       _id: taskId,
     });
+>>>>>>> main
     if (!doc) {
       return res.status(404).json({
         message: 'Task not found',

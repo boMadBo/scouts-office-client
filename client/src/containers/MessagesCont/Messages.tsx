@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+import { IConversationNames } from '@/interfaces';
+import Cookies from 'js-cookie';
+import React, { useCallback, useEffect, useState } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { Navigate } from 'react-router-dom';
+=======
 import { IConversationNames, IMessage, IMessagesNames } from '@/interfaces';
 import { messagesAPI } from '@/store/services/MessagesService';
 import cn from 'classnames';
@@ -7,15 +14,36 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { BsPaperclip } from 'react-icons/bs';
 import { Navigate } from 'react-router-dom';
 import { Socket, io } from 'socket.io-client';
+>>>>>>> main
 import styles from './Messages.module.scss';
 import Conversations from './components/Conversations';
 import Dialogs from './components/Dialogs';
 import { useGetConvers } from './useGetConvers';
+<<<<<<< HEAD
+=======
 import { useGetMessages } from './useGetMessages';
+>>>>>>> main
 
 const Messages = () => {
   const token = Cookies.get('token');
   const id = Cookies.get('userId');
+<<<<<<< HEAD
+  const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
+  const [interlocutor, setInterlocutor] = useState<string | undefined>('');
+
+  const converse = useGetConvers();
+
+  // const memoSetMessages = useCallback(
+  //   () => (mess: IMessagesNames) => {
+  //     setMessages(prevMes => [...prevMes, mess]);
+  //   },
+  //   [messages]
+  // );
+
+  // useEffect(() => {
+  //   console.log(messages?.filter(item => !item.isReaded).length);
+  // }, [messages]);
+=======
 
   const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
   const [interlocutor, setInterlocutor] = useState<string | undefined>('');
@@ -29,6 +57,7 @@ const Messages = () => {
   const converse = useGetConvers();
   const dialogs = useGetMessages(currentChat?._id);
   const [createMessages] = messagesAPI.useCreateMessagesMutation();
+>>>>>>> main
 
   useEffect(() => {
     if (converse) {
@@ -39,6 +68,17 @@ const Messages = () => {
     }
   }, [converse]);
 
+<<<<<<< HEAD
+  const handleChatItemClick = useCallback(
+    (item: IConversationNames) => {
+      setCurrentChat(item);
+      const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
+      setInterlocutor(interName);
+    },
+    [currentChat, interlocutor]
+  );
+
+=======
   // messages //
 
   useEffect(() => {
@@ -127,6 +167,7 @@ const Messages = () => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+>>>>>>> main
   if (!token) {
     return <Navigate to="/signin" state={{ from: location }} />;
   }
@@ -159,6 +200,14 @@ const Messages = () => {
           ))}
         </div>
       </div>
+<<<<<<< HEAD
+      <Dialogs
+        interlocutor={interlocutor}
+        currentChat={currentChat}
+        // messages={messages}
+        // setMessages={memoSetMessages}
+      />
+=======
       <div className={styles.dialogs}>
         <div className={styles.nameCont}>
           <h3 className={styles.name}>{interlocutor}</h3>
@@ -190,6 +239,7 @@ const Messages = () => {
           </button>
         </div>
       </div>
+>>>>>>> main
     </section>
   );
 };
