@@ -22,7 +22,6 @@ Getting Started
 
 4. ### npm run start:dev
 
-<<<<<<< HEAD
 ### To run Client
 
 5. Navigate to the project directory:
@@ -34,29 +33,6 @@ Getting Started
 
 7. ### npm start
 
-=======
-### To run Socket
-
-5. Navigate to the project directory:
-   cd scouts-academy
-   cd socket
-
-6. install the required dependencies:
-   npm install
-7. ### npm start
-
-### To run Client
-
-8. Navigate to the project directory:
-   cd scouts-academy
-   cd client
-
-9. install the required dependencies:
-   npm install
-
-10. ### npm start
-
->>>>>>> main
 Runs the app in development mode. Open http://localhost:3010 to view it in the browser.
 
 API Usage
