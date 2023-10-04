@@ -2,10 +2,12 @@ import { Request, Response } from 'express';
 import MessagesModel from '../models/Messages';
 
 export const createMessages = async (req: Request, res: Response) => {
+
   const newMessage = new MessagesModel({
     ...req.body,
     isReaded: false,
   });
+
 
   try {
     const savedMessage = await newMessage.save();
@@ -27,6 +29,7 @@ export const getMessages = async (req: Request, res: Response) => {
   }
 };
 
+
 export const readMessages = async (req: Request, res: Response) => {
   try {
     const messageId = req.params.id;
@@ -42,3 +45,4 @@ export const readMessages = async (req: Request, res: Response) => {
     });
   }
 };
+

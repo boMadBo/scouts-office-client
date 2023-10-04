@@ -1,11 +1,21 @@
 import { instance } from '@/api/instanceTM';
 import { ObservePlayers } from '@/interfaces';
 import { observeAPI } from '@/store/services/ObserveService';
+<<<<<<< HEAD
 import { useEffect, useMemo, useState } from 'react';
 
 export const useGetObserves = (key: string) => {
   const [players, setPlayers] = useState<ObservePlayers[] | undefined>(undefined);
   const { data: observe } = observeAPI.useGetObserveQuery();
+=======
+import Cookies from 'js-cookie';
+import { useEffect, useMemo, useState } from 'react';
+
+export const useGetObserves = (key: string) => {
+  const id = Cookies.get('userId');
+  const [players, setPlayers] = useState<ObservePlayers[] | undefined>(undefined);
+  const { data: observe } = observeAPI.useGetObserveQuery({ userId: id });
+>>>>>>> main
 
   const fetchData = async () => {
     if (observe && observe.length > 0) {

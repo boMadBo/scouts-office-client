@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { conversationsAPI } from '@/store/services/ConversationsService';
 import { profileAPI } from '@/store/services/ProfileService';
 import Cookies from 'js-cookie';
@@ -10,11 +11,35 @@ export const useGetConvers = () => {
 
   const result = useMemo(() => {
     if (!converse || !users) {
+=======
+import { IConversations } from '@/interfaces';
+import { conversationsAPI } from '@/store/services/ConversationsService';
+import { profileAPI } from '@/store/services/ProfileService';
+import Cookies from 'js-cookie';
+import { useEffect, useMemo, useState } from 'react';
+
+export const useGetConvers = () => {
+  const [conversations, setConversations] = useState<IConversations[] | undefined>([]);
+  const id = Cookies.get('userId');
+  const { data: converse } = conversationsAPI.useGetConversationsQuery({ _id: id });
+  const { data: users } = profileAPI.useGetUsersQuery();
+
+  useEffect(() => {
+    setConversations(converse);
+  }, [converse]);
+
+  const result = useMemo(() => {
+    if (!conversations || !users) {
+>>>>>>> main
       return [];
     }
 
     const usersMap = new Map(users.map(user => [user._id, user]));
+<<<<<<< HEAD
     const conversationsWithNames = converse.map(conversation => {
+=======
+    const conversationsWithNames = conversations.map(conversation => {
+>>>>>>> main
       const receiver = usersMap.get(conversation.members[1]);
       const sender = usersMap.get(conversation.members[0]);
 
@@ -32,6 +57,10 @@ export const useGetConvers = () => {
     });
 
     return conversationsWithNames;
+<<<<<<< HEAD
   }, [converse, users]);
+=======
+  }, [conversations, users]);
+>>>>>>> main
   return result;
 };

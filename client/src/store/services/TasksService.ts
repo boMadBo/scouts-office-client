@@ -7,9 +7,15 @@ export const tasksAPI = createApi({
   baseQuery: baseQueryWithAuth,
   tagTypes: ['Tasks'],
   endpoints: build => ({
+<<<<<<< HEAD
     getTasks: build.query<ITasks[], void>({
       query: () => ({
         url: '/tasks',
+=======
+    getTasks: build.query<ITasks[], { userId: string | undefined }>({
+      query: (arg: { userId: string }) => ({
+        url: `/tasks/${arg.userId}`,
+>>>>>>> main
       }),
       providesTags: (result, error) => [{ type: 'Tasks', result, error }],
     }),

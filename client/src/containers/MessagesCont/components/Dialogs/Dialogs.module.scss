@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .dialogs {
   width: 70%;
 }
@@ -88,6 +89,8 @@
   color: var(--main);
 }
 
+=======
+>>>>>>> main
 .messages {
   display: flex;
   flex-direction: column;
@@ -124,13 +127,19 @@
   border-radius: 10px;
   background-color: var(--buttons);
   color: var(--profile);
+<<<<<<< HEAD
   position: relative;
+=======
+>>>>>>> main
 }
 
 .textWrapOwn {
   background-color: var(--own-bg);
   color: #2f3030;
+<<<<<<< HEAD
   position: relative;
+=======
+>>>>>>> main
 }
 
 .text {
@@ -141,6 +150,7 @@
   line-height: 1.5;
   font-weight: 300;
 }
+<<<<<<< HEAD
 
 .readIcon {
   position: absolute;
@@ -154,3 +164,5 @@
 .readedIcon {
   color: rgb(0, 128, 0);
 }
+=======
+>>>>>>> main
