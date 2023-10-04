@@ -27,7 +27,6 @@ export const messagesAPI = createApi({
         method: 'PATCH',
         body: { isReaded: true },
       }),
-      invalidatesTags: ['Messages'],
     }),
   }),
 });

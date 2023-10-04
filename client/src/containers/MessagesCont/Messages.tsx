@@ -1,4 +1,4 @@
-import { IConversationNames, IMessagesNames } from '@/interfaces';
+import { IConversationNames } from '@/interfaces';
 import Cookies from 'js-cookie';
 import React, { useCallback, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -7,32 +7,25 @@ import styles from './Messages.module.scss';
 import Conversations from './components/Conversations';
 import Dialogs from './components/Dialogs';
 import { useGetConvers } from './useGetConvers';
-import { useGetMessages } from './useGetMessages';
 
 const Messages = () => {
   const token = Cookies.get('token');
   const id = Cookies.get('userId');
   const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
   const [interlocutor, setInterlocutor] = useState<string | undefined>('');
-  const [messages, setMessages] = useState<IMessagesNames[]>([]);
 
   const converse = useGetConvers();
-  const dialogs = useGetMessages(currentChat?._id);
 
-  const memoSetMessages = useCallback(
-    () => (mess: IMessagesNames[]) => {
-      setMessages(mess);
-    },
-    [messages]
-  );
+  // const memoSetMessages = useCallback(
+  //   () => (mess: IMessagesNames) => {
+  //     setMessages(prevMes => [...prevMes, mess]);
+  //   },
+  //   [messages]
+  // );
 
-  useEffect(() => {
-    console.log(messages?.filter(item => !item.isReaded).length);
-  }, [messages]);
-
-  useEffect(() => {
-    setMessages(dialogs);
-  }, [dialogs]);
+  // useEffect(() => {
+  //   console.log(messages?.filter(item => !item.isReaded).length);
+  // }, [messages]);
 
   useEffect(() => {
     if (converse) {
@@ -79,7 +72,7 @@ const Messages = () => {
         <div className={styles.conversations}>
           {converse?.map(item => (
             <div key={item._id} className={styles.users} onClick={() => handleChatItemClick(item)}>
-              <Conversations id={id} messages={messages} data={item} />
+              <Conversations id={id} data={item} />
             </div>
           ))}
         </div>
@@ -87,8 +80,8 @@ const Messages = () => {
       <Dialogs
         interlocutor={interlocutor}
         currentChat={currentChat}
-        messages={messages}
-        setMessages={memoSetMessages}
+        // messages={messages}
+        // setMessages={memoSetMessages}
       />
     </section>
   );

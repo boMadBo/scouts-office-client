@@ -1,4 +1,3 @@
-import { instance } from '@/api/instanceIO';
 import { IConversationNames, IMessage, IMessagesNames } from '@/interfaces';
 import { messagesAPI } from '@/store/services/MessagesService';
 import cn from 'classnames';
@@ -6,46 +5,50 @@ import Cookies from 'js-cookie';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { BsPaperclip } from 'react-icons/bs';
 import { Socket, io } from 'socket.io-client';
+import { useGetMessages } from '../../useGetMessages';
 import Dialog from './Dialog';
 import styles from './Dialogs.module.scss';
 
 interface Props {
   interlocutor: string | undefined;
   currentChat: IConversationNames | null;
-  messages: IMessagesNames[];
-  setMessages: React.Dispatch<React.SetStateAction<IMessagesNames[]>>;
+  // messages: IMessagesNames[];
+  // setMessages: React.Dispatch<React.SetStateAction<IMessagesNames[]>>;
 }
 
-const Dialogs = ({ interlocutor, currentChat, messages, setMessages }: Props) => {
+const Dialogs = ({ interlocutor, currentChat }: Props) => {
   const id = Cookies.get('userId');
   const [createMessages] = messagesAPI.useCreateMessagesMutation();
 
   const [newDialog, setNewDialog] = useState<string>('');
-  const [arrivalMessage, setArrivalMessage] = useState<IMessage | null>(null);
-
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const socket = useRef<Socket>();
   const viewedMessagesRef = useRef(new Set());
 
+  const [messages, setMessages] = useState<IMessagesNames[]>([]);
+  const dialogs = useGetMessages(currentChat?._id);
+
+  useEffect(() => {
+    setMessages(dialogs);
+  }, [dialogs]);
+
   // messages //
 
   const messageSubmit = async (message: IMessage) => {
-    const receiverId = currentChat?.members.find(member => member !== id);
-    const name = currentChat?.receiver.id !== id ? currentChat?.sender.senderName : currentChat?.receiver.receiverName;
-    if (socket.current) {
-      socket.current.emit('sendMessage', {
-        senderId: id,
-        receiverId,
-        text: newDialog,
-        senderName: name,
-        conversationId: currentChat?._id,
-      });
-    }
+    // const receiverId = currentChat?.members.find(member => member !== id);
+    // const name = currentChat?.receiver.id !== id ? currentChat?.sender.senderName : currentChat?.receiver.receiverName;
+    // if (socket.current) {
+    //   socket.current.emit('sendMessage', {
+    //     // _id: uuidv4().replace(/-/g, '').slice(0, 23),
+    //     senderId: id,
+    //     receiverId,
+    //     text: newDialog,
+    //     senderName: name,
+    //     conversationId: currentChat?._id,
+    //   });
+    // }
     try {
-      const res = await createMessages(message);
-      if ('data' in res && Array.isArray(res.data)) {
-        setMessages(prevMessages => [...prevMessages, ...(res.data as IMessagesNames[])]);
-      }
+      await createMessages(message);
     } catch (e) {
       console.log(e);
     }
@@ -73,27 +76,12 @@ const Dialogs = ({ interlocutor, currentChat, messages, setMessages }: Props) =>
   // sockets //
 
   useEffect(() => {
-    socket.current = io(instance);
-
+    socket.current = io('ws://localhost:3050');
     socket.current.on('getMessage', data => {
-      setArrivalMessage({
-        _id: Math.random().toString(),
-        conversationId: data.conversationId,
-        sender: data.senderId,
-        text: data.text,
-        createdAt: new Date().toString(),
-        senderName: data.senderName,
-        isReaded: false,
-      });
+      console.log('data', data);
+      setMessages(prevMessages => [...prevMessages, data]);
     });
-  }, [arrivalMessage]);
-
-  useEffect(() => {
-    arrivalMessage &&
-      arrivalMessage.sender &&
-      currentChat?.members.includes(arrivalMessage.sender) &&
-      setMessages(prev => [...prev, arrivalMessage as IMessagesNames]);
-  }, [arrivalMessage, currentChat]);
+  }, []);
 
   useEffect(() => {
     if (socket.current) {
