@@ -2,12 +2,10 @@ import mongoose from 'mongoose';
 
 const TasksSchema = new mongoose.Schema(
   {
-<<<<<<< HEAD
-=======
     userId: {
       type: String,
     },
->>>>>>> main
+
     text: {
       type: String,
       required: true,

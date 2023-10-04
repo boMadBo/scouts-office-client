@@ -40,10 +40,7 @@ export interface IProfileUpdate {
 
 export interface ITasks {
   _id?: string;
-<<<<<<< HEAD
-=======
   userId?: string | undefined;
->>>>>>> main
   text: string;
   completed: boolean;
 }
@@ -87,10 +84,7 @@ export interface Rates {
 export interface Observe {
   _id?: string;
   id: string | undefined;
-<<<<<<< HEAD
-=======
   userId?: string;
->>>>>>> main
 }
 
 export interface ObservePlayers {
@@ -137,10 +131,7 @@ export interface IMessages {
   sender: string;
   text: string;
   createdAt: string;
-<<<<<<< HEAD
   isReaded: boolean;
-=======
->>>>>>> main
   updatedAt: string;
   __v: number;
 }
@@ -150,10 +141,7 @@ export interface IMessagesNames {
   conversationId: string;
   sender: string;
   text: string;
-<<<<<<< HEAD
   isReaded: boolean;
-=======
->>>>>>> main
   createdAt: string;
   updatedAt: string;
   __v: number;
@@ -167,8 +155,5 @@ export interface IMessage {
   conversationId: string | undefined;
   createdAt?: string | undefined;
   senderName?: string | undefined;
-<<<<<<< HEAD
   isReaded?: boolean;
-=======
->>>>>>> main
 }
