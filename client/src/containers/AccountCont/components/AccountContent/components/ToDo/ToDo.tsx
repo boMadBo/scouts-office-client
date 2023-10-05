@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ITasks } from '@/interfaces';
 import { tasksAPI } from '@/store/services/TasksService';
 <<<<<<< HEAD
@@ -12,6 +13,11 @@ import { tasksAPI } from '@/store/services/TasksService';
 =======
 import Cookies from 'js-cookie';
 >>>>>>> d8e74df (add userId in tasks and ob)
+=======
+import { ITasks } from '@/interfaces';
+import { tasksAPI } from '@/store/services/TasksService';
+import Cookies from 'js-cookie';
+>>>>>>> main
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ListItem from './ListItem';
@@ -20,6 +26,9 @@ import styles from './ToDo.module.scss';
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 const ToDo = () => {
   const id = Cookies.get('userId');
   const { data: tasks } = tasksAPI.useGetTasksQuery({ userId: id });
@@ -29,6 +38,7 @@ const ToDo = () => {
   const [text, setText] = useState('');
   const { t } = useTranslation();
 
+<<<<<<< HEAD
 =======
 const tasksData = [
   { text: 'Find a striker', completed: true },
@@ -74,6 +84,8 @@ const ToDo = () => {
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> 590496a (todo on server)
+=======
+>>>>>>> main
   const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
     setText(value);
@@ -81,8 +93,11 @@ const ToDo = () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 590496a (todo on server)
+=======
+>>>>>>> main
   const onAddTask = async (values: ITasks) => {
     await createTasks({
       userId: id,
@@ -92,6 +107,7 @@ const ToDo = () => {
     setText('');
   };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   const addTask = useCallback(() => {
     if (text) {
@@ -106,6 +122,11 @@ const ToDo = () => {
     if (text) {
       onAddTask({ text, completed: false });
 >>>>>>> 590496a (todo on server)
+=======
+  const addTask = useCallback(() => {
+    if (text) {
+      onAddTask({ text, completed: false });
+>>>>>>> main
       setText('');
     }
   }, [onAddTask, text]);
@@ -118,6 +139,9 @@ const ToDo = () => {
     },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
     [addTask]
   );
 
@@ -153,6 +177,7 @@ const ToDo = () => {
       }
     },
     [onToggleCompleted]
+<<<<<<< HEAD
 =======
     [addTask],
 =======
@@ -197,6 +222,8 @@ const ToDo = () => {
     },
     [onToggleCompleted]
 >>>>>>> 590496a (todo on server)
+=======
+>>>>>>> main
   );
 
   return (
@@ -206,10 +233,14 @@ const ToDo = () => {
         <TaskField text={text} handleInputChange={handleInputChange} addTask={addTask} handleKeyUp={handleKeyUp} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
         {tasks?.map(task => (
           <ListItem
             key={task._id}
             id={task._id}
+<<<<<<< HEAD
 =======
         {tasks.map((task, index) => (
           <ListItem
@@ -222,6 +253,8 @@ const ToDo = () => {
             key={task._id}
             id={task._id}
 >>>>>>> 590496a (todo on server)
+=======
+>>>>>>> main
             completed={task.completed}
             text={task.text}
             toggleCompleted={toggleCompleted}

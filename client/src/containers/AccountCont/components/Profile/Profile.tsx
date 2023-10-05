@@ -1,11 +1,17 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import { useCountryFlagUrl } from '@/hooks/useCountryFlag';
 import { profileAPI } from '@/store/services/ProfileService';
 import dayjs from 'dayjs';
 import Cookies from 'js-cookie';
 import React, { useEffect, useMemo } from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
@@ -36,6 +42,7 @@ const Profile = () => {
   );
 
   const age = calculateAge(profile?.birthDate);
+<<<<<<< HEAD
 =======
 =======
 import { useCountryFlagUrl } from '@/hooks/useCountryFlag';
@@ -83,12 +90,17 @@ const Profile = () => {
   );
 
   const age = calculateAge(profile?.birthDate);
+=======
+>>>>>>> main
 
   return (
     <section className={styles.profileConteiner}>
       <div className={styles.infoWrapper}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
         <span className={styles.text}>{t('My profile')}</span>
         <div className={styles.photoWrapper}>
           {profile?.avatarUrl && <img src={profile.avatarUrl} alt="avatar" className={styles.photo} />}
@@ -109,6 +121,7 @@ const Profile = () => {
               {t('edit profile')}
             </Link>
           </div>
+<<<<<<< HEAD
 =======
         <span className={styles.title}>{t('My profile')}</span>
         <div className={styles.photoWrapper}>
@@ -142,6 +155,8 @@ const Profile = () => {
             </Link>
           </div>
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> main
         </div>
       </div>
     </section>

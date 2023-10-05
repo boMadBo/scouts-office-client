@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Registration from '@/containers/AuthCont/Registration';
 =======
 import Registration from '@/containers/AuthCont/Registration/Registration';
@@ -7,10 +8,14 @@ import Registration from '@/containers/AuthCont/Registration/Registration';
 =======
 import Registration from '@/containers/AuthCont/Registration';
 >>>>>>> bc9de08 (add styles for auth)
+=======
+import Registration from '@/containers/AuthCont/Registration';
+>>>>>>> main
 import React from 'react';
 
 const RegistrationPage = () => {
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <>
@@ -26,6 +31,11 @@ const RegistrationPage = () => {
       <Registration />
     </>
 >>>>>>> e49de05 (add all news)
+=======
+    <>
+      <Registration />
+    </>
+>>>>>>> main
   );
 };
 

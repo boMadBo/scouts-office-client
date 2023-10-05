@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { instance } from '@/api/instanceUsdBtc';
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
 =======
 import { instance } from '@/api/instanceUsdBtc';
 >>>>>>> 7e204e8 (toggle observe)
+=======
+import { instance } from '@/api/instanceUsdBtc';
+>>>>>>> main
 import { Rates } from '@/interfaces';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -15,6 +19,7 @@ export const useGetUsdBtc = () => {
   const fetchData = async () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const url = `${instance}?currency=EUR`;
 =======
     const url = `https://api.coinbase.com/v2/exchange-rates?currency=EUR`;
@@ -22,6 +27,9 @@ export const useGetUsdBtc = () => {
 =======
     const url = `${instance}?currency=EUR`;
 >>>>>>> 7e204e8 (toggle observe)
+=======
+    const url = `${instance}?currency=EUR`;
+>>>>>>> main
     const options = {
       method: 'GET',
     };

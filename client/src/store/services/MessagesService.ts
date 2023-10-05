@@ -9,6 +9,7 @@ export const messagesAPI = createApi({
   endpoints: build => ({
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     getMessages: build.query<IMessages[], { conversationId: string | undefined }>({
 =======
     getMessages: build.query<IMessages[], { conversationId: string }>({
@@ -16,6 +17,9 @@ export const messagesAPI = createApi({
 =======
     getMessages: build.query<IMessages[], { conversationId: string | undefined }>({
 >>>>>>> b6a0b5c (start ws)
+=======
+    getMessages: build.query<IMessages[], { conversationId: string | undefined }>({
+>>>>>>> main
       query: (arg: { conversationId: string }) => ({
         url: `/messages/${arg.conversationId}`,
       }),
@@ -38,9 +42,12 @@ export const messagesAPI = createApi({
       }),
     }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a40623b (add messages logic)
 =======
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
   }),
 });

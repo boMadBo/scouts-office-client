@@ -4,11 +4,15 @@ import { useEffect, useMemo, useState } from 'react';
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 export const useGetStats = (id: string | undefined, key: string, seasonID: string = '2023') => {
   const [stats, setStats] = useState<StartStats[]>([]);
 
   const fetchData = async () => {
     const url = `${instance}/players/get-performance-summary?id=${id}&seasonID=${seasonID}&domain=com`;
+<<<<<<< HEAD
 =======
 export const useGetStats = (id: string | undefined, key: string) => {
   const [stats, setStats] = useState<StartStats[]>([]);
@@ -23,6 +27,8 @@ export const useGetStats = (id: string | undefined, key: string, seasonID: strin
   const fetchData = async () => {
     const url = `${instance}/players/get-performance-summary?id=${id}&seasonID=${seasonID}&domain=com`;
 >>>>>>> 80f6534 (add season select)
+=======
+>>>>>>> main
     const options = {
       method: 'GET',
       headers: {
@@ -46,6 +52,7 @@ export const useGetStats = (id: string | undefined, key: string, seasonID: strin
     });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   }, [seasonID]);
 =======
   }, []);
@@ -53,6 +60,9 @@ export const useGetStats = (id: string | undefined, key: string, seasonID: strin
 =======
   }, [seasonID]);
 >>>>>>> 80f6534 (add season select)
+=======
+  }, [seasonID]);
+>>>>>>> main
 
   return useMemo(() => {
     const result = stats.map(item => {

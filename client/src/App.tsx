@@ -7,12 +7,18 @@ import AllLeaguesPage from './pages/AllLeaguesPage';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import CurrentNewsPage from './pages/CurrentNewsPage';
 import EditPage from './pages/EditPage';
 import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
 import MessagesPage from './pages/MessagesPage';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import NewsPage from './pages/NewsPage';
 import ObservePage from './pages/ObservePage';
 import PlayerPage from './pages/PlayerPage';
@@ -20,6 +26,7 @@ import RegistrationPage from './pages/RegistrationPage';
 import SearchPage from './pages/SearchPage';
 import SignInPage from './pages/SignInPage';
 import SquadPage from './pages/SquadPage';
+<<<<<<< HEAD
 =======
 import CountryPage from './pages/CountryPage';
 =======
@@ -43,6 +50,8 @@ import SignInPage from './pages/SignInPage';
 =======
 import SquadPage from './pages/SquadPage';
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
 import ToDoPage from './pages/ToDoPage';
 import VideosPage from './pages/VideosPage';
 
@@ -63,6 +72,9 @@ const App = () => {
           <Route path="observe" element={<ObservePage />} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
           <Route path="edit" element={<EditPage />} />
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
@@ -70,6 +82,9 @@ const App = () => {
         <Route path="leagues/:country/:id" element={<LeaguePage />} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
         <Route path="squad/:id" element={<SquadPage />} />
         <Route path="player/:id" element={<PlayerPage />} />
         <Route path="news" element={<NewsPage />} />
@@ -77,8 +92,11 @@ const App = () => {
         <Route path="videos" element={<VideosPage />} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 11853ed (add mock messages)
+=======
+>>>>>>> main
         <Route
           path="messages"
           element={
@@ -88,6 +106,7 @@ const App = () => {
           }
         />
         <Route path="search" element={<SearchPage />} />
+<<<<<<< HEAD
 =======
 =======
           <Route path="edit" element={<EditPage />} />
@@ -113,6 +132,8 @@ const App = () => {
 =======
         <Route path="search" element={<SearchPage />} />
 >>>>>>> baf8dd4 (add search)
+=======
+>>>>>>> main
         <Route path="registr" element={<RegistrationPage />} />
         <Route path="signin" element={<SignInPage />} />
       </Route>

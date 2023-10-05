@@ -171,8 +171,11 @@ export interface FinStats {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 80f6534 (add season select)
+=======
+>>>>>>> main
 
 export interface Seasons {
   key: string | undefined;
@@ -180,8 +183,11 @@ export interface Seasons {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+>>>>>>> main
 
 export interface StartValue {
   date: string | undefined;
@@ -209,8 +215,11 @@ export interface FinValue {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e18f7ca (add transfer history)
+=======
+>>>>>>> main
 
 export interface StartTransfers {
   playerID: string | undefined;
@@ -250,6 +259,7 @@ export interface FinTransfers {
   season: string | undefined;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 59a9c38 (edit players profile)
 =======
@@ -258,3 +268,5 @@ export interface FinTransfers {
 >>>>>>> 9c6ff80 (add market value chart)
 =======
 >>>>>>> e18f7ca (add transfer history)
+=======
+>>>>>>> main

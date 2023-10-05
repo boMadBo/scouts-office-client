@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { searchFetching } from '@/store/reducers/SearchSlice';
 import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
@@ -10,6 +11,11 @@ import { useAppDispatch, useAppSelector } from '@/hooks';
 import { searchFetching } from '@/store/reducers/SearchSlice';
 import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
 >>>>>>> bc9de08 (add styles for auth)
+=======
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { searchFetching } from '@/store/reducers/SearchSlice';
+import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
+>>>>>>> main
 import ChildLink from '@/uikit/ChildLink';
 import LongModal from '@/uikit/LongModal/LongModal';
 import ParentLink from '@/uikit/ParentLink';
@@ -17,12 +23,16 @@ import Cookies from 'js-cookie';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> baf8dd4 (add search)
+=======
+>>>>>>> main
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import React, { useState } from 'react';
@@ -33,6 +43,8 @@ import { useTranslation } from 'react-i18next';
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> baf8dd4 (add search)
+=======
+>>>>>>> main
 import styles from './Header.module.scss';
 import SettingGroup from './components/SettingGroup';
 
@@ -45,14 +57,18 @@ const routes = [
       { link: 'all', text: 'All leagues' },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
       { link: 'england/GB1', text: 'England' },
       { link: 'germany/L1', text: 'Germany' },
       { link: 'spain/ES1', text: 'Spain' },
       { link: 'italy/IT1', text: 'Italy' },
       { link: 'france/FR1', text: 'France' },
       { link: 'netherlands/NL1', text: 'Netherlans' },
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
       { link: 'england', text: 'England' },
@@ -64,18 +80,26 @@ const routes = [
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
     ],
   },
   { link: 'news', text: 'News', children: null },
   { link: 'videos', text: 'Videos', children: null },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   { link: 'messages', text: 'Messages', children: null },
 ];
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState<string | null>(null);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 
   const dispatch = useAppDispatch();
   const isToken = useAppSelector(state => state.token.isToken);
@@ -99,6 +123,7 @@ const Header = () => {
     setQuery('');
   }, [query, dispatch]);
 
+<<<<<<< HEAD
 =======
 =======
   { link: 'messages', text: 'Messages', children: null },
@@ -137,6 +162,8 @@ const Header = () => {
   }, [query, dispatch]);
 
 >>>>>>> baf8dd4 (add search)
+=======
+>>>>>>> main
   return (
     <header className={styles.header}>
       <section className={styles.wrapper}>
@@ -167,8 +194,11 @@ const Header = () => {
         <div className={styles.container}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> baf8dd4 (add search)
+=======
+>>>>>>> main
           <div className={styles.input_wrap}>
             <form className={styles.form}>
               <input
@@ -188,6 +218,7 @@ const Header = () => {
           <SettingGroup />
           {!isToken && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
           {isToken && (
+<<<<<<< HEAD
 =======
           <SettingGroup />
 <<<<<<< HEAD
@@ -198,6 +229,8 @@ const Header = () => {
           {!isToken && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
           {isToken && (
 >>>>>>> bc9de08 (add styles for auth)
+=======
+>>>>>>> main
             <ParentLink to="/" onClick={handleSignOut}>
               {t('Sign Out')}
             </ParentLink>

@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
 import { Columns } from '@/interfaces';
 import { FinSquad } from '@/interfaces/squads';
 import cn from 'classnames';
@@ -10,6 +13,9 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React, { useMemo } from 'react';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import { useTranslation } from 'react-i18next';
 import { CiFilter } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
@@ -45,6 +51,7 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
               <CiFilter className={styles.filter} onClick={() => handleSort(col.title)} />
             </th>
           ))}
+<<<<<<< HEAD
 =======
 import { ISquad } from '@/interfaces';
 import React from 'react';
@@ -97,10 +104,13 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
             </th>
           ))}
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
         </tr>
       </thead>
       <tbody>
         {data.map(item => (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           <tr key={item.id}>
@@ -115,6 +125,12 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
 =======
               <Link to={`/player/${item.id}`} className={styles.link}>
 >>>>>>> 80f6534 (add season select)
+=======
+          <tr key={item.id}>
+            <td className={`${styles.sSize} ${cellColor(item.positionGroup)}`}>{item.shirtNumber}</td>
+            <td>
+              <Link to={`/player/${item.id}`} className={styles.link}>
+>>>>>>> main
                 <div className={styles.wrap}>
                   <img src={item.image} alt={item.name} className={styles.img} />
                   <div className={styles.nameWrap}>
@@ -122,6 +138,9 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
                     <span className={styles.position}>{item.positionFull}</span>
                   </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
                 </div>
               </Link>
             </td>
@@ -139,6 +158,7 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
               </div>
             </td>
             <td className={styles.mSize}>{item.value}</td>
+<<<<<<< HEAD
 =======
           <tr>
             <td>{item.shirtNumber}</td>
@@ -175,6 +195,8 @@ const SquadTable = ({ data, columns, handleSort }: Props) => {
 =======
             <td className={styles.mSize}>{item.value}</td>
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
           </tr>
         ))}
       </tbody>

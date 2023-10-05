@@ -1,8 +1,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> main
 import { useAppSelector } from '@/hooks';
 import MainLink from '@/uikit/MainLink';
 import React from 'react';
@@ -33,6 +36,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+<<<<<<< HEAD
 =======
 import ContentLink from '@/uikit/ContentLink';
 =======
@@ -66,10 +70,13 @@ const Home = () => {
         </div>
       </div>
 >>>>>>> bc9de08 (add styles for auth)
+=======
+>>>>>>> main
     </section>
   );
 };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 export default React.memo(Home);
@@ -79,3 +86,6 @@ export default Home;
 =======
 export default React.memo(Home);
 >>>>>>> bc9de08 (add styles for auth)
+=======
+export default React.memo(Home);
+>>>>>>> main

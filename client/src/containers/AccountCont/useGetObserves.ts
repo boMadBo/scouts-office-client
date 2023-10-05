@@ -34,6 +34,7 @@ export const useGetObserves = (key: string) => {
         const results = await Promise.all(fetchPromises);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         const updatedResults = results.map(result => result.playerProfile);
 =======
         const updatedResults = results.flatMap(result => result.playerProfile);
@@ -41,6 +42,9 @@ export const useGetObserves = (key: string) => {
 =======
         const updatedResults = results.map(result => result.playerProfile);
 >>>>>>> 7e204e8 (toggle observe)
+=======
+        const updatedResults = results.map(result => result.playerProfile);
+>>>>>>> main
         const finalResults = updatedResults.map(result => {
           const _id = observe.find(item => item.id === result.playerID)?._id;
           const playerID = result.playerID;

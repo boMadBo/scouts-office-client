@@ -2,9 +2,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:client/src/pages/AllLeaguesPage.tsx
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> main
 import AllLeagues from '@/containers/LeaguesCont/components/AllLeagues';
 import React from 'react';
 
@@ -14,6 +17,7 @@ const AllLeaguesPage = () => {
       <AllLeagues />
     </>
   );
+<<<<<<< HEAD
 =======
 import React from 'react';
 
@@ -40,6 +44,8 @@ const AllLeaguesPage = () => {
     </>
   );
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
 };
 
 export default AllLeaguesPage;

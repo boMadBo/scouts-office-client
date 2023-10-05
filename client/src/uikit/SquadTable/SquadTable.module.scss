@@ -3,6 +3,7 @@
   border-collapse: collapse;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: var(--table-bg);
 =======
   background-color: var(--child-tabs);
@@ -10,12 +11,18 @@
 =======
   background-color: var(--table-bg);
 >>>>>>> dfd4232 (create squad page)
+=======
+  background-color: var(--table-bg);
+>>>>>>> main
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 4px 0 6px rgba(0, 0, 0, 0.2);
 }
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 .table thead {
   background-color: var(--titles);
 }
@@ -30,6 +37,7 @@
 
 .table tr {
   height: 40px;
+<<<<<<< HEAD
 =======
 .head {
 =======
@@ -53,6 +61,8 @@
 =======
   height: 40px;
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
   border: 0.2px solid var(--main-text);
 }
 
@@ -60,6 +70,7 @@
   font-weight: 300;
   font-size: 14px;
   line-height: 16px;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   padding-left: 14px;
@@ -79,14 +90,22 @@
   align-items: center;
   border: 0.2px solid var(--main-text);
 >>>>>>> dfd4232 (create squad page)
+=======
+  padding-left: 14px;
+  align-items: center;
+  border: 0.2px solid var(--main-text);
+>>>>>>> main
   &:nth-child(2) {
     text-align: start;
     padding-left: 8px;
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
   &:nth-child(4) {
     padding-left: 6px;
   }
@@ -95,16 +114,22 @@
     padding-right: 2px;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 431f668 (dev leagues)
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
 }
 
 .table td {
   font-weight: 400;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   font-size: 14px;
   line-height: 16px;
   padding: 0;
@@ -131,6 +156,7 @@
 .img {
   width: 24px;
   height: 36px;
+<<<<<<< HEAD
 =======
   font-size: 16px;
   line-height: 18px;
@@ -167,6 +193,8 @@
 =======
   height: 36px;
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
   object-fit: cover;
 }
 
@@ -183,8 +211,11 @@
   flex-direction: column;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
   align-items: start;
   gap: 4px;
 }
@@ -200,10 +231,13 @@
   justify-content: center;
   gap: 4px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 431f668 (dev leagues)
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
 }
 
 .imgWrap {
@@ -214,6 +248,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 .flagBr {
   display: flex;
   align-items: center;
@@ -262,6 +299,7 @@
   font-size: 14px;
   line-height: 16px;
   text-decoration-line: none;
+<<<<<<< HEAD
 =======
 .flagImg {
   width: 20px;
@@ -318,4 +356,6 @@
   font-size: 14px;
   line-height: 16px;
   text-decoration-line: none;
+=======
+>>>>>>> main
 }

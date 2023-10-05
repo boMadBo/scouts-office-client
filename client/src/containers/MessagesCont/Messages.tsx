@@ -2,12 +2,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
 import { IConversationNames } from '@/interfaces';
 import Cookies from 'js-cookie';
 import React, { useCallback, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import Loading from '@/uikit/Loading';
@@ -34,21 +38,30 @@ import Dialogs from './components/Dialogs';
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> main
 import { Navigate } from 'react-router-dom';
 
 import styles from './Messages.module.scss';
 import Conversations from './components/Conversations';
 import Dialogs from './components/Dialogs';
+<<<<<<< HEAD
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
 import { useGetConvers } from './useGetConvers';
 
 const Messages = () => {
   const token = Cookies.get('token');
   const id = Cookies.get('userId');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 9b4e008 (add dialogs)
+=======
+
+>>>>>>> main
   const [currentChat, setCurrentChat] = useState<IConversationNames | null>(null);
   const [interlocutor, setInterlocutor] = useState<string | undefined>('');
 
@@ -65,6 +78,9 @@ const Messages = () => {
   //   console.log(messages?.filter(item => !item.isReaded).length);
   // }, [messages]);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 
   useEffect(() => {
     if (converse) {
@@ -83,6 +99,7 @@ const Messages = () => {
     },
     [currentChat, interlocutor]
   );
+<<<<<<< HEAD
 =======
 
 const mockNamnes = [
@@ -242,12 +259,18 @@ const Messages = () => {
   );
 
 >>>>>>> 9b4e008 (add dialogs)
+=======
+
+>>>>>>> main
   if (!token) {
     return <Navigate to="/signin" state={{ from: location }} />;
   }
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   return (
     <section className={styles.messages}>
       <div className={styles.conversationsWrap}>
@@ -277,15 +300,20 @@ const Messages = () => {
         </div>
       </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 9b4e008 (add dialogs)
+=======
+
+>>>>>>> main
       <Dialogs
         interlocutor={interlocutor}
         currentChat={currentChat}
         // messages={messages}
         // setMessages={memoSetMessages}
       />
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   if (!token) {
@@ -359,6 +387,8 @@ const Messages = () => {
 >>>>>>> a40623b (add messages logic)
 =======
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
     </section>
   );
 };

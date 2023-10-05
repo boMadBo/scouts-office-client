@@ -14,6 +14,7 @@ import MessagesModel from './models/Messages';
 import checkAuth from './utils/checkAuth';
 import { addUser, removeUser, users } from './utils/socketsUsers';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import express from 'express';
 import mongoose from 'mongoose';
@@ -28,6 +29,8 @@ import checkAuth from './utils/checkAuth';
 >>>>>>> bda062a (edit server for ts)
 =======
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
 import { registerValidation } from './validations/auth';
 
 dotenv.config();
@@ -55,6 +58,7 @@ const io = require('socket.io')(3050, {
 const storage = multer.diskStorage({
   destination: (_, file, cb) => {
     cb(null, path.join(__dirname, '/uploads/'));
+<<<<<<< HEAD
 =======
 const storage = multer.diskStorage({
   destination: (_, file, cb) => {
@@ -64,6 +68,8 @@ const storage = multer.diskStorage({
 =======
     cb(null, path.join(__dirname, '/uploads/'));
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> main
   },
   filename: (_, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -101,8 +107,11 @@ app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
 app.get('/users', UserController.getUsers);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
 
 app.get('/tasks', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);
@@ -132,6 +141,7 @@ app.post('/messages', async (req: Request, res: Response) => {
   }
 });
 app.patch('/messages/:id', MessagesController.readMessages);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 app.use(express.json());
@@ -166,6 +176,8 @@ app.get('/messages/:conversationId', MessagesController.getMessages);
 app.post('/messages', MessagesController.createMessages);
 =======
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
 
 app
   .listen(3014)

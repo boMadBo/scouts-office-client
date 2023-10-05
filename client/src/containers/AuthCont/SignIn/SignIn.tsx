@@ -1,7 +1,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Auth from '@/containers/AuthCont/Auth';
 <<<<<<< HEAD
+=======
+import Auth from '@/containers/AuthCont/Auth';
+>>>>>>> main
 import { initialValuesSign, validationSchemaSign } from '@/containers/AuthCont/helpers';
 import { useAppDispatch } from '@/hooks';
 import { ISignInValues } from '@/interfaces';
@@ -27,6 +31,7 @@ const SignIn = () => {
   const [createSignIn, { isSuccess, data, isLoading }] = profileAPI.useCreateSignInMutation();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+<<<<<<< HEAD
 =======
 =======
 import Auth from '@/containers/AuthCont/Auth';
@@ -67,6 +72,8 @@ const SignIn = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 >>>>>>> bc9de08 (add styles for auth)
+=======
+>>>>>>> main
 
   const handleChange = async (values: ISignInValues) => {
     const formData = new FormData();
@@ -77,8 +84,11 @@ const SignIn = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
 
       const hasData = 'data' in response;
       if (hasData) {
@@ -97,6 +107,7 @@ const SignIn = () => {
     const checked = event.target.checked;
     setRememberMe(checked);
     Cookies.set('rememberMe', checked.toString(), { expires: 30 });
+<<<<<<< HEAD
 <<<<<<< HEAD
   }, []);
 
@@ -137,6 +148,10 @@ const SignIn = () => {
   }, []);
 
 >>>>>>> bda062a (edit server for ts)
+=======
+  }, []);
+
+>>>>>>> main
   if (isSuccess) {
     return <Navigate to={'/account'} />;
   }
@@ -144,8 +159,11 @@ const SignIn = () => {
   if (isLoading) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 80f6534 (add season select)
+=======
+>>>>>>> main
     return <Loading />;
   }
 
@@ -179,6 +197,7 @@ const SignIn = () => {
 };
 
 export default React.memo(SignIn);
+<<<<<<< HEAD
 =======
     return <span>Loading...</span>;
   }
@@ -218,3 +237,5 @@ export default SignIn;
 =======
 export default React.memo(SignIn);
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main

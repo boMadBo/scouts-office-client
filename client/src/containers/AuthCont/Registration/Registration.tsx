@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import Auth from '@/containers/AuthCont/Auth';
 import { initialValuesReg, validationSchemaReg } from '@/containers/AuthCont/helpers';
 import { IRegister } from '@/interfaces';
@@ -8,6 +11,7 @@ import Birthdate from '@/uikit/Birthdate';
 import PhotoDownloader from '@/uikit/PhotoDownloader';
 import SubmitBtn from '@/uikit/SubmitBtn';
 import FormikTF from '@/uikit/TextField/FormikTF';
+<<<<<<< HEAD
 =======
 import Auth from '@/containers/AuthCont/Auth';
 import { initialValuesReg, validationSchemaReg } from '@/containers/AuthCont/helpers';
@@ -21,11 +25,14 @@ import SubmitBtn from '@/uikit/SubmitBtn';
 =======
 import FormikTF from '@/uikit/TextField/FormikTF';
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> main
 import { Form, Formik } from 'formik';
 import React, { useCallback, useState } from 'react';
 import { CountryDropdown } from 'react-country-region-selector';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -34,6 +41,8 @@ import Birthdate from './Birthdate';
 >>>>>>> bc9de08 (add styles for auth)
 =======
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> main
 import styles from './Registration.module.scss';
 
 const formik = [
@@ -41,6 +50,7 @@ const formik = [
   { name: 'email', type: 'email', label: 'Your email' },
   { name: 'password', type: 'password', label: 'Your password' },
 ];
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import FormikTF from "@/containers/AuthCont/FormikTF";
@@ -56,12 +66,17 @@ import { Navigate } from "react-router-dom";
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> bc9de08 (add styles for auth)
+=======
+>>>>>>> main
 
 const Registration = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   const [country, setCountry] = useState('');
   const [createReg, { isSuccess }] = registerAPI.useCreateRegMutation();
   const { t } = useTranslation();
@@ -86,6 +101,7 @@ const Registration = () => {
   };
 
   const handleFileChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+<<<<<<< HEAD
 =======
 =======
   const [country, setCountry] = useState('');
@@ -118,6 +134,8 @@ const Registration = () => {
 =======
   const handleFileChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
 >>>>>>> bc9de08 (add styles for auth)
+=======
+>>>>>>> main
     const file = event.target.files && event.target.files[0];
     if (file) {
       setSelectedFile(file);
@@ -130,6 +148,9 @@ const Registration = () => {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   }, []);
 
   if (isSuccess) {
@@ -156,6 +177,9 @@ const Registration = () => {
             <Birthdate value={values.birthDate} onChange={e => setFieldValue('birthDate', e.target.value)} />
             <PhotoDownloader previewUrl={previewUrl} onChange={handleFileChange} />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
             <SubmitBtn text={t('Send')} disabled={isSubmitting} />
           </Form>
         )}
@@ -165,6 +189,7 @@ const Registration = () => {
 };
 
 export default React.memo(Registration);
+<<<<<<< HEAD
 =======
   };
 =======
@@ -210,3 +235,5 @@ export default Registration;
 =======
 export default React.memo(Registration);
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main

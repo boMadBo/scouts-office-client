@@ -7,6 +7,10 @@ export const getTasks = async (req: Request, res: Response) => {
     const tasks = await TaskModel.find({
       userId: userId,
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     res.json(tasks);
   } catch (e) {
     console.log(e);
@@ -20,6 +24,10 @@ export const createTask = async (req: Request, res: Response) => {
   try {
     const doc = new TaskModel({
       userId: req.body.userId,
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
       text: req.body.text,
       completed: false,
     });
@@ -36,9 +44,17 @@ export const createTask = async (req: Request, res: Response) => {
 export const deleteTasks = async (req: Request, res: Response) => {
   try {
     const taskId = req.params.id;
+<<<<<<< HEAD
     const doc = await TaskModel.findByIdAndDelete({
       _id: taskId,
     });
+=======
+
+    const doc = await TaskModel.findByIdAndDelete({
+      _id: taskId,
+    });
+
+>>>>>>> main
     if (!doc) {
       return res.status(404).json({
         message: 'Task not found',

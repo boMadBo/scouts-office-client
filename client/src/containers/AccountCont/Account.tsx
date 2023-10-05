@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Loading from '@/uikit/Loading';
 =======
 >>>>>>> 8673b67 (add server and start auth)
 =======
 import Loading from '@/uikit/Loading';
 >>>>>>> 80f6534 (add season select)
+=======
+import Loading from '@/uikit/Loading';
+>>>>>>> main
 import Cookies from 'js-cookie';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
@@ -24,14 +28,18 @@ const Account = () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 80f6534 (add season select)
+=======
+>>>>>>> main
   if (!token) {
     return <Loading />;
   }
 
   return (
     <section className={styles.wrapper}>
+<<<<<<< HEAD
 =======
   return (
 <<<<<<< HEAD
@@ -40,10 +48,13 @@ const Account = () => {
 =======
     <section className={styles.wrapper}>
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> main
       <Profile />
       <AccountContent />
       <Weather />
       <Timezones />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     </section>
@@ -53,6 +64,9 @@ const Account = () => {
 =======
     </section>
 >>>>>>> 266d9e0 (add profile editor)
+=======
+    </section>
+>>>>>>> main
   );
 };
 

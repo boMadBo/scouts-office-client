@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Observe, Rates } from '@/interfaces';
 =======
 import { Rates } from '@/interfaces';
@@ -8,12 +9,16 @@ import { Rates } from '@/interfaces';
 =======
 import { Observe, Rates } from '@/interfaces';
 >>>>>>> 7e204e8 (toggle observe)
+=======
+import { Observe, Rates } from '@/interfaces';
+>>>>>>> main
 import { FinPlayer } from '@/interfaces/player';
 import cn from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMessageSquareDetail } from 'react-icons/bi';
 import { BsBookmarks } from 'react-icons/bs';
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import { FinPlayer } from '@/interfaces/player';
@@ -24,6 +29,8 @@ import { BiMessageSquareDetail } from 'react-icons/bi';
 >>>>>>> 59a9c38 (edit players profile)
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> main
 import { GiMedicines } from 'react-icons/gi';
 import { IoShirtOutline } from 'react-icons/io5';
 import styles from './ProfileInfo.module.scss';
@@ -33,6 +40,9 @@ interface Props {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   idObserve: Observe | undefined;
   currRates: Rates[];
   toggleObserve: () => void;
@@ -44,6 +54,7 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
   const obsStyles = cn(styles.obsBtn, { [styles.activeObsBtn]: idObserve });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -83,6 +94,8 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
 >>>>>>> ee96416 (add usd,btc, in process observe)
 =======
 >>>>>>> e49de05 (add all news)
+=======
+>>>>>>> main
   return (
     <div className={styles.infoWrap}>
       <section className={styles.profileWrap}>
@@ -104,10 +117,14 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
               <button className={obsStyles} onClick={toggleObserve}>
                 <span className={styles.obsText}>{idObserve ? 'unobserve' : 'observe'}</span>
                 <BsBookmarks className={styles.obsImg} />
               </button>
+<<<<<<< HEAD
 =======
 >>>>>>> 59a9c38 (edit players profile)
 =======
@@ -120,6 +137,8 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
                 <BsBookmarks className={styles.obsImg} />
               </button>
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> main
             </div>
             <div className={styles.mainInfo}>
               <span className={styles.name}>{data.playerName}</span>
@@ -158,8 +177,11 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
               </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> main
               <div className={styles.otherValuesWrap}>
                 {currRates.map(item => (
                   <div key={item.title} className={styles.otherValues}>
@@ -171,10 +193,13 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
                 ))}
               </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 59a9c38 (edit players profile)
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> main
             </div>
           </div>
           <div className={styles.valueWrap}>
@@ -207,6 +232,7 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
               <IoShirtOutline className={styles.tshirt} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <div className={numStyles}>
 =======
               <div className={styles.numberWrap}>
@@ -214,6 +240,9 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
 =======
               <div className={numStyles}>
 >>>>>>> 80f6534 (add season select)
+=======
+              <div className={numStyles}>
+>>>>>>> main
                 <span className={styles.number}>{data.playerShirtNumber}</span>
               </div>
             </div>

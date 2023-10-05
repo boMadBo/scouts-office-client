@@ -5,6 +5,10 @@ const TasksSchema = new mongoose.Schema(
     userId: {
       type: String,
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     text: {
       type: String,
       required: true,

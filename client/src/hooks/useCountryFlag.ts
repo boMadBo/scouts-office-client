@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { instance } from '@/api/instanceFlag';
 =======
 >>>>>>> 266d9e0 (add profile editor)
 =======
 import { instance } from '@/api/instanceFlag';
 >>>>>>> 431f668 (dev leagues)
+=======
+import { instance } from '@/api/instanceFlag';
+>>>>>>> main
 import { useEffect, useMemo, useState } from 'react';
 
 export const useCountryFlagUrl = (countryName: string | undefined) => {
@@ -17,6 +21,7 @@ export const useCountryFlagUrl = (countryName: string | undefined) => {
         if (countryName) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           const response = await fetch(`${instance}/${countryName}`);
 =======
           const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
@@ -24,6 +29,9 @@ export const useCountryFlagUrl = (countryName: string | undefined) => {
 =======
           const response = await fetch(`${instance}/${countryName}`);
 >>>>>>> 431f668 (dev leagues)
+=======
+          const response = await fetch(`${instance}/${countryName}`);
+>>>>>>> main
           const data = await response.json();
           const url = data[0]?.flags.svg;
           setFlagUrl(url);

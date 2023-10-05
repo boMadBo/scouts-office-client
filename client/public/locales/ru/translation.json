@@ -5,12 +5,16 @@
   "Videos": "Видео",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Messages": "Сообщения",
 =======
 >>>>>>> 8673b67 (add server and start auth)
 =======
   "Messages": "Сообщения",
 >>>>>>> 11853ed (add mock messages)
+=======
+  "Messages": "Сообщения",
+>>>>>>> main
   "Settings": "Настройки",
   "Toggle theme": "Поменять тему",
   "Sign In": "Войти",
@@ -21,10 +25,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   "Your photo": "Ваше фото",
   "edit profile": "редактировать",
   "To-do list": "Список дел",
   "Observe list": "Список наблюдений",
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   "Age": "Возраст",
@@ -40,6 +48,8 @@
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> e49de05 (add all news)
+=======
+>>>>>>> main
   "add location": "добавить локацию",
   "London": "Лондон",
   "Madrid": "Мадрид",
@@ -58,8 +68,11 @@
   "France": "Франция",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
   "Netherlands": "Нидерланды",
   "Tasks list": "Список задач",
   "Your birthday": "День рождения",
@@ -108,8 +121,11 @@
   "type": "тип",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e18f7ca (add transfer history)
+=======
+>>>>>>> main
   "International games/goals": "Игры за сборную/голы",
   "Season": "Сезон",
   "From": "Из",
@@ -117,12 +133,16 @@
   "Current value": "Тек. цена",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   "Max value": "Макс. цена",
   "Name": "Имя",
   "Position": "Позиция",
   "IN THE SPOTLIGHT": "В ЦЕНТРЕ ВНИМАНИЯ",
   "Clubs": "Клубы",
   "Nothing found": "Ничего не найдено"
+<<<<<<< HEAD
 =======
   "USA": "США",
 <<<<<<< HEAD
@@ -162,4 +182,6 @@
   "Clubs": "Клубы",
   "Nothing found": "Ничего не найдено"
 >>>>>>> baf8dd4 (add search)
+=======
+>>>>>>> main
 }

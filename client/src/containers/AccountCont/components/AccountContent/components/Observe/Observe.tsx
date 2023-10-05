@@ -1,11 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useGetObserves } from '@/containers/AccountCont/useGetObserves';
 >>>>>>> ee96416 (add usd,btc, in process observe)
 =======
 >>>>>>> 7e204e8 (toggle observe)
+=======
+>>>>>>> main
 import { observeAPI } from '@/store/services/ObserveService';
 import Loading from '@/uikit/Loading';
 import React, { useCallback } from 'react';
@@ -24,6 +27,9 @@ const columns = [
   { title: '' },
 ];
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 
 const players = [
   {
@@ -84,6 +90,7 @@ const Observe = () => {
       <ObserveTable columns={columns} data={players} removeObserve={removeObserve} />
     </section>
   );
+<<<<<<< HEAD
 =======
 import React from 'react';
 
@@ -152,6 +159,8 @@ const Observe = () => {
     </section>
   );
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> main
 };
 
 export default Observe;

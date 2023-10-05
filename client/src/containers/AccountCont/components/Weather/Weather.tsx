@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useGetWeather } from '@/containers/AccountCont/useGetWeather';
 =======
 import { useGetLocation } from '@/hooks/useGetLocation';
@@ -10,10 +11,14 @@ import { useGetLocation } from '@/hooks/useGetLocation';
 =======
 import { useGetWeather } from '@/containers/AccountCont/useGetWeather';
 >>>>>>> 11853ed (add mock messages)
+=======
+import { useGetWeather } from '@/containers/AccountCont/useGetWeather';
+>>>>>>> main
 import { motion } from 'framer-motion';
 import React, { useMemo } from 'react';
 import styles from './Weather.module.scss';
 import { RAIN, SNOW, SUN } from './helpers';
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -21,6 +26,8 @@ import { useGetWeather } from './useGetWeather';
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> 11853ed (add mock messages)
+=======
+>>>>>>> main
 
 const token = process.env.REACT_APP_IP_TOKEN ?? 'DEFAULT_TOKEN';
 
@@ -39,6 +46,7 @@ const listVarian = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Weather = () => {
   const weather = useGetWeather(token);
 =======
@@ -54,6 +62,10 @@ const Weather = () => {
 const Weather = () => {
   const weather = useGetWeather(token);
 >>>>>>> dfd4232 (create squad page)
+=======
+const Weather = () => {
+  const weather = useGetWeather(token);
+>>>>>>> main
 
   const photo = useMemo(() => {
     const isSunny = !(weather?.rain || weather?.snowfall);
@@ -67,6 +79,7 @@ const Weather = () => {
       <div className={styles.weather}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         {weather && <span className={styles.degrees}>{weather.temperature}°</span>}
 =======
         {weather && <span className={styles.degrees}>{weather?.temperature}°</span>}
@@ -74,6 +87,9 @@ const Weather = () => {
 =======
         {weather && <span className={styles.degrees}>{weather.temperature}°</span>}
 >>>>>>> dfd4232 (create squad page)
+=======
+        {weather && <span className={styles.degrees}>{weather.temperature}°</span>}
+>>>>>>> main
         {!weather && <span className={styles.degrees}>-t°</span>}
         <img src={`/images/${photo}.png`} alt="weather" />
       </div>

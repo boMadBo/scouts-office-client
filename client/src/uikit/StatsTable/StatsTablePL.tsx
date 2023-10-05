@@ -28,6 +28,7 @@ const StatsTablePL = ({ data, columns }: Props) => {
                 <img src={item.compImage} alt="logo" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <span className={styles.compName}>{item.compName}</span>
 =======
                 <span>{item.compName}</span>
@@ -35,6 +36,9 @@ const StatsTablePL = ({ data, columns }: Props) => {
 =======
                 <span className={styles.compName}>{item.compName}</span>
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+                <span className={styles.compName}>{item.compName}</span>
+>>>>>>> main
               </div>
             </td>
             <td>{item.matches}</td>

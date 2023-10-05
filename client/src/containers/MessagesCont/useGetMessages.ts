@@ -6,6 +6,7 @@ export const useGetMessages = (currentChat: string | undefined) => {
   const { data: users } = profileAPI.useGetUsersQuery();
   const { data: dialogs } = messagesAPI.useGetMessagesQuery({ conversationId: currentChat });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { IMessages } from '@/interfaces';
 import { messagesAPI } from '@/store/services/MessagesService';
@@ -23,6 +24,8 @@ export const useGetMessages = (currentChat: string | undefined) => {
 >>>>>>> a40623b (add messages logic)
 =======
 >>>>>>> 9b4e008 (add dialogs)
+=======
+>>>>>>> main
 
   const result = useMemo(() => {
     if (!dialogs || !users) {
@@ -41,11 +44,15 @@ export const useGetMessages = (currentChat: string | undefined) => {
     return dialogsWithNames;
   }, [dialogs]);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   }, [dialog]);
 >>>>>>> a40623b (add messages logic)
 =======
 
 >>>>>>> 9b4e008 (add dialogs)
+=======
+
+>>>>>>> main
   return result;
 };

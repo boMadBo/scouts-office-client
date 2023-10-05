@@ -36,8 +36,11 @@ export interface FinNews {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 537a366 (add curr news)
+=======
+>>>>>>> main
 
 interface Text {
   [key: string]: string;
@@ -113,7 +116,10 @@ export interface FinCurrNews {
   text: string;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e49de05 (add all news)
 =======
 >>>>>>> 537a366 (add curr news)
+=======
+>>>>>>> main

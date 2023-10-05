@@ -35,6 +35,7 @@ export const useGetNews = (key: string) => {
       const id = item.id;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       const newsHead = item.newsHeadline?.split(/[?\-:]/)[0].trim();
 =======
       const newsHead = item.newsHeadline?.split(/[?-:]/)[0].trim();
@@ -42,6 +43,9 @@ export const useGetNews = (key: string) => {
 =======
       const newsHead = item.newsHeadline?.split(/[?\-:]/)[0].trim();
 >>>>>>> 537a366 (add curr news)
+=======
+      const newsHead = item.newsHeadline?.split(/[?\-:]/)[0].trim();
+>>>>>>> main
       const newsHeadline = item.newsHeadline;
       const timestamp = item.timestamp;
       const newsPlayerImage = item.newsFirstImage;

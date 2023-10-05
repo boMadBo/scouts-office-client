@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import { AppDispatch } from '@/store/store';
 import { createSlice } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
 const initialState = {
   isToken: Cookies.get('rememberMe') ? Boolean(Cookies.get('token')) : false,
+<<<<<<< HEAD
 =======
 =======
 import { AppDispatch } from '@/store/store';
@@ -20,6 +24,8 @@ const initialState = {
 =======
   isToken: Cookies.get('rememberMe') ? Boolean(Cookies.get('token')) : false,
 >>>>>>> bda062a (edit server for ts)
+=======
+>>>>>>> main
 };
 
 export const tokenSlice = createSlice({

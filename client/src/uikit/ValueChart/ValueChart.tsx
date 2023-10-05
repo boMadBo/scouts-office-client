@@ -14,12 +14,16 @@ import React, { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
 =======
 >>>>>>> 9c6ff80 (add market value chart)
 =======
 import { useTranslation } from 'react-i18next';
 >>>>>>> e18f7ca (add transfer history)
+=======
+import { useTranslation } from 'react-i18next';
+>>>>>>> main
 import styles from './ValueChart.module.scss';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -32,12 +36,16 @@ interface Props {
 const ValueChart = ({ chartData }: Props) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const { t } = useTranslation();
 =======
 >>>>>>> 9c6ff80 (add market value chart)
 =======
   const { t } = useTranslation();
 >>>>>>> e18f7ca (add transfer history)
+=======
+  const { t } = useTranslation();
+>>>>>>> main
   const sortedData = useMemo(
     () =>
       chartData
@@ -112,6 +120,7 @@ const ValueChart = ({ chartData }: Props) => {
           data: values,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           borderColor: 'rgb(53, 162, 235)',
 =======
           borderColor: lineColor,
@@ -119,6 +128,9 @@ const ValueChart = ({ chartData }: Props) => {
 =======
           borderColor: 'rgb(53, 162, 235)',
 >>>>>>> e18f7ca (add transfer history)
+=======
+          borderColor: 'rgb(53, 162, 235)',
+>>>>>>> main
           backgroundColor: lineColor,
           tension: 0.4,
         },
@@ -132,6 +144,7 @@ const ValueChart = ({ chartData }: Props) => {
         <div className={styles.current}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <span className={styles.title}>{t('Current value')}</span>
 =======
           <span className={styles.title}>Current value</span>
@@ -139,6 +152,9 @@ const ValueChart = ({ chartData }: Props) => {
 =======
           <span className={styles.title}>{t('Current value')}</span>
 >>>>>>> e18f7ca (add transfer history)
+=======
+          <span className={styles.title}>{t('Current value')}</span>
+>>>>>>> main
           <div className={styles.valueWrap}>
             <span className={styles.currValue}>{sortedData[sortedData.length - 1].marketValue}</span>
             <span className={styles.currValue}>{sortedData[sortedData.length - 1].mValueNum}</span>
@@ -148,6 +164,7 @@ const ValueChart = ({ chartData }: Props) => {
         <div className={styles.current}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <span className={styles.title}>{t('Max value')}</span>
 =======
           <span className={styles.title}>Max value</span>
@@ -155,6 +172,9 @@ const ValueChart = ({ chartData }: Props) => {
 =======
           <span className={styles.title}>{t('Max value')}</span>
 >>>>>>> e18f7ca (add transfer history)
+=======
+          <span className={styles.title}>{t('Max value')}</span>
+>>>>>>> main
           <div className={styles.valueWrap}>
             <span className={styles.max}>{maxValue.marketValue}</span>
             <span className={styles.max}>{maxValue.mValueNum}</span>

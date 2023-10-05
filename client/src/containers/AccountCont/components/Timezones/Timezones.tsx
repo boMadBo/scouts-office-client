@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { City } from '@/interfaces';
 import CurrTimezones from '@/uikit/CurrTimezones';
@@ -6,6 +7,8 @@ import dayjs from 'dayjs';
 import utcPlugin from 'dayjs/plugin/utc';
 import React, { useCallback, useMemo, useState } from 'react';
 =======
+=======
+>>>>>>> main
 import CurrTimezones from '@/containers/AccountCont/components/Timezones/CurrTimezones';
 import useDragDrop from '@/containers/AccountCont/useDragDrop';
 import useLocalStorage from '@/hooks/useLocalStorage';
@@ -13,17 +16,25 @@ import { City } from '@/interfaces';
 import dayjs from 'dayjs';
 import utcPlugin from 'dayjs/plugin/utc';
 import React, { useCallback, useEffect, useState } from 'react';
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> main
 import { useTranslation } from 'react-i18next';
 import { LuSettings } from 'react-icons/lu';
 import styles from './Timezones.module.scss';
 dayjs.extend(utcPlugin);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const currentTimezone = dayjs().utcOffset() / 60;
 
 >>>>>>> 8673b67 (add server and start auth)
+=======
+const currentTimezone = dayjs().utcOffset() / 60;
+
+>>>>>>> main
 const citiesData: City[] = [
   { city: 'London', gmt: 1, order: 0 },
   { city: 'Madrid', gmt: 2, order: 1 },
@@ -34,9 +45,13 @@ const citiesData: City[] = [
   { city: 'New York', gmt: -4, order: 6 },
   { city: 'Los Angeles', gmt: -7, order: 7 },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   { city: 'My location', gmt: currentTimezone, order: 8 },
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  { city: 'My location', gmt: currentTimezone, order: 8 },
+>>>>>>> main
 ];
 
 const Timezones = () => {
@@ -55,6 +70,7 @@ const Timezones = () => {
     setActiveAdd(!activeAdd);
   };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // add my location //
 
@@ -82,6 +98,8 @@ const Timezones = () => {
   const [myCities, setMySities] = useLocalStorage('myCities', [...cities]);
   const [unnecCities, setUnnecSities] = useLocalStorage('unnecCities', []);
 =======
+=======
+>>>>>>> main
   // edit cities list //
 
   const [myCities, setMyСities] = useLocalStorage('myCities', [...citiesData]);
@@ -109,11 +127,15 @@ const Timezones = () => {
       clearInterval(interval);
     };
   }, [myCities, setMyСities]);
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> main
 
   const handleDeleteCity = useCallback(
     (cityName: string) => {
       const filteredCities = myCities.filter((city: City) => city.city !== cityName);
+<<<<<<< HEAD
 <<<<<<< HEAD
       setMySities(filteredCities);
       const deletedCity = myCities.find((city: City) => city.city === cityName) || null;
@@ -123,6 +145,8 @@ const Timezones = () => {
     },
     [myCities, unnecCities],
 =======
+=======
+>>>>>>> main
       setMyСities(filteredCities);
       const deletedCity = citiesData.find((city: City) => city.city === cityName) || null;
       if (deletedCity) {
@@ -130,11 +154,15 @@ const Timezones = () => {
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     [myCities],
 >>>>>>> 8673b67 (add server and start auth)
 =======
     [myCities]
 >>>>>>> 11853ed (add mock messages)
+=======
+    [myCities]
+>>>>>>> main
   );
 
   const handleAddCity = useCallback(
@@ -142,26 +170,36 @@ const Timezones = () => {
       const addedCity = unnecCities.find((city: City) => city.city === cityName) || null;
       if (addedCity) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         setMySities((prevUnnecCities: City[]) => [...prevUnnecCities, addedCity]);
       }
       const filteredCities = unnecCities.filter((city: City) => city.city !== cityName);
       setUnnecSities(filteredCities);
 =======
+=======
+>>>>>>> main
         setMyСities((prevUnnecCities: City[]) => [...prevUnnecCities, addedCity]);
       }
       const filteredCities = unnecCities.filter((city: City) => city.city !== cityName);
       setUnnecСities(filteredCities);
+<<<<<<< HEAD
 >>>>>>> 8673b67 (add server and start auth)
+=======
+>>>>>>> main
     },
     [myCities, unnecCities]
   );
 
   // drag and drop //
 <<<<<<< HEAD
+<<<<<<< HEAD
   const { dragStartHandler, dragOverHandler, dropHandler } = useDragDrop(myCities, setMySities);
 =======
   const { dragStartHandler, dragOverHandler, dropHandler } = useDragDrop(myCities, setMyСities);
 >>>>>>> 8673b67 (add server and start auth)
+=======
+  const { dragStartHandler, dragOverHandler, dropHandler } = useDragDrop(myCities, setMyСities);
+>>>>>>> main
 
   const sortCities = useCallback((a: City, b: City) => {
     if (a.order > b.order) return 1;
@@ -172,6 +210,7 @@ const Timezones = () => {
     <section className={styles.clockWrap}>
       <div className={styles.container}>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -180,6 +219,11 @@ const Timezones = () => {
         </span>
 >>>>>>> 8f5b450 (add tests, nested routes, fix timezone)
 >>>>>>> 8673b67 (add server and start auth)
+=======
+        <span className={styles.settings} onClick={startSetting} data-testid="settings-icon">
+          <LuSettings className={styles.setIcon} />
+        </span>
+>>>>>>> main
         {!activeAdd && (
           <CurrTimezones
             isDraggable={activeSett}
@@ -194,15 +238,19 @@ const Timezones = () => {
           />
         )}
 <<<<<<< HEAD
+<<<<<<< HEAD
         {activeAdd && <CurrTimezones operation="+" cities={unnecCities} activeSett={activeAdd} onChangeCity={handleAddCity} />}
         <span className={styles.settings} onClick={startSetting}>
           <LuSettings className={styles.setIcon} />
         </span>
 =======
+=======
+>>>>>>> main
         {activeAdd && (
           <CurrTimezones operation="+" cities={unnecCities} activeSett={activeAdd} onChangeCity={handleAddCity} />
         )}
 
+<<<<<<< HEAD
 >>>>>>> 11853ed (add mock messages)
         {activeSett && (
           <div className={styles.addingWrap}>
@@ -211,6 +259,11 @@ const Timezones = () => {
 =======
             <span className={styles.addding} onClick={startAdding} data-testid="adding-button">
 >>>>>>> 8673b67 (add server and start auth)
+=======
+        {activeSett && (
+          <div className={styles.addingWrap}>
+            <span className={styles.addding} onClick={startAdding} data-testid="adding-button">
+>>>>>>> main
               {t('add location')}
             </span>
           </div>

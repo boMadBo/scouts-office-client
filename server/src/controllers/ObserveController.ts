@@ -7,6 +7,10 @@ export const getObserve = async (req: Request, res: Response) => {
     const observe = await ObserveModel.find({
       userId: userId,
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     res.json(observe);
   } catch (e) {
     console.log(e);

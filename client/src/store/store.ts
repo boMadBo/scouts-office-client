@@ -2,6 +2,9 @@ import themeSlice from '@/store/reducers/ThemeSlice';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import searchSlice from './reducers/SearchSlice';
 import tokenSlice from './reducers/TokenSlice';
@@ -22,6 +25,7 @@ const rootReducer = combineReducers({
   [observeAPI.reducerPath]: observeAPI.reducer,
   [conversationsAPI.reducerPath]: conversationsAPI.reducer,
   [messagesAPI.reducerPath]: messagesAPI.reducer,
+<<<<<<< HEAD
 =======
 import { testAPI } from '@/store/services/TestService';
 =======
@@ -59,12 +63,15 @@ const rootReducer = combineReducers({
   [conversationsAPI.reducerPath]: conversationsAPI.reducer,
   [messagesAPI.reducerPath]: messagesAPI.reducer,
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> main
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       getDefaultMiddleware().concat(
@@ -101,6 +108,8 @@ export const setupStore = () => {
       getDefaultMiddleware().concat(registerAPI.middleware, profileAPI.middleware, tasksAPI.middleware),
 >>>>>>> dfd4232 (create squad page)
 =======
+=======
+>>>>>>> main
       getDefaultMiddleware().concat(
         registerAPI.middleware,
         profileAPI.middleware,
@@ -109,7 +118,10 @@ export const setupStore = () => {
         conversationsAPI.middleware,
         messagesAPI.middleware
       ),
+<<<<<<< HEAD
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+>>>>>>> main
   });
 };
 

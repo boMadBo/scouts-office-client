@@ -3,6 +3,7 @@ import React from 'react';
 const VideosPage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:client/src/pages/VideosPage.tsx
   return <div>Videos page in development...</div>;
 =======
@@ -14,6 +15,9 @@ const VideosPage = () => {
 =======
   return <div>Videos page in development...</div>;
 >>>>>>> 431f668 (dev leagues)
+=======
+  return <div>Videos page in development...</div>;
+>>>>>>> main
 };
 
 export default VideosPage;

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { instance } from '@/api/instanceIP';
 import { instanceLoc } from '@/api/instanceLoc';
 <<<<<<< HEAD
@@ -11,6 +12,10 @@ import { instance } from '@/api/instanceIP';
 >>>>>>> 431f668 (dev leagues)
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+import { instance } from '@/api/instanceIP';
+import { instanceLoc } from '@/api/instanceLoc';
+>>>>>>> main
 import { useEffect, useMemo, useState } from 'react';
 
 export const useGetLocation = (token: string) => {
@@ -19,8 +24,11 @@ export const useGetLocation = (token: string) => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
   const fetchData = async () => {
     try {
       const ipUrl = instance;
@@ -42,6 +50,7 @@ export const useGetLocation = (token: string) => {
     }
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
   useEffect(() => {
     fetchData();
   }, []);
@@ -56,6 +65,11 @@ export const useGetLocation = (token: string) => {
 =======
   }, []);
 >>>>>>> dfd4232 (create squad page)
+=======
+  useEffect(() => {
+    fetchData();
+  }, []);
+>>>>>>> main
 
   return useMemo(() => ({ latitude, longitude }), [latitude, longitude]);
 };

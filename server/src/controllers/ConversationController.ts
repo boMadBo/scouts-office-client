@@ -26,6 +26,7 @@ export const getConverse = async (req: Request, res: Response) => {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 export const getBothConverse = async (req: Request, res: Response) => {
@@ -41,3 +42,5 @@ export const getBothConverse = async (req: Request, res: Response) => {
 >>>>>>> a40623b (add messages logic)
 =======
 >>>>>>> b6a0b5c (start ws)
+=======
+>>>>>>> main

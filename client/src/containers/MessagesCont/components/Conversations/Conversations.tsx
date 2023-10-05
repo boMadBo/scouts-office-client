@@ -2,18 +2,25 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { IConversationNames } from '@/interfaces';
 =======
 >>>>>>> 8ad4d1d (fix conv name)
 =======
 import { IConversationNames } from '@/interfaces';
 >>>>>>> b790eac (finish sockets)
+=======
+import { IConversationNames } from '@/interfaces';
+>>>>>>> main
 import React from 'react';
 import styles from './Conversations.module.scss';
 
 interface Props {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   id: string | undefined;
   // messages: IMessagesNames[];
   data: IConversationNames;
@@ -37,6 +44,7 @@ const Conversations = ({ data, id }: Props) => {
       <span className={styles.userName}>{dialogName}</span>
       {/* {unreadCount > 0 && <span>{unreadCount}</span>}
       {messages.filter(item => item.conversationId === data._id).at(-1)?.text} */}
+<<<<<<< HEAD
 =======
 =======
 import { IConversationNames } from '@/interfaces';
@@ -92,6 +100,9 @@ const Conversations = ({ data, id }: Props) => {
       <span className={styles.userName}>{dialogName}</span>
     </>
 >>>>>>> a40623b (add messages logic)
+=======
+    </div>
+>>>>>>> main
   );
 };
 

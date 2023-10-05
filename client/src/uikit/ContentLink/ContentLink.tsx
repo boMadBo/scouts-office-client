@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<<< HEAD:client/src/uikit/ContentLink/ContentLink.tsx
 import styles from './ContentLink.module.scss';
 ========
@@ -10,10 +11,14 @@ import styles from './ParentLink.module.scss';
 =======
 import styles from './ContentLink.module.scss';
 >>>>>>> 8673b67 (add server and start auth)
+=======
+import styles from './ContentLink.module.scss';
+>>>>>>> main
 
 interface Props {
   children: string;
   to: string;
+<<<<<<< HEAD
 <<<<<<< HEAD
   isHovered?: boolean;
 }
@@ -28,6 +33,11 @@ const ParentLink = ({ children, to, isHovered, ...props }: Props) => {
 
 const ContentLink = ({ children, to, ...props }: Props) => {
 >>>>>>> 8673b67 (add server and start auth)
+=======
+}
+
+const ContentLink = ({ children, to, ...props }: Props) => {
+>>>>>>> main
   const match = useMatch(to);
 
   const linkStyles = cn(styles.link, { [styles.activeLink]: match });
@@ -40,6 +50,7 @@ const ContentLink = ({ children, to, ...props }: Props) => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<<< HEAD:client/src/uikit/ContentLink/ContentLink.tsx
 export default React.memo(ContentLink);
 ========
@@ -48,3 +59,6 @@ export default React.memo(ParentLink);
 =======
 export default React.memo(ContentLink);
 >>>>>>> 8673b67 (add server and start auth)
+=======
+export default React.memo(ContentLink);
+>>>>>>> main

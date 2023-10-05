@@ -5,12 +5,16 @@
   "Videos": "Videos",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Messages": "Messages",
 =======
 >>>>>>> 8673b67 (add server and start auth)
 =======
   "Messages": "Messages",
 >>>>>>> 11853ed (add mock messages)
+=======
+  "Messages": "Messages",
+>>>>>>> main
   "Settings": "Settings",
   "Toggle theme": "Toggle theme",
   "Sign In": "Sign In",
@@ -18,6 +22,7 @@
   "Light": "Light",
   "Dark": "Dark",
   "My profile": "My profile",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -34,6 +39,10 @@
   "Your photo": "Your photo",
   "edit profile": "edit profile",
 >>>>>>> 431f668 (dev leagues)
+=======
+  "Your photo": "Your photo",
+  "edit profile": "edit profile",
+>>>>>>> main
   "To-do list": "To-do list",
   "Observe list": "Observe list",
   "add location": "add location",
@@ -54,8 +63,11 @@
   "France": "France",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
   "Netherlands": "Netherlands",
   "Tasks list": "Tasks list",
   "Your birthday": "Your birthday",
@@ -104,8 +116,11 @@
   "type": "type",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e18f7ca (add transfer history)
+=======
+>>>>>>> main
   "International games/goals": "International games/goals",
   "Season": "Season",
   "From": "From",
@@ -113,12 +128,16 @@
   "Current value": "Current value",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   "Max value": "Max value",
   "Name": "Name",
   "Position": "Position",
   "IN THE SPOTLIGHT": "IN THE SPOTLIGHT",
   "Clubs": "Clubs",
   "Nothing found": "Nothing found"
+<<<<<<< HEAD
 =======
   "USA": "USA",
 <<<<<<< HEAD
@@ -158,4 +177,6 @@
   "Clubs": "Clubs",
   "Nothing found": "Nothing found"
 >>>>>>> baf8dd4 (add search)
+=======
+>>>>>>> main
 }

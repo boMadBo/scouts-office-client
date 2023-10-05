@@ -23,6 +23,7 @@ export const observeAPI = createApi({
     }),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     deleteObserve: build.mutation<Observe, { _id: string | undefined }>({
       query: (arg: { _id: string | undefined }) => ({
 =======
@@ -33,6 +34,10 @@ export const observeAPI = createApi({
     deleteObserve: build.mutation<Observe, { _id: string | undefined }>({
       query: (arg: { _id: string | undefined }) => ({
 >>>>>>> 7e204e8 (toggle observe)
+=======
+    deleteObserve: build.mutation<Observe, { _id: string | undefined }>({
+      query: (arg: { _id: string | undefined }) => ({
+>>>>>>> main
         url: `/observe/${arg._id}`,
         method: 'DELETE',
       }),

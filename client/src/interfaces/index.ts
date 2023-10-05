@@ -7,6 +7,7 @@ export interface City {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 export interface Hours {
   temperature_2m: number[];
@@ -37,6 +38,8 @@ export interface Weather {
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+>>>>>>> main
 export interface IRegister {
   email: string;
   password: string;
@@ -63,8 +66,11 @@ export interface IProfileValues {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 266d9e0 (add profile editor)
+=======
+>>>>>>> main
 
 export interface IProfileUpdate {
   _id: string;
@@ -75,8 +81,11 @@ export interface IProfileUpdate {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 590496a (todo on server)
+=======
+>>>>>>> main
 
 export interface ITasks {
   _id?: string;
@@ -86,8 +95,11 @@ export interface ITasks {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 431f668 (dev leagues)
+=======
+>>>>>>> main
 
 export interface Competition {
   id: string;
@@ -119,6 +131,9 @@ export interface Team {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 export interface Columns {
   title: string;
 }
@@ -148,8 +163,11 @@ export interface ObservePlayers {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> main
 
 export interface IConversations {
   _id: string;
@@ -182,9 +200,13 @@ export interface IMessages {
   text: string;
   createdAt: string;
 <<<<<<< HEAD
+<<<<<<< HEAD
   isReaded: boolean;
 =======
 >>>>>>> a40623b (add messages logic)
+=======
+  isReaded: boolean;
+>>>>>>> main
   updatedAt: string;
   __v: number;
 }
@@ -195,9 +217,13 @@ export interface IMessagesNames {
   sender: string;
   text: string;
 <<<<<<< HEAD
+<<<<<<< HEAD
   isReaded: boolean;
 =======
 >>>>>>> a40623b (add messages logic)
+=======
+  isReaded: boolean;
+>>>>>>> main
   createdAt: string;
   updatedAt: string;
   __v: number;
@@ -207,6 +233,9 @@ export interface IMessagesNames {
 export interface IMessage {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   _id?: string | undefined;
   sender: string | undefined;
   text: string | undefined;
@@ -215,6 +244,7 @@ export interface IMessage {
   senderName?: string | undefined;
   isReaded?: boolean;
 }
+<<<<<<< HEAD
 =======
 >>>>>>> 8673b67 (add server and start auth)
 =======
@@ -302,3 +332,5 @@ export interface Columns {
   senderName?: string | undefined;
 }
 >>>>>>> a40623b (add messages logic)
+=======
+>>>>>>> main

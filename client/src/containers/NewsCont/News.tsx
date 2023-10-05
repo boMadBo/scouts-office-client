@@ -5,12 +5,16 @@ import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 =======
 >>>>>>> e49de05 (add all news)
 =======
 import { Link } from 'react-router-dom';
 >>>>>>> 537a366 (add curr news)
+=======
+import { Link } from 'react-router-dom';
+>>>>>>> main
 import styles from './News.module.scss';
 import Carousel from './components/Carousel/Carousel';
 
@@ -34,6 +38,7 @@ const mockHeadNews = [
   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     id: '372889',
 =======
     id: '427206',
@@ -41,6 +46,9 @@ const mockHeadNews = [
 =======
     id: '372889',
 >>>>>>> 537a366 (add curr news)
+=======
+    id: '372889',
+>>>>>>> main
     newsHead: 'Free agents',
     newsHeadline: 'Free agents: De Gea, Lingard, Hazard & Co.: Players still available after deadline day',
     timestamp: 1693586441,
@@ -215,6 +223,7 @@ const News = () => {
                     <img src={itemNews.newsPlayerImage} alt="club" className={styles.headClubImg} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <Link to={`/news/${itemNews.id}`} className={styles.link}>
                       <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
                     </Link>
@@ -226,6 +235,11 @@ const News = () => {
                       <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
                     </Link>
 >>>>>>> 537a366 (add curr news)
+=======
+                    <Link to={`/news/${itemNews.id}`} className={styles.link}>
+                      <h3 className={styles.headTitle}>{itemNews.newsHead}</h3>
+                    </Link>
+>>>>>>> main
                   </div>
                 </div>
               ))}
@@ -258,6 +272,7 @@ const News = () => {
                     <div className={styles.headlineNewsWrap}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       <Link to={`/news/${item.id}`} className={styles.link}>
                         <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
                       </Link>
@@ -269,6 +284,11 @@ const News = () => {
                         <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
                       </Link>
 >>>>>>> 537a366 (add curr news)
+=======
+                      <Link to={`/news/${item.id}`} className={styles.link}>
+                        <h3 className={styles.headlineNews}>{item.newsHeadline}</h3>
+                      </Link>
+>>>>>>> main
                     </div>
                   </div>
                 </div>

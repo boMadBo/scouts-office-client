@@ -1,11 +1,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ee96416 (add usd,btc, in process observe)
 import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
 import Loading from '@/uikit/Loading';
 <<<<<<< HEAD
+=======
+import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
+import Loading from '@/uikit/Loading';
+>>>>>>> main
 import TransfTable from '@/uikit/TransfTable/TransfTable';
 import ValueChart from '@/uikit/ValueChart';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -14,6 +19,7 @@ import Wrap from './Wrap';
 import ProfileInfo from './components/ProfileInfo';
 import Stats from './components/Stats';
 import { useToggleObserve } from './useToggleObserve';
+<<<<<<< HEAD
 =======
 =======
 import Loading from '@/uikit/Loading';
@@ -48,6 +54,8 @@ import { useObserve } from './useObserve';
 >>>>>>> 11853ed (add mock messages)
 import { useToggleObserve } from './useToggleObserve';
 >>>>>>> 7e204e8 (toggle observe)
+=======
+>>>>>>> main
 
 interface Props {
   id: string | undefined;
@@ -147,6 +155,7 @@ const columnsGK = [
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const seasonsM = [
 =======
 const seasons = [
@@ -154,6 +163,9 @@ const seasons = [
 =======
 const seasonsM = [
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+const seasonsM = [
+>>>>>>> main
   { key: '2023', title: '23/24' },
   { key: '2022', title: '22/23' },
   { key: '2021', title: '21/22' },
@@ -161,8 +173,11 @@ const seasonsM = [
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+>>>>>>> main
 const valueM = [
   {
     date: '20 Jun 2023',
@@ -204,8 +219,11 @@ const valueM = [
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e18f7ca (add transfer history)
+=======
+>>>>>>> main
 const trhist = [
   {
     playerID: '340329',
@@ -242,6 +260,9 @@ const trhist = [
 const transfColumns = [{ title: 'Season' }, { title: 'From' }, { title: 'To' }, { title: 'Cost' }];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 const Player = ({ id }: Props) => {
   const [selectedSeason, setSelectedSeason] = useState<string>('');
 
@@ -305,6 +326,7 @@ const Player = ({ id }: Props) => {
         <Wrap>
           <TransfTable data={trhist} columns={transfColumns} />
         </Wrap>
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 80f6534 (add season select)
@@ -384,6 +406,8 @@ const Player = ({ id }: Props) => {
           <TransfTable data={trhist} columns={transfColumns} />
         </Wrap>
 >>>>>>> 9c6ff80 (add market value chart)
+=======
+>>>>>>> main
       </div>
     </section>
   );

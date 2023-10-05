@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import League from '@/containers/LeaguesCont/components/League';
 =======
 import League from '@/containers/Leagues/League';
@@ -11,6 +12,9 @@ import League from '@/containers/Leagues/components/League';
 =======
 import League from '@/containers/LeaguesCont/components/League';
 >>>>>>> ee96416 (add usd,btc, in process observe)
+=======
+import League from '@/containers/LeaguesCont/components/League';
+>>>>>>> main
 import React from 'react';
 import { useParams } from 'react-router-dom';
 

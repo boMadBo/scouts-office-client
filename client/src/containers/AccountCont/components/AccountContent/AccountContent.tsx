@@ -11,6 +11,7 @@ const routes = [
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const HEAD_LINK = '/account';
 =======
 const headLink = '/account';
@@ -18,6 +19,9 @@ const headLink = '/account';
 =======
 const HEAD_LINK = '/account';
 >>>>>>> dfd4232 (create squad page)
+=======
+const HEAD_LINK = '/account';
+>>>>>>> main
 
 const AccountContent = () => {
   const { t } = useTranslation();
@@ -26,6 +30,7 @@ const AccountContent = () => {
     <section className={styles.contentContainer}>
       <div className={styles.containerGroup}>
         <div className={styles.routesGroup}>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           {routes.map(route => (
@@ -40,6 +45,10 @@ const AccountContent = () => {
 >>>>>>> 8673b67 (add server and start auth)
 =======
 >>>>>>> dfd4232 (create squad page)
+=======
+          {routes.map(route => (
+            <ContentLink key={route.link} to={`${HEAD_LINK}/${route.link}`}>
+>>>>>>> main
               {t(route.text)}
             </ContentLink>
           ))}

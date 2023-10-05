@@ -15,11 +15,15 @@ const MessagesSchema = new mongoose.Schema(
       type: Boolean,
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a40623b (add messages logic)
 =======
 
 >>>>>>> 9b4e008 (add dialogs)
+=======
+
+>>>>>>> main
   },
   { timestamps: true }
 );

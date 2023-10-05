@@ -43,12 +43,18 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
+<<<<<<< HEAD
 <<<<<<< HEAD:client/package.json
 =======
     "cypress": "^12.17.3",
     "dotenv": "^16.3.1",
     "dotenv-webpack": "^8.0.1",
 >>>>>>> 3dffa2e (add cypress):package.json
+=======
+    "cypress": "^12.17.3",
+    "dotenv": "^16.3.1",
+    "dotenv-webpack": "^8.0.1",
+>>>>>>> main
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
     "identity-obj-proxy": "^3.0.0",
