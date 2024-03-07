@@ -1,11 +1,5 @@
 const nodeEnv = process.env.NODE_ENV || 'development';
-let envPath = `.env.${nodeEnv}`;
 
-if (nodeEnv === 'development') {
-  envPath = '.env';
-}
-
-// dotenv.config({ path: envPath });
 
 export const config = {
   nodeEnv,
