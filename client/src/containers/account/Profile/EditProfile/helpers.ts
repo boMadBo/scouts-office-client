@@ -1,15 +1,15 @@
 import * as yup from 'yup';
 
 export const validationSchema = yup.object().shape({
-  fullName: yup.string().optional().typeError('Should be string'),
+  name: yup.string().optional().typeError('Should be string'),
   password: yup.string().optional().typeError('Should be string'),
   email: yup.string().optional().typeError('Should be string'),
 });
 
 export const initialValues = {
-  _id: '',
-  fullName: '',
+  id: '',
+  name: '',
   password: '',
   email: '',
-  avatarUrl: null,
+  avatar: null,
 };

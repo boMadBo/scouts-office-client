@@ -47,11 +47,11 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname));
 
-app.post('/auth/register', upload.single('avatar'), registerValidation, UserController.register);
-app.post('/auth/signin', UserController.signin);
-app.get('/profile', checkAuth, UserController.getProfile);
+app.post('/auth/register', upload.single('avatar'), registerValidation, UserController.register); 
+app.post('/auth/signin', UserController.signin); 
+app.get('/profile', checkAuth, UserController.getProfile); 
 app.patch('/profile/:id', upload.single('avatar'), UserController.editProfile);
-app.get('/users', UserController.getUsers);
+app.get('/users', UserController.getUsers); 
 
 app.get('/tasks/:userId', TasksController.getTasks);
 app.post('/tasks', TasksController.createTask);

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import { MdDeleteOutline, MdOutlineDoneOutline } from 'react-icons/md';
-import styles from './toDoList.module.scss';
+import styles from './taskList.module.scss';
 
 interface Props {
   text: string;
@@ -11,7 +11,7 @@ interface Props {
   removeTask: (id: string | undefined) => void;
 }
 
-const ToDoList = ({ text, completed, id, toggleCompleted, removeTask }: Props) => {
+const TaskList = ({ text, completed, id, toggleCompleted, removeTask }: Props) => {
   const linkStyles = cn(styles.listItem, { [styles.listItemComplit]: completed });
   const complStyles = cn(styles.itemCheck, { [styles.itemCheckCompl]: !completed });
 
@@ -30,4 +30,4 @@ const ToDoList = ({ text, completed, id, toggleCompleted, removeTask }: Props) =
   );
 };
 
-export default React.memo(ToDoList);
+export default React.memo(TaskList);

@@ -6,26 +6,32 @@ export interface ICity {
 }
 
 export interface IProfileValues {
-  _id: string;
+  id: string;
   email: string;
-  password: string;
-  fullName: string;
-  avatarUrl: string;
+  name: string;
+  avatar: string;
   birthDate: string;
   country: string;
+  observations: string[];
 }
 
 export interface IProfileUpdateValues {
-  _id: string;
+  id: string;
   password: string;
-  fullName: string;
+  name: string;
   email: string;
-  avatarUrl: File | null;
+  // avatar: string;
 }
 
 export interface ITask {
-  _id?: string;
-  userId?: string | undefined;
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  text: string;
+  completed: boolean;
+}
+
+export interface ICreateTask {
   text: string;
   completed: boolean;
 }

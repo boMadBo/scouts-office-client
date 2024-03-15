@@ -1,5 +1,6 @@
 import AuthWrap from '@/containers/auth/AuthWrap';
 import { initialValuesSign, validationSchemaSign } from '@/containers/auth/helpers';
+import { ISignInValues } from '@/containers/auth/types';
 import { useAppDispatch } from '@/hooks';
 import { fetchSaveToken } from '@/store/reducers/TokenSlice';
 import { profileAPI } from '@/store/services/ProfileService';
@@ -12,7 +13,6 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import styles from './signIn.module.scss';
-import { ISignInValues } from '@/containers/auth/types';
 
 const formik = [
   { name: 'email', type: 'email', label: 'Your email' },
@@ -21,7 +21,7 @@ const formik = [
 
 const SignIn = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
-  const [createSignIn, { isSuccess, data, isLoading }] = profileAPI.useCreateSignInMutation();
+  const [createSignIn, { isSuccess, data, isLoading }] = profileAPI.useSignInMutation();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
@@ -31,10 +31,9 @@ const SignIn = () => {
     formData.append('password', values.password);
     try {
       const response = await createSignIn(values);
-
       const hasData = 'data' in response;
       if (hasData) {
-        const token = response.data.token;
+        const token = response.data.accessToken;
         if (token) {
           Cookies.set('token', token, { expires: 30 });
           dispatch(fetchSaveToken());

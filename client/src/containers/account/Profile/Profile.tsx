@@ -8,18 +8,18 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import styles from './profile.module.scss';
 
+//TODO: добавить интерфейсы
 const headLink = '/account';
 
 const Profile = () => {
   const { data: profile } = profileAPI.useGetProfileQuery();
   const { t } = useTranslation();
   const navigate = useNavigate()
-
   const flagUrl = useCountryFlagUrl(profile?.country);
 
   useEffect(() => {
     if (profile) {
-      const userId = profile._id;
+      const userId = profile.id;
       Cookies.set('userId', userId, { expires: 30 });
     }
   }, [profile]);
@@ -41,8 +41,8 @@ const Profile = () => {
         <div className={styles.capWrap}>
           <span className={styles.text}>{t('My profile')}</span>
           <div className={styles.photoWrapper}>
-            {profile?.avatarUrl && <img src={profile.avatarUrl} alt="avatar" className={styles.photo} />}
-            {!profile?.avatarUrl && (
+            {profile?.avatar && <img src={profile.avatar} alt="avatar" className={styles.photo} />}
+            {!profile?.avatar && (
               <div className={styles.noPhotoWrapper}>
                 <span className={styles.noPhoto}>{t('Your photo')}</span>
               </div>
@@ -50,7 +50,7 @@ const Profile = () => {
           </div>
         </div>
         <div className={styles.profileData}>
-          <span className={styles.text}>{profile?.fullName}</span>
+          <span className={styles.text}>{profile?.name}</span>
           <div className={styles.age}>
             <span className={styles.text}>{age} years</span>
             {flagUrl && <img src={flagUrl} alt="Flag" className={styles.flag} />}

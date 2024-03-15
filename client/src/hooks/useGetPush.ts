@@ -10,7 +10,7 @@ export const useGetPush = () => {
     if (!users || !push) {
       return null;
     }
-    const senderName = users.find(item => item._id === push.idSender)?.fullName;
+    const senderName = users.find(item => item.id === push.idSender)?.name;
     const pushInfo = {
       senderName: senderName,
       text: push.text,

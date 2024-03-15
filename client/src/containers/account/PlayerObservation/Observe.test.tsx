@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import ObserveTable from '../../../uikit/tables/ObserveTable/ObserveTable';
+import ObserveTable from '../../../uikit/tables/PlayerObservationTable/PlayerObservationTable';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({

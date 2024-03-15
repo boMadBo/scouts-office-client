@@ -24,6 +24,8 @@ export const register = async (req: Request, res: Response) => {
     const hash = await bcrypt.hash(password, salt);
     const birthDate = new Date(req.body.birthDate);
 
+    console.log('req.file?.filename',req.file?.filename);
+
     const doc = new UserModel({
       email: req.body.email,
       fullName: req.body.fullName,
@@ -102,7 +104,7 @@ export const getProfile = async (req: MyRequest, res: Response) => {
       });
     }
     const { passwordHasch, avatarUrl, ...userData } = user.toObject();
-
+    console.log('avatarUrl',avatarUrl?.toString());
     let imageUrl = '';
     if (avatarUrl) {
       imageUrl = `${instance}/${avatarUrl.toString()}`;

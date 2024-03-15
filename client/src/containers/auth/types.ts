@@ -1,14 +1,16 @@
-export interface IRegisterValues {
+export interface IRegistrationValues {
   email: string;
   password: string;
-  fullName: string;
+  name: string;
   birthDate: string;
   country: string;
-  avatarUrl: File | null;
+  avatar: File | null;
 }
 
 export interface ISignInValues {
   email: string;
   password: string;
-  token?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  expiresIn?: string;
 }

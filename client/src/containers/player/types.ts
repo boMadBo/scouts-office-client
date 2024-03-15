@@ -2,14 +2,12 @@ export interface ICostRatio {
   [key: string]: string;
 }
 
-export interface IPlayerIdValuesObserve {
-  _id?: string;
-  id: string | undefined;
-  userId?: string;
+export interface IPlayerValuesObservation {
+  playerId: string;
 }
 
-export interface IPlayerObserve {
-  _id: string | undefined;
+export interface IPlayerObservation {
+  playerId: string | undefined;
   playerID: string | undefined;
   playerName: string | undefined;
   age: string | undefined;

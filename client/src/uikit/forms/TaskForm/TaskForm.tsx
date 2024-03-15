@@ -1,6 +1,7 @@
 import React from 'react';
 import { BiMessageAdd } from 'react-icons/bi';
-import styles from './toDo.module.scss';
+import styles from './taskForm.module.scss';
+
 
 interface Props {
   text: string;
@@ -9,7 +10,7 @@ interface Props {
   addTask: () => void;
 }
 
-const TaskField = ({ text, handleKeyUp, handleInputChange, addTask }: Props) => {
+const TaskForm = ({ text, handleKeyUp, handleInputChange, addTask }: Props) => {
   return (
     <div className={styles.addField} >
       <input
@@ -28,4 +29,4 @@ const TaskField = ({ text, handleKeyUp, handleInputChange, addTask }: Props) => 
   );
 };
 
-export default React.memo(TaskField);
+export default React.memo(TaskForm);

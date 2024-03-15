@@ -1,4 +1,5 @@
-import { FinPlayer, ICostRatio, IPlayerIdValuesObserve } from '@/types/player';
+
+import { FinPlayer, ICostRatio } from '@/containers/player/types';
 import cn from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -6,16 +7,16 @@ import { BiMessageSquareDetail } from 'react-icons/bi';
 import { BsBookmarks } from 'react-icons/bs';
 import { GiMedicines } from 'react-icons/gi';
 import { IoShirtOutline } from 'react-icons/io5';
-import styles from './profileInfo.module.scss';
+import styles from './playerProfile.module.scss';
 
 interface Props {
   data: FinPlayer;
-  idObserve: IPlayerIdValuesObserve | undefined;
+  idObserve: string | undefined;
   currRates: ICostRatio[];
   toggleObserve: () => void;
 }
 
-const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
+const PlayerProfile = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   const { t } = useTranslation();
 
   const numStyles = cn(styles.numberWrap, { [styles.wrongNumberWrap]: data?.playerShirtNumber?.slice(0, 1) === '1' });
@@ -175,4 +176,4 @@ const ProfileInfo = ({ data, idObserve, currRates, toggleObserve }: Props) => {
   );
 };
 
-export default React.memo(ProfileInfo);
+export default React.memo(PlayerProfile);

@@ -1,6 +1,6 @@
 export const players = [
   {
-    _id: '1',
+    playerId: '1',
     playerID: '3333',
     playerName: 'James Milner',
     age: '37',
@@ -13,7 +13,7 @@ export const players = [
     agent: 'CAA Stellar',
   },
   {
-    _id: '2',
+    playerId: '2',
     playerID: '4444',
     playerName: 'Wojciech Szczesny',
     age: '29',

@@ -6,10 +6,9 @@ import tokenSlice from './reducers/TokenSlice';
 import unreadMessagesSlice from './reducers/unreadMessagesSlice';
 import { conversationsAPI } from './services/ConversationsService';
 import { messagesAPI } from './services/MessagesService';
-import { observePlayerAPI } from './services/ObservePlayerService';
 import { profileAPI } from './services/ProfileService';
-import { registerAPI } from './services/RegisterService';
-import { tasksAPI } from './services/TasksService';
+import { registrationAPI } from './services/RegistrationService';
+import { taskAPI } from './services/TaskService';
 
 const rootReducer = combineReducers({
   theme: themeSlice,
@@ -17,10 +16,9 @@ const rootReducer = combineReducers({
   search: searchSlice,
   unreadMessages: unreadMessagesSlice,
   push: pushSlice,
-  [registerAPI.reducerPath]: registerAPI.reducer,
+  [registrationAPI.reducerPath]: registrationAPI.reducer,
   [profileAPI.reducerPath]: profileAPI.reducer,
-  [tasksAPI.reducerPath]: tasksAPI.reducer,
-  [observePlayerAPI.reducerPath]: observePlayerAPI.reducer,
+  [taskAPI.reducerPath]: taskAPI.reducer,
   [conversationsAPI.reducerPath]: conversationsAPI.reducer,
   [messagesAPI.reducerPath]: messagesAPI.reducer,
 });
@@ -30,10 +28,9 @@ export const setupStore = () => {
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware().concat(
-        registerAPI.middleware,
+        registrationAPI.middleware,
         profileAPI.middleware,
-        tasksAPI.middleware,
-        observePlayerAPI.middleware,
+        taskAPI.middleware,
         conversationsAPI.middleware,
         messagesAPI.middleware
       ),

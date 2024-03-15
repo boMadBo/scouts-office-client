@@ -1,3 +1,4 @@
+import { IProfileUpdateValues } from '@/containers/account/types';
 import { profileAPI } from '@/store/services/ProfileService';
 import Button from '@/uikit/buttons/Button';
 import InputForm from '@/uikit/forms/InputForm';
@@ -8,10 +9,9 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import styles from './editProfile.module.scss';
 import { initialValues, validationSchema } from './helpers';
-import { IProfileUpdateValues } from '@/types/account';
 
 const formik = [
-  { name: 'fullName', type: 'text', label: 'Your username' },
+  { name: 'name', type: 'text', label: 'Your username' },
   { name: 'email', type: 'email', label: 'Your email' },
   { name: 'password', type: 'password', label: 'Your password' },
 ];
@@ -19,7 +19,7 @@ const formik = [
 const EditProfile = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const { data } = profileAPI.useGetProfileQuery();
+  // const { data } = profileAPI.useGetProfileQuery();
   const [updateProfile] = profileAPI.useUpdateProfileMutation();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -29,18 +29,18 @@ const EditProfile = () => {
   const handleChange = async (values: IProfileUpdateValues) => {
     const formData = new FormData();
     formData.append('password', values.password);
-    formData.append('fullName', values.fullName);
+    formData.append('name', values.name);
     formData.append('email', values.email);
     if (selectedFile) {
-      formData.append('avatar', selectedFile, selectedFile.name);
+      formData.append('file', selectedFile, selectedFile.name);
     } else {
-      formData.append('avatar', '');
+      formData.append('file', '');
     }
     try {
-      if (data?._id) {
-        await updateProfile({ formData, _id: data._id });
+      // if (data?.id) {
+        await updateProfile({ formData});
         goBack();
-      }
+      // }
     } catch (error) {
       console.error('Registr error:', error);
     }

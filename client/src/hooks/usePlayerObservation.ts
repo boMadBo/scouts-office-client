@@ -1,18 +1,17 @@
 import { config } from '@/common/config';
-import { observePlayerAPI } from '@/store/services/ObservePlayerService';
-import { IPlayerObserve } from '@/types/player';
-import Cookies from 'js-cookie';
+import { IPlayerObservation } from '@/containers/player/types';
+import { profileAPI } from '@/store/services/ProfileService';
 import { useEffect, useMemo, useState } from 'react';
 
-export const useGetPlayerObserve = () => {
-  const id = Cookies.get('userId');
-  const [players, setPlayers] = useState<IPlayerObserve[] | undefined>(undefined);
-  const { data: observe } = observePlayerAPI.useGetPlayerObserveQuery({ userId: id });
+
+TODO: 'Promise.all'
+export const usePlayerObservation = () => {
+  const [players, setPlayers] = useState<IPlayerObservation[] | undefined>(undefined);
+  const { data: observe } = profileAPI.useGetProfileQuery()
 
   const fetchData = async () => {
-    if (observe && observe.length > 0) {
-      const ids = observe.map(item => item.id);
-      const fetchPromises = ids.map(async id => {
+    if (observe && observe.observations.length > 0) {
+      const fetchPromises = observe.observations.map(async (id:string) => {
         const url = `${config.transfermarkt.url}/players/get-profile?id=${id}&domain=com`;
         const options = {
           method: 'GET',
@@ -34,7 +33,7 @@ export const useGetPlayerObserve = () => {
         const results = await Promise.all(fetchPromises);
         const updatedResults = results.map(result => result.playerProfile);
         const finalResults = updatedResults.map(result => {
-          const _id = observe.find(item => item.id === result.playerID)?._id;
+          const playerId = observe.observations.find(item => item === result.playerID);
           const playerID = result.playerID;
           const playerName = result.playerName;
           const age = result.age;
@@ -46,7 +45,7 @@ export const useGetPlayerObserve = () => {
           const numeral = result.marketValueNumeral;
           const agent = result.agent;
           return {
-            _id,
+            playerId,
             playerID,
             playerName,
             age,

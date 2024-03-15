@@ -7,17 +7,16 @@ import AllLeaguesPage from './pages/AllLeaguesPage';
 import CurrentNewsPage from './pages/CurrentNewsPage';
 import EditPage from './pages/EditPage';
 import LeaguePage from './pages/LeaguePage';
-import ConversationsPage from './pages/ConversationsPage';
 import NewsPage from './pages/NewsPage';
-import ObservePlayerPage from './pages/ObservePlayerPage';
+import PlayerObservationPage from './pages/PlayerObservationPage';
 import PlayerPage from './pages/PlayerPage';
 import RegistrationPage from './pages/RegistrationPage';
 import SearchPage from './pages/SearchPage';
 import SignInPage from './pages/SignInPage';
 import SquadPage from './pages/SquadPage';
-import WellcomePage from './pages/WellcomePage';
-import ToDoPage from './pages/ToDoPage';
+import TasksPage from './pages/TasksPage';
 import VideosPage from './pages/VideosPage';
+import WellcomePage from './pages/WellcomePage';
 
 const App = () => {
   return (
@@ -34,8 +33,8 @@ const App = () => {
             </RequireAuth>
           }
         >
-          <Route path="todo" element={<ToDoPage />} />
-          <Route path="observe" element={<ObservePlayerPage />} />
+          <Route path="todo" element={<TasksPage />} />
+          <Route path="observe" element={<PlayerObservationPage />} />
           <Route path="edit" element={<EditPage />} />
         </Route>
         <Route path="leagues" element={<AllLeaguesPage />} />
@@ -46,14 +45,14 @@ const App = () => {
         <Route path="news" element={<NewsPage />} />
         <Route path="news/:id" element={<CurrentNewsPage />} />
         <Route path="videos" element={<VideosPage />} />
-        <Route
+        {/* <Route
           path="messages"
           element={
             <RequireAuth>
               <ConversationsPage />
             </RequireAuth>
           }
-        />
+        /> */}
         <Route path="search" element={<SearchPage />} />
       </Route>
     </Routes>

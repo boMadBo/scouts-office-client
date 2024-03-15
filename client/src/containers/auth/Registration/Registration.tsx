@@ -1,6 +1,7 @@
 import AuthWrap from '@/containers/auth/AuthWrap';
 import { initialValuesReg, validationSchemaReg } from '@/containers/auth/helpers';
-import { registerAPI } from '@/store/services/RegisterService';
+import { IRegistrationValues } from '@/containers/auth/types';
+import { registrationAPI } from '@/store/services/RegistrationService';
 import Button from '@/uikit/buttons/Button';
 import BirthdateForm from '@/uikit/forms/BirthdateForm';
 import InputForm from '@/uikit/forms/InputForm';
@@ -11,10 +12,9 @@ import { CountryDropdown } from 'react-country-region-selector';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import styles from './registration.module.scss';
-import { IRegisterValues } from '@/containers/auth/types';
 
 const formik = [
-  { name: 'fullName', type: 'text', label: 'Your username' },
+  { name: 'name', type: 'text', label: 'Your username' },
   { name: 'email', type: 'email', label: 'Your email' },
   { name: 'password', type: 'password', label: 'Your password' },
 ];
@@ -23,20 +23,20 @@ const Registration = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [country, setCountry] = useState('');
-  const [createReg, { isSuccess }] = registerAPI.useCreateRegMutation();
+  const [createReg, { isSuccess }] = registrationAPI.useUserRegistrationMutation();
   const { t } = useTranslation();
 
-  const handleChange = async (values: IRegisterValues) => {
+  const handleChange = async (values: IRegistrationValues) => {
     const formData = new FormData();
     formData.append('email', values.email);
     formData.append('password', values.password);
-    formData.append('fullName', values.fullName);
+    formData.append('name', values.name);
     formData.append('birthDate', values.birthDate);
     formData.append('country', country);
     if (selectedFile) {
-      formData.append('avatar', selectedFile, selectedFile.name);
+      formData.append('file', selectedFile, selectedFile.name);
     } else {
-      formData.append('avatar', '');
+      formData.append('file', '');
     }
     try {
       await createReg(formData);

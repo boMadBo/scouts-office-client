@@ -1,18 +1,19 @@
 import { IColumn } from '@/common/types';
+import { IPlayerObservation } from '@/containers/player/types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdDeleteOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import styles from './observeTable.module.scss';
-import { IPlayerObserve } from '@/types/player';
+import styles from './playerObservationTable.module.scss';
+
 
 interface Props {
   columns: IColumn[];
-  data: IPlayerObserve[] | undefined;
+  data: IPlayerObservation[] | undefined;
   removeObserve: (id: string | undefined) => void;
 }
 
-const ObserveTable = ({ columns, data, removeObserve }: Props) => {
+const PlayerObservationTable = ({ columns, data, removeObserve }: Props) => {
   const { t } = useTranslation();
   return (
     <table className={styles.table}>
@@ -47,7 +48,7 @@ const ObserveTable = ({ columns, data, removeObserve }: Props) => {
             </td>
             <td>{item.agent}</td>
             <td>
-              <button className={styles.itemRemove} onClick={() => removeObserve(item._id)} data-testid="remove-btn">
+              <button className={styles.itemRemove} onClick={() => removeObserve(item.playerId)} data-testid="remove-btn">
                 <MdDeleteOutline className={styles.btnImg} />
               </button>
             </td>
@@ -58,4 +59,4 @@ const ObserveTable = ({ columns, data, removeObserve }: Props) => {
   );
 };
 
-export default React.memo(ObserveTable);
+export default React.memo(PlayerObservationTable);

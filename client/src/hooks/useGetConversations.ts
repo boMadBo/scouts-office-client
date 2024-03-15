@@ -13,7 +13,7 @@ export const useGetConversations = () => {
       return [];
     }
 
-    const usersMap = new Map(users.map(user => [user._id, user]));
+    const usersMap = new Map(users.map(user => [user.id, user]));
 
     const conversationsWithNames = converse.map(conversation => {
       const receiver = usersMap.get(conversation.members[1]);
@@ -23,11 +23,11 @@ export const useGetConversations = () => {
         ...conversation,
         sender: {
           id: conversation.members[0],
-          senderName: sender?.fullName,
+          senderName: sender?.name,
         },
         receiver: {
           id: conversation.members[1],
-          receiverName: receiver?.fullName,
+          receiverName: receiver?.name,
         },
       };
     });

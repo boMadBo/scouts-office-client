@@ -1,18 +1,17 @@
-import { tasksAPI } from '@/store/services/TasksService';
-import ToDoList from '@/uikit/ToDoList';
-import Cookies from 'js-cookie';
+import { ICreateTask } from '@/containers/account/types';
+import { taskAPI } from '@/store/services/TaskService';
+import TaskList from '@/uikit/TaskList';
+import TaskForm from '@/uikit/forms/TaskForm';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import TaskField from './TaskField';
-import styles from './toDo.module.scss';
-import { ITask } from '@/types/account';
+import styles from './tasks.module.scss';
 
-const ToDo = () => {
-  const id = Cookies.get('userId');
-  const { data: tasks } = tasksAPI.useGetTasksQuery({ userId: id });
-  const [createTask] = tasksAPI.useCreateTaskMutation();
-  const [deleteTask] = tasksAPI.useDeleteTaskMutation();
-  const [completeTask] = tasksAPI.useCompleteTaskMutation();
+
+const Tasks = () => {
+  const { data: tasks } = taskAPI.useGetTasksQuery();
+  const [createTask] = taskAPI.useCreateTaskMutation();
+  const [deleteTask] = taskAPI.useDeleteTaskMutation();
+  const [completeTask] = taskAPI.useUpdateTaskMutation();
   const [text, setText] = useState('');
   const { t } = useTranslation();
 
@@ -21,9 +20,8 @@ const ToDo = () => {
     setText(value);
   }, []);
 
-  const onAddTask = async (values: ITask) => {
+  const onAddTask = async (values: ICreateTask) => {
     await createTask({
-      userId: id,
       text: values.text,
       completed: false,
     });
@@ -48,7 +46,7 @@ const ToDo = () => {
 
   const onRemoveTask = async (taskId: string) => {
     try {
-      await deleteTask({ _id: taskId });
+      await deleteTask({ id: taskId });
     } catch (error) {
       console.error('Error removing task:', error);
     }
@@ -65,7 +63,7 @@ const ToDo = () => {
 
   const onToggleCompleted = async (taskId: string, completed: boolean) => {
     try {
-      await completeTask({ _id: taskId, completed: completed });
+      await completeTask({ id: taskId, completed: completed });
     } catch (error) {
       console.error('Error toggling task completion:', error);
     }
@@ -84,11 +82,11 @@ const ToDo = () => {
     <section className={styles.todo}>
       <div className={styles.container}>
         <h4 className={styles.text}>{t('Tasks list')}</h4>
-        <TaskField text={text} handleInputChange={handleInputChange} addTask={addTask} handleKeyUp={handleKeyUp} />
+        <TaskForm text={text} handleInputChange={handleInputChange} addTask={addTask} handleKeyUp={handleKeyUp} />
         {tasks?.map(task => (
-          <ToDoList
-            key={task._id}
-            id={task._id}
+          <TaskList
+            key={task.id}
+            id={task.id.toString()}
             completed={task.completed}
             text={task.text}
             toggleCompleted={toggleCompleted}
@@ -100,4 +98,4 @@ const ToDo = () => {
   );
 };
 
-export default React.memo(ToDo);
+export default React.memo(Tasks);

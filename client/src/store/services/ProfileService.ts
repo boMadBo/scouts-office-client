@@ -1,40 +1,58 @@
 import { baseUrl } from '@/api/baseUrl';
-import { IProfileUpdateValues, IProfileValues } from '@/types/account';
+import { IProfileUpdateValues, IProfileValues } from '@/containers/account/types';
 import { ISignInValues } from '@/containers/auth/types';
+import { IPlayerValuesObservation } from '@/containers/player/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
+TODO: 'logout'
 export const profileAPI = createApi({
   reducerPath: 'profileAPI',
   baseQuery: baseUrl,
-  tagTypes: ['SignIn', 'Profile'],
+  tagTypes: ['Profile'],
   endpoints: build => ({
+    signIn: build.mutation<ISignInValues, ISignInValues>({
+      query: user => ({
+        url: `/auth/login`,
+        method: 'POST',
+        body: user,
+      }),
+      invalidatesTags: ['Profile'],
+    }),
     getProfile: build.query<IProfileValues, void>({
       query: () => ({
-        url: '/profile',
+        url: '/user',
       }),
       providesTags: (result, error) => [{ type: 'Profile', result, error }],
     }),
     getUsers: build.query<IProfileValues[], void>({
       query: () => ({
-        url: '/users',
+        url: '/user/list',
       }),
       providesTags: (result, error) => [{ type: 'Profile', result, error }],
     }),
-    updateProfile: build.mutation<IProfileUpdateValues, { formData: FormData; _id: string }>({
-      query: (arg: { formData: FormData; _id: string }) => ({
-        url: `/profile/${arg._id}`,
+    updateProfile: build.mutation<IProfileUpdateValues, { formData: FormData }>({
+      query: (arg: { formData: FormData}) => ({
+        url: `/user`,
         method: 'PATCH',
         body: arg.formData,
       }),
       invalidatesTags: ['Profile'],
     }),
-    createSignIn: build.mutation<ISignInValues, ISignInValues>({
-      query: user => ({
-        url: `/auth/signin`,
+    createPlayerObservation: build.mutation<IPlayerValuesObservation[], IPlayerValuesObservation>({
+      query: observe => ({
+        url: `/user/observation`,
         method: 'POST',
-        body: user,
+        body: observe,
       }),
-      invalidatesTags: ['SignIn', 'Profile'],
+      invalidatesTags: ['Profile'],
+    }),
+    deletePlayerObservation: build.mutation<IPlayerValuesObservation, IPlayerValuesObservation>({
+      query: observe => ({
+        url: `/user/observation`,
+        method: 'DELETE',
+        body: observe,
+      }),
+      invalidatesTags: ['Profile'],
     }),
   }),
 });

@@ -1,14 +1,14 @@
+import { test, testStats, trhist, valueM } from '@/containers/player/mock';
 import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
+import { useTogglePlayerObservation } from '@/hooks/useTogglePlayerObservation';
 import Loading from '@/uikit/Loading';
 import ValueChart from '@/uikit/charts/ValueChart';
 import TransferTable from '@/uikit/tables/TransferTable';
 import React, { useCallback, useMemo, useState } from 'react';
-import styles from './player.module.scss';
-import ProfileInfo from './ProfileInfo';
+import PlayerProfile from './PlayerProfile';
 import Stats from './Stats';
 import Wrap from './Wrap';
-import { useToggleObserve } from '../../hooks/useToggleObserve';
-import { testStats, test, valueM, trhist } from '@/containers/player/mock';
+import styles from './player.module.scss';
 
 interface Props {
   id: string | undefined;
@@ -56,7 +56,7 @@ const Player = ({ id }: Props) => {
   // const value = useGetValue(id);
   // const transfers = useGetTransfers(id);
   const rates = useGetUsdBtc();
-  const { toggleObserve, idObserve } = useToggleObserve(id);
+  const { toggleObserve, idObserve } = useTogglePlayerObservation(id);
 
   const usd = useMemo(() => {
     return test.marketValueNumeral === 'm'
@@ -89,7 +89,7 @@ const Player = ({ id }: Props) => {
   return (
     <section className={styles.player}>
       <div className={styles.containerLeft}>
-        <ProfileInfo data={test} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
+        <PlayerProfile data={test} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
           <Stats
             isGK={isGK}

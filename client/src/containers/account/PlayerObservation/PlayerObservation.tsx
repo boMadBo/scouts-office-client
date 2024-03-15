@@ -1,9 +1,9 @@
-import { observePlayerAPI } from '@/store/services/ObservePlayerService';
-import Loading from '@/uikit/Loading';
-import ObserveTable from '@/uikit/tables/ObserveTable';
-import React, { useCallback } from 'react';
-import styles from './observe.module.scss';
 import { players } from '@/containers/account/mock';
+import { profileAPI } from '@/store/services/ProfileService';
+import Loading from '@/uikit/Loading';
+import PlayerObservationTable from '@/uikit/tables/PlayerObservationTable';
+import React, { useCallback } from 'react';
+import styles from './playerObservation.module.scss';
 
 
 const columns = [
@@ -16,13 +16,12 @@ const columns = [
   { title: '' },
 ];
 
-const ObservePlayer = () => {
-  // const observes = useGetPlayerObserve();
-  const [deletePlayerObserve] = observePlayerAPI.useDeletePlayerObserveMutation();
-
+const PlayerObservation = () => {
+  // const observes = usePlayerObservation();
+  const [deletePlayerObserve] = profileAPI.useDeletePlayerObservationMutation();
   const onRemoveObserve = async (id: string) => {
     try {
-      await deletePlayerObserve({ _id: id });
+      await deletePlayerObserve({ playerId: id });
     } catch (error) {
       console.error('Error removing observe:', error);
     }
@@ -43,9 +42,9 @@ const ObservePlayer = () => {
 
   return (
     <section className={styles.observe}>
-      <ObserveTable columns={columns} data={players} removeObserve={removeObserve} />
+      <PlayerObservationTable columns={columns} data={players} removeObserve={removeObserve} />
     </section>
   );
 };
 
-export default ObservePlayer;
+export default PlayerObservation;
