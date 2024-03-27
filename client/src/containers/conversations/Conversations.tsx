@@ -1,129 +1,106 @@
-import { useAppDispatch } from '@/hooks';
-import { IConversationName, IMessages, IMessageName } from '@/containers/conversations/types';
-import { pushFetching } from '@/store/reducers/PushSlice';
-import { unreadMessagesFetching } from '@/store/reducers/unreadMessagesSlice';
-import { messagesAPI } from '@/store/services/MessagesService';
+import ActiveConversation from '@/containers/conversations/ActiveConversation';
+import ConversationsList from '@/containers/conversations/ConversationsList';
+import { IConversation, IMessage } from '@/containers/conversations/types';
+import { WebsocketContext } from '@/context/websocket';
+import { SocketDataContext } from '@/context/websocketDataSorage';
+import { conversationsAPI } from '@/store/services/ConversationsService';
 import cn from 'classnames';
 import Cookies from 'js-cookie';
-import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useCallback, useContext, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { Navigate } from 'react-router-dom';
-import { Socket, io } from 'socket.io-client';
-import ConversationsList from './ConversationsList';
-import Chat from './Chat';
 import styles from './conversations.module.scss';
-import { useGetConversations } from '../../hooks/useGetConversations';
-import { useGetMessages } from '../../hooks/useGetMessages';
 
 const Conversations = () => {
   const token = Cookies.get('token');
-  const id = Cookies.get('userId');
-
-  const [conversations, setConversations] = useState<IConversationName[] | null>(null);
-  const [currentChat, setCurrentChat] = useState<IConversationName | null>(null);
-  const [interlocutor, setInterlocutor] = useState<string | undefined>('');
-  const [messages, setMessages] = useState<IMessageName[]>([]);
-  const [limit, setLimit] = useState(10);
-  const [convQuery, setConvQuery] = useState('');
-  const [firstChatClick, setFirstChatClick] = useState(false);
-  const [lastMessageDates, setLastMessageDates] = useState<Record<string, number>>({});
-  const [unreadMessages, setUnreadMessages] = useState<IMessages[]>([]);
-  const socket = useRef<Socket>();
-
-  const conversationList = useGetConversations();
-  const dialogs = useGetMessages(currentChat?._id, limit);
-  const { data: allMess } = messagesAPI.useGetAllMessagesQuery();
-  const dispatch = useAppDispatch();
-
-  // sockets //
-
-  const incCount = useCallback(() => {
-    setLimit(limit + 10);
-  }, [limit]);
-
-  useEffect(() => {
-    setMessages(dialogs);
-  }, [dialogs]);
-
-  useEffect(() => {
-    if (allMess) {
-      setUnreadMessages(allMess?.filter(item => !item.isReaded && item.receiver === id));
-    }
-  }, [allMess]);
-
-  useEffect(() => {
-    if (socket.current) {
-      socket.current.emit('addUser', id);
-      socket.current.on('getUsers', users => {});
-    }
-  }, [id]);
-
-  useEffect(() => {
-    socket.current = io('ws://localhost:3050');
-    socket.current.on('getMessage', data => {
-      setMessages(prevMessages => [data, ...prevMessages]);
-      setUnreadMessages(prevMessages => [data, ...prevMessages]);
-      dispatch(pushFetching({ idSender: data.sender, text: data.text }));
-    });
-  }, []);
-
-  useEffect(() => {
-    dispatch(unreadMessagesFetching(unreadMessages.length));
-  }, [unreadMessages]);
+  // const id = Cookies.get('userId');
 
   // conversations //
 
-  useEffect(() => {
-    const dateMap: Record<string, number> = {};
-    allMess?.forEach(item => {
-      dateMap[item.conversationId] = new Date(item.updatedAt).getTime();
-    });
-    setLastMessageDates(dateMap);
-  }, [allMess]);
+  const { data: conversationList } = conversationsAPI.useGetConversationsQuery();
+  const [updateConversation] = conversationsAPI.useUpdateConversationMutation();
+
+  const [conversations, setConversations] = useState<IConversation[] | undefined>(undefined);
+  const [currentChat, setCurrentChat] = useState<IConversation | null>(null);
+  const [interlocutor, setInterlocutor] = useState<string | undefined>('');
+  const [firstChatClick, setFirstChatClick] = useState(false);
 
   useEffect(() => {
-    setConversations(conversationList.sort((a, b) => lastMessageDates[b._id] - lastMessageDates[a._id]));
-  }, [conversationList, lastMessageDates]);
+    setConversations(conversationList);
+  }, [conversationList]);
 
   useEffect(() => {
-    if (conversations) {
-      const sortedConversations = conversations.sort((a, b) => lastMessageDates[b._id] - lastMessageDates[a._id]);
-      setCurrentChat(sortedConversations[0]);
-      const interName =
-        sortedConversations[0]?.sender.id !== id
-          ? sortedConversations[0]?.sender.senderName
-          : sortedConversations[0]?.receiver.receiverName;
-
-      setInterlocutor(interName);
+    if (conversationList && !firstChatClick) {
+      setCurrentChat(conversationList[0]);
+      setInterlocutor(conversationList[0].interlocutor.name);
     }
-  }, [conversations, lastMessageDates]);
+  }, [conversationList]);
 
-  const handleChatItemClick = useCallback(
-    (item: IConversationName) => {
+  const handleSelectChat = useCallback(
+    (item: IConversation) => {
       setCurrentChat(item);
-      const interName = item.sender.id !== id ? item.sender.senderName : item.receiver.receiverName;
-      setInterlocutor(interName);
-      setFirstChatClick(true);
+      setInterlocutor(item.interlocutor.name);
+      handleFirstClick();
     },
     [currentChat, interlocutor]
   );
 
+  const handleFirstClick = useCallback(() => setFirstChatClick(true), []);
+
+  // messages //
+
+  const socket = useContext(WebsocketContext);
+  const { messages, unreadMessages } = useContext(SocketDataContext);
+  // const [limit, setLimit] = useState(20);
+  const [chatMessages, setChatMessages] = useState<IMessage[]>([]);
+
+  useEffect(() => {
+    const currentMessages = messages.filter(item => item.conversationId === currentChat?.id);
+    setChatMessages(currentMessages);
+  }, [messages, currentChat]);
+
+  useEffect(() => {
+    if (currentChat && messages) {
+      updateConversation({ id: messages[0].conversationId });
+    }
+  }, [messages]);
+
+  const getUnreadCount = useCallback(
+    (id: number) => {
+      return unreadMessages.filter(item => item.conversationId === id).length;
+    },
+    [unreadMessages, currentChat?.id]
+  );
+
+  useEffect(() => {
+    socket.on('readMessage', () => {});
+    return () => {
+      socket.off('readMessage');
+    };
+  }, []);
+
+  // const incCount = useCallback(() => {
+  //   setLimit(prev => prev + 20);
+  // }, [limit]);
+
   // search //
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
-    setConvQuery(query);
-    const filteredConv = conversationList.filter(
-      item =>
-        item.receiver.receiverName?.toLowerCase().includes(query.toLowerCase()) ||
-        item.sender.senderName?.toLowerCase().includes(query.toLowerCase())
-    );
-    setConversations(filteredConv);
+    setSearchQuery(query);
+    if (conversationList?.length) {
+      const filteredConv = conversationList.filter(
+        item => item.interlocutor.name?.toLowerCase().includes(query.toLowerCase())
+      );
+      setConversations(filteredConv);
+    }
   };
 
-  const clearQuery = () => {
-    setConvQuery('');
+  const clearSearchQuery = () => {
+    setSearchQuery('');
     setConversations(conversationList);
   };
 
@@ -140,28 +117,37 @@ const Conversations = () => {
               type="text"
               className={styles.input}
               placeholder="Search dialog"
-              value={convQuery}
-              onChange={handleInputChange}
+              value={searchQuery}
+              onChange={handleSearch}
             />
           </label>
-            <button className={styles.inputBtn} onClick={clearQuery}>
-              {!convQuery ? <AiOutlineSearch className={styles.btnImg} /> : <TiDeleteOutline className={styles.btnImg} />}
-            </button>
+          <button className={styles.inputBtn} onClick={clearSearchQuery}>
+            {!searchQuery ? (
+              <AiOutlineSearch className={styles.btnImg} />
+            ) : (
+              <TiDeleteOutline className={styles.btnImg} />
+            )}
+          </button>
         </form>
         <div className={styles.conversations}>
           {conversations?.map(item => (
-            <div key={item._id} className={cn(styles.users, {[styles.currentUser]: currentChat?._id === item._id})} onClick={() => handleChatItemClick(item)}>
-              <ConversationsList id={id} data={item} messages={messages} />
+            <div
+              key={item.id}
+              className={cn(styles.users, { [styles.currentUser]: currentChat?.id === item.id })}
+              onClick={() => handleSelectChat(item)}
+            >
+              <ConversationsList data={item} getUnreadCount={() => getUnreadCount(item.id)} />
             </div>
           ))}
         </div>
       </div>
-      <Chat
+      <ActiveConversation
         interlocutor={interlocutor}
         firstChatClick={firstChatClick}
         currentChat={currentChat}
-        messages={messages}
-        incCount={incCount}
+        messages={chatMessages}
+        handleFirstClick={handleFirstClick}
+        // incCount={incCount}
         goBack={() => setFirstChatClick(false)}
       />
     </section>

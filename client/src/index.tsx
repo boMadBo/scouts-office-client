@@ -1,3 +1,5 @@
+import { WebsocketProvider, socket } from '@/context/websocket';
+import WebsocketDataSorage from '@/context/websocketDataSorage';
 import { setupStore } from '@/store/store';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -12,10 +14,14 @@ const store = setupStore();
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
+    <WebsocketProvider value={socket}>
+      <WebsocketDataSorage>
+        <BrowserRouter>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </BrowserRouter>
+      </WebsocketDataSorage>
+    </WebsocketProvider>
   </Provider>
 );

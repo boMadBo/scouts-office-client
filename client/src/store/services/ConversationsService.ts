@@ -7,17 +7,24 @@ export const conversationsAPI = createApi({
   baseQuery: baseUrl,
   tagTypes: ['Conversations'],
   endpoints: build => ({
-    getConversations: build.query<IConversation[], { _id: string | undefined }>({
-      query: (arg: { _id: string }) => ({
-        url: `/conversations/${arg._id}`,
-      }),
-      providesTags: (result, error) => [{ type: 'Conversations', result, error }],
-    }),
-    createConversations: build.mutation<IConversation[], IConversation>({
+    createConversation: build.mutation<IConversation[], IConversation>({
       query: conversations => ({
         url: `/conversations`,
         method: 'POST',
         body: conversations,
+      }),
+      invalidatesTags: ['Conversations'],
+    }),
+    getConversations: build.query<IConversation[], void>({
+      query: () => ({
+        url: `/conversations`,
+      }),
+      providesTags: (result, error) => [{ type: 'Conversations', result, error }],
+    }),
+    updateConversation: build.mutation<IConversation[],  {id: number}>({
+      query: (args: {id: number}) => ({
+        url: `/conversations/${args.id}`,
+        method: 'PATCH',
       }),
       invalidatesTags: ['Conversations'],
     }),

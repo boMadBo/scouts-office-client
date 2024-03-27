@@ -1,18 +1,19 @@
+import { SocketDataContext } from '@/context/websocketDataSorage';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { searchFetching } from '@/store/reducers/SearchSlice';
 import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
+import Notification from '@/uikit/Notification';
 import OpeningList from '@/uikit/OpeningList';
-import Push from '@/containers/conversations/Push';
 import ChildLink from '@/uikit/links/ChildLink';
 import ParentLink from '@/uikit/links/ParentLink';
 import Cookies from 'js-cookie';
-import React, { ChangeEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IoMdMenu } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import styles from './header.module.scss';
 import SettingGroup from './SettingGroup';
+import styles from './header.module.scss';
 
 const routes = [
   { link: 'account', text: 'Account', children: null, addition: false },
@@ -38,13 +39,13 @@ const routes = [
 const Header = () => {
   const dispatch = useAppDispatch();
   const isToken = useAppSelector(state => state.token.isToken);
-  const unreadMessages = useAppSelector(state => state.unreadMessages);
+  const { unreadMessages, notification } = useContext(SocketDataContext);
   const [isHovered, setIsHovered] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [burgerOpen, setBurgerOpen] = useState(false);
   const { t } = useTranslation();
-
-
+  const [unreadCount, setUnreadCount] = useState<number>(0)
+  const [showPush, setShowPush] = useState(false);
 
   const handleSignOut = useCallback(() => {
     Cookies.remove('token');
@@ -52,6 +53,10 @@ const Header = () => {
     Cookies.remove('rememberMe');
     dispatch(fetchDeleteToken());
   }, [dispatch]);
+
+  useEffect(()=>{
+    setUnreadCount(unreadMessages.length)
+  },[unreadMessages])
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -61,6 +66,17 @@ const Header = () => {
     dispatch(searchFetching(query));
     setQuery('');
   }, [query, dispatch]);
+
+  useEffect(() => {
+    if (notification) {
+      setShowPush(true);
+      const timeout = setTimeout(() => {
+        setShowPush(false);
+      }, 8000);
+      return () => clearTimeout(timeout);
+    }
+  }, [notification]);
+
 
   return (
     <header className={styles.header}>
@@ -88,7 +104,7 @@ const Header = () => {
                 onMouseLeave={() => setIsHovered(null)}
               >
                 <ParentLink to={route.link}>{t(route.text)}</ParentLink>
-                {route.addition && unreadMessages.count > 0 && <div className={styles.unRead}>{unreadMessages.count}</div>}
+                {route.addition &&  unreadCount > 0 && <div className={styles.unRead}>{unreadCount}</div>}
                 {isHovered === route.link && route.children && (
                   <div className={styles.childlistWrap}>
                     <OpeningList childModal={false}>
@@ -129,7 +145,7 @@ const Header = () => {
             </ParentLink>
           )}
         </div>
-        <Push />
+        {showPush && <Notification notification={notification}/>}
       </section>
     </header>
   );

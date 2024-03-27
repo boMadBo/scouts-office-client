@@ -1,3 +1,4 @@
+import ConversationsPage from '@/pages/ConversationsPage';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './containers/Layout';
@@ -45,14 +46,14 @@ const App = () => {
         <Route path="news" element={<NewsPage />} />
         <Route path="news/:id" element={<CurrentNewsPage />} />
         <Route path="videos" element={<VideosPage />} />
-        {/* <Route
+        <Route
           path="messages"
           element={
             <RequireAuth>
               <ConversationsPage />
             </RequireAuth>
           }
-        /> */}
+        />
         <Route path="search" element={<SearchPage />} />
       </Route>
     </Routes>

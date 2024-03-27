@@ -20,7 +20,7 @@ const Profile = () => {
   useEffect(() => {
     if (profile) {
       const userId = profile.id;
-      Cookies.set('userId', userId, { expires: 30 });
+      Cookies.set('userId', userId.toString(), { expires: 30 }); TODO: 'change'
     }
   }, [profile]);
 

@@ -6,7 +6,7 @@ export interface ICity {
 }
 
 export interface IProfileValues {
-  id: string;
+  id: number;
   email: string;
   name: string;
   avatar: string;
