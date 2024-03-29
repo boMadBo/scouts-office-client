@@ -1,4 +1,4 @@
-### Scouts Academy App in development...
+### Scouts Office App in development...
 
 This is an application for monitoring football players, analyzing their statistics and prices in the transfer market
 
@@ -9,29 +9,12 @@ Getting Started
 ### To run the Scouts App locally, follow these steps:
 
 1. Clone the repository:
-   git clone https://github.com/boMadBo/scouts-academy.git
+   git clone https://github.com/boMadBo/scouts-office.git
 
-### To run Server
+2. install the required dependencies:
+   yarn install
 
-2. Navigate to the project directory:
-   cd scouts-academy
-   cd server
-
-3. install the required dependencies:
-   npm install
-
-4. ### npm run start:dev
-
-### To run Client
-
-5. Navigate to the project directory:
-   cd scouts-academy
-   cd client
-
-6. install the required dependencies:
-   npm install
-
-7. ### npm start
+3. ### yarn start
 
 Runs the app in development mode. Open http://localhost:3010 to view it in the browser.
 
