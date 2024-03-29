@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '.';
 
 export const useToggleTheme = () => {
   const dispatch = useAppDispatch();
-  const isLightTheme = useAppSelector(state => state.theme.isLight);
+  const isLightTheme = useAppSelector((state: { theme: { isLight: boolean } }) => state.theme.isLight);
 
   const toggleThemeMode = () => {
     dispatch(toggleTheme());

@@ -7,11 +7,12 @@ import { useEffect, useMemo, useState } from 'react';
 TODO: 'Promise.all'
 export const usePlayerObservation = () => {
   const [players, setPlayers] = useState<IPlayerObservation[] | undefined>(undefined);
-  const { data: observe } = profileAPI.useGetProfileQuery()
+  const { data: observe } = profileAPI.useGetProfileQuery();
+  // const { userData: profile } = useSessionData();
 
   const fetchData = async () => {
     if (observe && observe.observations.length > 0) {
-      const fetchPromises = observe.observations.map(async (id:string) => {
+      const fetchPromises = observe.observations.map(async (id: string) => {
         const url = `${config.transfermarkt.url}/players/get-profile?id=${id}&domain=com`;
         const options = {
           method: 'GET',

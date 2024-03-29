@@ -9,14 +9,14 @@ dayjs.extend(relativeTime);
 
 interface Props {
   data: IMessage;
-  id: string | undefined;
+  id: number;
 }
 
 const ConversationDetails = ({ data, id }: Props) => {
   const messagesStyle = cn(styles.messages, { [styles.ownMessages]: data.senderId === Number(id) });
   const textWrapStyle = cn(styles.textWrap, { [styles.textWrapOwn]: data.senderId === Number(id) });
   const readedStyle = cn(styles.readIcon, { [styles.readedIcon]: data.isReaded });
-  const ownName = data.senderId !== Number(id) ? data.senderName : 'You';
+  const ownName = data.senderId !== id ? data.senderName : 'You';
 
   return (
     <div className={messagesStyle}>

@@ -1,5 +1,6 @@
+import SessionDataStorage from '@/context/sessionDataStorage';
 import { WebsocketProvider, socket } from '@/context/websocket';
-import WebsocketDataSorage from '@/context/websocketDataSorage';
+import WebsocketDataStorage from '@/context/websocketDataStorage';
 import { setupStore } from '@/store/store';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -14,14 +15,16 @@ const store = setupStore();
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <Provider store={store}>
-    <WebsocketProvider value={socket}>
-      <WebsocketDataSorage>
-        <BrowserRouter>
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
-        </BrowserRouter>
-      </WebsocketDataSorage>
-    </WebsocketProvider>
+    <SessionDataStorage>
+      <WebsocketProvider value={socket}>
+        <WebsocketDataStorage>
+          <BrowserRouter>
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>
+          </BrowserRouter>
+        </WebsocketDataStorage>
+      </WebsocketProvider>
+    </SessionDataStorage>
   </Provider>
 );

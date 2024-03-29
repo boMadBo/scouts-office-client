@@ -1,16 +1,16 @@
 import { baseUrl } from '@/api/baseUrl';
 import { IProfileUpdateValues, IProfileValues } from '@/containers/account/types';
-import { ISignInValues } from '@/containers/auth/types';
+import { ISignInResponseValues, ISignInValues } from '@/containers/auth/types';
 import { IPlayerValuesObservation } from '@/containers/player/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
-TODO: 'logout'
+TODO: 'logout';
 export const profileAPI = createApi({
   reducerPath: 'profileAPI',
   baseQuery: baseUrl,
   tagTypes: ['Profile'],
   endpoints: build => ({
-    signIn: build.mutation<ISignInValues, ISignInValues>({
+    signIn: build.mutation<ISignInResponseValues, ISignInValues>({
       query: user => ({
         url: `/auth/login`,
         method: 'POST',
@@ -31,7 +31,7 @@ export const profileAPI = createApi({
       providesTags: (result, error) => [{ type: 'Profile', result, error }],
     }),
     updateProfile: build.mutation<IProfileUpdateValues, { formData: FormData }>({
-      query: (arg: { formData: FormData}) => ({
+      query: (arg: { formData: FormData }) => ({
         url: `/user`,
         method: 'PATCH',
         body: arg.formData,
@@ -51,6 +51,13 @@ export const profileAPI = createApi({
         url: `/user/observation`,
         method: 'DELETE',
         body: observe,
+      }),
+      invalidatesTags: ['Profile'],
+    }),
+    signOut: build.mutation<void, void>({
+      query: () => ({
+        url: `/auth/logout`,
+        method: 'DELETE',
       }),
       invalidatesTags: ['Profile'],
     }),

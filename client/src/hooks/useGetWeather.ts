@@ -1,6 +1,6 @@
 import { config } from '@/common/config';
+import { IWeather } from '@/containers/account/types';
 import { useGetLocation } from '@/hooks/useGetLocation';
-import { IWeather } from '@/types/account';
 import dayjs from 'dayjs';
 import { useEffect, useMemo, useState } from 'react';
 

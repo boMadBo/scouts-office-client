@@ -1,13 +1,14 @@
-import { SocketDataContext } from '@/context/websocketDataSorage';
+import { useSessionData } from '@/context/sessionDataStorage';
+import { useWebsocketData } from '@/context/websocketDataStorage';
 import { useAppDispatch, useAppSelector } from '@/hooks';
+import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
 import { searchFetching } from '@/store/reducers/SearchSlice';
-import { fetchDeleteToken } from '@/store/reducers/TokenSlice';
+import { profileAPI } from '@/store/services/ProfileService';
 import Notification from '@/uikit/Notification';
 import OpeningList from '@/uikit/OpeningList';
 import ChildLink from '@/uikit/links/ChildLink';
 import ParentLink from '@/uikit/links/ParentLink';
-import Cookies from 'js-cookie';
-import React, { ChangeEvent, useCallback, useContext, useEffect, useState } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IoMdMenu } from 'react-icons/io';
@@ -37,26 +38,40 @@ const routes = [
 ];
 
 const Header = () => {
+  const isRememberMe = useAppSelector(state => state.rememberMe.isRememberMe);
   const dispatch = useAppDispatch();
-  const isToken = useAppSelector(state => state.token.isToken);
-  const { unreadMessages, notification } = useContext(SocketDataContext);
+  const { setUserData } = useSessionData();
+  const { unreadMessages, notification } = useWebsocketData();
+  const [signOut] = profileAPI.useSignOutMutation();
+
   const [isHovered, setIsHovered] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [burgerOpen, setBurgerOpen] = useState(false);
-  const { t } = useTranslation();
-  const [unreadCount, setUnreadCount] = useState<number>(0)
+  const [unreadCount, setUnreadCount] = useState<number>(0);
   const [showPush, setShowPush] = useState(false);
+  const { t } = useTranslation();
 
   const handleSignOut = useCallback(() => {
-    Cookies.remove('token');
-    Cookies.remove('userId');
-    Cookies.remove('rememberMe');
-    dispatch(fetchDeleteToken());
+    signOut();
+    localStorage.removeItem('token');
+    localStorage.removeItem('rememberMe');
+    dispatch(deleteRememberMe());
+    setUserData({
+      id: -1,
+      email: '',
+      name: '',
+      avatar: '',
+      birthDate: '',
+      country: '',
+      observations: [],
+      token: '',
+      refreshToken: '',
+    });
   }, [dispatch]);
 
-  useEffect(()=>{
-    setUnreadCount(unreadMessages.length)
-  },[unreadMessages])
+  useEffect(() => {
+    setUnreadCount(unreadMessages.length);
+  }, [unreadMessages]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -77,7 +92,6 @@ const Header = () => {
     }
   }, [notification]);
 
-
   return (
     <header className={styles.header}>
       <section className={styles.wrapper}>
@@ -85,7 +99,7 @@ const Header = () => {
           <img src="/images/logo.png" alt="logo" className={styles.img} />
           <IoMdMenu className={styles.menuBurger} onClick={() => setBurgerOpen(!burgerOpen)} />
           {burgerOpen && (
-             <div className={styles.childlistWrap}>
+            <div className={styles.childlistWrap}>
               <OpeningList childModal={false}>
                 {routes.map(route => (
                   <ChildLink key={route.link} to={route.link} onClick={() => setBurgerOpen(false)}>
@@ -104,12 +118,16 @@ const Header = () => {
                 onMouseLeave={() => setIsHovered(null)}
               >
                 <ParentLink to={route.link}>{t(route.text)}</ParentLink>
-                {route.addition &&  unreadCount > 0 && <div className={styles.unRead}>{unreadCount}</div>}
+                {route.addition && unreadCount > 0 && <div className={styles.unRead}>{unreadCount}</div>}
                 {isHovered === route.link && route.children && (
                   <div className={styles.childlistWrap}>
                     <OpeningList childModal={false}>
                       {route.children.map(child => (
-                        <ChildLink key={child.link} to={`${route.link}/${child.link}`} onClick={() => setIsHovered(null)}>
+                        <ChildLink
+                          key={child.link}
+                          to={`${route.link}/${child.link}`}
+                          onClick={() => setIsHovered(null)}
+                        >
                           {t(child.text)}
                         </ChildLink>
                       ))}
@@ -138,14 +156,14 @@ const Header = () => {
             </Link>
           </div>
           <SettingGroup />
-          {!isToken && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
-          {isToken && (
+          {!isRememberMe && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
+          {isRememberMe && (
             <ParentLink to="/" onClick={handleSignOut}>
               {t('Sign Out')}
             </ParentLink>
           )}
         </div>
-        {showPush && <Notification notification={notification}/>}
+        {showPush && <Notification notification={notification} />}
       </section>
     </header>
   );

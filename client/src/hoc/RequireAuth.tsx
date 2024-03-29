@@ -7,10 +7,10 @@ interface Props {
 }
 
 const RequireAuth = ({ children }: Props) => {
-  const isToken = useAppSelector(state => state.token.isToken);
+  const isRememberMe = useAppSelector(state => state.rememberMe.isRememberMe);
   const location = useLocation();
 
-  if (!isToken) {
+  if (!isRememberMe) {
     return <Navigate to="/signin" state={{ from: location }} />;
   }
 

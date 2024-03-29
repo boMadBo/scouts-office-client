@@ -11,9 +11,9 @@ const links = [
 ];
 
 const WellcomeStep = () => {
-  const isToken = useAppSelector(state => state.token.isToken);
+  const isRememberMe = useAppSelector(state => state.rememberMe.isRememberMe);
 
-  if (isToken) {
+  if (isRememberMe) {
     return <Navigate to={'/account'} />;
   }
 
@@ -23,13 +23,13 @@ const WellcomeStep = () => {
         <h2 className={styles.title}>Wellcome to Scouts Academy</h2>
         <div className={styles.linkWrap}>
           {links.map(link => (
-            <ParentLink key={link.to} to={link.to} fontSize='fs20'>
+            <ParentLink key={link.to} to={link.to} fontSize="fs20">
               {link.text}
             </ParentLink>
           ))}
         </div>
       </div>
-     </AuthWrap>
+    </AuthWrap>
   );
 };
 

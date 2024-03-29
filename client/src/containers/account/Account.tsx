@@ -1,13 +1,13 @@
-import Loading from '@/uikit/Loading';
 import Timezones from '@/containers/account/Timezones';
 import Weather from '@/containers/account/Weather/Weather';
+import { useSessionData } from '@/context/sessionDataStorage';
+import Loading from '@/uikit/Loading';
 import ParentLink from '@/uikit/links/ParentLink';
-import Cookies from 'js-cookie';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Navigate, Outlet } from 'react-router-dom';
-import styles from './account.module.scss';
+import { Outlet } from 'react-router-dom';
 import Profile from './Profile/Profile';
+import styles from './account.module.scss';
 
 const routes = [
   { link: 'todo', text: 'To-do list' },
@@ -17,14 +17,10 @@ const routes = [
 const headLink = '/account';
 
 const Account = () => {
-  const token = Cookies.get('token');
+  const { userData } = useSessionData();
   const { t } = useTranslation();
 
-  if (!token) {
-    return <Navigate to="/signin" state={{ from: location }} />;
-  }
-
-  if (!token) {
+  if (!userData.token) {
     return <Loading />;
   }
 
@@ -35,7 +31,7 @@ const Account = () => {
         <div className={styles.containerGroup}>
           <div className={styles.routesGroup}>
             {routes.map(route => (
-              <ParentLink key={route.link} to={`${headLink}/${route.link}`} fontSize='fs16' content={true}>
+              <ParentLink key={route.link} to={`${headLink}/${route.link}`} fontSize="fs16" content={true}>
                 {t(route.text)}
               </ParentLink>
             ))}

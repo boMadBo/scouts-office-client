@@ -2,7 +2,8 @@ import { profileAPI } from '@/store/services/ProfileService';
 import { useCallback } from 'react';
 
 export const useTogglePlayerObservation = (id: string | undefined) => {
-  const { data: observe } = profileAPI.useGetProfileQuery()
+  const { data: observe } = profileAPI.useGetProfileQuery();
+  // const { userData: profile } = useSessionData();
   const [createPlayerObserve] = profileAPI.useCreatePlayerObservationMutation();
   const [deletePlayerObserve] = profileAPI.useDeletePlayerObservationMutation();
 

@@ -14,3 +14,11 @@ export interface ISignInValues {
   refreshToken?: string;
   expiresIn?: string;
 }
+
+export interface ISignInResponseValues {
+  id: number;
+  name: string;
+  accessToken?: string;
+  refreshToken?: string;
+  expiresIn?: string;
+}

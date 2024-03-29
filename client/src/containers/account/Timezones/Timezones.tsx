@@ -1,3 +1,4 @@
+import { ICity } from '@/containers/account/types';
 import useDragDropTimezones from '@/hooks/useDragDropTimezones';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import CurrentTimezone from '@/uikit/CurrentTimezone';
@@ -8,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { LuSettings } from 'react-icons/lu';
 import EditButton from '../../../uikit/buttons/EditButton';
 import styles from './timezones.module.scss';
-import { ICity } from '@/types/account';
+
 dayjs.extend(utcPlugin);
 
 const currentTimezone = dayjs().utcOffset() / 60;
@@ -126,7 +127,7 @@ const Timezones = () => {
 
         {activeSett && (
           <div className={styles.addingWrap}>
-            <EditButton onClick={startAdding} text={t('add location')} data-testid="adding-button"/>
+            <EditButton onClick={startAdding} text={t('add location')} data-testid="adding-button" />
           </div>
         )}
       </div>

@@ -13,6 +13,8 @@ export interface IProfileValues {
   birthDate: string;
   country: string;
   observations: string[];
+  token: string;
+  refreshToken: string;
 }
 
 export interface IProfileUpdateValues {

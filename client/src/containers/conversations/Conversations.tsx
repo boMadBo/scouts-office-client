@@ -2,20 +2,15 @@ import ActiveConversation from '@/containers/conversations/ActiveConversation';
 import ConversationsList from '@/containers/conversations/ConversationsList';
 import { IConversation, IMessage } from '@/containers/conversations/types';
 import { WebsocketContext } from '@/context/websocket';
-import { SocketDataContext } from '@/context/websocketDataSorage';
+import { useWebsocketData } from '@/context/websocketDataStorage';
 import { conversationsAPI } from '@/store/services/ConversationsService';
 import cn from 'classnames';
-import Cookies from 'js-cookie';
 import React, { ChangeEvent, useCallback, useContext, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
-import { Navigate } from 'react-router-dom';
 import styles from './conversations.module.scss';
 
 const Conversations = () => {
-  const token = Cookies.get('token');
-  // const id = Cookies.get('userId');
-
   // conversations //
 
   const { data: conversationList } = conversationsAPI.useGetConversationsQuery();
@@ -51,7 +46,7 @@ const Conversations = () => {
   // messages //
 
   const socket = useContext(WebsocketContext);
-  const { messages, unreadMessages } = useContext(SocketDataContext);
+  const { messages, unreadMessages } = useWebsocketData();
   // const [limit, setLimit] = useState(20);
   const [chatMessages, setChatMessages] = useState<IMessage[]>([]);
 
@@ -103,10 +98,6 @@ const Conversations = () => {
     setSearchQuery('');
     setConversations(conversationList);
   };
-
-  if (!token) {
-    return <Navigate to="/signin" state={{ from: location }} />;
-  }
 
   return (
     <section className={styles.messages}>

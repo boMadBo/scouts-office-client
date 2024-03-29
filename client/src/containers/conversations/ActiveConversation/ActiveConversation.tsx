@@ -1,10 +1,10 @@
 import ConversationDetails from '@/containers/conversations/ActiveConversation/ConversationDetails';
 import { IConversation, IMessage } from '@/containers/conversations/types';
+import { useSessionData } from '@/context/sessionDataStorage';
 import { WebsocketContext } from '@/context/websocket';
 import BackButton from '@/uikit/buttons/BackButton';
 import EditButton from '@/uikit/buttons/EditButton';
 import cn from 'classnames';
-import Cookies from 'js-cookie';
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsPaperclip } from 'react-icons/bs';
@@ -26,19 +26,19 @@ const ActiveConversation = ({
   currentChat,
   messages,
   handleFirstClick,
-  goBack,
-} // incCount,
-: Props) => {
-  const id = Cookies.get('userId');
-  const { t } = useTranslation();
-  const [newMessage, setNewMessage] = useState<string>('');
-  const viewedMessagesRef = useRef(new Set());
+  goBack, // incCount,
+}: Props) => {
+  const { userData } = useSessionData();
   const socket = useContext(WebsocketContext);
+  const { t } = useTranslation();
+  const viewedMessagesRef = useRef(new Set());
+  const [newMessage, setNewMessage] = useState<string>('');
+  const { id } = userData;
 
   const addMessage = () => {
     setNewMessage('');
     socket.emit('newMessage', {
-      senderId: Number(id),
+      senderId: id,
       text: newMessage,
       conversationId: currentChat?.id,
       recieverId: currentChat?.interlocutor.id,
@@ -72,7 +72,7 @@ const ActiveConversation = ({
               id: item.id,
               conversationId: item.conversationId,
               senderId: item.senderId,
-              userId: Number(id),
+              userId: id,
             });
           }
           if (entry.target.id === `message-${messages[messages.length - 1].id}`) {
