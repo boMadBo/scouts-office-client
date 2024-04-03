@@ -1,8 +1,15 @@
-export interface ICity {
+export interface IUtcZone {
+  id: number;
   city: string;
-  gmt: number;
-  currentTimezone?: string;
+  time?: string;
   order: number;
+  isActive: boolean;
+}
+
+export interface IUpdateUtcZone {
+  id: number;
+  isActive?: boolean;
+  order?: number;
 }
 
 export interface IProfileValues {
@@ -15,6 +22,7 @@ export interface IProfileValues {
   observations: string[];
   token: string;
   refreshToken: string;
+  utcZones: IUtcZone[];
 }
 
 export interface IProfileUpdateValues {

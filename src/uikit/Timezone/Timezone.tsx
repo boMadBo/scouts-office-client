@@ -1,19 +1,18 @@
-import { ICity } from '@/types/account';
+import { IUtcZone } from '@/containers/account/types';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from './currentTimezone.module.scss';
+import styles from './timezone.module.scss';
 
 interface Props {
   activeSett: boolean;
   isDraggable?: boolean;
   operation: string;
-  cities: ICity[];
-  onChangeCity: (cityName: string) => void;
-  sortCities?: (a: ICity, b: ICity) => 1 | -1;
-  dragStartHandler?: (e: MouseEvent | TouchEvent | PointerEvent, city: ICity) => void;
+  cities: IUtcZone[];
+  onChangeCity: (id: number) => void;
+  dragStartHandler?: (e: MouseEvent | TouchEvent | PointerEvent, city: IUtcZone) => void;
   dragOverHandler?: (e: React.DragEvent<HTMLDivElement>) => void;
-  dropHandler?: (e: React.DragEvent<HTMLDivElement>, city: ICity) => void;
+  dropHandler?: (e: React.DragEvent<HTMLDivElement>, city: IUtcZone) => void;
 }
 
 const listVarian = {
@@ -29,13 +28,12 @@ const listVarian = {
   hidden: { opacity: 0, x: 100 },
 };
 
-const CurrentTimezone = ({
+const Timezone = ({
   activeSett,
   isDraggable,
   operation,
   cities,
   onChangeCity,
-  sortCities,
   dragStartHandler,
   dragOverHandler,
   dropHandler,
@@ -46,7 +44,7 @@ const CurrentTimezone = ({
   return (
     <div className={styles.wrap}>
       <div>
-        {cities.sort(sortCities).map(city => (
+        {cities.map(city => (
           <motion.div
             key={city.city}
             className={styles.zones}
@@ -59,7 +57,7 @@ const CurrentTimezone = ({
             animate="visible"
           >
             <span className={styles.text}>{t(city.city)}</span>
-            <span className={styles.text}>{city.currentTimezone}</span>
+            <span className={styles.text}>{city.time}</span>
           </motion.div>
         ))}
       </div>
@@ -68,7 +66,7 @@ const CurrentTimezone = ({
           <>
             {cities.map(city => (
               <div key={city.city} className={styles.deleteWrap}>
-                <div onClick={() => onChangeCity(city.city)} className={styles.delete}>
+                <div onClick={() => onChangeCity(city.id)} className={styles.delete}>
                   {operation}
                 </div>
               </div>
@@ -80,4 +78,4 @@ const CurrentTimezone = ({
   );
 };
 
-export default React.memo(CurrentTimezone);
+export default React.memo(Timezone);

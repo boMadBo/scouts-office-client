@@ -1,21 +1,21 @@
-import { ICity } from '@/types/account';
+import { IUtcZone } from '@/containers/account/types';
 import { useCallback, useState } from 'react';
 
 interface IDragDropTimezones {
-  currentCity: ICity | null;
-  dragStartHandler: (e: MouseEvent | TouchEvent | PointerEvent, city: ICity) => void;
+  currentZone: IUtcZone | null;
+  dragStartHandler: (e: MouseEvent | TouchEvent | PointerEvent, city: IUtcZone) => void;
   dragOverHandler: (e: React.DragEvent<HTMLDivElement>) => void;
-  dropHandler: (e: React.DragEvent<HTMLDivElement>, city: ICity) => void;
+  dropHandler: (e: React.DragEvent<HTMLDivElement>, city: IUtcZone) => void;
 }
 
 const useDragDropTimezones = (
-  initialCities: ICity[],
-  setMyCities: React.Dispatch<React.SetStateAction<ICity[]>>
+  initialZones: IUtcZone[],
+  setMyZones: React.Dispatch<React.SetStateAction<IUtcZone[]>>
 ): IDragDropTimezones => {
-  const [currentCity, setCurrentCity] = useState<ICity | null>(null);
+  const [currentZone, setCurrentZone] = useState<IUtcZone | null>(null);
 
-  const dragStartHandler = useCallback((e: MouseEvent | TouchEvent | PointerEvent, city: ICity) => {
-    setCurrentCity(city);
+  const dragStartHandler = useCallback((e: MouseEvent | TouchEvent | PointerEvent, zone: IUtcZone) => {
+    setCurrentZone(zone);
   }, []);
 
   const dragOverHandler = useCallback((e: React.DragEvent<HTMLDivElement>) => {
@@ -23,28 +23,33 @@ const useDragDropTimezones = (
   }, []);
 
   const dropHandler = useCallback(
-    (e: React.DragEvent<HTMLDivElement>, city: ICity) => {
+    (e: React.DragEvent<HTMLDivElement>, zone: IUtcZone) => {
       e.preventDefault();
-      const currentIndex = initialCities.findIndex((c: ICity) => c.city === currentCity?.city);
-      const targetIndex = initialCities.findIndex((c: ICity) => c.city === city.city);
+      const currentIndex = initialZones.findIndex((c: IUtcZone) => c.city === currentZone?.city);
+      const targetIndex = initialZones.findIndex((t: IUtcZone) => t.city === zone.city);
 
       if (currentIndex !== -1 && targetIndex !== -1) {
-        const newCitylist = [...initialCities];
-        const movedCity = newCitylist[currentIndex];
-        newCitylist.splice(currentIndex, 1);
-        newCitylist.splice(targetIndex, 0, movedCity);
-        newCitylist.forEach((c, index) => {
-          c.order = index;
+        const newZonelist = [...initialZones];
+        const movedZone = newZonelist[currentIndex];
+        newZonelist.splice(currentIndex, 1);
+        newZonelist.splice(targetIndex, 0, movedZone);
+        newZonelist.forEach((zone, index) => {
+          zone.order = index;
         });
-
-        setMyCities(newCitylist);
+        const zones = newZonelist.map(item => {
+          return {
+            id: item.id,
+            order: item.order,
+          };
+        });
+        setMyZones(newZonelist);
       }
     },
-    [initialCities, currentCity, setMyCities]
+    [initialZones, currentZone, setMyZones]
   );
 
   return {
-    currentCity,
+    currentZone,
     dragStartHandler,
     dragOverHandler,
     dropHandler,

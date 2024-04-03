@@ -1,5 +1,5 @@
 import { baseUrl } from '@/api/baseUrl';
-import { IProfileUpdateValues, IProfileValues } from '@/containers/account/types';
+import { IProfileUpdateValues, IProfileValues, IUpdateUtcZone } from '@/containers/account/types';
 import { ISignInResponseValues, ISignInValues } from '@/containers/auth/types';
 import { IPlayerValuesObservation } from '@/containers/player/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
@@ -58,6 +58,14 @@ export const profileAPI = createApi({
       query: () => ({
         url: `/auth/logout`,
         method: 'DELETE',
+      }),
+      invalidatesTags: ['Profile'],
+    }),
+    updateTimezone: build.mutation<IProfileValues, IUpdateUtcZone[]>({
+      query: timezone => ({
+        url: `/user/timezones`,
+        method: 'PUT',
+        body: timezone,
       }),
       invalidatesTags: ['Profile'],
     }),
