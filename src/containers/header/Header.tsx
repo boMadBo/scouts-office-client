@@ -1,18 +1,17 @@
 import { useSessionData } from '@/context/sessionDataStorage';
 import { useWebsocketData } from '@/context/websocketDataStorage';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
 import { searchFetching } from '@/store/reducers/SearchSlice';
 import { profileAPI } from '@/store/services/ProfileService';
+import ModalListItemsWrap from '@/uikit/ModalListItemsWrap';
 import Notification from '@/uikit/Notification';
-import OpeningList from '@/uikit/OpeningList';
+import FormWithIcon from '@/uikit/forms/FormWithIcon';
 import ChildLink from '@/uikit/links/ChildLink';
 import ParentLink from '@/uikit/links/ParentLink';
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AiOutlineSearch } from 'react-icons/ai';
 import { IoMdMenu } from 'react-icons/io';
-import { Link } from 'react-router-dom';
 import SettingGroup from './SettingGroup';
 import styles from './header.module.scss';
 
@@ -101,13 +100,13 @@ const Header = () => {
           <IoMdMenu className={styles.menuBurger} onClick={() => setBurgerOpen(!burgerOpen)} />
           {burgerOpen && (
             <div className={styles.childlistWrap}>
-              <OpeningList childModal={false}>
+              <ModalListItemsWrap childModal={false}>
                 {routes.map(route => (
                   <ChildLink key={route.link} to={route.link} onClick={() => setBurgerOpen(false)}>
                     {t(route.text)}
                   </ChildLink>
                 ))}
-              </OpeningList>
+              </ModalListItemsWrap>
             </div>
           )}
           <div className={styles.containerGroup}>
@@ -122,7 +121,7 @@ const Header = () => {
                 {route.addition && unreadCount > 0 && <div className={styles.unRead}>{unreadCount}</div>}
                 {isHovered === route.link && route.children && (
                   <div className={styles.childlistWrap}>
-                    <OpeningList childModal={false}>
+                    <ModalListItemsWrap childModal={false}>
                       {route.children.map(child => (
                         <ChildLink
                           key={child.link}
@@ -132,7 +131,7 @@ const Header = () => {
                           {t(child.text)}
                         </ChildLink>
                       ))}
-                    </OpeningList>
+                    </ModalListItemsWrap>
                   </div>
                 )}
               </div>
@@ -140,22 +139,13 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.container}>
-          <div className={styles.input_wrap}>
-            <form className={styles.form}>
-              <input
-                type="text"
-                className={styles.input}
-                placeholder="Who are we looking for?"
-                value={query}
-                onChange={handleInputChange}
-              />
-            </form>
-            <Link to="search">
-              <button className={styles.input_btn} onClick={handleSearch}>
-                <AiOutlineSearch className={styles.btnImg} />
-              </button>
-            </Link>
-          </div>
+          <FormWithIcon
+            query={query}
+            link="search"
+            placeholder="Who are we looking for?"
+            handleInputChange={handleInputChange}
+            handleSearch={handleSearch}
+          />
           <SettingGroup />
           {!isRememberMe && <ParentLink to="signin">{t('Sign In')}</ParentLink>}
           {isRememberMe && (

@@ -5,13 +5,13 @@ import styles from './layout.module.scss';
 
 const Layout = () => {
   return (
-    <>
+    <main className={styles.main}>
       <Header />
-      <main className={styles.main}>
+      <section className={styles.layout}>
         <Outlet />
-      </main>
-      <footer style={{ color: 'var(--main-text)' }}>its footer</footer>
-    </>
+      </section>
+      <footer style={{ color: 'var(--main-text)', height: '20px' }}>its footer</footer>
+    </main>
   );
 };
 

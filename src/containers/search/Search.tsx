@@ -1,5 +1,5 @@
 import { mockSearch } from '@/containers/search/mock';
-import { useAppSelector } from '@/hooks';
+import { useAppSelector } from '@/hooks/hooks';
 import Loading from '@/uikit/Loading/Loading';
 import ClubsTable from '@/uikit/tables/ClubsTable';
 import PlayersTable from '@/uikit/tables/PlayersTable';

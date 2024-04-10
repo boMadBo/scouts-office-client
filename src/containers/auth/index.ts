@@ -1,1 +1,1 @@
-export { default } from './WellcomeStep';
+export { default } from './Auth';

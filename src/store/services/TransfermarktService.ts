@@ -1,6 +1,6 @@
 import { baseUrl } from '@/api/baseUrl';
 import { ISquad, ITeam } from '@/containers/leagues/types';
-import { ICurrentNews, INewsResult } from '@/containers/news/types';
+import { INewsResult, IRevealNews } from '@/containers/news/types';
 import {
   IPlayer,
   ISeason,
@@ -71,7 +71,7 @@ export const transfermarktAPI = createApi({
       }),
       providesTags: (result, error) => [{ type: 'Transfermarkt', result, error }],
     }),
-    getNewsById: build.query<ICurrentNews, string>({
+    getNewsById: build.query<IRevealNews, string>({
       query: (id: string) => ({
         url: `/transfermarkt/news/${id}`,
       }),

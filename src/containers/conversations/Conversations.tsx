@@ -4,15 +4,12 @@ import { IConversation, IMessage } from '@/containers/conversations/types';
 import { WebsocketContext } from '@/context/websocket';
 import { useWebsocketData } from '@/context/websocketDataStorage';
 import { conversationsAPI } from '@/store/services/ConversationsService';
+import FormWithIcon from '@/uikit/forms/FormWithIcon';
 import cn from 'classnames';
 import React, { ChangeEvent, useCallback, useContext, useEffect, useState } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { TiDeleteOutline } from 'react-icons/ti';
 import styles from './conversations.module.scss';
 
 const Conversations = () => {
-  // conversations //
-
   const { data: conversationList } = conversationsAPI.useGetConversationsQuery();
   const [updateConversation] = conversationsAPI.useUpdateConversationMutation();
 
@@ -83,7 +80,7 @@ const Conversations = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
     setSearchQuery(query);
     if (conversationList?.length) {
@@ -100,26 +97,16 @@ const Conversations = () => {
   };
 
   return (
-    <section className={styles.messages}>
+    <div className={styles.messages}>
       <div className={cn(styles.conversationsWrap, { [styles.conversationsWrapResize]: firstChatClick })}>
-        <form className={styles.input_wrap}>
-          <label className={styles.form}>
-            <input
-              type="text"
-              className={styles.input}
-              placeholder="Search dialog"
-              value={searchQuery}
-              onChange={handleSearch}
-            />
-          </label>
-          <button className={styles.inputBtn} onClick={clearSearchQuery}>
-            {!searchQuery ? (
-              <AiOutlineSearch className={styles.btnImg} />
-            ) : (
-              <TiDeleteOutline className={styles.btnImg} />
-            )}
-          </button>
-        </form>
+        <div className={styles.formWrap}>
+          <FormWithIcon
+            query={searchQuery}
+            placeholder="Search dialog"
+            handleInputChange={handleInputChange}
+            clearSearchQuery={clearSearchQuery}
+          />
+        </div>
         <div className={styles.conversations}>
           {conversations?.map(item => (
             <div
@@ -141,7 +128,7 @@ const Conversations = () => {
         // incCount={incCount}
         goBack={() => setFirstChatClick(false)}
       />
-    </section>
+    </div>
   );
 };
 

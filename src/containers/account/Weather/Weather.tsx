@@ -1,7 +1,7 @@
+import { RAIN, SNOW, SUN } from '@/containers/account/helpers';
 import { weatherAPI } from '@/store/services/WeatherService';
 import { motion } from 'framer-motion';
 import React, { useMemo } from 'react';
-import { RAIN, SNOW, SUN } from './helpers';
 import styles from './weather.module.scss';
 
 const listVarian = {

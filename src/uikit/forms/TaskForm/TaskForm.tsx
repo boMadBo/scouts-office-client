@@ -12,7 +12,7 @@ interface Props {
 
 const TaskForm = ({ text, handleKeyUp, handleInputChange, addTask }: Props) => {
   return (
-    <div className={styles.addField} >
+    <div className={styles.addField}>
       <input
         type="text"
         placeholder="Enter the task text..."
@@ -22,7 +22,7 @@ const TaskForm = ({ text, handleKeyUp, handleInputChange, addTask }: Props) => {
         onChange={handleInputChange}
         data-testid="input"
       />
-      <button onClick={addTask} className={styles.btn} >
+      <button onClick={addTask} className={styles.btn}>
         <BiMessageAdd className={styles.btnImg} />
       </button>
     </div>

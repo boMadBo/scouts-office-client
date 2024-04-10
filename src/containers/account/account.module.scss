@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   display: flex;
-  height: calc(100vh - 125px); // footer
+  height: calc(100vh - 145px); // footer
   @media (max-width: 1169px) {
     flex-direction: column;
   }

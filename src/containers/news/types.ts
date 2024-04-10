@@ -17,7 +17,7 @@ export interface INewsResult {
   tapeNews: INews[];
 }
 
-export interface ICurrentNews {
+export interface IRevealNews {
   id: string | undefined;
   headline: string | undefined;
   timestamp: number | undefined;

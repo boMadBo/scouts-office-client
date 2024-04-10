@@ -16,13 +16,7 @@ export const rememberMeSlice = createSlice({
     },
   },
 });
-// export const fetchSaveRememberMe = () => async (dispatch: AppDispatch) => {
-//   dispatch(saveRememberMe());
-// };
 
-// export const fetchDeleteRememberMe = () => async (dispatch: AppDispatch) => {
-//   dispatch(deleteRememberMe());
-// };
 
 export const { saveRememberMe, deleteRememberMe } = rememberMeSlice.actions;
 export default rememberMeSlice.reducer;

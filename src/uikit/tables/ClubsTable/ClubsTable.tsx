@@ -1,4 +1,4 @@
-import { ISearch } from '@/containers/search/search';
+import { ISearch } from '@/containers/search/types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './clubsTable.module.scss';

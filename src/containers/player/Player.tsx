@@ -2,10 +2,10 @@ import { test, testStats, trhist, valueM } from '@/containers/player/mock';
 import { useTogglePlayerObservation } from '@/hooks/useTogglePlayerObservation';
 import { currencyAPI } from '@/store/services/CurrencyService';
 import Loading from '@/uikit/Loading';
-import ValueChart from '@/uikit/charts/ValueChart';
+import MarketValueChart from '@/uikit/charts/MarketValueChart';
 import TransferTable from '@/uikit/tables/TransferTable';
 import React, { useCallback, useMemo, useState } from 'react';
-import PlayerProfile from './PlayerProfile';
+import MainPlayerInfo from './MainPlayerInfo';
 import Stats from './Stats';
 import Wrap from './Wrap';
 import styles from './player.module.scss';
@@ -98,7 +98,7 @@ const Player = ({ id }: Props) => {
   return (
     <section className={styles.player}>
       <div className={styles.containerLeft}>
-        <PlayerProfile data={player} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
+        <MainPlayerInfo data={player} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
           <Stats
             isGK={isGK}
@@ -113,7 +113,7 @@ const Player = ({ id }: Props) => {
       </div>
       <div className={styles.containerRight}>
         <Wrap>
-          <ValueChart chartData={valueHistory} />
+          <MarketValueChart chartData={valueHistory} />
         </Wrap>
         <Wrap>
           <TransferTable data={transfers} columns={transfColumns} />

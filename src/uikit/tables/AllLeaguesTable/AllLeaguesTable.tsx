@@ -1,4 +1,4 @@
-import { ICompetition } from '@/types/leagues';
+import { ICompetition } from '@/containers/leagues/types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './allLeaguesTable.module.scss';

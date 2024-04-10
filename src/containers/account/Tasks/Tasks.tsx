@@ -1,11 +1,10 @@
 import { ICreateTask } from '@/containers/account/types';
 import { taskAPI } from '@/store/services/TaskService';
-import TaskList from '@/uikit/TaskList';
+import Task from '@/uikit/Task';
 import TaskForm from '@/uikit/forms/TaskForm';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './tasks.module.scss';
-
 
 const Tasks = () => {
   const { data: tasks } = taskAPI.useGetTasksQuery();
@@ -84,7 +83,7 @@ const Tasks = () => {
         <h4 className={styles.text}>{t('Tasks list')}</h4>
         <TaskForm text={text} handleInputChange={handleInputChange} addTask={addTask} handleKeyUp={handleKeyUp} />
         {tasks?.map(task => (
-          <TaskList
+          <Task
             key={task.id}
             id={task.id.toString()}
             completed={task.completed}

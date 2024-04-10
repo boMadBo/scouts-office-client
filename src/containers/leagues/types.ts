@@ -26,21 +26,6 @@ export interface ITeam {
   wins: number;
 }
 
-
-export interface IFinSquad {
-  age: number;
-  dateOfBirth: string;
-  flag: string;
-  id: string;
-  image: string;
-  name: string;
-  positionFull: string;
-  positionGroup: string;
-  positionShort: string;
-  shirtNumber: string;
-  value: string;
-}
-
 export interface ISquad {
   age: number;
   dateOfBirth: string;

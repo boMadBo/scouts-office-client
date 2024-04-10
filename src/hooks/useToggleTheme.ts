@@ -1,6 +1,6 @@
 import { toggleTheme } from '@/store/reducers/ThemeSlice';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '.';
+import { useAppDispatch, useAppSelector } from './hooks';
 
 export const useToggleTheme = () => {
   const dispatch = useAppDispatch();

@@ -23,8 +23,12 @@
 }
 
 .backWrap {
-  position: absolute;
-  left: 20px;
+  display: none;
+  @media (max-width: 679px) {
+    display: block;
+    position: absolute;
+    left: 20px;
+  }
 }
 
 .name {

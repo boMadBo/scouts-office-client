@@ -1,5 +1,5 @@
 import { useToggleTheme } from '@/hooks/useToggleTheme';
-import OpeningList from '@/uikit/OpeningList';
+import ModalListItemsWrap from '@/uikit/ModalListItemsWrap';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './settingGroup.module.scss';
@@ -53,13 +53,13 @@ const SettingGroup = () => {
         </div>
         {isModalOpen && (
           <div className={styles.langlistWrap}>
-            <OpeningList childModal={true}>
+            <ModalListItemsWrap childModal={true}>
               {langs.map(l => (
                 <div key={l.text} className={styles.langSelect}>
                   <span onClick={() => changeLanguage(l.lang)}>{l.text}</span>
                 </div>
               ))}
-            </OpeningList>
+            </ModalListItemsWrap>
           </div>
         )}
       </div>
