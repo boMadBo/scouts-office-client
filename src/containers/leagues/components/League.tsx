@@ -1,8 +1,8 @@
 import Leagues from '@/containers/leagues';
+import { mocks } from '@/containers/leagues/mock';
 import Loading from '@/uikit/Loading';
 import LeagueTable from '@/uikit/tables/LeagueTable';
 import React from 'react';
-import { mocks } from '@/containers/leagues/mock';
 
 interface Props {
   id: string | undefined;
@@ -20,12 +20,10 @@ const columns = [
   { title: 'P' },
 ];
 
-
-
 const League = ({ id }: Props) => {
-  // const teams = useGetTeams(id);
+  // const { data: teams } = transfermarktAPI.useGetLeagueTeamsQuery(id || '');
 
-  if (mocks.length < 1) {
+  if (!mocks || mocks.length < 1) {
     return <Loading />;
   }
 

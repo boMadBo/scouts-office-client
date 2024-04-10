@@ -1,8 +1,8 @@
-import { IFinSquad } from '@/types/leagues';
+import { ISquad } from '@/containers/leagues/types';
 import dayjs from 'dayjs';
 import { useCallback, useMemo, useState } from 'react';
 
-export const useSortableData = (initialData: IFinSquad[]) => {
+export const useSortSquad = (initialData: ISquad[] | undefined) => {
   const [sortKey, setSortKey] = useState('');
   const [isAscending, setIsAscending] = useState(true);
 
@@ -19,8 +19,8 @@ export const useSortableData = (initialData: IFinSquad[]) => {
   );
 
   const sortData = useMemo(() => {
-    return (data: IFinSquad[]) => {
-      return data.slice().sort((a, b) => {
+    return (data: ISquad[] | undefined) => {
+      return data?.slice().sort((a, b) => {
         if (sortKey === '#') {
           const shirtNumberA = parseInt(a.shirtNumber);
           const shirtNumberB = parseInt(b.shirtNumber);

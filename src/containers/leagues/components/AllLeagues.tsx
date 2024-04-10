@@ -1,4 +1,4 @@
-import { ICompetition } from '@/types/leagues';
+import { ICompetition } from '@/containers/leagues/types';
 import AllLeaguesTable from '@/uikit/tables/AllLeaguesTable';
 import React, { useState } from 'react';
 import Leagues from '../Leagues';

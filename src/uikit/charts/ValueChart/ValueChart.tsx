@@ -1,4 +1,4 @@
-import { FinValue } from '@/types/player';
+import { IValueHistory } from '@/containers/player/types';
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -19,7 +19,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const lineColor = getComputedStyle(document.documentElement).getPropertyValue('--buttons');
 
 interface Props {
-  chartData: FinValue[];
+  chartData: IValueHistory[];
 }
 
 const ValueChart = ({ chartData }: Props) => {

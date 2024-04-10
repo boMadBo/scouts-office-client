@@ -1,113 +1,12 @@
 export interface ICostRatio {
-  [key: string]: string;
+  title: string;
+  value: string | undefined;
 }
-
 export interface IPlayerValuesObservation {
   playerId: string;
 }
 
-export interface IPlayerObservation {
-  playerId: string | undefined;
-  playerID: string | undefined;
-  playerName: string | undefined;
-  age: string | undefined;
-  position: string | undefined;
-  clubId: string | undefined;
-  club: string | undefined;
-  marketValue: string | undefined;
-  currency: string | undefined;
-  numeral: string | undefined;
-  agent: string | undefined;
-}
-
-
-interface ILoanData {
-  loan: string;
-  loanStart: string;
-  loanUntil: string;
-  contractOptions: string;
-  ownerName: string;
-  ownerID: string;
-  ownerImage: string;
-  ownerContractUntil: string;
-}
-
-interface IRelatedness {
-  id: string;
-  personName: string;
-  personGroup: string;
-  personID: string;
-  degreeOfRelationship: string;
-}
-
-interface IInjuryData {
-  id: string;
-  title: string;
-  until: string;
-  rehabilitationFlag: string;
-}
-
-interface IAbsenceData {
-  id: string;
-  title: string;
-  until: string;
-  competitionID: string;
-  matches: string;
-}
-
-export interface StartPlayer {
-  playerID: string;
-  playerImage: string;
-  playerName: string;
-  playerFullName: string;
-  birthplace: string;
-  dateOfBirth: string;
-  dateOfDeath: null;
-  playerShirtNumber: string;
-  birthplaceCountry: string;
-  birthplaceCountryImage: string;
-  age: string;
-  height: string;
-  foot: string;
-  internationalTeam: string;
-  internationalTeamImage: string;
-  internationalTeamStatus: string;
-  internationalGames: string;
-  internationalGoals: string;
-  internationalTeamShortTag: string;
-  internationalShirtNumber: string;
-  internationalWmMember: boolean;
-  internationalValueRank: number;
-  country: string;
-  countryImage: string;
-  countryShortName: string;
-  secondCountry: string;
-  secondCountryImage: string;
-  league: string;
-  leagueLogo: string;
-  clubImage: string;
-  club: string;
-  clubID: string;
-  loan: ILoanData;
-  contractExpiryDate: string;
-  agent: string;
-  agentId: string;
-  outfitter: string;
-  positionGroup: string;
-  playerMainPosition: string;
-  playerSecondPosition: string;
-  playerThirdPosition: string;
-  marketValue: string;
-  marketValueCurrency: string;
-  marketValueNumeral: string;
-  marketValueLastChange: string;
-  relatedness: IRelatedness[];
-  injury: IInjuryData;
-  absence: IAbsenceData;
-  allSuspensions: [];
-}
-
-export interface FinPlayer {
+export interface IPlayer {
   playerID: string | undefined;
   playerImage: string | undefined;
   playerName: string | undefined;
@@ -124,6 +23,7 @@ export interface FinPlayer {
   leagueLogo: string | undefined;
   clubImage: string | undefined;
   club: string | undefined;
+  clubId: string | undefined;
   loanUntil: string | undefined;
   LoanOwnerName: string | undefined;
   ownerImage: string | undefined;
@@ -140,43 +40,7 @@ export interface FinPlayer {
   injuryUntil: string | undefined;
 }
 
-export interface StartStats {
-  competition: {
-    id: string;
-    name: string;
-    shortName: string;
-    image: string;
-    leagueLevel: null;
-    isTournament: null;
-  };
-  performance: {
-    ownGoals: string;
-    yellowCards: string;
-    yellowRedCards: string;
-    redCards: string;
-    minutesPlayed: number;
-    penaltyGoals: string;
-    minutesPerGoal: number;
-    matches: string;
-    goals: string;
-    assists: string;
-    toNil: number;
-    concededGoals: number;
-    isGoalkeeper: null | true;
-  };
-  clubs: {
-    id: string;
-    name: string;
-    fullName: string;
-    image: string;
-    nationalTeam: string;
-    flag: null;
-    marketValue: null;
-    mainCompetition: null;
-  }[];
-}
-
-export interface FinStats {
+export interface IStats {
   compId: string | undefined;
   compName: string | undefined;
   compImage: string | undefined;
@@ -193,27 +57,21 @@ export interface FinStats {
   isGoalkeeper: null | boolean | undefined;
 }
 
-export interface Seasons {
+export interface IStatsResult {
+  stats: IStats[];
+  isGK: boolean;
+}
+
+export interface IStatsRequestOptions {
+  id: string;
+  seasonId: string;
+}
+export interface ISeason {
   key: string | undefined;
   title: string | undefined;
 }
 
-export interface StartValue {
-  date: string | undefined;
-  unformattedDate: string | undefined;
-  age: string | undefined;
-  marketValue: string | undefined;
-  marketValueUnformatted: number | undefined;
-  marketValueCurrency: string | undefined;
-  marketValueNumeral: string | undefined;
-  clubID: string | undefined;
-  clubName: string | undefined;
-  clubShortName: string | undefined;
-  clubImage: string | undefined;
-  seasonID: string | undefined;
-}
-
-export interface FinValue {
+export interface IValueHistory {
   date: string | undefined;
   age: string | undefined;
   marketValue: string | undefined;
@@ -223,29 +81,7 @@ export interface FinValue {
   clubName: string | undefined;
 }
 
-export interface StartTransfers {
-  playerID: string | undefined;
-  oldClubID: string | undefined;
-  oldClubName: string | undefined;
-  oldClubImage: string | undefined;
-  newClubID: string | undefined;
-  newClubName: string | undefined;
-  newClubImage: string | undefined;
-  transferFeeValue: string | undefined;
-  transferFeeCurrency: string | undefined;
-  transferFeeNumeral: string | undefined;
-  playerName: string | undefined;
-  playerImage: string | undefined;
-  countryID: string | undefined;
-  countryImage: string | undefined;
-  loan: string | undefined;
-  date: string | undefined;
-  season: string | undefined;
-  newClubCountryName: string | undefined;
-  newClubCountryImage: string | undefined;
-}
-
-export interface FinTransfers {
+export interface ITransfer {
   playerID: string | undefined;
   oldClubID: string | undefined;
   oldClubName: string | undefined;

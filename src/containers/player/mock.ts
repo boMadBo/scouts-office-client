@@ -87,6 +87,7 @@ export const test = {
   leagueLogo: 'https://tmssl.akamaized.net/images/logo/normal/gb1.png?lm=1521104656',
   clubImage: 'https://tmssl.akamaized.net/images/wappen/medium/1237.png?lm=1492718902',
   club: 'Brighton & Hove Albion',
+  clubId: '11',
   loanUntil: 'Jun 30, 2024',
   LoanOwnerName: 'Chelsea FC',
   ownerImage: 'https://tmssl.akamaized.net/images/wappen/medium/631.png?lm=1682435911',

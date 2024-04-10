@@ -1,5 +1,5 @@
 
-import { FinPlayer, ICostRatio } from '@/containers/player/types';
+import { ICostRatio, IPlayer } from '@/containers/player/types';
 import cn from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +10,7 @@ import { IoShirtOutline } from 'react-icons/io5';
 import styles from './playerProfile.module.scss';
 
 interface Props {
-  data: FinPlayer;
+  data: IPlayer;
   idObserve: string | undefined;
   currRates: ICostRatio[];
   toggleObserve: () => void;

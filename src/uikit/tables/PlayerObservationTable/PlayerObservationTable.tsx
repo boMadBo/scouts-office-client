@@ -1,15 +1,14 @@
 import { IColumn } from '@/common/types';
-import { IPlayerObservation } from '@/containers/player/types';
+import { IPlayer } from '@/containers/player/types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdDeleteOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import styles from './playerObservationTable.module.scss';
 
-
 interface Props {
   columns: IColumn[];
-  data: IPlayerObservation[] | undefined;
+  data: IPlayer[] | undefined;
   removeObserve: (id: string | undefined) => void;
 }
 
@@ -33,7 +32,7 @@ const PlayerObservationTable = ({ columns, data, removeObserve }: Props) => {
               </Link>
             </td>
             <td>{item.age}</td>
-            <td>{item.position}</td>
+            <td>{item.playerMainPosition}</td>
             <td>
               <Link to={`/squad/${item.clubId}`} className={styles.link}>
                 <span>{item.club}</span>
@@ -42,13 +41,17 @@ const PlayerObservationTable = ({ columns, data, removeObserve }: Props) => {
             <td>
               <div className={styles.costWrap}>
                 <span>{item.marketValue}</span>
-                <span>{item.numeral}</span>
-                <span>{item.currency}</span>
+                <span>{item.marketValueNumeral}</span>
+                <span>{item.marketValueCurrency}</span>
               </div>
             </td>
             <td>{item.agent}</td>
             <td>
-              <button className={styles.itemRemove} onClick={() => removeObserve(item.playerId)} data-testid="remove-btn">
+              <button
+                className={styles.itemRemove}
+                onClick={() => removeObserve(item.playerID)}
+                data-testid="remove-btn"
+              >
                 <MdDeleteOutline className={styles.btnImg} />
               </button>
             </td>

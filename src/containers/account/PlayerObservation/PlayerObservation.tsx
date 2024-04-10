@@ -5,7 +5,6 @@ import PlayerObservationTable from '@/uikit/tables/PlayerObservationTable';
 import React, { useCallback } from 'react';
 import styles from './playerObservation.module.scss';
 
-
 const columns = [
   { title: 'Name' },
   { title: 'Age' },
@@ -17,7 +16,7 @@ const columns = [
 ];
 
 const PlayerObservation = () => {
-  // const observes = usePlayerObservation();
+  // const { data: players } = profileAPI.useGetObservablePlayersQuery();
   const [deletePlayerObserve] = profileAPI.useDeletePlayerObservationMutation();
   const onRemoveObserve = async (id: string) => {
     try {

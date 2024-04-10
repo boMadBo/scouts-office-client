@@ -1,7 +1,7 @@
 import { baseUrl } from '@/api/baseUrl';
 import { IProfileUpdateValues, IProfileValues, IUpdateUtcZone } from '@/containers/account/types';
 import { ISignInResponseValues, ISignInValues } from '@/containers/auth/types';
-import { IPlayerValuesObservation } from '@/containers/player/types';
+import { IPlayer, IPlayerValuesObservation } from '@/containers/player/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 TODO: 'logout';
@@ -45,6 +45,12 @@ export const profileAPI = createApi({
         body: observe,
       }),
       invalidatesTags: ['Profile'],
+    }),
+    getObservablePlayers: build.query<IPlayer[], void>({
+      query: () => ({
+        url: '/user/observation',
+      }),
+      providesTags: (result, error) => [{ type: 'Profile', result, error }],
     }),
     deletePlayerObservation: build.mutation<IPlayerValuesObservation, IPlayerValuesObservation>({
       query: observe => ({

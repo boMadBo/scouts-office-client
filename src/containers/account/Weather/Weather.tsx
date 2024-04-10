@@ -1,9 +1,8 @@
-import { useGetWeather } from '@/hooks/useGetWeather';
+import { weatherAPI } from '@/store/services/WeatherService';
 import { motion } from 'framer-motion';
 import React, { useMemo } from 'react';
-import styles from './weather.module.scss';
 import { RAIN, SNOW, SUN } from './helpers';
-
+import styles from './weather.module.scss';
 
 const listVarian = {
   visible: () => ({
@@ -19,7 +18,7 @@ const listVarian = {
 };
 
 const Weather = () => {
-  const weather = useGetWeather();
+  const { data: weather } = weatherAPI.useGetWeatherQuery();
 
   const photo = useMemo(() => {
     const isSunny = !(weather?.rain || weather?.snowfall);

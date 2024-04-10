@@ -1,12 +1,12 @@
 import { IColumn } from '@/common/types';
+import { ITeam } from '@/containers/leagues/types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styles from './leagueTable.module.scss';
-import { ITeam } from '@/types/leagues';
 
 interface Props {
-  data: ITeam[];
+  data: ITeam[] | undefined;
   columns: IColumn[];
 }
 

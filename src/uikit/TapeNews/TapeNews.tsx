@@ -1,10 +1,10 @@
-import { IFinallyNews } from '@/types/news';
+import { INews } from '@/containers/news/types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './tapeNews.module.scss';
 
 interface Props {
-  item: IFinallyNews;
+  item: INews;
 }
 
 const TapeNews = ({ item }: Props) => {

@@ -1,3 +1,4 @@
+import { mockHeadNews, mockTapeNews } from '@/containers/news/mock';
 import Carousel from '@/uikit/Carousel';
 import HeadNews from '@/uikit/HeadNews';
 import Loading from '@/uikit/Loading';
@@ -5,13 +6,12 @@ import TapeNews from '@/uikit/TapeNews';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './news.module.scss';
-import { mockHeadNews, mockTapeNews } from '@/containers/news/mock';
 
-
-const pages = [1,2,3];
+const pages = [1, 2, 3];
 
 const News = () => {
-  // const { headNews, tapeNews } = useGetNews();
+  // const { data: news } = transfermarktAPI.useGetNewsQuery();
+
   const { t } = useTranslation();
 
   if (mockHeadNews.length < 1 || mockTapeNews.length < 1) {

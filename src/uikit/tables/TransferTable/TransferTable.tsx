@@ -1,12 +1,12 @@
 import { IColumn } from '@/common/types';
-import { FinTransfers } from '@/types/player';
+import { ITransfer } from '@/containers/player/types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './transferTable.module.scss';
 
 interface Props {
   columns: IColumn[];
-  data: FinTransfers[];
+  data: ITransfer[];
 }
 
 const TransferTable = ({ data, columns }: Props) => {

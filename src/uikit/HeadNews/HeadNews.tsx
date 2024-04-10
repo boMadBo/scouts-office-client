@@ -1,16 +1,14 @@
-import { IFinallyNews } from '@/types/news';
+import { INews } from '@/containers/news/types';
 import cn from 'classnames';
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './headNews.module.scss';
 
 interface Props {
-  data: IFinallyNews;
+  data: INews;
   dataIndex: number;
   pages: number[];
 }
-
-
 
 const HeadNews = ({ data, dataIndex, pages }: Props) => {
   const pageClassName = useCallback((indexNews: number, indexPage: number) => {

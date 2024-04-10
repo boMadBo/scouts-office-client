@@ -1,27 +1,4 @@
-export interface IStartNews {
-  id: string | undefined;
-  newsHeadline: string | undefined;
-  timestamp: number | undefined;
-  newsSecondImage: string | undefined;
-  newsDate: string | undefined;
-  fullNewsDate: string | undefined;
-  newsTime: string | undefined;
-  newsSource: string | undefined;
-  newsStartPageFlag: string | null;
-  newsShortMessageFlag: string | null;
-  newsTeaser: string | undefined;
-  newsFirstImage: string | undefined;
-  newsSpotlightFirstImage: string | undefined;
-  newsSpotlightSecondImage: string | undefined;
-  newsCategoryID: string | undefined;
-  newsCategoryTag: string | undefined;
-  newsTickerFlag: string | undefined;
-  newsUpdateFlag: string | undefined;
-  newsAdFlag: string | undefined;
-  spotlightPriority: string | undefined;
-}
-
-export interface IFinallyNews {
+export interface INews {
   id: string | undefined;
   newsHead: string | undefined;
   newsHeadline: string | undefined;
@@ -35,70 +12,12 @@ export interface IFinallyNews {
   newsTeaser: string | undefined;
 }
 
-interface IText {
-  [key: string]: string;
+export interface INewsResult {
+  headNews: INews[];
+  tapeNews: INews[];
 }
 
-interface IWidgetData {
-  playerMarketValueBox_1187716773: {
-    player: {
-      id: string | undefined;
-      name: string | undefined;
-      image: string | undefined;
-      position: string | undefined;
-      age: null | string;
-      contractUntil: null | string;
-      isGoalkeeper: boolean;
-      slug: string | undefined;
-      marketValue: {
-        progression: number | undefined;
-        unformatted: number | undefined;
-        value: string | undefined;
-        currency: string | undefined;
-        numeral: string | undefined;
-      };
-    };
-    displayChart: boolean;
-  };
-  socialBox_713798386: {
-    embeddedCode: string | undefined;
-  };
-  gallery_86932159: {
-    id: string | undefined;
-    url: string | undefined;
-    title: string | undefined;
-  };
-  images: {
-    id: string | undefined;
-    title: string | undefined;
-    description: string | undefined;
-    url: string | undefined;
-  }[];
-}
-
-export interface IStartCurrentNews {
-  id: string | undefined;
-  headline: string | undefined;
-  source: string | undefined;
-  timestamp: number | undefined;
-  timestamp_updated: number | undefined;
-  firstImage: string | undefined;
-  secondImage: string | undefined;
-  heroImage: string | undefined;
-  heroImageSource: string | undefined;
-  categoryID: string | undefined;
-  categoryTag: string | undefined;
-  threadUrl: string | undefined;
-  countReplies: string | undefined;
-  updateFlag: string | undefined;
-  adFlag: string | undefined;
-  transferFlag: string | undefined;
-  author: string | undefined;
-  text: IText;
-  widgetData: IWidgetData;
-}
-
-export interface IFinallyCurrentNews {
+export interface ICurrentNews {
   id: string | undefined;
   headline: string | undefined;
   timestamp: number | undefined;

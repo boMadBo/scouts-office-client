@@ -1,6 +1,6 @@
 import { test, testStats, trhist, valueM } from '@/containers/player/mock';
-import { useGetUsdBtc } from '@/hooks/useGetUsdBtc';
 import { useTogglePlayerObservation } from '@/hooks/useTogglePlayerObservation';
+import { currencyAPI } from '@/store/services/CurrencyService';
 import Loading from '@/uikit/Loading';
 import ValueChart from '@/uikit/charts/ValueChart';
 import TransferTable from '@/uikit/tables/TransferTable';
@@ -13,7 +13,6 @@ import styles from './player.module.scss';
 interface Props {
   id: string | undefined;
 }
-
 
 const columnsPL = [
   { title: 'Competitions' },
@@ -42,33 +41,43 @@ const seasonsM = [
   { key: '2021', title: '21/22' },
 ];
 
-
-
 const transfColumns = [{ title: 'Season' }, { title: 'From' }, { title: 'To' }, { title: 'Cost' }];
 
 const Player = ({ id }: Props) => {
   const [selectedSeason, setSelectedSeason] = useState<string>('');
-
-  // const player = useGetPlayer(id);
-  // const { result: stats, isGK } = useGetStats(id, selectedSeason);
-  const isGK = testStats[0].isGoalkeeper;
-  // const seasons = useGetSeasons(id);
-  // const value = useGetValue(id);
-  // const transfers = useGetTransfers(id);
-  const rates = useGetUsdBtc();
   const { toggleObserve, idObserve } = useTogglePlayerObservation(id);
+  const { data: rates } = currencyAPI.useGetBtcAndUsdQuery('');
+
+  // const { data: player } = transfermarktAPI.useGetPlayerQuery(id || '');
+  // const { data: valueHistory } = transfermarktAPI.useGetValueHistoryQuery(id || '');
+  // const { data: seasons } = transfermarktAPI.useGetSeasonsQuery(id || '');
+  // const { data: stats } = transfermarktAPI.useGetStatsQuery({ id: id || '', seasonId: selectedSeason });
+  // const { data: transfers } = transfermarktAPI.useGetTransfersQuery(id || '');
+
+  // const transfers = useGetTransfers(id);
+
+  const player = test;
+  const valueHistory = valueM;
+  const seasons = seasonsM;
+  const stats = testStats;
+  const isGK = testStats[0].isGoalkeeper;
+  const transfers = trhist;
 
   const usd = useMemo(() => {
-    return test.marketValueNumeral === 'm'
-      ? ((Number(test.marketValue.replace(/,/, '')) * Number(rates.USD)) / 100).toFixed(2) + ' ' + 'm'
-      : ((Number(test.marketValue.replace(/,/, '')) * Number(rates.USD)) / 100).toFixed(2) + ' ' + 'k';
-  }, [rates]);
+    if (player && player.marketValue) {
+      return player.marketValueNumeral === 'mil.'
+        ? ((Number(player?.marketValue.replace(/,/, '')) * Number(rates?.USD)) / 100).toFixed(2) + ' ' + 'm'
+        : ((Number(player?.marketValue.replace(/,/, '')) * Number(rates?.USD)) / 100).toFixed(2) + ' ' + 'k';
+    }
+  }, [rates, player]);
 
   const btc = useMemo(() => {
-    return test.marketValueNumeral === 'm'
-      ? (Number(test.marketValue.replace(/,/, '')) * Number(rates.BTC) * 10000).toFixed(1)
-      : (Number(test.marketValue.replace(/,/, '')) * Number(rates.BTC) * 10).toFixed(1);
-  }, [rates]);
+    if (player && player.marketValue) {
+      return player.marketValueNumeral === 'mil.'
+        ? (Number(player.marketValue.replace(/,/, '')) * Number(rates?.BTC) * 10000).toFixed(1)
+        : (Number(player.marketValue.replace(/,/, '')) * Number(rates?.BTC) * 10).toFixed(1);
+    }
+  }, [rates, player]);
 
   const currRates = [
     { title: 'Value in USD:', value: usd },
@@ -82,32 +91,32 @@ const Player = ({ id }: Props) => {
     [setSelectedSeason]
   );
 
-  if (testStats.length < 1 || !test || seasonsM.length < 1 || valueM.length < 1 || trhist.length < 1 || !rates) {
+  if (!stats || !player || !seasons || !valueHistory || !transfers || !rates) {
     return <Loading />;
   }
 
   return (
     <section className={styles.player}>
       <div className={styles.containerLeft}>
-        <PlayerProfile data={test} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
+        <PlayerProfile data={player} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
           <Stats
             isGK={isGK}
             selectedSeason={selectedSeason}
             columnsPL={columnsPL}
             columnsGK={columnsGK}
-            season={seasonsM}
-            stats={testStats}
+            season={seasons}
+            stats={stats}
             handleSelectedChange={handleSelectedChange}
           />
         </Wrap>
       </div>
       <div className={styles.containerRight}>
         <Wrap>
-          <ValueChart chartData={valueM} />
+          <ValueChart chartData={valueHistory} />
         </Wrap>
         <Wrap>
-          <TransferTable data={trhist} columns={transfColumns} />
+          <TransferTable data={transfers} columns={transfColumns} />
         </Wrap>
       </div>
     </section>

@@ -1,13 +1,11 @@
 import { mockSearch } from '@/containers/search/mock';
+import { useAppSelector } from '@/hooks';
 import Loading from '@/uikit/Loading/Loading';
 import ClubsTable from '@/uikit/tables/ClubsTable';
 import PlayersTable from '@/uikit/tables/PlayersTable';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './search.module.scss';
-
-
-
 
 const emptyMocks = {
   players: [],
@@ -16,16 +14,15 @@ const emptyMocks = {
 
 const Search = () => {
   const { t } = useTranslation();
-  // const search = useGetSearch();
-  const [isLoading, setIsLoading] = useState(true);
+  const query = useAppSelector(state => state.search.query);
+  // const { data: search } = transfermarktAPI.useSearchQuery(query);
+
+  const [isLoading, setIsLoading] = useState(true); // ????
   const [hasData, setHasData] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setHasData(Boolean(emptyMocks?.players?.length || emptyMocks?.clubs?.length));
-    }, 5000);
-    return () => clearTimeout(timer);
+    setIsLoading(false);
+    setHasData(Boolean(emptyMocks?.players?.length || emptyMocks?.clubs?.length));
   }, [emptyMocks]);
 
   return (

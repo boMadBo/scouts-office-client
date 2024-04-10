@@ -1,16 +1,14 @@
+import { mockNews } from '@/containers/news/mock';
 import Loading from '@/uikit/Loading';
 import React from 'react';
 import styles from './currentNews.module.scss';
-import { mockNews } from '@/containers/news/mock';
 
 interface Props {
   id: string | undefined;
 }
 
-
-
 const CurrentNews = ({ id }: Props) => {
-  // const data = useGetCurrentNews(id);
+  // const { data: news } = transfermarktAPI.useGetNewsByIdQuery(id || '');
 
   if (!mockNews.firstImage) {
     return <Loading />;

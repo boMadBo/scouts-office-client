@@ -1,5 +1,5 @@
 import { useSessionData } from '@/context/sessionDataStorage';
-import { useCountryFlagUrl } from '@/hooks/useCountryFlag';
+import { countryAPI } from '@/store/services/CountryService';
 import EditButton from '@/uikit/buttons/EditButton';
 import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
@@ -11,10 +11,10 @@ const headLink = '/account';
 
 const Profile = () => {
   const { userData: profile } = useSessionData();
+  const { data: flagUrl } = countryAPI.useGetFlagQuery({ country: profile.country });
 
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const flagUrl = useCountryFlagUrl(profile?.country);
 
   const calculateAge = useCallback((birthDate: string | undefined) => {
     const currentDate = dayjs();
@@ -42,7 +42,7 @@ const Profile = () => {
           <span className={styles.text}>{profile?.name}</span>
           <div className={styles.age}>
             <span className={styles.text}>{age} years</span>
-            {flagUrl && <img src={flagUrl} alt="Flag" className={styles.flag} />}
+            {flagUrl && <img src={flagUrl.flag} alt="Flag" className={styles.flag} />}
           </div>
           <div className={styles.editingWrap}>
             <EditButton onClick={() => navigate(`${headLink}/edit`)} text={t('edit profile')} />

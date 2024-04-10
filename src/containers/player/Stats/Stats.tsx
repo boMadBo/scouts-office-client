@@ -1,5 +1,5 @@
 import { IColumn } from '@/common/types';
-import { FinStats, Seasons } from '@/types/player';
+import { ISeason, IStats } from '@/containers/player/types';
 import StatsTableGK from '@/uikit/tables/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/tables/StatsTable/StatsTablePL';
 import React from 'react';
@@ -10,8 +10,8 @@ interface Props {
   selectedSeason: string;
   columnsPL: IColumn[];
   columnsGK: IColumn[];
-  season: Seasons[];
-  stats: FinStats[];
+  season: ISeason[];
+  stats: IStats[];
   handleSelectedChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 

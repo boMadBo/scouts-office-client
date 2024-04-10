@@ -1,4 +1,8 @@
 import themeSlice from '@/store/reducers/ThemeSlice';
+import { countryAPI } from '@/store/services/CountryService';
+import { currencyAPI } from '@/store/services/CurrencyService';
+import { transfermarktAPI } from '@/store/services/TransfermarktService';
+import { weatherAPI } from '@/store/services/WeatherService';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import rememberMeSlice from './reducers/RememberMeSlice';
 import searchSlice from './reducers/SearchSlice';
@@ -15,6 +19,10 @@ const rootReducer = combineReducers({
   [profileAPI.reducerPath]: profileAPI.reducer,
   [taskAPI.reducerPath]: taskAPI.reducer,
   [conversationsAPI.reducerPath]: conversationsAPI.reducer,
+  [countryAPI.reducerPath]: countryAPI.reducer,
+  [weatherAPI.reducerPath]: weatherAPI.reducer,
+  [currencyAPI.reducerPath]: currencyAPI.reducer,
+  [transfermarktAPI.reducerPath]: transfermarktAPI.reducer,
 });
 
 export const setupStore = () => {
@@ -25,7 +33,11 @@ export const setupStore = () => {
         registrationAPI.middleware,
         profileAPI.middleware,
         taskAPI.middleware,
-        conversationsAPI.middleware
+        conversationsAPI.middleware,
+        countryAPI.middleware,
+        weatherAPI.middleware,
+        currencyAPI.middleware,
+        transfermarktAPI.middleware
       ),
   });
 };

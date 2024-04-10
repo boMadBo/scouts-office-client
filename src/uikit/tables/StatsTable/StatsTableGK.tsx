@@ -1,12 +1,12 @@
 import { IColumn } from '@/common/types';
-import { FinStats } from '@/types/player';
+import { IStats } from '@/containers/player/types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './statsTable.module.scss';
 
 interface Props {
   columns: IColumn[];
-  data: FinStats[];
+  data: IStats[];
 }
 
 const StatsTableGK = ({ data, columns }: Props) => {

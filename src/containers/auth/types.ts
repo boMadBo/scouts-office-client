@@ -22,3 +22,7 @@ export interface ISignInResponseValues {
   refreshToken?: string;
   expiresIn?: string;
 }
+
+export interface IUpdateToken {
+  refreshToken: string;
+}

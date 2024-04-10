@@ -1,5 +1,6 @@
 import { IColumn } from '@/common/types';
-import { IFinSquad } from '@/types/leagues';
+
+import { ISquad } from '@/containers/leagues/types';
 import cn from 'classnames';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -10,7 +11,7 @@ import { Link } from 'react-router-dom';
 import styles from './squadTable.module.scss';
 dayjs.extend(customParseFormat);
 interface Props {
-  data: IFinSquad[];
+  data: ISquad[];
   columns: IColumn[];
   handleSort: (key: string) => void;
 }

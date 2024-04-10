@@ -17,6 +17,7 @@ const initialUserData: IProfileValues = {
   observations: [],
   token: '',
   refreshToken: '',
+  utcZones: [],
 };
 
 export const SessionContext = createContext<ISessionContext>({

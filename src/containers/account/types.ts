@@ -46,28 +46,17 @@ export interface ICreateTask {
   completed: boolean;
 }
 
-interface IHour {
-  temperature_2m: number[];
-  time: string[];
-  rain: number[];
-  snowfall: number[];
+export interface ICountryFlag {
+  flag: string;
 }
 
-interface IHourUnit {
-  temperature_2m: string;
-  time: string;
-  rain: string;
-  snowfall: string;
+export interface IWeatherResult {
+  temperature: number;
+  rain: number;
+  snowfall: number;
 }
 
-export interface IWeather {
-  latitude: number;
-  longitude: number;
-  generationtime_ms: number;
-  utc_offset_seconds: number;
-  timezone: string;
-  timezone_abbreviation: string;
-  elevation: number;
-  hourly_units: IHourUnit;
-  hourly: IHour;
+export interface IBtcAndUsdCurrency {
+  BTC: string;
+  USD: string;
 }

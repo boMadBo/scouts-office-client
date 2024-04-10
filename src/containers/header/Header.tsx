@@ -66,6 +66,7 @@ const Header = () => {
       observations: [],
       token: '',
       refreshToken: '',
+      utcZones: [],
     });
   }, [dispatch]);
 
