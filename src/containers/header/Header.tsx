@@ -1,5 +1,5 @@
 import { useSessionData } from '@/context/sessionDataStorage';
-import { useWebsocketData } from '@/context/websocketDataStorage';
+import { useWebsocketMessagesData } from '@/context/wsMessagesDataStorage';
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
 import { searchFetching } from '@/store/reducers/SearchSlice';
@@ -40,7 +40,7 @@ const Header = () => {
   const isRememberMe = useAppSelector(state => state.rememberMe.isRememberMe);
   const dispatch = useAppDispatch();
   const { setUserData } = useSessionData();
-  const { unreadMessages, notification } = useWebsocketData();
+  const { unreadMessages, notification } = useWebsocketMessagesData();
   const [signOut] = profileAPI.useSignOutMutation();
 
   const [isHovered, setIsHovered] = useState<string | null>(null);

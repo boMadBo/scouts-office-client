@@ -1,6 +1,6 @@
 import SessionDataStorage from '@/context/sessionDataStorage';
 import { WebsocketProvider, socket } from '@/context/websocket';
-import WebsocketDataStorage from '@/context/websocketDataStorage';
+import WsMessagesDataStorage from '@/context/wsMessagesDataStorage';
 import { setupStore } from '@/store/store';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -17,13 +17,13 @@ root.render(
   <Provider store={store}>
     <SessionDataStorage>
       <WebsocketProvider value={socket}>
-        <WebsocketDataStorage>
+        <WsMessagesDataStorage>
           <BrowserRouter>
             <React.StrictMode>
               <App />
             </React.StrictMode>
           </BrowserRouter>
-        </WebsocketDataStorage>
+        </WsMessagesDataStorage>
       </WebsocketProvider>
     </SessionDataStorage>
   </Provider>

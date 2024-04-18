@@ -16,7 +16,7 @@ interface Props {
   currentChat: IConversation | null;
   messages: IMessage[];
   handleFirstClick: () => void;
-  // incCount: () => void;
+  incrementCount: () => void;
   goBack: () => void;
 }
 
@@ -26,7 +26,8 @@ const ActiveConversation = ({
   currentChat,
   messages,
   handleFirstClick,
-  goBack, // incCount,
+  goBack,
+  incrementCount,
 }: Props) => {
   const { userData } = useSessionData();
   const socket = useContext(WebsocketContext);
@@ -76,7 +77,7 @@ const ActiveConversation = ({
             });
           }
           if (entry.target.id === `message-${messages[messages.length - 1].id}`) {
-            // incCount();
+            incrementCount();
           }
         }
       }

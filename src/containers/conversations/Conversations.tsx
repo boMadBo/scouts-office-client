@@ -2,7 +2,7 @@ import ActiveConversation from '@/containers/conversations/ActiveConversation';
 import ConversationsList from '@/containers/conversations/ConversationsList';
 import { IConversation, IMessage } from '@/containers/conversations/types';
 import { WebsocketContext } from '@/context/websocket';
-import { useWebsocketData } from '@/context/websocketDataStorage';
+import { useWebsocketMessagesData } from '@/context/wsMessagesDataStorage';
 import { conversationsAPI } from '@/store/services/ConversationsService';
 import FormWithIcon from '@/uikit/forms/FormWithIcon';
 import cn from 'classnames';
@@ -43,27 +43,9 @@ const Conversations = () => {
   // messages //
 
   const socket = useContext(WebsocketContext);
-  const { messages, unreadMessages } = useWebsocketData();
-  // const [limit, setLimit] = useState(20);
+  const { unreadMessages, notification, lastMessage } = useWebsocketMessagesData();
+  const [limit, setLimit] = useState(20);
   const [chatMessages, setChatMessages] = useState<IMessage[]>([]);
-
-  useEffect(() => {
-    const currentMessages = messages.filter(item => item.conversationId === currentChat?.id);
-    setChatMessages(currentMessages);
-  }, [messages, currentChat]);
-
-  useEffect(() => {
-    if (currentChat && messages) {
-      updateConversation({ id: messages[0].conversationId });
-    }
-  }, [messages]);
-
-  const getUnreadCount = useCallback(
-    (id: number) => {
-      return unreadMessages.filter(item => item.conversationId === id).length;
-    },
-    [unreadMessages, currentChat?.id]
-  );
 
   useEffect(() => {
     socket.on('readMessage', () => {});
@@ -72,9 +54,38 @@ const Conversations = () => {
     };
   }, []);
 
-  // const incCount = useCallback(() => {
-  //   setLimit(prev => prev + 20);
-  // }, [limit]);
+  useEffect(() => {
+    socket.on('conversationMessages', (messages: IMessage[]) => {
+      setChatMessages(messages);
+    });
+    socket.emit('findConversationMessages', { conversationId: currentChat?.id, limit });
+    return () => {
+      socket.off('conversationMessages');
+    };
+  }, [currentChat, limit]);
+
+  useEffect(() => {
+    if (notification && notification?.conversationId === currentChat?.id) {
+      setChatMessages(prev => [notification, ...prev]);
+    }
+  }, [notification]);
+
+  const getUnreadCount = useCallback(
+    (id: number) => {
+      return unreadMessages.filter(item => item.conversationId === id).length;
+    },
+    [unreadMessages, currentChat?.id]
+  );
+
+  const incrementCount = useCallback(() => {
+    setLimit(prev => prev + 20);
+  }, [limit]);
+
+  useEffect(() => {
+    if (lastMessage) {
+      updateConversation({ id: lastMessage.conversationId });
+    }
+  }, [lastMessage]);
 
   // search //
 
@@ -125,7 +136,7 @@ const Conversations = () => {
         currentChat={currentChat}
         messages={chatMessages}
         handleFirstClick={handleFirstClick}
-        // incCount={incCount}
+        incrementCount={incrementCount}
         goBack={() => setFirstChatClick(false)}
       />
     </div>
