@@ -1,3 +1,4 @@
+import { IProfileValues } from '@/containers/account/types';
 import { IMessage } from '@/containers/conversations/types';
 import { useSessionData } from '@/context/sessionDataStorage';
 import { WebsocketContext } from '@/context/websocket';
@@ -11,14 +12,21 @@ export const SocketDataContext = createContext<{
 
 const WsMessagesDataStorage = ({ children }: any) => {
   const socket = useContext(WebsocketContext);
-  const { userData } = useSessionData();
-  const { id, token } = userData;
   const [unreadMessages, setUnreadMessages] = useState<IMessage[]>([]);
   const [notification, setNotification] = useState<IMessage | undefined>(undefined);
   const [lastMessage, setLastMessage] = useState<IMessage | undefined>(undefined);
+  const [user, setUser] = useState<IProfileValues | undefined>(undefined);
+  const { userData } = useSessionData();
 
   useEffect(() => {
-    if (token) {
+    if (userData?.token) {
+      setUser(userData);
+    }
+  }, [userData]);
+
+  useEffect(() => {
+    if (user) {
+      const { id } = user;
       socket.on('connection', () => {});
 
       socket.on('subscribtions', () => {});
@@ -32,7 +40,7 @@ const WsMessagesDataStorage = ({ children }: any) => {
       socket.on('lastMessage', (message: IMessage) => {
         setLastMessage(message);
       });
-      socket.emit('findLastMessage', { userId: userData.id });
+      socket.emit('findLastMessage', { userId: userData?.id });
 
       socket.on('onMessage', (newMessage: IMessage) => {
         if (newMessage.senderId !== Number(id)) {
@@ -49,11 +57,11 @@ const WsMessagesDataStorage = ({ children }: any) => {
       socket.off('lastMessage');
       socket.off('onMessage');
     };
-  }, [token]);
+  }, [user?.token]);
 
   const socketContextValue = useMemo(
     () => ({ unreadMessages, notification, lastMessage }),
-    [unreadMessages, notification]
+    [unreadMessages, notification, lastMessage]
   );
 
   return <SocketDataContext.Provider value={socketContextValue}>{children}</SocketDataContext.Provider>;

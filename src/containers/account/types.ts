@@ -26,11 +26,9 @@ export interface IProfileValues {
 }
 
 export interface IProfileUpdateValues {
-  id: string;
   password: string;
   name: string;
   email: string;
-  // avatar: string;
 }
 
 export interface ITask {

@@ -1,4 +1,5 @@
 import { IProfileValues, IUpdateUtcZone, IUtcZone } from '@/containers/account/types';
+import { getCityName, getCityTime } from '@/containers/account/utils';
 import useDragDropTimezones from '@/hooks/useDragDropTimezones';
 import { profileAPI } from '@/store/services/ProfileService';
 import Timezone from '@/uikit/Timezone';
@@ -15,7 +16,7 @@ dayjs.extend(utcPlugin);
 dayjs.extend(timezonePlugin);
 
 interface Props {
-  profile: IProfileValues | undefined;
+  profile: IProfileValues;
 }
 
 const Timezones = ({ profile }: Props) => {
@@ -66,14 +67,6 @@ const Timezones = ({ profile }: Props) => {
     const needlessCities = updatedCities.filter(item => !item.isActive);
     setNeedfulCities(needfulCities);
     setNeedlessCities(needlessCities);
-  };
-
-  const getCityName = (value: string) => {
-    return value.substring(value.indexOf('/') + 1).replace(/_/gi, ' ');
-  };
-
-  const getCityTime = (value: string) => {
-    return value === 'My location' ? dayjs().format('HH:mm') : dayjs().tz(value).format('HH:mm');
   };
 
   // setting, fetch //

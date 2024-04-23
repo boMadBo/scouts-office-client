@@ -55,10 +55,13 @@ const Conversations = () => {
   }, []);
 
   useEffect(() => {
-    socket.on('conversationMessages', (messages: IMessage[]) => {
-      setChatMessages(messages);
-    });
-    socket.emit('findConversationMessages', { conversationId: currentChat?.id, limit });
+    if (currentChat) {
+      socket.on('conversationMessages', (messages: IMessage[]) => {
+        setChatMessages(messages);
+      });
+      socket.emit('findConversationMessages', { conversationId: currentChat.id, limit });
+    }
+
     return () => {
       socket.off('conversationMessages');
     };

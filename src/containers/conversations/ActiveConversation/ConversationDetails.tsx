@@ -9,7 +9,7 @@ dayjs.extend(relativeTime);
 
 interface Props {
   data: IMessage;
-  id: number;
+  id: number | undefined;
 }
 
 const ConversationDetails = ({ data, id }: Props) => {

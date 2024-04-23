@@ -7,12 +7,12 @@ import { useTranslation } from 'react-i18next';
 import styles from './mainInfo.module.scss';
 
 interface Props {
-  profile: IProfileValues | undefined;
+  profile: IProfileValues;
   onClick: () => void;
 }
 
 const MainInfo = ({ profile, onClick }: Props) => {
-  const { data: flagUrl } = countryAPI.useGetFlagQuery({ country: profile?.country || '' });
+  const { data: flagUrl } = countryAPI.useGetFlagQuery({ country: profile.country });
   const { t } = useTranslation();
 
   const calculateAge = useCallback((birthDate: string | undefined) => {

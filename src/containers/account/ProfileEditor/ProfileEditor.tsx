@@ -27,14 +27,18 @@ const ProfileEditor = ({ toggleEditting }: Props) => {
 
   const handleChange = async (values: IProfileUpdateValues) => {
     const formData = new FormData();
-    formData.append('password', values.password);
-    formData.append('name', values.name);
-    formData.append('email', values.email);
+    if (values.password) {
+      formData.append('password', values.password);
+    }
+    if (values.name) {
+      formData.append('name', values.name);
+    }
+    if (values.email) {
+      formData.append('email', values.email);
+    }
     if (selectedFile) {
       formData.append('file', selectedFile, selectedFile.name);
-    } else {
-      formData.append('file', '');
-    }
+    } 
     try {
       await updateProfile({ formData });
       toggleEditting();

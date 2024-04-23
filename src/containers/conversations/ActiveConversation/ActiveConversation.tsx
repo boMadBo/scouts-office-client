@@ -5,6 +5,7 @@ import { WebsocketContext } from '@/context/websocket';
 import BackButton from '@/uikit/buttons/BackButton';
 import EditButton from '@/uikit/buttons/EditButton';
 import cn from 'classnames';
+import debounce from 'lodash/debounce';
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsPaperclip } from 'react-icons/bs';
@@ -31,15 +32,20 @@ const ActiveConversation = ({
 }: Props) => {
   const { userData } = useSessionData();
   const socket = useContext(WebsocketContext);
-  const { t } = useTranslation();
   const viewedMessagesRef = useRef(new Set());
   const [newMessage, setNewMessage] = useState<string>('');
-  const { id } = userData;
+  const [lastMessageId, setLastMessageId] = useState(0);
+  const [userId, setUserId] = useState<number | undefined>(undefined);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    setUserId(userData?.id);
+  }, [userData]);
 
   const addMessage = () => {
     setNewMessage('');
     socket.emit('newMessage', {
-      senderId: id,
+      senderId: userId,
       text: newMessage,
       conversationId: currentChat?.id,
       recieverId: currentChat?.interlocutor.id,
@@ -73,16 +79,28 @@ const ActiveConversation = ({
               id: item.id,
               conversationId: item.conversationId,
               senderId: item.senderId,
-              userId: id,
+              userId,
             });
           }
-          if (entry.target.id === `message-${messages[messages.length - 1].id}`) {
-            incrementCount();
-          }
+          const messageId = Number(entry.target.id.split('-')[1]);
+          debounceIncrementCount(messageId);
         }
       }
     });
   };
+
+  const debounceIncrementCount = debounce((messageId: number) => {
+    if (messageId > lastMessageId) {
+      incrementCount();
+      setLastMessageId(messageId);
+    }
+  }, 1000);
+
+  useEffect(() => {
+    return () => {
+      debounceIncrementCount.cancel();
+    };
+  }, []);
 
   useEffect(() => {
     messages?.forEach(item => {
@@ -110,10 +128,10 @@ const ActiveConversation = ({
         {messages?.map(item => (
           <div
             key={item.id}
-            className={cn(styles.messagesWrap, { [styles.messagesWrapOwn]: item.senderId === Number(id) })}
+            className={cn(styles.messagesWrap, { [styles.messagesWrapOwn]: item.senderId === userId })}
             id={`message-${item.id}`}
           >
-            <ConversationDetails id={id} data={item} />
+            <ConversationDetails id={userId} data={item} />
           </div>
         ))}
       </div>

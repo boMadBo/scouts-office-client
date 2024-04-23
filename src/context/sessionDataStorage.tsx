@@ -5,28 +5,15 @@ import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface ISessionContext {
-  userData: IProfileValues;
+  userData: IProfileValues | undefined;
 }
 
-const initialUserData: IProfileValues = {
-  id: -Infinity,
-  email: '',
-  name: '',
-  avatar: '',
-  birthDate: '',
-  country: '',
-  observations: [],
-  token: '',
-  refreshToken: '',
-  utcZones: [],
-};
-
 export const SessionContext = createContext<ISessionContext>({
-  userData: initialUserData,
+  userData: undefined,
 });
 
 const SessionDataStorage = ({ children }: any) => {
-  const [userData, setUserData] = useState<IProfileValues>(initialUserData);
+  const [userData, setUserData] = useState<IProfileValues | undefined>(undefined);
   const [currentToken, setCurrentToken] = useState('');
   const lsToken = localStorage.getItem('token');
   const dispatch = useAppDispatch();

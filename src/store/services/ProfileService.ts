@@ -1,5 +1,5 @@
 import { baseQuery } from '@/api/baseUrl';
-import { IProfileUpdateValues, IProfileValues, IUpdateUtcZone } from '@/containers/account/types';
+import { IProfileValues, IUpdateUtcZone } from '@/containers/account/types';
 import { ISignInResponseValues, ISignInValues } from '@/containers/auth/types';
 import { IPlayer, IPlayerValuesObservation } from '@/containers/player/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
@@ -29,7 +29,7 @@ export const profileAPI = createApi({
       }),
       providesTags: (result, error) => [{ type: 'Profile', result, error }],
     }),
-    updateProfile: build.mutation<IProfileUpdateValues, { formData: FormData }>({
+    updateProfile: build.mutation<IProfileValues, { formData: FormData }>({
       query: (arg: { formData: FormData }) => ({
         url: `/user`,
         method: 'PATCH',
