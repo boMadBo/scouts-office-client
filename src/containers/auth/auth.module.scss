@@ -1,3 +1,16 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--main-text);
+  height: 100%;
+  min-height: calc(100vh - 170px);
+  @media (max-height: 790px) {
+    margin-top: -50px;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -16,19 +29,5 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
-}
-
-.auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  color: var(--main-text);
-  min-height: 690px;
-  height: calc(100vh - 125px); // footer //
-  margin-top: -100px;
-  @media (max-height: 790px) {
-    margin-top: -50px;
-  }
 }
 

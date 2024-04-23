@@ -1,4 +1,4 @@
-import { baseQuery } from '@/api/baseUrl';
+import { baseUrl } from '@/api/baseUrl';
 import { ISquad, ITeam } from '@/containers/leagues/types';
 import { INewsResult, IRevealNews } from '@/containers/news/types';
 import {
@@ -14,7 +14,7 @@ import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const transfermarktAPI = createApi({
   reducerPath: 'transfermarktAPI',
-  baseQuery,
+  baseQuery: baseUrl,
   tagTypes: ['Transfermarkt'],
   endpoints: build => ({
     getLeagueTeams: build.query<ITeam[], string>({

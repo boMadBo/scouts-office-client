@@ -1,19 +1,20 @@
 .main {
   height: 100%;
+  min-height: 100vh;
   overflow-y: auto;
   color: var(--main-text);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
-    4px 0 6px rgba(0, 0, 0, 0.2);
-
 }
 
 .layout {
-  margin: 105px 200px 20px;
+  margin: 105px 200px 5px;
   height: 100%;
-  min-height: calc(100vh - 145px);
+  min-height: calc(100vh - 170px); 
   width: calc(100vw - 400px);
   background-color: var(--main);
+  box-shadow:
+    4px 0 6px rgba(0, 0, 0, 0.2),
+    -4px 0 6px rgba(0, 0, 0, 0.2);
+
   @media (max-width: 1540px) {
     margin-inline: 50px;
     width: calc(100vw - 100px);

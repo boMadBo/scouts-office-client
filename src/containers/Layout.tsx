@@ -1,3 +1,4 @@
+import Footer from '@/containers/footer';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './header/Header';
@@ -10,7 +11,7 @@ const Layout = () => {
       <section className={styles.layout}>
         <Outlet />
       </section>
-      <footer style={{ color: 'var(--main-text)', height: '20px' }}>its footer</footer>
+      <Footer />
     </main>
   );
 };

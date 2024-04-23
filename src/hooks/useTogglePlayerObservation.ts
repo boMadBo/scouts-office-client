@@ -1,31 +1,27 @@
-import { useSessionData } from '@/context/sessionDataStorage';
 import { profileAPI } from '@/store/services/ProfileService';
-import { useCallback, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useTogglePlayerObservation = (id: string | undefined) => {
-  const { userData: profile } = useSessionData();
+  const { data: profile } = profileAPI.useGetProfileQuery();
   const [createPlayerObserve] = profileAPI.useCreatePlayerObservationMutation();
   const [deletePlayerObserve] = profileAPI.useDeletePlayerObservationMutation();
+  const [observeId, setObserveId] = useState<string | undefined>(undefined);
 
-  const idObserve = useMemo(() => profile?.observations.find(item => item === id), [profile]);
-
-  const addOrRemoveObserve = async () => {
-    if (!id) return;
-    if (idObserve) {
-      await deletePlayerObserve({ playerId: idObserve });
-    } else {
+  const toggleObserve = async () => {
+    if (observeId) {
+      await deletePlayerObserve({ playerId: observeId });
+    } else if (id) {
       await createPlayerObserve({ playerId: id });
-    }
+    } else return;
   };
 
-  const toggleObserve = useCallback(() => {
-    if (id) {
-      addOrRemoveObserve();
-    }
-  }, [addOrRemoveObserve]);
+  useEffect(() => {
+    const idObserve = profile?.observations.find(item => item === id);
+    setObserveId(idObserve);
+  }, [profile?.observations, toggleObserve]);
 
   return {
     toggleObserve,
-    idObserve,
+    observeId,
   };
 };

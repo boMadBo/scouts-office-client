@@ -45,7 +45,7 @@ const transfColumns = [{ title: 'Season' }, { title: 'From' }, { title: 'To' }, 
 
 const Player = ({ id }: Props) => {
   const [selectedSeason, setSelectedSeason] = useState<string>('');
-  const { toggleObserve, idObserve } = useTogglePlayerObservation(id);
+  const { toggleObserve, observeId } = useTogglePlayerObservation(id);
   const { data: rates } = currencyAPI.useGetBtcAndUsdQuery('');
 
   // const { data: player } = transfermarktAPI.useGetPlayerQuery(id || '');
@@ -98,7 +98,7 @@ const Player = ({ id }: Props) => {
   return (
     <section className={styles.player}>
       <div className={styles.containerLeft}>
-        <MainPlayerInfo data={player} idObserve={idObserve} currRates={currRates} toggleObserve={toggleObserve} />
+        <MainPlayerInfo data={player} idObserve={observeId} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
           <Stats
             isGK={isGK}

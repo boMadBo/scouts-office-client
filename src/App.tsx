@@ -1,3 +1,4 @@
+import AboutPage from '@/pages/AboutPage';
 import ConversationsPage from '@/pages/ConversationsPage';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -53,6 +54,7 @@ const App = () => {
           }
         />
         <Route path="search" element={<SearchPage />} />
+        <Route path="about" element={<AboutPage />} />
       </Route>
     </Routes>
   );

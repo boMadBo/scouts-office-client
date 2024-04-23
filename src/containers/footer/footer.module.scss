@@ -1,0 +1,45 @@
+.footer {
+  width: 100vw;
+  height: 60px;
+  background-color: var(--footer);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+  color: var(--color);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  height: 100%;
+  line-height: 20px;;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.favicon {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(100%);
+}
+
+.link {
+  color: var(--color);
+  line-height: 20px;
+  &:hover {
+    text-decoration-line: none;
+  }
+}
+
+.tg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-decoration-line: underline;
+}

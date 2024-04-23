@@ -29,6 +29,7 @@ html {
   --own-bg: rgb(172, 211, 224);
   --sec-button: #627be2;
   --blackwhite: #fff;
+  --footer: #145886;
 }
 
 html[data-theme='dark'] {
@@ -60,6 +61,7 @@ html[data-theme='dark'] {
   --own-bg: rgb(189, 192, 192);
   --sec-button: rgb(137, 153, 237);
   --blackwhite: #000;
+  --footer: #2c2d2e;
 }
 
 body {

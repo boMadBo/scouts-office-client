@@ -1,7 +1,7 @@
 .messages {
   display: flex;
   width: 100%;
-  height: calc(100vh - 145px); // footer //
+  min-height: calc(100vh - 170px);
   overflow-y: auto;
 }
 
