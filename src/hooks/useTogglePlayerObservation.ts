@@ -1,13 +1,13 @@
+import { useSessionData } from '@/context/sessionDataStorage';
 import { profileAPI } from '@/store/services/ProfileService';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 export const useTogglePlayerObservation = (id: string | undefined) => {
-  const { data: observe } = profileAPI.useGetProfileQuery();
-  // const { userData: profile } = useSessionData();
+  const { userData: profile } = useSessionData();
   const [createPlayerObserve] = profileAPI.useCreatePlayerObservationMutation();
   const [deletePlayerObserve] = profileAPI.useDeletePlayerObservationMutation();
 
-  const idObserve = observe?.observations.find(item => item === id);
+  const idObserve = useMemo(() => profile?.observations.find(item => item === id), [profile]);
 
   const addOrRemoveObserve = async () => {
     if (!id) return;

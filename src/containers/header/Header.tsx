@@ -1,4 +1,3 @@
-import { useSessionData } from '@/context/sessionDataStorage';
 import { useWebsocketMessagesData } from '@/context/wsMessagesDataStorage';
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
@@ -38,10 +37,9 @@ const routes = [
 
 const Header = () => {
   const isRememberMe = useAppSelector(state => state.rememberMe.isRememberMe);
-  const dispatch = useAppDispatch();
-  const { setUserData } = useSessionData();
   const { unreadMessages, notification } = useWebsocketMessagesData();
   const [signOut] = profileAPI.useSignOutMutation();
+  const dispatch = useAppDispatch();
 
   const [isHovered, setIsHovered] = useState<string | null>(null);
   const [query, setQuery] = useState('');
@@ -52,21 +50,11 @@ const Header = () => {
 
   const handleSignOut = useCallback(() => {
     signOut();
+    window.dispatchEvent(new CustomEvent('tokenRefreshed', { detail: '' }));
     localStorage.removeItem('token');
     localStorage.removeItem('rememberMe');
+    localStorage.removeItem('refreshToken');
     dispatch(deleteRememberMe());
-    setUserData({
-      id: -1,
-      email: '',
-      name: '',
-      avatar: '',
-      birthDate: '',
-      country: '',
-      observations: [],
-      token: '',
-      refreshToken: '',
-      utcZones: [],
-    });
   }, [dispatch]);
 
   useEffect(() => {

@@ -1,5 +1,4 @@
-import { IUpdateUtcZone, IUtcZone } from '@/containers/account/types';
-import { useSessionData } from '@/context/sessionDataStorage';
+import { IProfileValues, IUpdateUtcZone, IUtcZone } from '@/containers/account/types';
 import useDragDropTimezones from '@/hooks/useDragDropTimezones';
 import { profileAPI } from '@/store/services/ProfileService';
 import Timezone from '@/uikit/Timezone';
@@ -15,9 +14,12 @@ import styles from './timezones.module.scss';
 dayjs.extend(utcPlugin);
 dayjs.extend(timezonePlugin);
 
-const Timezones = () => {
+interface Props {
+  profile: IProfileValues | undefined;
+}
+
+const Timezones = ({ profile }: Props) => {
   const [updateTimezone] = profileAPI.useUpdateTimezoneMutation();
-  const { userData: profile } = useSessionData();
 
   const [activeSett, setActiveSett] = useState<boolean>(false);
   const [activeAdd, setActiveAdd] = useState<boolean>(false);
@@ -31,23 +33,25 @@ const Timezones = () => {
   // get, sort, update data //
   useEffect(() => {
     const sec = 60 - Number(dayjs().format('ss'));
-    updateCities(profile.utcZones);
+    if (profile) {
+      updateCities(profile.utcZones);
 
-    const interval = setInterval(
-      () => {
-        if (!activeSett) {
-          updateCities(profile.utcZones);
-        }
-        if (isFirstRun) {
-          setIsFirstRun(false);
-        }
-      },
-      isFirstRun ? sec * 1000 : 60000
-    );
+      const interval = setInterval(
+        () => {
+          if (!activeSett) {
+            updateCities(profile.utcZones);
+          }
+          if (isFirstRun) {
+            setIsFirstRun(false);
+          }
+        },
+        isFirstRun ? sec * 1000 : 60000
+      );
 
-    return () => {
-      clearInterval(interval);
-    };
+      return () => {
+        clearInterval(interval);
+      };
+    }
   }, [activeSett, isFirstRun, profile]);
 
   const updateCities = (zones: IUtcZone[]) => {

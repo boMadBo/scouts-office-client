@@ -1,10 +1,10 @@
-import { baseUrl } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseUrl';
 import { IConversation } from '@/containers/conversations/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const conversationsAPI = createApi({
   reducerPath: 'conversationsAPI',
-  baseQuery: baseUrl,
+  baseQuery,
   tagTypes: ['Conversations'],
   endpoints: build => ({
     createConversation: build.mutation<IConversation[], IConversation>({
@@ -21,8 +21,8 @@ export const conversationsAPI = createApi({
       }),
       providesTags: (result, error) => [{ type: 'Conversations', result, error }],
     }),
-    updateConversation: build.mutation<IConversation[],  {id: number}>({
-      query: (args: {id: number}) => ({
+    updateConversation: build.mutation<IConversation[], { id: number }>({
+      query: (args: { id: number }) => ({
         url: `/conversations/${args.id}`,
         method: 'PATCH',
       }),

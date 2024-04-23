@@ -1,10 +1,10 @@
-import { baseUrl } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseUrl';
 import { IRegistrationValues } from '@/containers/auth/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const registrationAPI = createApi({
   reducerPath: 'registrationAPI',
-  baseQuery: baseUrl,
+  baseQuery,
   tagTypes: ['Registration'],
   endpoints: build => ({
     userRegistration: build.mutation<IRegistrationValues, FormData>({

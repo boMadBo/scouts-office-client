@@ -1,13 +1,12 @@
-import { baseUrl } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseUrl';
 import { IProfileUpdateValues, IProfileValues, IUpdateUtcZone } from '@/containers/account/types';
 import { ISignInResponseValues, ISignInValues } from '@/containers/auth/types';
 import { IPlayer, IPlayerValuesObservation } from '@/containers/player/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
-TODO: 'logout';
 export const profileAPI = createApi({
   reducerPath: 'profileAPI',
-  baseQuery: baseUrl,
+  baseQuery,
   tagTypes: ['Profile'],
   endpoints: build => ({
     signIn: build.mutation<ISignInResponseValues, ISignInValues>({

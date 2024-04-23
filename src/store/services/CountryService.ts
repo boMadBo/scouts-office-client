@@ -1,10 +1,10 @@
-import { baseUrl } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseUrl';
 import { ICountryFlag } from '@/containers/account/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const countryAPI = createApi({
   reducerPath: 'countryAPI',
-  baseQuery: baseUrl,
+  baseQuery,
   tagTypes: ['Country'],
   endpoints: build => ({
     getFlag: build.query<ICountryFlag, { country: string }>({

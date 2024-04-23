@@ -1,10 +1,10 @@
-import { baseUrl } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseUrl';
 import { ICreateTask, ITask } from '@/containers/account/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const taskAPI = createApi({
   reducerPath: 'taskAPI',
-  baseQuery: baseUrl,
+  baseQuery,
   tagTypes: ['Tasks'],
   endpoints: build => ({
     createTask: build.mutation<ITask[], ICreateTask>({

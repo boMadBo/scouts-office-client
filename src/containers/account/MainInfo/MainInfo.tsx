@@ -1,4 +1,4 @@
-import { useSessionData } from '@/context/sessionDataStorage';
+import { IProfileValues } from '@/containers/account/types';
 import { countryAPI } from '@/store/services/CountryService';
 import EditButton from '@/uikit/buttons/EditButton';
 import dayjs from 'dayjs';
@@ -7,12 +7,12 @@ import { useTranslation } from 'react-i18next';
 import styles from './mainInfo.module.scss';
 
 interface Props {
+  profile: IProfileValues | undefined;
   onClick: () => void;
 }
 
-const MainInfo = ({ onClick }: Props) => {
-  const { userData: profile } = useSessionData();
-  const { data: flagUrl } = countryAPI.useGetFlagQuery({ country: profile.country });
+const MainInfo = ({ profile, onClick }: Props) => {
+  const { data: flagUrl } = countryAPI.useGetFlagQuery({ country: profile?.country || '' });
   const { t } = useTranslation();
 
   const calculateAge = useCallback((birthDate: string | undefined) => {

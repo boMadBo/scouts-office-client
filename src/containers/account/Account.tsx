@@ -1,10 +1,11 @@
 import ProfileEditor from '@/containers/account/ProfileEditor';
 import Timezones from '@/containers/account/Timezones';
 import Weather from '@/containers/account/Weather/Weather';
+import { IProfileValues } from '@/containers/account/types';
 import { useSessionData } from '@/context/sessionDataStorage';
 import Loading from '@/uikit/Loading';
 import ParentLink from '@/uikit/links/ParentLink';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 import MainInfo from './MainInfo';
@@ -18,7 +19,15 @@ const routes = [
 const headLink = '/account';
 
 const Account = () => {
+  const [data, setData] = useState<IProfileValues | undefined>(undefined);
   const { userData } = useSessionData();
+
+  useEffect(() => {
+    if (userData) {
+      setData(userData);
+    }
+  }, [userData]);
+
   const [editting, setEditting] = useState(false);
   const { t } = useTranslation();
 
@@ -26,13 +35,13 @@ const Account = () => {
     setEditting(!editting);
   }, [editting]);
 
-  if (!userData.token) {
+  if (!data?.token) {
     return <Loading />;
   }
 
   return (
     <div className={styles.wrapper}>
-      <MainInfo onClick={toggleEditting} />
+      <MainInfo profile={data} onClick={toggleEditting} />
       {!editting && (
         <div className={styles.contentContainer}>
           <div className={styles.containerGroup}>
@@ -56,7 +65,7 @@ const Account = () => {
       )}
 
       <Weather />
-      <Timezones />
+      <Timezones profile={data} />
     </div>
   );
 };

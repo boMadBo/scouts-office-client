@@ -1,14 +1,15 @@
+import { config } from '@/config';
 import { IProfileValues } from '@/containers/account/types';
-import { profileAPI } from '@/store/services/ProfileService';
+import { useAppDispatch } from '@/hooks/hooks';
+import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface ISessionContext {
   userData: IProfileValues;
-  setUserData: React.Dispatch<React.SetStateAction<IProfileValues>>;
 }
 
 const initialUserData: IProfileValues = {
-  id: -1,
+  id: -Infinity,
   email: '',
   name: '',
   avatar: '',
@@ -22,27 +23,48 @@ const initialUserData: IProfileValues = {
 
 export const SessionContext = createContext<ISessionContext>({
   userData: initialUserData,
-  setUserData: () => {},
 });
 
 const SessionDataStorage = ({ children }: any) => {
-  const user = profileAPI.useGetProfileQuery();
-  const token = localStorage.getItem('token');
   const [userData, setUserData] = useState<IProfileValues>(initialUserData);
+  const [currentToken, setCurrentToken] = useState('');
+  const lsToken = localStorage.getItem('token');
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
+    const token = currentToken || lsToken;
     if (token) {
-      user.refetch();
+      refreshToken(token);
     }
-  }, [token]);
+  }, [currentToken, lsToken]);
+
+  const refreshToken = async (token: string) => {
+    const refreshResult = await fetch(`${config.api.url}user`, {
+      headers: { Authorization: `Bearer ${token}` },
+    }).then(response => response.json());
+
+    if (refreshResult.statusCode === 401) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('rememberMe');
+      dispatch(deleteRememberMe());
+      return;
+    }
+    setUserData(refreshResult);
+  };
 
   useEffect(() => {
-    if (user.data) {
-      setUserData(user.data);
-    }
-  }, [user.data]);
+    const handleTokenRefresh = (event: CustomEvent<string>) => {
+      setCurrentToken(event.detail);
+    };
+    window.addEventListener('tokenRefreshed', handleTokenRefresh as EventListener);
 
-  return <SessionContext.Provider value={{ userData, setUserData }}>{children}</SessionContext.Provider>;
+    return () => {
+      window.removeEventListener('tokenRefreshed', handleTokenRefresh as EventListener);
+    };
+  }, []);
+
+  return <SessionContext.Provider value={{ userData }}>{children}</SessionContext.Provider>;
 };
 
 export const useSessionData = () => useContext(SessionContext);

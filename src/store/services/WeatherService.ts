@@ -1,10 +1,10 @@
-import { baseUrl } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseUrl';
 import { IWeatherResult } from '@/containers/account/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 export const weatherAPI = createApi({
   reducerPath: 'weatherAPI',
-  baseQuery: baseUrl,
+  baseQuery,
   tagTypes: ['Weather'],
   endpoints: build => ({
     getWeather: build.query<IWeatherResult, void>({

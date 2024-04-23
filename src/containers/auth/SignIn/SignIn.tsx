@@ -34,10 +34,15 @@ const SignIn = () => {
 
       if (hasData) {
         const token = response.data.accessToken;
-        if (token) {
-          localStorage.setItem('token', token);
-          dispatch(saveRememberMe());
+        const refreshToken = response.data.refreshToken;
+        if (refreshToken) {
+          localStorage.setItem('refreshToken', refreshToken);
         }
+        if (token) {
+          window.dispatchEvent(new CustomEvent('tokenRefreshed', { detail: token }));
+          localStorage.setItem('token', token);
+        }
+        dispatch(saveRememberMe());
       }
     } catch (error) {
       console.error('Sign in error:', error);
