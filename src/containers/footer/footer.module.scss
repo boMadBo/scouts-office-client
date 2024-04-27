@@ -10,36 +10,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 10px;
   height: 100%;
   line-height: 20px;;
-}
-
-.company {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 
 .favicon {
   width: 24px;
   height: 24px;
   filter: grayscale(100%);
-}
-
-.link {
-  color: var(--color);
-  line-height: 20px;
-  &:hover {
-    text-decoration-line: none;
-  }
-}
-
-.tg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  text-decoration-line: underline;
 }

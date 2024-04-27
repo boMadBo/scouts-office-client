@@ -1,5 +1,5 @@
 import Leagues from '@/containers/leagues';
-import { mocks } from '@/containers/leagues/mock';
+import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Loading from '@/uikit/Loading';
 import LeagueTable from '@/uikit/tables/LeagueTable';
 import React from 'react';
@@ -21,15 +21,15 @@ const columns = [
 ];
 
 const League = ({ id }: Props) => {
-  // const { data: teams } = transfermarktAPI.useGetLeagueTeamsQuery(id || '');
+  const { data: teams } = transfermarktAPI.useGetLeagueTeamsQuery(id || '');
 
-  if (!mocks || mocks.length < 1) {
+  if (!teams || teams.length < 1) {
     return <Loading />;
   }
 
   return (
     <Leagues>
-      <LeagueTable data={mocks} columns={columns} />
+      <LeagueTable data={teams} columns={columns} />
     </Leagues>
   );
 };

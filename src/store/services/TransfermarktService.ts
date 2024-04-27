@@ -1,4 +1,4 @@
-import { baseUrl } from '@/api/baseUrl';
+import { baseUrl } from '@/api/baseQuery';
 import { ISquad, ITeam } from '@/containers/leagues/types';
 import { INewsResult, IRevealNews } from '@/containers/news/types';
 import {

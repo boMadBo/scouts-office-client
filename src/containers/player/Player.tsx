@@ -1,6 +1,6 @@
-import { test, testStats, trhist, valueM } from '@/containers/player/mock';
 import { useTogglePlayerObservation } from '@/hooks/useTogglePlayerObservation';
 import { currencyAPI } from '@/store/services/CurrencyService';
+import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Loading from '@/uikit/Loading';
 import MarketValueChart from '@/uikit/charts/MarketValueChart';
 import TransferTable from '@/uikit/tables/TransferTable';
@@ -35,12 +35,6 @@ const columnsGK = [
   { title: 'Red cards' },
 ];
 
-const seasonsM = [
-  { key: '2023', title: '23/24' },
-  { key: '2022', title: '22/23' },
-  { key: '2021', title: '21/22' },
-];
-
 const transfColumns = [{ title: 'Season' }, { title: 'From' }, { title: 'To' }, { title: 'Cost' }];
 
 const Player = ({ id }: Props) => {
@@ -48,20 +42,11 @@ const Player = ({ id }: Props) => {
   const { toggleObserve, observeId } = useTogglePlayerObservation(id);
   const { data: rates } = currencyAPI.useGetBtcAndUsdQuery('');
 
-  // const { data: player } = transfermarktAPI.useGetPlayerQuery(id || '');
-  // const { data: valueHistory } = transfermarktAPI.useGetValueHistoryQuery(id || '');
-  // const { data: seasons } = transfermarktAPI.useGetSeasonsQuery(id || '');
-  // const { data: stats } = transfermarktAPI.useGetStatsQuery({ id: id || '', seasonId: selectedSeason });
-  // const { data: transfers } = transfermarktAPI.useGetTransfersQuery(id || '');
-
-  // const transfers = useGetTransfers(id);
-
-  const player = test;
-  const valueHistory = valueM;
-  const seasons = seasonsM;
-  const stats = testStats;
-  const isGK = testStats[0].isGoalkeeper;
-  const transfers = trhist;
+  const { data: player } = transfermarktAPI.useGetPlayerQuery(id || '');
+  const { data: valueHistory } = transfermarktAPI.useGetValueHistoryQuery(id || '');
+  const { data: seasons } = transfermarktAPI.useGetSeasonsQuery(id || '');
+  const { data: stats } = transfermarktAPI.useGetStatsQuery({ id: id || '', seasonId: selectedSeason });
+  const { data: transfers } = transfermarktAPI.useGetTransfersQuery(id || '');
 
   const usd = useMemo(() => {
     if (player && player.marketValue) {
@@ -101,12 +86,11 @@ const Player = ({ id }: Props) => {
         <MainPlayerInfo data={player} idObserve={observeId} currRates={currRates} toggleObserve={toggleObserve} />
         <Wrap>
           <Stats
-            isGK={isGK}
             selectedSeason={selectedSeason}
             columnsPL={columnsPL}
             columnsGK={columnsGK}
             season={seasons}
-            stats={stats}
+            data={stats}
             handleSelectedChange={handleSelectedChange}
           />
         </Wrap>

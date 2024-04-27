@@ -1,21 +1,21 @@
 import { IColumn } from '@/common/types';
-import { ISeason, IStats } from '@/containers/player/types';
+import { ISeason, IStatsResult } from '@/containers/player/types';
 import StatsTableGK from '@/uikit/tables/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/tables/StatsTable/StatsTablePL';
 import React from 'react';
 import styles from './stats.module.scss';
 
 interface Props {
-  isGK: boolean | null;
   selectedSeason: string;
   columnsPL: IColumn[];
   columnsGK: IColumn[];
   season: ISeason[];
-  stats: IStats[];
+  data: IStatsResult;
   handleSelectedChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Stats = ({ isGK, selectedSeason, columnsPL, columnsGK, season, stats, handleSelectedChange }: Props) => {
+const Stats = ({ selectedSeason, columnsPL, columnsGK, season, data, handleSelectedChange }: Props) => {
+  const { isGK, stats } = data;
   return (
     <>
       <select value={selectedSeason} onChange={handleSelectedChange} className={styles.seasons}>

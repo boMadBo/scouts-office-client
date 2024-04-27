@@ -1,4 +1,4 @@
-import { mockHeadNews, mockTapeNews } from '@/containers/news/mock';
+import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Carousel from '@/uikit/Carousel';
 import HeadNews from '@/uikit/HeadNews';
 import Loading from '@/uikit/Loading';
@@ -10,11 +10,15 @@ import styles from './news.module.scss';
 const pages = [1, 2, 3];
 
 const News = () => {
-  // const { data: news } = transfermarktAPI.useGetNewsQuery();
+  const { data: news, isLoading } = transfermarktAPI.useGetNewsQuery();
 
   const { t } = useTranslation();
 
-  if (mockHeadNews.length < 1 || mockTapeNews.length < 1) {
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if ((news && news?.headNews.length < 1) || (news && news?.tapeNews.length < 1)) {
     return <Loading />;
   }
 
@@ -25,17 +29,13 @@ const News = () => {
           <h2 className={styles.title}>{t('IN THE SPOTLIGHT')}</h2>
           <div className={styles.carousel}>
             <Carousel>
-              {mockHeadNews.map((itemNews, indexNews) => (
+              {news?.headNews.map((itemNews, indexNews) => (
                 <HeadNews key={itemNews.id} data={itemNews} dataIndex={indexNews} pages={pages} />
               ))}
             </Carousel>
           </div>
         </div>
-        <div className={styles.scroll}>
-          {mockTapeNews.map(item => (
-            <TapeNews key={item.id} item={item} />
-          ))}
-        </div>
+        <div className={styles.scroll}>{news?.tapeNews.map(item => <TapeNews key={item.id} item={item} />)}</div>
       </div>
     </section>
   );

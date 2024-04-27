@@ -1,4 +1,4 @@
-import { mockNews } from '@/containers/news/mock';
+import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Loading from '@/uikit/Loading';
 import React from 'react';
 import styles from './revealNews.module.scss';
@@ -8,26 +8,26 @@ interface Props {
 }
 
 const RevealNews = ({ id }: Props) => {
-  // const { data: news } = transfermarktAPI.useGetNewsByIdQuery(id || '');
+  const { data: news } = transfermarktAPI.useGetNewsByIdQuery(id || '');
 
-  if (!mockNews.firstImage) {
+  if (!news?.firstImage) {
     return <Loading />;
   }
   return (
     <section className={styles.currNews}>
       <div className={styles.newsHeader}>
-        <img src={mockNews.firstImage} alt="" />
+        <img src={news.firstImage} alt="" />
         <div className={styles.rightWrap}>
           <div className={styles.topWrap}>
-            {mockNews.secondImage && <img src={mockNews.secondImage} alt="" className={styles.logoImg} />}
-            <span className={styles.date}>{mockNews.formdDate}</span>
+            {news.secondImage && <img src={news.secondImage} alt="" className={styles.logoImg} />}
+            <span className={styles.date}>{news.formdDate}</span>
           </div>
-          <h1 className={styles.title}>{mockNews.headline}</h1>
+          <h1 className={styles.title}>{news.headline}</h1>
         </div>
       </div>
       <div>
-        <img src={mockNews.heroImage} alt="" className={styles.heroImg} />
-        <p className={styles.text}>{mockNews.text}</p>
+        <img src={news.heroImage} alt="" className={styles.heroImg} />
+        <p className={styles.text}>{news.text}</p>
       </div>
     </section>
   );

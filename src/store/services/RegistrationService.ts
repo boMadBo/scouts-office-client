@@ -1,4 +1,4 @@
-import { baseQuery } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseQuery';
 import { IRegistrationValues } from '@/containers/auth/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 

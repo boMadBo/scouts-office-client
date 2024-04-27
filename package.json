@@ -7,9 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "start": "cross-env NOD_ENV=development webpack-dev-server --mode development",
     "build": "cross-env NOD_ENV=production webpack --mode production",
-    "test": "jest",
-    "test:cypress": "start-server-and-test start http://localhost:3010 cypress",
-    "cypress": "cypress open"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

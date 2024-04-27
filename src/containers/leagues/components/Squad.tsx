@@ -1,6 +1,6 @@
 import Leagues from '@/containers/leagues';
-import { testt } from '@/containers/leagues/mock';
 import { useSortSquad } from '@/hooks/useSortSquad';
+import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Loading from '@/uikit/Loading';
 import SquadTable from '@/uikit/tables/SquadTable';
 import React from 'react';
@@ -12,10 +12,9 @@ interface Props {
 const columns = [{ title: '#' }, { title: 'Players' }, { title: 'Age' }, { title: 'Nat.' }, { title: 'Cost' }];
 
 const Squad = ({ id }: Props) => {
-  // const { data: squad } = transfermarktAPI.useGetSquadQuery(id || '');
+  const { data: squad } = transfermarktAPI.useGetSquadQuery(id || '');
 
-  console.log('testt', testt);
-  const { sortedData, handleSort } = useSortSquad(testt);
+  const { sortedData, handleSort } = useSortSquad(squad);
 
   if (!sortedData || sortedData.length < 1) {
     return <Loading />;

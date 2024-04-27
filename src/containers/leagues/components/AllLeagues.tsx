@@ -1,6 +1,5 @@
-import { ICompetition } from '@/containers/leagues/types';
 import AllLeaguesTable from '@/uikit/tables/AllLeaguesTable';
-import React, { useState } from 'react';
+import React from 'react';
 import Leagues from '../Leagues';
 
 const ENG_IMG = 'https://tmssl.akamaized.net/images/logo/normal/gb1.png?lm=1521104656';
@@ -20,11 +19,9 @@ const leagues = [
 ];
 
 const AllLeagues = () => {
-  const [competitions, setCompetitions] = useState<ICompetition[]>(leagues);
-
   return (
     <Leagues>
-      <AllLeaguesTable data={competitions} />
+      <AllLeaguesTable data={leagues} />
     </Leagues>
   );
 };

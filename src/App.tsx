@@ -1,4 +1,3 @@
-import AboutPage from '@/pages/AboutPage';
 import ConversationsPage from '@/pages/ConversationsPage';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -17,7 +16,6 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import SquadPage from './pages/SquadPage';
 import TasksPage from './pages/TasksPage';
-import VideosPage from './pages/VideosPage';
 
 const App = () => {
   return (
@@ -44,7 +42,6 @@ const App = () => {
         <Route path="player/:id" element={<PlayerPage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="news/:id" element={<RevealNewsPage />} />
-        <Route path="videos" element={<VideosPage />} />
         <Route
           path="messages"
           element={
@@ -54,7 +51,6 @@ const App = () => {
           }
         />
         <Route path="search" element={<SearchPage />} />
-        <Route path="about" element={<AboutPage />} />
       </Route>
     </Routes>
   );

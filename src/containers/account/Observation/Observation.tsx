@@ -1,4 +1,3 @@
-import { players } from '@/containers/account/mock';
 import { profileAPI } from '@/store/services/ProfileService';
 import Loading from '@/uikit/Loading';
 import ObservationTable from '@/uikit/tables/ObservationTable';
@@ -16,8 +15,9 @@ const columns = [
 ];
 
 const Observation = () => {
-  // const { data: players } = profileAPI.useGetObservablePlayersQuery();
+  const { data: players } = profileAPI.useGetObservablePlayersQuery();
   const [deletePlayerObserve] = profileAPI.useDeletePlayerObservationMutation();
+
   const onRemoveObserve = async (id: string) => {
     try {
       await deletePlayerObserve({ playerId: id });

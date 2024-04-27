@@ -31,7 +31,6 @@ const routes = [
     addition: false,
   },
   { link: 'news', text: 'News', children: null, addition: false },
-  { link: 'videos', text: 'Videos', children: null, addition: false },
   { link: 'messages', text: 'Messages', children: null, addition: true },
 ];
 

@@ -1,4 +1,4 @@
-import { baseQuery } from '@/api/baseUrl';
+import { baseQuery } from '@/api/baseQuery';
 import { ICountryFlag } from '@/containers/account/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 

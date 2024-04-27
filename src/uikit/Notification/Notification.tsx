@@ -29,6 +29,7 @@ const Notification = ({ notification }: Props) => {
       <div className={styles.text}>
         <span>{notification?.text}</span>
       </div>
+      <div className={styles.foot}></div>
     </motion.div>
   );
 };
