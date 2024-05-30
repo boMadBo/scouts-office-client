@@ -1,8 +1,8 @@
 import ConversationsPage from '@/pages/ConversationsPage';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import RequireAuth from './common/hoc/RequireAuth';
 import Layout from './containers/Layout';
-import RequireAuth from './hoc/RequireAuth';
 import AccountPage from './pages/AccountPage';
 import AllLeaguesPage from './pages/AllLeaguesPage';
 import AuthPage from './pages/AuthPage';

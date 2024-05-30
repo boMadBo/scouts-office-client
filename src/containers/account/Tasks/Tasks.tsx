@@ -69,7 +69,7 @@ const Tasks = () => {
   };
 
   const toggleCompleted = useCallback(
-    (id: string | undefined, completed: boolean) => {
+    (completed: boolean, id: string | undefined) => {
       if (id !== undefined) {
         onToggleCompleted(id, completed);
       }
@@ -88,8 +88,8 @@ const Tasks = () => {
             id={task.id.toString()}
             completed={task.completed}
             text={task.text}
-            toggleCompleted={toggleCompleted}
-            removeTask={removeTask}
+            toggleCompleted={(completed: boolean) => toggleCompleted(completed, task.id.toString())}
+            removeTask={() => removeTask(task.id.toString())}
           />
         ))}
       </div>

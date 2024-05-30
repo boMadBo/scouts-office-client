@@ -1,4 +1,4 @@
-import { baseQuery } from '@/api/baseQuery';
+import { baseQuery } from '@/common/api/baseQuery';
 import { IProfileValues, IUpdateUtcZone } from '@/containers/account/types';
 import { ISignInResponseValues, ISignInValues } from '@/containers/auth/types';
 import { IPlayer, IPlayerValuesObservation } from '@/containers/player/types';

@@ -1,4 +1,4 @@
-import { baseUrl } from '@/api/baseQuery';
+import { baseUrl } from '@/common/api/baseQuery';
 import { IBtcAndUsdCurrency } from '@/containers/account/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 

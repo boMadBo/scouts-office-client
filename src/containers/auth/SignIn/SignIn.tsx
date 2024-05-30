@@ -1,7 +1,7 @@
+import { useAppDispatch } from '@/common/hooks/hooks';
 import Wrap from '@/containers/auth/Wrap';
 import { initialValuesSign, validationSchemaSign } from '@/containers/auth/helpers';
 import { ISignInValues } from '@/containers/auth/types';
-import { useAppDispatch } from '@/hooks/hooks';
 import { saveRememberMe } from '@/store/reducers/RememberMeSlice';
 import { profileAPI } from '@/store/services/ProfileService';
 import Loading from '@/uikit/Loading';

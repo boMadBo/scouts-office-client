@@ -1,4 +1,4 @@
-import { IColumn } from '@/common/types';
+import { IColumn } from '@/common/types/types';
 import { ISeason, IStatsResult } from '@/containers/player/types';
 import StatsTableGK from '@/uikit/tables/StatsTable/StatsTableGK';
 import StatsTablePL from '@/uikit/tables/StatsTable/StatsTablePL';

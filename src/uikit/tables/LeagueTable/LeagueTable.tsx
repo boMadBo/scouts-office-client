@@ -1,4 +1,4 @@
-import { IColumn } from '@/common/types';
+import { IColumn } from '@/common/types/types';
 import { ITeam } from '@/containers/leagues/types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';

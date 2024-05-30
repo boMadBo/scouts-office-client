@@ -1,4 +1,4 @@
-import { useAppSelector } from '@/hooks/hooks';
+import { useAppSelector } from '@/common/hooks/hooks';
 import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Loading from '@/uikit/Loading/Loading';
 import ClubsTable from '@/uikit/tables/ClubsTable';

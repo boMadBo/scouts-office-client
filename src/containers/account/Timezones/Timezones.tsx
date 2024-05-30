@@ -1,6 +1,6 @@
 import { IProfileValues, IUpdateUtcZone, IUtcZone } from '@/containers/account/types';
+import useDragDropTimezones from '@/containers/account/useDragDropTimezones';
 import { getCityName, getCityTime } from '@/containers/account/utils';
-import useDragDropTimezones from '@/hooks/useDragDropTimezones';
 import { profileAPI } from '@/store/services/ProfileService';
 import Timezone from '@/uikit/Timezone';
 import dayjs from 'dayjs';

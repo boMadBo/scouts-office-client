@@ -1,5 +1,5 @@
+import { useAppDispatch, useAppSelector } from '@/common/hooks/hooks';
 import { useWebsocketMessagesData } from '@/context/wsMessagesDataStorage';
-import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
 import { searchFetching } from '@/store/reducers/SearchSlice';
 import { profileAPI } from '@/store/services/ProfileService';

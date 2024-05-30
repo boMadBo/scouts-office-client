@@ -7,8 +7,8 @@ interface Props {
   text: string;
   id: string | undefined;
   completed: boolean;
-  toggleCompleted: (id: string | undefined, completed: boolean) => void;
-  removeTask: (id: string | undefined) => void;
+  toggleCompleted: (completed: boolean) => void;
+  removeTask: () => void;
 }
 
 const Task = ({ text, completed, id, toggleCompleted, removeTask }: Props) => {
@@ -18,12 +18,12 @@ const Task = ({ text, completed, id, toggleCompleted, removeTask }: Props) => {
   return (
     <div className={linkStyles}>
       <div className={styles.compliteGroup}>
-        <div onClick={() => toggleCompleted(id, completed)} className={complStyles} data-testid="completed-button">
+        <div onClick={() => toggleCompleted(completed)} className={complStyles} data-testid="completed-button">
           <MdOutlineDoneOutline className={styles.btnImg} />
         </div>
         <p className={styles.tasksText}>{text}</p>
       </div>
-      <div onClick={() => removeTask(id)} className={styles.itemRemove}>
+      <div onClick={removeTask} className={styles.itemRemove}>
         <MdDeleteOutline className={styles.btnImg} />
       </div>
     </div>

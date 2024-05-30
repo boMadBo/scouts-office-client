@@ -1,4 +1,4 @@
-import { IColumn } from '@/common/types';
+import { IColumn } from '@/common/types/types';
 
 import { ISquad } from '@/containers/leagues/types';
 import cn from 'classnames';

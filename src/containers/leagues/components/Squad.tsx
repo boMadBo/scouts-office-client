@@ -1,5 +1,5 @@
 import Leagues from '@/containers/leagues';
-import { useSortSquad } from '@/hooks/useSortSquad';
+import { useSortSquad } from '@/containers/leagues/useSortSquad';
 import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Loading from '@/uikit/Loading';
 import SquadTable from '@/uikit/tables/SquadTable';

@@ -1,4 +1,4 @@
-import { baseQuery } from '@/api/baseQuery';
+import { baseQuery } from '@/common/api/baseQuery';
 import { IConversation } from '@/containers/conversations/types';
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 

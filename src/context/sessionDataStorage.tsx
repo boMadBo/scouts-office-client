@@ -1,6 +1,6 @@
+import { useAppDispatch } from '@/common/hooks/hooks';
 import { config } from '@/config';
 import { IProfileValues } from '@/containers/account/types';
-import { useAppDispatch } from '@/hooks/hooks';
 import { deleteRememberMe } from '@/store/reducers/RememberMeSlice';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 

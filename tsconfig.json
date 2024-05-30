@@ -14,5 +14,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src", "src/api/.ts", "src/i18n.ts"]
+  "include": ["src", "src/common/api/.ts", "src/i18n.ts"]
 }

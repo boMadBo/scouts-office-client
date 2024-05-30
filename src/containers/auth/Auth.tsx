@@ -1,4 +1,4 @@
-import { useAppSelector } from '@/hooks/hooks';
+import { useAppSelector } from '@/common/hooks/hooks';
 import ParentLink from '@/uikit/links/ParentLink';
 import React from 'react';
 import { Navigate } from 'react-router-dom';

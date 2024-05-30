@@ -1,4 +1,4 @@
-import { useToggleTheme } from '@/hooks/useToggleTheme';
+import { useToggleTheme } from '@/common/hooks/useToggleTheme';
 import ModalListItemsWrap from '@/uikit/ModalListItemsWrap';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';

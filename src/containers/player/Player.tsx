@@ -1,4 +1,4 @@
-import { useTogglePlayerObservation } from '@/hooks/useTogglePlayerObservation';
+import { useTogglePlayerObservation } from '@/containers/player/useTogglePlayerObservation';
 import { currencyAPI } from '@/store/services/CurrencyService';
 import { transfermarktAPI } from '@/store/services/TransfermarktService';
 import Loading from '@/uikit/Loading';
