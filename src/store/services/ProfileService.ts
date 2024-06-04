@@ -17,6 +17,14 @@ export const profileAPI = createApi({
       }),
       invalidatesTags: ['Profile'],
     }),
+    googleSignIn: build.mutation<ISignInResponseValues, { code: string }>({
+      query: code => ({
+        url: `/auth/login/google`,
+        method: 'POST',
+        body: code,
+      }),
+      invalidatesTags: ['Profile'],
+    }),
     getProfile: build.query<IProfileValues, void>({
       query: () => ({
         url: '/user',

@@ -31,6 +31,7 @@ html {
   --blackwhite: #fff;
   --footer: #145886;
   --notify: #acc9d9;
+  --outward: linear-gradient(to right, green, blue , indigo, violet, red, orange, yellow);
 }
 
 html[data-theme='dark'] {
@@ -64,6 +65,7 @@ html[data-theme='dark'] {
   --blackwhite: #000;
   --footer: #2c2d2e;
   --notify: #355d78;
+  --outward: linear-gradient(to right, indigo, violet, red, orange, yellow, green, blue );
 }
 
 body {
