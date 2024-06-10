@@ -36,7 +36,8 @@ const SignIn = () => {
       const response = await createSignIn(values);
 
       saveLoginTokens(response);
-      dispatch(saveRememberMe());
+      const error = 'error' in response;
+      if (!error) dispatch(saveRememberMe());
     } catch (error) {
       console.error('Sign in error:', error);
     }

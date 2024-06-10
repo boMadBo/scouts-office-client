@@ -39,7 +39,7 @@ const baseQueryWithReauth = async (args: string | FetchArgs, api: BaseQueryApi, 
         const hasData = refreshResponse.data as ISignInResponseValues;
 
         if (hasData && hasData.accessToken && hasData.refreshToken) {
-          window.dispatchEvent(new CustomEvent('tokenRefreshed', { detail: hasData.accessToken }));
+          window.dispatchEvent(new CustomEvent('tokenRefreshed', { detail: hasData.refreshToken }));
           localStorage.setItem('token', hasData.accessToken);
           localStorage.setItem('refreshToken', hasData.refreshToken);
           result = await baseUrl(args, api, extraOptions);

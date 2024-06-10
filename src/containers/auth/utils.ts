@@ -6,9 +6,9 @@ export const saveLoginTokens = (response: any) => {
     const refreshToken = response.data.refreshToken;
     if (refreshToken) {
       localStorage.setItem('refreshToken', refreshToken);
+      window.dispatchEvent(new CustomEvent('tokenRefreshed', { detail: refreshToken }));
     }
     if (token) {
-      window.dispatchEvent(new CustomEvent('tokenRefreshed', { detail: token }));
       localStorage.setItem('token', token);
     }
   }
